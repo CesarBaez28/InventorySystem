@@ -1,0 +1,6 @@
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Datos\bin\Debug\Datos.dll
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Datos\bin\Debug\Datos.pdb
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Datos\obj\Debug\Datos.dll
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Datos\obj\Debug\Datos.pdb
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Datos\obj\Debug\Datos.csproj.AssemblyReference.cache

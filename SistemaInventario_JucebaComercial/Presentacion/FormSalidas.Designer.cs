@@ -1,0 +1,416 @@
+﻿
+namespace Presentacion
+{
+    partial class FormSalidas
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSalidas));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.panelContedorIngresos = new System.Windows.Forms.Panel();
+            this.btnVerDetalles = new System.Windows.Forms.Button();
+            this.comboServicios = new System.Windows.Forms.ComboBox();
+            this.lblServicio = new System.Windows.Forms.Label();
+            this.comboClientes = new System.Windows.Forms.ComboBox();
+            this.gridViewEntradas = new System.Windows.Forms.DataGridView();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Servicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnTerminar = new System.Windows.Forms.Button();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.dateTimeIngreso = new System.Windows.Forms.DateTimePicker();
+            this.lblMonto = new System.Windows.Forms.Label();
+            this.txbMonto = new System.Windows.Forms.TextBox();
+            this.lblCliente = new System.Windows.Forms.Label();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.btnAgregarCliente = new System.Windows.Forms.Button();
+            this.panelContedorIngresos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewEntradas)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
+            this.btnCerrar.Location = new System.Drawing.Point(13, 8);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(35, 28);
+            this.btnCerrar.TabIndex = 18;
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // panelContedorIngresos
+            // 
+            this.panelContedorIngresos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelContedorIngresos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelContedorIngresos.Controls.Add(this.btnAgregarCliente);
+            this.panelContedorIngresos.Controls.Add(this.btnVerDetalles);
+            this.panelContedorIngresos.Controls.Add(this.comboServicios);
+            this.panelContedorIngresos.Controls.Add(this.lblServicio);
+            this.panelContedorIngresos.Controls.Add(this.comboClientes);
+            this.panelContedorIngresos.Controls.Add(this.gridViewEntradas);
+            this.panelContedorIngresos.Controls.Add(this.btnTerminar);
+            this.panelContedorIngresos.Controls.Add(this.lblFecha);
+            this.panelContedorIngresos.Controls.Add(this.dateTimeIngreso);
+            this.panelContedorIngresos.Controls.Add(this.lblMonto);
+            this.panelContedorIngresos.Controls.Add(this.txbMonto);
+            this.panelContedorIngresos.Controls.Add(this.lblCliente);
+            this.panelContedorIngresos.Controls.Add(this.btnAgregar);
+            this.panelContedorIngresos.Controls.Add(this.btnEliminar);
+            this.panelContedorIngresos.Controls.Add(this.lblTitulo);
+            this.panelContedorIngresos.Controls.Add(this.shapeContainer1);
+            this.panelContedorIngresos.Location = new System.Drawing.Point(13, 42);
+            this.panelContedorIngresos.Name = "panelContedorIngresos";
+            this.panelContedorIngresos.Size = new System.Drawing.Size(915, 502);
+            this.panelContedorIngresos.TabIndex = 17;
+            this.panelContedorIngresos.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContedorIngresos_Paint);
+            // 
+            // btnVerDetalles
+            // 
+            this.btnVerDetalles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnVerDetalles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnVerDetalles.FlatAppearance.BorderSize = 0;
+            this.btnVerDetalles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerDetalles.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerDetalles.ForeColor = System.Drawing.Color.White;
+            this.btnVerDetalles.Image = ((System.Drawing.Image)(resources.GetObject("btnVerDetalles.Image")));
+            this.btnVerDetalles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVerDetalles.Location = new System.Drawing.Point(581, 457);
+            this.btnVerDetalles.Name = "btnVerDetalles";
+            this.btnVerDetalles.Size = new System.Drawing.Size(130, 31);
+            this.btnVerDetalles.TabIndex = 25;
+            this.btnVerDetalles.Text = "Ver detalles";
+            this.btnVerDetalles.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVerDetalles.UseVisualStyleBackColor = false;
+            this.btnVerDetalles.Click += new System.EventHandler(this.btnVerDetalles_Click);
+            // 
+            // comboServicios
+            // 
+            this.comboServicios.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboServicios.FormattingEnabled = true;
+            this.comboServicios.Location = new System.Drawing.Point(14, 141);
+            this.comboServicios.Name = "comboServicios";
+            this.comboServicios.Size = new System.Drawing.Size(265, 28);
+            this.comboServicios.TabIndex = 24;
+            // 
+            // lblServicio
+            // 
+            this.lblServicio.AutoSize = true;
+            this.lblServicio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblServicio.Location = new System.Drawing.Point(15, 121);
+            this.lblServicio.Name = "lblServicio";
+            this.lblServicio.Size = new System.Drawing.Size(57, 17);
+            this.lblServicio.TabIndex = 23;
+            this.lblServicio.Text = "Servicio";
+            // 
+            // comboClientes
+            // 
+            this.comboClientes.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboClientes.FormattingEnabled = true;
+            this.comboClientes.Location = new System.Drawing.Point(14, 85);
+            this.comboClientes.Name = "comboClientes";
+            this.comboClientes.Size = new System.Drawing.Size(226, 28);
+            this.comboClientes.TabIndex = 22;
+            // 
+            // gridViewEntradas
+            // 
+            this.gridViewEntradas.AllowUserToDeleteRows = false;
+            this.gridViewEntradas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridViewEntradas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridViewEntradas.BackgroundColor = System.Drawing.Color.White;
+            this.gridViewEntradas.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridViewEntradas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewEntradas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.gridViewEntradas.ColumnHeadersHeight = 30;
+            this.gridViewEntradas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gridViewEntradas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Cliente,
+            this.Fecha,
+            this.Servicio,
+            this.Monto});
+            this.gridViewEntradas.EnableHeadersVisualStyles = false;
+            this.gridViewEntradas.GridColor = System.Drawing.Color.Black;
+            this.gridViewEntradas.Location = new System.Drawing.Point(14, 271);
+            this.gridViewEntradas.Name = "gridViewEntradas";
+            this.gridViewEntradas.ReadOnly = true;
+            this.gridViewEntradas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewEntradas.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            this.gridViewEntradas.RowHeadersVisible = false;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridViewEntradas.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            this.gridViewEntradas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridViewEntradas.Size = new System.Drawing.Size(886, 180);
+            this.gridViewEntradas.TabIndex = 21;
+            // 
+            // Cliente
+            // 
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            // 
+            // Servicio
+            // 
+            this.Servicio.HeaderText = "Servicio";
+            this.Servicio.Name = "Servicio";
+            this.Servicio.ReadOnly = true;
+            // 
+            // Monto
+            // 
+            this.Monto.HeaderText = "Monto";
+            this.Monto.Name = "Monto";
+            this.Monto.ReadOnly = true;
+            // 
+            // btnTerminar
+            // 
+            this.btnTerminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTerminar.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnTerminar.FlatAppearance.BorderSize = 0;
+            this.btnTerminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTerminar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTerminar.ForeColor = System.Drawing.Color.White;
+            this.btnTerminar.Image = ((System.Drawing.Image)(resources.GetObject("btnTerminar.Image")));
+            this.btnTerminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTerminar.Location = new System.Drawing.Point(717, 457);
+            this.btnTerminar.Name = "btnTerminar";
+            this.btnTerminar.Size = new System.Drawing.Size(183, 31);
+            this.btnTerminar.TabIndex = 20;
+            this.btnTerminar.Text = "Terminar y guardar";
+            this.btnTerminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTerminar.UseVisualStyleBackColor = false;
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.Location = new System.Drawing.Point(312, 65);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(51, 17);
+            this.lblFecha.TabIndex = 19;
+            this.lblFecha.Text = "Fecha:";
+            // 
+            // dateTimeIngreso
+            // 
+            this.dateTimeIngreso.CalendarFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeIngreso.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimeIngreso.Location = new System.Drawing.Point(311, 85);
+            this.dateTimeIngreso.Name = "dateTimeIngreso";
+            this.dateTimeIngreso.Size = new System.Drawing.Size(133, 23);
+            this.dateTimeIngreso.TabIndex = 18;
+            // 
+            // lblMonto
+            // 
+            this.lblMonto.AutoSize = true;
+            this.lblMonto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMonto.Location = new System.Drawing.Point(312, 121);
+            this.lblMonto.Name = "lblMonto";
+            this.lblMonto.Size = new System.Drawing.Size(54, 17);
+            this.lblMonto.TabIndex = 17;
+            this.lblMonto.Text = "Monto:";
+            // 
+            // txbMonto
+            // 
+            this.txbMonto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbMonto.Location = new System.Drawing.Point(311, 141);
+            this.txbMonto.Name = "txbMonto";
+            this.txbMonto.Size = new System.Drawing.Size(133, 23);
+            this.txbMonto.TabIndex = 16;
+            // 
+            // lblCliente
+            // 
+            this.lblCliente.AutoSize = true;
+            this.lblCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCliente.Location = new System.Drawing.Point(15, 65);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(54, 17);
+            this.lblCliente.TabIndex = 11;
+            this.lblCliente.Text = "Cliente";
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
+            this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar.Location = new System.Drawing.Point(14, 213);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(100, 34);
+            this.btnAgregar.TabIndex = 9;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Location = new System.Drawing.Point(18, 457);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(84, 31);
+            this.btnEliminar.TabIndex = 3;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(0, 0);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(913, 33);
+            this.lblTitulo.TabIndex = 1;
+            this.lblTitulo.Text = "Registro de Salidas";
+            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape1});
+            this.shapeContainer1.Size = new System.Drawing.Size(913, 500);
+            this.shapeContainer1.TabIndex = 4;
+            this.shapeContainer1.TabStop = false;
+            // 
+            // lineShape1
+            // 
+            this.lineShape1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lineShape1.Name = "lineShape1";
+            this.lineShape1.X1 = 0;
+            this.lineShape1.X2 = 912;
+            this.lineShape1.Y1 = 254;
+            this.lineShape1.Y2 = 254;
+            // 
+            // btnAgregarCliente
+            // 
+            this.btnAgregarCliente.BackColor = System.Drawing.Color.Gray;
+            this.btnAgregarCliente.FlatAppearance.BorderSize = 0;
+            this.btnAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarCliente.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarCliente.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCliente.Image")));
+            this.btnAgregarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarCliente.Location = new System.Drawing.Point(246, 85);
+            this.btnAgregarCliente.Name = "btnAgregarCliente";
+            this.btnAgregarCliente.Size = new System.Drawing.Size(33, 28);
+            this.btnAgregarCliente.TabIndex = 30;
+            this.btnAgregarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregarCliente.UseVisualStyleBackColor = false;
+            this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
+            // 
+            // FormSalidas
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(939, 573);
+            this.Controls.Add(this.btnCerrar);
+            this.Controls.Add(this.panelContedorIngresos);
+            this.Name = "FormSalidas";
+            this.Text = "FormSalidas";
+            this.panelContedorIngresos.ResumeLayout(false);
+            this.panelContedorIngresos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewEntradas)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Panel panelContedorIngresos;
+        private System.Windows.Forms.ComboBox comboServicios;
+        private System.Windows.Forms.Label lblServicio;
+        private System.Windows.Forms.ComboBox comboClientes;
+        private System.Windows.Forms.DataGridView gridViewEntradas;
+        private System.Windows.Forms.Button btnTerminar;
+        private System.Windows.Forms.Label lblFecha;
+        public System.Windows.Forms.DateTimePicker dateTimeIngreso;
+        private System.Windows.Forms.Label lblMonto;
+        private System.Windows.Forms.TextBox txbMonto;
+        private System.Windows.Forms.Label lblCliente;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Label lblTitulo;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
+        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Servicio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
+        private System.Windows.Forms.Button btnVerDetalles;
+        private System.Windows.Forms.Button btnAgregarCliente;
+    }
+}
