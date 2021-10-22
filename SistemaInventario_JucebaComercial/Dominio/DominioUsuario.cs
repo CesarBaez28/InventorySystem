@@ -72,5 +72,11 @@ namespace Dominio
             usuario.ActualizarUsuario(Convert.ToInt32(codigo_tipoUsuario), nombre_usuario, nombre, 
                 password, email, estado, Convert.ToInt32(codigoUsuario));
         }
+
+        //Delete users (Actually change the status to false)
+        public void DeleteUser(string codigoUsuario) 
+        {
+            usuario.EliminarUsuario(Convert.ToInt32(codigoUsuario));
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace Presentacion
         public string codigo; // Me servirá para obtener el codigo de la fila seleccionada en el dataGrid
         public bool actualizar = false; 
         int parseCorrecto; // Lo uso para vereficar que al momento de buscar un usuario el codigo sea un numero entero.
-        bool estadoUsuario; // Lo utilizo para buscar los empleados por estado(activo o inactivo)
+        bool estadoUsuario = true; // Lo utilizo para buscar los empleados por estado(activo o inactivo)
         DominioUsuario usuario = new DominioUsuario();
 
         public FormEmpleados()
@@ -35,11 +35,11 @@ namespace Presentacion
             MostrarUsuarios();
         }
 
-        //Mostrar todos los usuarios del sistema
+        //Mostrar todos los usuarios del sistema (activos o inactivos)
         public void MostrarUsuarios() 
         {
             DominioUsuario D_usuario = new DominioUsuario();
-            gridViewListaUsuarios.DataSource = D_usuario.ShowUsers();
+            gridViewListaUsuarios.DataSource = D_usuario.ShowUsersByStatus(estadoUsuario);
         }
 
         //Refrescar el datagridView desde el formulario FormDetalleUsuario
@@ -102,8 +102,11 @@ namespace Presentacion
         {
             if (gridViewListaUsuarios.SelectedRows.Count >= 0)
             {
-
-
+                estadoUsuario = true;
+                codigo = gridViewListaUsuarios.CurrentRow.Cells["Código"].Value.ToString();
+                usuario.DeleteUser(codigo);
+                MessageBox.Show("Se eliminó correctamente");
+                MostrarUsuarios();
             }
             else 
             {

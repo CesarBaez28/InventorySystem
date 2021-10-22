@@ -102,3 +102,12 @@ BEGIN
 END
 GO
 
+--Eliminar usuario (Cambiar estado a inactivo)
+CREATE PROCEDURE p_EliminarUsuario
+  @codigoUsuario INT
+AS
+BEGIN
+  UPDATE usuarios SET estado = 0 WHERE codigo = @codigoUsuario;
+END
+GO
+

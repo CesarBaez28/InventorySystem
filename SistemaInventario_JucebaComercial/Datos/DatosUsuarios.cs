@@ -102,5 +102,13 @@ namespace Datos
             parameters.Add(new SqlParameter("@codigo", codigoUsuario));
             ExecuteNonQuery("p_ActualizarUsuario");
         }
+
+        //Eliminar Usuario (Cambiar el estado a inactivo)
+        public void EliminarUsuario(int codigoUsuario) 
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigoUsuario", codigoUsuario));
+            ExecuteNonQuery("p_EliminarUsuario");
+        }
     }
 }
