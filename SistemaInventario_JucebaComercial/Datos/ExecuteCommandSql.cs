@@ -63,5 +63,34 @@ namespace Datos
                 }
             }
         }
+
+        //Ejecutar comando para consultas sin procedimiento alamacenado
+        protected DataTable ExecuteReaderText(string commandSql)
+        {
+            DataTable table = new DataTable();
+
+            using (var conexion = GetConnection())
+            {
+                conexion.Open();
+
+                using (var comando = new SqlCommand(commandSql, conexion))
+                {
+                    comando.CommandType = CommandType.Text;
+
+                    //Verifico si se utilizaron parametros para la consulta
+                    if (parameters != null)
+                        foreach (SqlParameter item in parameters)
+                            comando.Parameters.Add(item);
+
+                    using (var Reader = comando.ExecuteReader())
+                    {
+                        table.Load(Reader);
+                        if (parameters != null)
+                            parameters.Clear();
+                        return table;
+                    }
+                }
+            }
+        }
     }
 }

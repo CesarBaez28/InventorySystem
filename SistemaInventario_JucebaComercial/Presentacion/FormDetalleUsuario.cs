@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
 
 namespace Presentacion
 {
@@ -17,7 +18,7 @@ namespace Presentacion
         public string codigo; // La uso para guardar el codigo del registro seleccionado 
         bool estadoUsuario; // Lo uso para indicar el estado del usuario (activo o inactivo)
         public string tipoUsuario; ///La utilizo para guardar el texto del tipo de usuario seleccionado en el datagridView
-
+        DominioUsuario usuario = new DominioUsuario();
 
         public FormDetalleUsuario(FormEmpleados formEmpleados)
         {
@@ -32,6 +33,7 @@ namespace Presentacion
             public string Datos { get; set; }
         }
 
+        //Actuarlizar la lista de empleados al insertar o actualizar uno.
         protected void Actualizar() 
         {
             UpdateEventArgs args = new UpdateEventArgs();
@@ -71,6 +73,8 @@ namespace Presentacion
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            DominioUsuario usuario = new DominioUsuario();
+
             //Insertar
             if (actualizar == false)
             {
@@ -81,8 +85,8 @@ namespace Presentacion
                     // confirmo que las contraseñas estén correctas
                     if (txbConfirmarPassword.Text == txbPassword.Text)
                     {
-
-                        //MessageBox.Show("Se insertó correctamente");
+                        usuario.RegisterUser(cbxTiposUsuarios.SelectedValue.ToString(), txbNombreUsuario.Text, txbNombre.Text, txbPassword.Text, txbEmail.Text);
+                        MessageBox.Show("Se insertó correctamente");
                         vaciarTexboxs();
                         Actualizar();
                     }
@@ -103,7 +107,6 @@ namespace Presentacion
                 // confirmo que las contraseñas estén correctas
                 if (txbConfirmarPassword.Text == txbPassword.Text && txbPassword.Text != "")
                 {
-
                     if (cbxEstado.Text == "Activo")
                     {
                         estadoUsuario = true;
@@ -131,8 +134,8 @@ namespace Presentacion
         public void llenarCombobox()
         {
             cbxTiposUsuarios.ValueMember = "codigo";
-            cbxTiposUsuarios.DisplayMember = "tipoUsuario";
-            //cbxTiposUsuarios.DataSource = usuario.llenarCombobox();
+            cbxTiposUsuarios.DisplayMember = "tipo_usuario";
+            cbxTiposUsuarios.DataSource = usuario.ShowTypeUsers();
         }
 
         // vaciar los campos

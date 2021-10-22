@@ -37,6 +37,14 @@ namespace Datos
             return table;
         }
 
+        //Consultar los tipos de usuarios del sistema
+        public DataTable TiposUsuarios() 
+        {
+            DataTable table = new DataTable();
+            table = ExecuteReaderText("select codigo, tipo_usuario from tipo_usuarios");
+            return table;
+        }
+
         //Consultar usuarios por codigo
         public DataTable MostrarUsuarioCodigo (int codigo)
         {
@@ -62,10 +70,22 @@ namespace Datos
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
-            parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@estado", estado));
             table = ExecuteReader("p_mostrarUsuarioEstado");
             return table;
+        }
+
+        //Registrar un nuevo usuario
+        public void RegistrarUsuario(int codigo_TipoUsuario, string nombre_usuario, string nombre, 
+            string password, string email) 
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigo_tipoUsuario", codigo_TipoUsuario));
+            parameters.Add(new SqlParameter("@nombreUsuario", nombre_usuario));
+            parameters.Add(new SqlParameter("@nombre", nombre));
+            parameters.Add(new SqlParameter("@password", password));
+            parameters.Add(new SqlParameter("@email", email));
+            ExecuteNonQuery("p_InsertarUsuario");
         }
     }
 }

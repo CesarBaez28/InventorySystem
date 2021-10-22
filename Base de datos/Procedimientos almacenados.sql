@@ -14,6 +14,8 @@ WHERE usuarios.nombre_usuario = @nombre_usuario and usuarios.passwd = @password 
 END
 GO
 
+select codigo, tipo_usuario from tipo_usuarios
+
 --Procedimiento alamcenado para mostrarUsuarios
 CREATE PROCEDURE p_MostrarUsuarios
 AS
@@ -83,3 +85,4 @@ BEGIN
   VALUES(@codigo_tipoUsuario, @nombreUsuario, @nombre, @password, @email);
 END 
 GO
+

@@ -42,10 +42,17 @@ namespace Presentacion
             gridViewListaUsuarios.DataSource = D_usuario.ShowUsers();
         }
 
+        //Refrescar el datagridView desde el formulario FormDetalleUsuario
+        private void ActualizarEventHandler(object sender, FormDetalleUsuario.UpdateEventArgs args)
+        {
+            MostrarUsuarios();
+        }
+
         //Ingresar nuevo usuario
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             FormDetalleUsuario formDetalleUsuarioInsertar = new FormDetalleUsuario(this);
+            formDetalleUsuarioInsertar.UpdateEventHendler += ActualizarEventHandler;
 
             //Oculto los controles para cambiar el estado del usuario. Solo son necesarios para actualizar
             formDetalleUsuarioInsertar.cbxEstado.Visible = false;

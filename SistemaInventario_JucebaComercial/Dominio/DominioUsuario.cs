@@ -26,6 +26,14 @@ namespace Dominio
             return table;
         }
 
+        // Show Type of users 
+        public DataTable ShowTypeUsers() 
+        {
+            DataTable table = new DataTable();
+            table = usuario.TiposUsuarios();
+            return table;
+        }
+
         //Show users by code 
         public DataTable ShowUsersByCode(string codigo)
         {
@@ -48,6 +56,13 @@ namespace Dominio
             DataTable table = new DataTable();
             table = usuario.MostrarUsuarioEstado(estado);
             return table;
+        }
+
+        //register user
+        public void RegisterUser(string codigo_TipoUsuario, string nombre_usuario, string nombre,
+            string password, string email) 
+        {
+            usuario.RegistrarUsuario(Convert.ToInt32(codigo_TipoUsuario), nombre_usuario, nombre, password, email);
         }
     }
 }
