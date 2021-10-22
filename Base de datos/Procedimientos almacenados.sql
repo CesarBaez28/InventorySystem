@@ -42,6 +42,34 @@ GO
 
 EXEC p_MostrarUsuariosCodigo 1
 
+--Buscar usuario por nombre de usuario
+CREATE PROCEDURE p_mostrarUsuariosNombre
+ @nombreUsuario VARCHAR(50)
+AS
+BEGIN 
+ Select usuarios.codigo as 'Código', tipo_usuarios.tipo_usuario as 'Tipo Usuario', usuarios.nombre_usuario as 'Nombre Usuario', 
+ usuarios.nombre as 'Nombre', usuarios.passwd as 'Contraseña', usuarios.email as'Email', 
+ CASE WHEN usuarios.estado = 1 Then 'Activo' ELSE 'Inactivo' END AS Estado
+ FROM usuarios join tipo_usuarios on usuarios.codigo_tipo_usuario = tipo_usuarios.codigo 
+ WHERE usuarios.nombre_usuario LIKE '%'+@nombreUsuario + '%'
+END 
+GO
+
+-- Buscar usuarios por estado (activos o inactivos)
+CREATE PROCEDURE p_mostrarUsuarioEstado
+ @estado BIT
+AS
+BEGIN
+ Select usuarios.codigo as 'Código', tipo_usuarios.tipo_usuario as 'Tipo Usuario', usuarios.nombre_usuario as 'Nombre Usuario', 
+ usuarios.nombre as 'Nombre', usuarios.passwd as 'Contraseña', usuarios.email as'Email', 
+ CASE WHEN usuarios.estado = 1 Then 'Activo' ELSE 'Inactivo' END AS Estado
+ FROM usuarios join tipo_usuarios on usuarios.codigo_tipo_usuario = tipo_usuarios.codigo 
+ WHERE usuarios.estado = @estado
+END
+GO
+
+Exec p_mostrarUsuarioEstado 1
+
 -- Procedimiento almacenado para insertar usuarios
 CREATE PROCEDURE p_InsertarUsuario
     @codigo_tipoUsuario INT,

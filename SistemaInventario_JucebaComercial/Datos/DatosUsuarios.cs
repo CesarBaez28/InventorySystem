@@ -17,7 +17,7 @@ namespace Datos
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@nombre_usuario", nombre));
             parameters.Add(new SqlParameter("@password", password));
-            table = ExcuteReader("p_LoginUsuario");
+            table = ExecuteReader("p_LoginUsuario");
 
             if (table.Rows.Count > 0)
             {
@@ -33,7 +33,7 @@ namespace Datos
         public DataTable ShowUsers() 
         {
             DataTable table = new DataTable();
-            table = ExcuteReader("p_MostrarUsuarios");
+            table = ExecuteReader("p_MostrarUsuarios");
             return table;
         }
 
@@ -43,7 +43,28 @@ namespace Datos
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigo", codigo));
-            table = ExcuteReader("p_MostrarUsuariosCodigo");
+            table = ExecuteReader("p_MostrarUsuariosCodigo");
+            return table;
+        }
+
+        //Consultar usuarios por su nombre de usuario
+        public DataTable MostrarUsuarioNombre(string nombreUsuario) 
+        {
+            DataTable table = new DataTable();
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@nombreUsuario", nombreUsuario));
+            table = ExecuteReader("p_mostrarUsuariosNombre");
+            return table;
+        }
+
+        //Consultar usuarios por estado (activos o inactivos)
+        public DataTable MostrarUsuarioEstado(bool estado) 
+        {
+            DataTable table = new DataTable();
+            parameters = new List<SqlParameter>();
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@estado", estado));
+            table = ExecuteReader("p_mostrarUsuarioEstado");
             return table;
         }
     }

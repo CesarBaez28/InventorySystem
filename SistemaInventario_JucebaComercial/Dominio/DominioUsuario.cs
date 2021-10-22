@@ -13,13 +13,13 @@ namespace Dominio
         DatosUsuarios usuario = new DatosUsuarios();
 
         //Login Users
-        public bool LoginUsuario(string nombreUsuario, string password) 
+        public bool LoginUsuario(string nombreUsuario, string password)
         {
             return usuario.LoginUsuario(nombreUsuario, password);
         }
 
         //Show all system users
-        public DataTable ShowUsers() 
+        public DataTable ShowUsers()
         {
             DataTable table = new DataTable();
             table = usuario.ShowUsers();
@@ -27,10 +27,26 @@ namespace Dominio
         }
 
         //Show users by code 
-        public DataTable ShowUsersByCode(string codigo) 
+        public DataTable ShowUsersByCode(string codigo)
         {
             DataTable table = new DataTable();
             table = usuario.MostrarUsuarioCodigo(Convert.ToInt32(codigo));
+            return table;
+        }
+
+        //Show users by name
+        public DataTable ShowUsersByName(string nombreUsuario)
+        {
+            DataTable table = new DataTable();
+            table = usuario.MostrarUsuarioNombre(nombreUsuario);
+            return table;
+        }
+
+        //Show users by status
+        public DataTable ShowUsersByStatus(bool estado) 
+        {
+            DataTable table = new DataTable();
+            table = usuario.MostrarUsuarioEstado(estado);
             return table;
         }
     }

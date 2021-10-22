@@ -14,9 +14,9 @@ namespace Presentacion
     public partial class FormEmpleados : Form
     {
         public string codigo; // Me servirá para obtener el codigo de la fila seleccionada en el dataGrid
-        public bool actualizar = false;
+        public bool actualizar = false; 
         int parseCorrecto; // Lo uso para vereficar que al momento de buscar un usuario el codigo sea un numero entero.
-        bool estadoUsuario = true; // Lo utilizo para buscar los empleados por estado(activo o inactivo)
+        bool estadoUsuario; // Lo utilizo para buscar los empleados por estado(activo o inactivo)
         DominioUsuario usuario = new DominioUsuario();
 
         public FormEmpleados()
@@ -51,7 +51,7 @@ namespace Presentacion
             formDetalleUsuarioInsertar.cbxEstado.Visible = false;
             formDetalleUsuarioInsertar.lblEstado.Visible = false;
 
-            //cambio la Localizacion de los controles para ajustar al formulario
+            //cambio la Localizacion de los controles para ajustar el formulario
             formDetalleUsuarioInsertar.lblTipoUsuario.Location = new Point(12, 334);
             formDetalleUsuarioInsertar.cbxTiposUsuarios.Location = new Point(15, 354);
             formDetalleUsuarioInsertar.btnAceptar.Location = new Point(15, 394);
@@ -124,19 +124,31 @@ namespace Presentacion
                     MessageBox.Show("El campo esta vacío");
                 }
             }
-            else if (comboBuscar.Text == "nombre")
+            //Buscar por nombre
+            else if (comboBuscar.SelectedIndex == 1)
             {
-
+                if (txbBuscar.Text != "")
+                {
+                    gridViewListaUsuarios.DataSource = usuario.ShowUsersByName(txbBuscar.Text);
+                    txbBuscar.Text = "";
+                }
+                else 
+                {
+                    MessageBox.Show("Escriba un nombre para la busqueda");
+                }
             }
-            else if (comboBuscar.Text == "activos")
+            // Buscar usuarios activos
+            else if (comboBuscar.SelectedIndex == 2)
             {
-
+                estadoUsuario = true;
+                gridViewListaUsuarios.DataSource = usuario.ShowUsersByStatus(estadoUsuario);
             }
-            else if (comboBuscar.Text == "inactivos")
+            //Buscar usuarios inactivos
+            else if (comboBuscar.SelectedIndex == 3)
             {
-
+                estadoUsuario = false;
+                gridViewListaUsuarios.DataSource = usuario.ShowUsersByStatus(estadoUsuario);
             }
-
             //Todos los usuarios
             else
             {

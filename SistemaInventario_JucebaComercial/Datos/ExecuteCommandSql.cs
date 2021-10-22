@@ -36,7 +36,7 @@ namespace Datos
         }
 
         //Ejecutar comando para consultas
-        protected DataTable ExcuteReader(string commandSql) 
+        protected DataTable ExecuteReader(string commandSql) 
         {
             DataTable table = new DataTable();
 
