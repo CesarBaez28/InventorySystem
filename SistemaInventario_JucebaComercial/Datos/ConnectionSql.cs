@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
 
 namespace Datos
 {
@@ -13,9 +14,8 @@ namespace Datos
         private readonly string cadenaConexion;
 
         public ConnectionSql() 
-        { 
-            cadenaConexion = "server = DESKTOP-AV3UN3B\\SQLEXPRESS; " +
-            "database = SistemaInventario_JucebaComercial; integrated security = true";
+        {
+            cadenaConexion = ConfigurationManager.ConnectionStrings["SistemaInventario_JucebaComercial"].ToString();
         }
 
         protected SqlConnection GetConnection() 

@@ -111,3 +111,5 @@ BEGIN
 END
 GO
 
+------- Procedimientos alamcenados relacionados con los clientes del sistema
+
