@@ -1,5 +1,5 @@
 --Crear la base de datos
-CREATE DATABASE SistemaInventario_JucebaComercial
+--CREATE DATABASE SistemaInventario_JucebaComercial
 
 --Borrar la base de datos
 --DROP DATABASE SistemaInventario_JucebaComercial;
@@ -79,9 +79,9 @@ CREATE TABLE excedentes_materiales(
     CONSTRAINT fk_codigo_material_excedente FOREIGN KEY(codigo_material) REFERENCES materiales(codigo),
     codigo_unidad_medida INT NOT NULL,
     CONSTRAINT fk_codigo_unidad_medida_excedente FOREIGN KEY(codigo_unidad_medida) REFERENCES unidades_medidas(codigo),
-    largo NUMERIC(8,2) NOT NULL,
-	ancho NUMERIC(8,2) NOT NULL,
-	alto NUMERIC (8,2) NOT NULL,
+    largo VARCHAR(50) NOT NULL,
+	ancho VARCHAR(50) NOT NULL,
+	alto VARCHAR(50) NOT NULL,
     cantidad INT,
     descripcion TEXT DEFAULT '',
     estado BIT DEFAULT 1

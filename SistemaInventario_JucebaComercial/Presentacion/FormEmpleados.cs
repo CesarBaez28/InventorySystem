@@ -13,11 +13,11 @@ namespace Presentacion
 {
     public partial class FormEmpleados : Form
     {
-
         public string codigo; // Me servirá para obtener el codigo de la fila seleccionada en el dataGrid
         public bool actualizar = false;
         int parseCorrecto; // Lo uso para vereficar que al momento de buscar un usuario el codigo sea un numero entero.
         bool estadoUsuario = true; // Lo utilizo para buscar los empleados por estado(activo o inactivo)
+        DominioUsuario usuario = new DominioUsuario();
 
         public FormEmpleados()
         {
@@ -35,6 +35,7 @@ namespace Presentacion
             MostrarUsuarios();
         }
 
+        //Mostrar todos los usuarios del sistema
         public void MostrarUsuarios() 
         {
             DominioUsuario D_usuario = new DominioUsuario();
@@ -103,13 +104,15 @@ namespace Presentacion
         //Funcionalidad del boton buscar
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (comboBuscar.Text == "código")
+            //Buscar por el codigo
+            if (comboBuscar.SelectedIndex == 0)
             {
                 if (txbBuscar.Text != "")
                 {
                     if (int.TryParse(txbBuscar.Text, out parseCorrecto))
                     {
-
+                        gridViewListaUsuarios.DataSource = usuario.ShowUsersByCode(txbBuscar.Text);
+                        txbBuscar.Text = "";
                     }
                     else
                     {
@@ -133,9 +136,11 @@ namespace Presentacion
             {
 
             }
+
+            //Todos los usuarios
             else
             {
-
+                gridViewListaUsuarios.DataSource = usuario.ShowUsers();
             }
         }
 

@@ -25,5 +25,13 @@ namespace Dominio
             table = usuario.ShowUsers();
             return table;
         }
+
+        //Show users by code 
+        public DataTable ShowUsersByCode(string codigo) 
+        {
+            DataTable table = new DataTable();
+            table = usuario.MostrarUsuarioCodigo(Convert.ToInt32(codigo));
+            return table;
+        }
     }
 }

@@ -52,6 +52,7 @@ namespace Presentacion
             // 
             // gridViewListaUsuarios
             // 
+            this.gridViewListaUsuarios.AllowUserToAddRows = false;
             this.gridViewListaUsuarios.AllowUserToDeleteRows = false;
             this.gridViewListaUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 

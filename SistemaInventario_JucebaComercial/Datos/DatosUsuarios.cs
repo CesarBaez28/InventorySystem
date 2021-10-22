@@ -36,5 +36,15 @@ namespace Datos
             table = ExcuteReader("p_MostrarUsuarios");
             return table;
         }
+
+        //Consultar usuarios por codigo
+        public DataTable MostrarUsuarioCodigo (int codigo)
+        {
+            DataTable table = new DataTable();
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigo", codigo));
+            table = ExcuteReader("p_MostrarUsuariosCodigo");
+            return table;
+        }
     }
 }
