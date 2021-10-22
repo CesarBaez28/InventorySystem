@@ -87,6 +87,7 @@ namespace Presentacion
                 formDetalleUsuarioActualizar.txbNombre.Text = gridViewListaUsuarios.CurrentRow.Cells["Nombre"].Value.ToString();
                 formDetalleUsuarioActualizar.txbEmail.Text = gridViewListaUsuarios.CurrentRow.Cells["Email"].Value.ToString();
                 formDetalleUsuarioActualizar.txbPassword.Text = gridViewListaUsuarios.CurrentRow.Cells["Contraseña"].Value.ToString();
+                formDetalleUsuarioActualizar.txbConfirmarPassword.Text = gridViewListaUsuarios.CurrentRow.Cells["Contraseña"].Value.ToString();
                 formDetalleUsuarioActualizar.cbxEstado.Text = gridViewListaUsuarios.CurrentRow.Cells["Estado"].Value.ToString();
 
                 AbrirDetalleUsuario(formDetalleUsuarioActualizar);

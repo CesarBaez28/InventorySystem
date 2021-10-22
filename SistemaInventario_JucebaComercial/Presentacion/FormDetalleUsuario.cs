@@ -25,6 +25,12 @@ namespace Presentacion
             InitializeComponent();
         }
 
+        // Cierra el formulario
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         public delegate void ActualizarDelagate(object sender, UpdateEventArgs args);
         public event ActualizarDelagate UpdateEventHendler;
 
@@ -40,27 +46,6 @@ namespace Presentacion
             UpdateEventHendler.Invoke(this, args);
         }
 
-        //Funcionalidad para mover el formulario
-        private void lblTitulo_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button != MouseButtons.Left)
-            {
-                posX = e.X;
-                posY = e.Y;
-            }
-            else
-            {
-                Left = Left + (e.X - posX);
-                Top = Top + (e.Y - posY);
-            }
-        }
-
-        // Cierra el formulario
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void FormDetalleUsuario_Load(object sender, EventArgs e)
         {
             //Llleno el combobox con los tipos de usuarios del sistema
@@ -72,6 +57,7 @@ namespace Presentacion
             }
         }
 
+        //Funcionalidad boton aceptar
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             DominioUsuario usuario = new DominioUsuario();
@@ -136,6 +122,21 @@ namespace Presentacion
                 {
                     MessageBox.Show("Las contraseñas no coinciden o faltan campos por llenar");
                 }
+            }
+        }
+
+        //Funcionalidad para mover el formulario
+        private void lblTitulo_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
+            {
+                posX = e.X;
+                posY = e.Y;
+            }
+            else
+            {
+                Left = Left + (e.X - posX);
+                Top = Top + (e.Y - posY);
             }
         }
 
