@@ -27,7 +27,7 @@ namespace Dominio
         }
 
         // Show Type of users 
-        public DataTable ShowTypeUsers() 
+        public DataTable ShowTypeUsers()
         {
             DataTable table = new DataTable();
             table = usuario.TiposUsuarios();
@@ -51,7 +51,7 @@ namespace Dominio
         }
 
         //Show users by status
-        public DataTable ShowUsersByStatus(bool estado) 
+        public DataTable ShowUsersByStatus(bool estado)
         {
             DataTable table = new DataTable();
             table = usuario.MostrarUsuarioEstado(estado);
@@ -60,9 +60,17 @@ namespace Dominio
 
         //register user
         public void RegisterUser(string codigo_TipoUsuario, string nombre_usuario, string nombre,
-            string password, string email) 
+            string password, string email)
         {
             usuario.RegistrarUsuario(Convert.ToInt32(codigo_TipoUsuario), nombre_usuario, nombre, password, email);
+        }
+
+        // Update users 
+        public void UpdateUser(string codigo_tipoUsuario, string nombre_usuario, string nombre,
+            string password, string email, bool estado, string codigoUsuario) 
+        {
+            usuario.ActualizarUsuario(Convert.ToInt32(codigo_tipoUsuario), nombre_usuario, nombre, 
+                password, email, estado, Convert.ToInt32(codigoUsuario));
         }
     }
 }

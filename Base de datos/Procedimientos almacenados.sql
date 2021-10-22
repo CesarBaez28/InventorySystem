@@ -86,3 +86,19 @@ BEGIN
 END 
 GO
 
+-- Actualizar datos de los usuarios
+CREATE PROCEDURE p_ActualizarUsuario
+    @codigo_tipoUsuario INT,
+	@nombreUsuario VARCHAR(100),
+	@nombre VARCHAR(100),
+	@password VARCHAR(100),
+	@email VARCHAR(100),
+	@estado BIT,
+	@codigo INT
+AS
+BEGIN
+  UPDATE usuarios SET codigo_tipo_usuario = @codigo_tipoUsuario, nombre_usuario = @nombreUsuario, nombre = @nombre, passwd = @password, 
+  email = @email, estado = @estado WHERE codigo = @codigo
+END
+GO
+

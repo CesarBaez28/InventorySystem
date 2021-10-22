@@ -63,6 +63,7 @@ namespace Presentacion
 
         private void FormDetalleUsuario_Load(object sender, EventArgs e)
         {
+            //Llleno el combobox con los tipos de usuarios del sistema
             llenarCombobox();
 
             if (actualizar == true) 
@@ -85,10 +86,12 @@ namespace Presentacion
                     // confirmo que las contraseñas estén correctas
                     if (txbConfirmarPassword.Text == txbPassword.Text)
                     {
-                        usuario.RegisterUser(cbxTiposUsuarios.SelectedValue.ToString(), txbNombreUsuario.Text, txbNombre.Text, txbPassword.Text, txbEmail.Text);
+                        usuario.RegisterUser(cbxTiposUsuarios.SelectedValue.ToString(), 
+                            txbNombreUsuario.Text, txbNombre.Text, txbPassword.Text, txbEmail.Text);
                         MessageBox.Show("Se insertó correctamente");
-                        vaciarTexboxs();
+                        //vaciarTexboxs();
                         Actualizar();
+                        this.Close();
                     }
                     else
                     {
@@ -107,21 +110,27 @@ namespace Presentacion
                 // confirmo que las contraseñas estén correctas
                 if (txbConfirmarPassword.Text == txbPassword.Text && txbPassword.Text != "")
                 {
-                    if (cbxEstado.Text == "Activo")
+                    //Activo
+                    if (cbxEstado.SelectedIndex == 0)
                     {
                         estadoUsuario = true;
-
-
+                        usuario.UpdateUser(cbxTiposUsuarios.SelectedValue.ToString(), 
+                            txbNombreUsuario.Text, txbNombre.Text,txbPassword.Text,txbEmail.Text,
+                            estadoUsuario, codigo);
                     }
+                    //Inactivo
                     else 
                     {
                         estadoUsuario = false;
-
+                        usuario.UpdateUser(cbxTiposUsuarios.SelectedValue.ToString(), 
+                            txbNombreUsuario.Text, txbNombre.Text, txbPassword.Text, txbEmail.Text, 
+                            estadoUsuario, codigo);
                     }
 
                     MessageBox.Show("Se actualizó correctamente");
-                    vaciarTexboxs();
+                   // vaciarTexboxs();
                     Actualizar();
+                    this.Close();
                 }
                 else
                 {

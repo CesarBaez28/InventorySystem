@@ -87,5 +87,20 @@ namespace Datos
             parameters.Add(new SqlParameter("@email", email));
             ExecuteNonQuery("p_InsertarUsuario");
         }
+
+        // Actualizar usuarios
+        public void ActualizarUsuario(int codigo_tipoUsuario, string nombre_usuario, string nombre, 
+            string password, string email, bool estado, int codigoUsuario) 
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigo_tipoUsuario", codigo_tipoUsuario));
+            parameters.Add(new SqlParameter("@nombreUsuario", nombre_usuario));
+            parameters.Add(new SqlParameter("@nombre", nombre));
+            parameters.Add(new SqlParameter("@password", password));
+            parameters.Add(new SqlParameter("@email", email));
+            parameters.Add(new SqlParameter("@estado", estado));
+            parameters.Add(new SqlParameter("@codigo", codigoUsuario));
+            ExecuteNonQuery("p_ActualizarUsuario");
+        }
     }
 }

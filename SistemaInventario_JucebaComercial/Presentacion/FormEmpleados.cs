@@ -76,16 +76,18 @@ namespace Presentacion
             if (gridViewListaUsuarios.SelectedRows.Count > 0)
             {
                 FormDetalleUsuario formDetalleUsuarioActualizar = new FormDetalleUsuario(this);
+                formDetalleUsuarioActualizar.UpdateEventHendler += ActualizarEventHandler;
+                
+                actualizar = true;
+                formDetalleUsuarioActualizar.actualizar = actualizar;
+                formDetalleUsuarioActualizar.codigo = gridViewListaUsuarios.CurrentRow.Cells["Código"].Value.ToString();
+                formDetalleUsuarioActualizar.tipoUsuario = gridViewListaUsuarios.CurrentRow.Cells["Tipo Usuario"].Value.ToString();
 
-                //actualizar = true;
-                //formDetalleUsuarioActualizar.actualizar = actualizar;
-                //formDetalleUsuarioActualizar.codigo = gridViewListaUsuarios.CurrentRow.Cells["Código usuario"].Value.ToString();
-                //formDetalleUsuarioActualizar.tipoUsuario = gridViewListaUsuarios.CurrentRow.Cells["Tipo de usuario"].Value.ToString();
-
-                //formDetalleUsuarioActualizar.txbNombreUsuario.Text = gridViewListaUsuarios.CurrentRow.Cells["Nombre de usuario"].Value.ToString();
-                //formDetalleUsuarioActualizar.txbNombre.Text = gridViewListaUsuarios.CurrentRow.Cells["Nombre"].Value.ToString();
-                //formDetalleUsuarioActualizar.txbEmail.Text = gridViewListaUsuarios.CurrentRow.Cells["Email"].Value.ToString();
-                //formDetalleUsuarioActualizar.cbxEstado.Text = gridViewListaUsuarios.CurrentRow.Cells["Estado"].Value.ToString();
+                formDetalleUsuarioActualizar.txbNombreUsuario.Text = gridViewListaUsuarios.CurrentRow.Cells["Nombre Usuario"].Value.ToString();
+                formDetalleUsuarioActualizar.txbNombre.Text = gridViewListaUsuarios.CurrentRow.Cells["Nombre"].Value.ToString();
+                formDetalleUsuarioActualizar.txbEmail.Text = gridViewListaUsuarios.CurrentRow.Cells["Email"].Value.ToString();
+                formDetalleUsuarioActualizar.txbPassword.Text = gridViewListaUsuarios.CurrentRow.Cells["Contraseña"].Value.ToString();
+                formDetalleUsuarioActualizar.cbxEstado.Text = gridViewListaUsuarios.CurrentRow.Cells["Estado"].Value.ToString();
 
                 AbrirDetalleUsuario(formDetalleUsuarioActualizar);
             }
@@ -100,6 +102,7 @@ namespace Presentacion
         {
             if (gridViewListaUsuarios.SelectedRows.Count >= 0)
             {
+
 
             }
             else 
