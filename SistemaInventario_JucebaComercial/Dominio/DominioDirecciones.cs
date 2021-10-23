@@ -20,13 +20,16 @@ namespace Dominio
             return table;        
         }
 
-        //Register addres 
-        public DataTable RegisterAddress(string direccion) 
+        //Register address
+        public void RegisterAddress(string direccion) 
         {
-            DataTable table = new DataTable();
-            table = direcciones.InsertarDireccion(direccion);
-            return table;
+            direcciones.InsertarDireccion(direccion);
         }
 
+        //Update address
+        public void UpdateAdress(string direccion, string direccionActualizar) 
+        {
+            direcciones.ActualizaDireccion(direccion, direccionActualizar);
+        }
     }
 }

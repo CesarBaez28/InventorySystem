@@ -59,7 +59,7 @@ namespace Presentacion
                 //Actualizar
                 else
                 {
-
+                    direcciones.UpdateAdress(txbNombre.Text, direccionActualizar);
                     Actualizar = false;
                     txbNombre.Text = "";
                     MessageBox.Show("Registro actualizado");

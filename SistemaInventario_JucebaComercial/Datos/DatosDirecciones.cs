@@ -19,15 +19,20 @@ namespace Datos
         }
 
         //Insertar nueva direccion
-        public DataTable InsertarDireccion(string direccion) 
+        public void InsertarDireccion(string direccion) 
         {
-            DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@direccion", direccion));
-            table = ExecuteReader("p_InsertarDireccion");
-            return table;
+            ExecuteNonQuery("p_InsertarDireccion");
         }
 
-        
+        //Actualizar direccion
+        public void ActualizaDireccion(string direccion, string direccionActualizar)
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@direccion", direccion));
+            parameters.Add(new SqlParameter("@direccionActualizar", direccionActualizar));
+            ExecuteNonQuery("p_ActualizarDireccion");
+        }
     }
 }
