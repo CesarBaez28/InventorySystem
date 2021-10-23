@@ -178,7 +178,27 @@ BEGIN
 END
 GO
 
--- IF (SELECT COUNT(*) telefonos FROM TELEFONOS) > 0
+-- IF (SELECT CUNT(*) telefonos FROM TELEFONOS) > 0
 --    select * from clientes
 
-select codigo, dirrecion from dirreciones
+------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
+
+
+--Insertar  nueva Direccion
+CREATE PROCEDURE p_InsertarDireccion 
+  @direccion VARCHAR(100)
+AS
+BEGIN 
+  INSERT INTO dirreciones(dirrecion) VALUES (@direccion)
+END 
+GO
+
+--Actualizar direccion 
+CREATE PROCEDURE p_ActualizarDireccion
+  @direccion VARCHAR(100),
+  @direccionActualizar VARCHAR(100)
+AS
+BEGIN 
+  UPDATE dirreciones SET dirrecion = @direccion WHERE dirrecion = @direccionActualizar
+END
+GO

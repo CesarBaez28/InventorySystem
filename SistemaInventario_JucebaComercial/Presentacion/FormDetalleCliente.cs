@@ -14,10 +14,13 @@ namespace Presentacion
     public partial class FormDetalleCliente : Form
     {
         int posX, posY;
+
+        public static FormDetalleCliente detalleCliente;
         
         public FormDetalleCliente(FormCliente formClientes)
         {
             InitializeComponent();
+            FormDetalleCliente.detalleCliente = this;
         }
 
         //Cerrar el formulario

@@ -20,5 +20,13 @@ namespace Dominio
             return table;        
         }
 
+        //Register addres 
+        public DataTable RegisterAddress(string direccion) 
+        {
+            DataTable table = new DataTable();
+            table = direcciones.InsertarDireccion(direccion);
+            return table;
+        }
+
     }
 }

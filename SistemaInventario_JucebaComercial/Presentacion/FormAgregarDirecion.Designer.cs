@@ -37,9 +37,9 @@ namespace Presentacion
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.txbNombre = new System.Windows.Forms.TextBox();
             this.gridViewDirecciones = new System.Windows.Forms.DataGridView();
-            this.lblTipoMaterial = new System.Windows.Forms.Label();
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTipoMaterial = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
@@ -124,16 +124,7 @@ namespace Presentacion
             this.gridViewDirecciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.gridViewDirecciones.Size = new System.Drawing.Size(404, 221);
             this.gridViewDirecciones.TabIndex = 38;
-            // 
-            // lblTipoMaterial
-            // 
-            this.lblTipoMaterial.AutoSize = true;
-            this.lblTipoMaterial.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoMaterial.Location = new System.Drawing.Point(12, 53);
-            this.lblTipoMaterial.Name = "lblTipoMaterial";
-            this.lblTipoMaterial.Size = new System.Drawing.Size(119, 17);
-            this.lblTipoMaterial.TabIndex = 35;
-            this.lblTipoMaterial.Text = "Nueva dirección:";
+            this.gridViewDirecciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewDirecciones_CellContentClick);
             // 
             // Eliminar
             // 
@@ -148,6 +139,16 @@ namespace Presentacion
             this.Nombre.Name = "Nombre";
             this.Nombre.ReadOnly = true;
             // 
+            // lblTipoMaterial
+            // 
+            this.lblTipoMaterial.AutoSize = true;
+            this.lblTipoMaterial.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoMaterial.Location = new System.Drawing.Point(12, 53);
+            this.lblTipoMaterial.Name = "lblTipoMaterial";
+            this.lblTipoMaterial.Size = new System.Drawing.Size(119, 17);
+            this.lblTipoMaterial.TabIndex = 35;
+            this.lblTipoMaterial.Text = "Nueva dirección:";
+            // 
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -161,6 +162,7 @@ namespace Presentacion
             this.btnCancelar.TabIndex = 40;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
@@ -175,6 +177,7 @@ namespace Presentacion
             this.btnAceptar.TabIndex = 39;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // FormAgregarDirecion
             // 
