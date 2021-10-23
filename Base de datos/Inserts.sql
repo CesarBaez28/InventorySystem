@@ -20,7 +20,8 @@ VALUES(2, 'Andy', 'Andy', '123456', 'Andy@gmail.com');
 INSERT INTO clientes(codigo_telefono, codigo_dirrecion, nombre) VALUES(1,1,'Hilario Fernandez');
 INSERT INTO clientes(codigo_telefono, codigo_dirrecion, nombre) VALUES(2,2,'Samuel');
 
-
-Select * from telefonos;
-select * from dirreciones
-Select * from clientes
+CREATE PROCEDURE p_InsertarCliente
+AS 
+BEGIN 
+END
+GO

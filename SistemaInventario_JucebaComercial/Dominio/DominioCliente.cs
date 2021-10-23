@@ -12,11 +12,35 @@ namespace Dominio
     {
         DatosClientes cliente = new DatosClientes();
 
-        //Show all clients
-        public DataTable ShowClients() 
+        //Show all costumers
+        public DataTable ShowCostumers() 
         {
             DataTable table = new DataTable();
             table = cliente.MostrarClientes();
+            return table;
+        }
+
+        //Show costumers by code
+        public DataTable ShowCostumerByCode(String codigoCliente) 
+        {
+            DataTable table = new DataTable();
+            table = cliente.MostrarClienteCodigo(Convert.ToInt32(codigoCliente));
+            return table; 
+        }
+
+        //Show costumers by name
+        public DataTable ShowCostumersByName(string nombreCliente) 
+        {
+            DataTable table = new DataTable();
+            table = cliente.MostrarClienteNombre(nombreCliente);
+            return table;
+        }
+
+        //Show costumers by status
+        public DataTable ShowCostumersByStatus(bool estado) 
+        {
+            DataTable table = new DataTable();
+            table = cliente.MostrarClienteEstado(estado);
             return table;
         }
     }

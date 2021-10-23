@@ -113,7 +113,7 @@ GO
 
 ------- Procedimientos alamcenados relacionados con los clientes del sistema
 
---Muestra todos los clientes 
+--Mostrar todos los clientes 
 CREATE PROCEDURE p_MostrarClientes
 AS
 BEGIN
@@ -123,6 +123,49 @@ BEGIN
 END
 GO
 
-Select * from telefonos;
-select * from dirreciones
-Select * from clientes
+--Buscar cliente por codigo
+CREATE PROCEDURE p_MostrarClienteCodigo
+  @codigoCliente INT
+AS
+BEGIN  
+  Select clientes.codigo as 'Código', clientes.nombre as 'Nombre', telefonos.telefono as 'Teléfono', dirreciones.dirrecion as 'Dirección', clientes.fecha_registro as 'Fecha Registro', 
+  CASE WHEN clientes.estado = 1 Then 'Activo' ELSE 'Inactivo' END AS Estado
+  FROM clientes join telefonos on clientes.codigo_telefono = telefonos.codigo join dirreciones on clientes.codigo_dirrecion = dirreciones.codigo
+  WhERE clientes.codigo = @codigoCliente;
+END 
+GO
+
+--Buscar cliente por nombre
+CREATE PROCEDURE p_MostrarClienteNombre
+  @nombreCliente VARCHAR(50)
+AS
+BEGIN 
+  Select clientes.codigo as 'Código', clientes.nombre as 'Nombre', telefonos.telefono as 'Teléfono', dirreciones.dirrecion as 'Dirección', clientes.fecha_registro as 'Fecha Registro', 
+  CASE WHEN clientes.estado = 1 Then 'Activo' ELSE 'Inactivo' END AS Estado
+  FROM clientes join telefonos on clientes.codigo_telefono = telefonos.codigo join dirreciones on clientes.codigo_dirrecion = dirreciones.codigo
+  WhERE clientes.nombre LIKE '%' + @nombreCliente +'%'
+END 
+GO
+
+--Buscar clientes por estado (activos o inactivo)
+CREATE PROCEDURE p_MostrarClienteEstado
+  @estado BIT
+AS 
+BEGIN
+  Select clientes.codigo as 'Código', clientes.nombre as 'Nombre', telefonos.telefono as 'Teléfono', dirreciones.dirrecion as 'Dirección', clientes.fecha_registro as 'Fecha Registro', 
+  CASE WHEN clientes.estado = 1 Then 'Activo' ELSE 'Inactivo' END AS Estado
+  FROM clientes join telefonos on clientes.codigo_telefono = telefonos.codigo join dirreciones on clientes.codigo_dirrecion = dirreciones.codigo
+  WhERE clientes.estado = @estado
+END
+GO
+
+CREATE PROCEDURE p_InsertarCliente
+  @codigoTelefono INT,
+  @codigoDirrecion INT,
+  @nombreCliente VARCHAR(50)
+AS
+BEGIN
+INSERT INTO clientes(codigo_telefono, codigo_dirrecion, nombre) VALUES(@codigoTelefonoo, @codigoDirrecion, @nombreCliente);
+END
+GO
+
