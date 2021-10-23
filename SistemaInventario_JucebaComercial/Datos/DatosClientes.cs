@@ -47,5 +47,15 @@ namespace Datos
             table = ExecuteReader("p_MostrarClienteEstado");
             return table;
         }
+
+        //Insertar nuevo cliente
+        public void InsertarCliente(string telefono, int codigoDireccion, string nombreCliente) 
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@telefono", telefono));
+            parameters.Add(new SqlParameter("@codigoDirrecion", codigoDireccion));
+            parameters.Add(new SqlParameter("@nombreCliente", nombreCliente));
+            ExecuteNonQuery("p_InsertarCliente");
+        }
     }
 }

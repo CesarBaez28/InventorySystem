@@ -159,13 +159,26 @@ BEGIN
 END
 GO
 
+--Insertar Cliente 
 CREATE PROCEDURE p_InsertarCliente
-  @codigoTelefono INT,
+  @telefono VARCHAR(50),
   @codigoDirrecion INT,
   @nombreCliente VARCHAR(50)
 AS
 BEGIN
-INSERT INTO clientes(codigo_telefono, codigo_dirrecion, nombre) VALUES(@codigoTelefonoo, @codigoDirrecion, @nombreCliente);
+  --Insertar el telefono suministrado en la tabla telefonos
+  INSERT INTO telefonos(telefono) Values(@telefono)
+
+  DECLARE @codigoTelefono INT
+
+  --Guardo en el codigo del nuevo telefono registrado
+  SELECT @codigoTelefono = telefonos.codigo from telefonos where telefonos.telefono = @telefono;
+
+  INSERT INTO clientes(codigo_telefono, codigo_dirrecion, nombre) VALUES(@codigoTelefono, @codigoDirrecion, @nombreCliente);
 END
 GO
 
+-- IF (SELECT COUNT(*) telefonos FROM TELEFONOS) > 0
+--    select * from clientes
+
+select codigo, dirrecion from dirreciones

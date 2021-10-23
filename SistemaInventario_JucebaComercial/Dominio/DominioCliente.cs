@@ -43,5 +43,11 @@ namespace Dominio
             table = cliente.MostrarClienteEstado(estado);
             return table;
         }
+
+        //Register costumer
+        public void RegisterCostumer(string telefono, string codigoDireccion, string nombreCliente) 
+        {
+            cliente.InsertarCliente(telefono, Convert.ToInt32(codigoDireccion), nombreCliente);
+        }
     }
 }

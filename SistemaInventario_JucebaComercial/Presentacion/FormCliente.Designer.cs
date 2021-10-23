@@ -1,7 +1,7 @@
 ﻿
 namespace Presentacion
 {
-    partial class FormClientes
+    partial class FormCliente
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -32,7 +32,7 @@ namespace Presentacion
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClientes));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCliente));
             this.panelContedorClientes = new System.Windows.Forms.Panel();
             this.gridViewListaClientes = new System.Windows.Forms.DataGridView();
             this.btnNuevo = new System.Windows.Forms.Button();

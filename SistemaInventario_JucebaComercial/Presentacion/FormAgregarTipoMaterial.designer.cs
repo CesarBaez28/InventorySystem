@@ -190,8 +190,8 @@ namespace Presentacion
         public System.Windows.Forms.Label lblTipoMaterial;
         public System.Windows.Forms.TextBox txbNombre;
         public System.Windows.Forms.Button btnAgregarTipoMaterial;
-        private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.PictureBox btnCerrar;
     }
 }

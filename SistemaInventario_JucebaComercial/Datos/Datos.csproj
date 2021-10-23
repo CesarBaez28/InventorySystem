@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatosClientes.cs" />
+    <Compile Include="DatosDirecciones.cs" />
     <Compile Include="ExecuteCommandSql.cs" />
     <Compile Include="ConnectionSql.cs" />
     <Compile Include="DatosUsuarios.cs" />

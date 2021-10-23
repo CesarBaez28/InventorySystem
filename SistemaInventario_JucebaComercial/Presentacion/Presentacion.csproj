@@ -156,6 +156,12 @@
     <Compile Include="FormActualizarMaterialesServicio.Designer.cs">
       <DependentUpon>FormActualizarMaterialesServicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAgregarDirecion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAgregarDirecion.Designer.cs">
+      <DependentUpon>FormAgregarDirecion.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAgregarExcedente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,6 +280,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormActualizarMaterialesServicio.resx">
       <DependentUpon>FormActualizarMaterialesServicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAgregarDirecion.resx">
+      <DependentUpon>FormAgregarDirecion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAgregarExcedente.resx">
       <DependentUpon>FormAgregarExcedente.cs</DependentUpon>

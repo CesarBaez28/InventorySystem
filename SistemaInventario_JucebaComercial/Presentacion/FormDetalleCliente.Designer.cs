@@ -29,17 +29,19 @@ namespace Presentacion
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDetalleCliente));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.cbxEstado = new System.Windows.Forms.ComboBox();
             this.lblEstado = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.txbDireccion = new System.Windows.Forms.TextBox();
             this.lblDireccion = new System.Windows.Forms.Label();
-            this.txbTelefono = new System.Windows.Forms.TextBox();
             this.lblTelefono = new System.Windows.Forms.Label();
             this.txbNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
+            this.btnAgregarDireccion = new System.Windows.Forms.Button();
+            this.comboBoxDirecciones = new System.Windows.Forms.ComboBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -106,14 +108,7 @@ namespace Presentacion
             this.btnAceptar.TabIndex = 25;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
-            // 
-            // txbDireccion
-            // 
-            this.txbDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbDireccion.Location = new System.Drawing.Point(15, 195);
-            this.txbDireccion.Name = "txbDireccion";
-            this.txbDireccion.Size = new System.Drawing.Size(220, 22);
-            this.txbDireccion.TabIndex = 24;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // lblDireccion
             // 
@@ -124,14 +119,6 @@ namespace Presentacion
             this.lblDireccion.Size = new System.Drawing.Size(73, 17);
             this.lblDireccion.TabIndex = 23;
             this.lblDireccion.Text = "Dirección:";
-            // 
-            // txbTelefono
-            // 
-            this.txbTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTelefono.Location = new System.Drawing.Point(15, 138);
-            this.txbTelefono.Name = "txbTelefono";
-            this.txbTelefono.Size = new System.Drawing.Size(220, 22);
-            this.txbTelefono.TabIndex = 22;
             // 
             // lblTelefono
             // 
@@ -161,19 +148,50 @@ namespace Presentacion
             this.lblNombre.TabIndex = 19;
             this.lblNombre.Text = "Nombre:";
             // 
+            // btnAgregarDireccion
+            // 
+            this.btnAgregarDireccion.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnAgregarDireccion.FlatAppearance.BorderSize = 0;
+            this.btnAgregarDireccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarDireccion.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarDireccion.Image")));
+            this.btnAgregarDireccion.Location = new System.Drawing.Point(199, 192);
+            this.btnAgregarDireccion.Name = "btnAgregarDireccion";
+            this.btnAgregarDireccion.Size = new System.Drawing.Size(36, 25);
+            this.btnAgregarDireccion.TabIndex = 33;
+            this.btnAgregarDireccion.UseVisualStyleBackColor = false;
+            this.btnAgregarDireccion.Click += new System.EventHandler(this.btnAgregarDireccion_Click);
+            // 
+            // comboBoxDirecciones
+            // 
+            this.comboBoxDirecciones.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxDirecciones.FormattingEnabled = true;
+            this.comboBoxDirecciones.Location = new System.Drawing.Point(15, 192);
+            this.comboBoxDirecciones.Name = "comboBoxDirecciones";
+            this.comboBoxDirecciones.Size = new System.Drawing.Size(178, 25);
+            this.comboBoxDirecciones.TabIndex = 35;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.Location = new System.Drawing.Point(12, 138);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(223, 22);
+            this.txtTelefono.TabIndex = 36;
+            // 
             // FormDetalleCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
             this.ClientSize = new System.Drawing.Size(247, 338);
+            this.Controls.Add(this.txtTelefono);
+            this.Controls.Add(this.comboBoxDirecciones);
+            this.Controls.Add(this.btnAgregarDireccion);
             this.Controls.Add(this.cbxEstado);
             this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.txbDireccion);
             this.Controls.Add(this.lblDireccion);
-            this.Controls.Add(this.txbTelefono);
             this.Controls.Add(this.lblTelefono);
             this.Controls.Add(this.txbNombre);
             this.Controls.Add(this.lblNombre);
@@ -194,11 +212,12 @@ namespace Presentacion
         public System.Windows.Forms.Label lblEstado;
         public System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.Button btnAceptar;
-        public System.Windows.Forms.TextBox txbDireccion;
         private System.Windows.Forms.Label lblDireccion;
-        public System.Windows.Forms.TextBox txbTelefono;
         private System.Windows.Forms.Label lblTelefono;
         public System.Windows.Forms.TextBox txbNombre;
         private System.Windows.Forms.Label lblNombre;
+        public System.Windows.Forms.Button btnAgregarDireccion;
+        public System.Windows.Forms.ComboBox comboBoxDirecciones;
+        public System.Windows.Forms.TextBox txtTelefono;
     }
 }

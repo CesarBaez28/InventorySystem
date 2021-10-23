@@ -11,13 +11,13 @@ using Dominio;
 
 namespace Presentacion
 {
-    public partial class FormClientes : Form
+    public partial class FormCliente : Form
     {
         DominioCliente cliente = new DominioCliente();
         int parseCorrecto; // La uso para vereficar que al momento de buscar un usuario el codigo sea un numero entero.
         bool estadoCliente = true; // La uso para mostrar los cleintes por estado (activos o inactivos)
 
-        public FormClientes()
+        public FormCliente()
         {
             InitializeComponent();
         }
@@ -41,11 +41,17 @@ namespace Presentacion
             gridViewListaClientes.DataSource = cliente.ShowCostumersByStatus(estadoCliente);
         }
 
+        //Refrescar el datagridView desde el formulario FormDetalleCliente
+        private void ActualizarEventHandler(object sender, FormDetalleCliente.UpdateEventArgs args)
+        {
+            MostrarClientes();
+        }
+
         //Agregar cliente
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            FormDetalleCliente detalleCliente = new FormDetalleCliente();
-            //detalleCliente.UpdateEventHendler += ActualizarEventHandler;
+            FormDetalleCliente detalleCliente = new FormDetalleCliente(this);
+            detalleCliente.UpdateEventHendler += ActualizarEventHandler;
 
             //Oculto los controles para cambiar el estado del cliente.Solo son necesarios para actualizar
             detalleCliente.lblEstado.Visible = false;
@@ -59,7 +65,7 @@ namespace Presentacion
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            FormDetalleCliente detalleCliente = new FormDetalleCliente();
+            FormDetalleCliente detalleCliente = new FormDetalleCliente(this);
             AbrirDetalleCliente(detalleCliente);
         }
 

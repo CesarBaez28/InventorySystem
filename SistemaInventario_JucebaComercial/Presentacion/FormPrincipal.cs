@@ -83,7 +83,7 @@ namespace Presentacion
         //Boton clientes
         private void btnClientes_Click_1(object sender, EventArgs e)
         {
-            AbrirFormularios(new FormClientes());
+            AbrirFormularios(new FormCliente());
         }
 
         //Boton suplidores

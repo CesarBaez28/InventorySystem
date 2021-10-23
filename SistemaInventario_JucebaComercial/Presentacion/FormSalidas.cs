@@ -31,17 +31,17 @@ namespace Presentacion
         //Agregar cliente
         private void btnAgregarCliente_Click(object sender, EventArgs e)
         {
-            FormDetalleCliente detalleCliente = new FormDetalleCliente();
+           // FormDetalleCliente detalleCliente = new FormDetalleCliente();
             //detalleCliente.UpdateEventHendler += ActualizarEventHandler;
 
             //Oculto los controles para cambiar el estado del cliente.Solo son necesarios para actualizar
-            detalleCliente.lblEstado.Visible = false;
-            detalleCliente.cbxEstado.Visible = false;
-            detalleCliente.Size = new Size(260, 310);
-            detalleCliente.btnAceptar.Location = new Point(15, 232);
-            detalleCliente.btnCancelar.Location = new Point(129, 232);
+            //detalleCliente.lblEstado.Visible = false;
+            //detalleCliente.cbxEstado.Visible = false;
+            //detalleCliente.Size = new Size(260, 310);
+            //detalleCliente.btnAceptar.Location = new Point(15, 232);
+            //detalleCliente.btnCancelar.Location = new Point(129, 232);
 
-            AbrirFormulario(detalleCliente);
+            //AbrirFormulario(detalleCliente);
         }
 
         //Ver detalles del servicio
