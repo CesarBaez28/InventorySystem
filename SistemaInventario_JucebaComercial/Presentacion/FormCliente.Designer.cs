@@ -29,9 +29,9 @@ namespace Presentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClientes));
             this.panelContedorClientes = new System.Windows.Forms.Panel();
             this.gridViewListaClientes = new System.Windows.Forms.DataGridView();
@@ -46,12 +46,6 @@ namespace Presentacion
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.CodigoSuplidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreSuplidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefonoSuplidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dirrecionsuplidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoSuplidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelContedorClientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewListaClientes)).BeginInit();
             this.SuspendLayout();
@@ -79,6 +73,7 @@ namespace Presentacion
             // 
             // gridViewListaClientes
             // 
+            this.gridViewListaClientes.AllowUserToAddRows = false;
             this.gridViewListaClientes.AllowUserToDeleteRows = false;
             this.gridViewListaClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -87,43 +82,36 @@ namespace Presentacion
             this.gridViewListaClientes.BackgroundColor = System.Drawing.Color.White;
             this.gridViewListaClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridViewListaClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewListaClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewListaClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.gridViewListaClientes.ColumnHeadersHeight = 30;
             this.gridViewListaClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridViewListaClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CodigoSuplidor,
-            this.NombreSuplidor,
-            this.telefonoSuplidor,
-            this.dirrecionsuplidor,
-            this.FechaRegistro,
-            this.estadoSuplidor});
             this.gridViewListaClientes.EnableHeadersVisualStyles = false;
             this.gridViewListaClientes.GridColor = System.Drawing.Color.Black;
             this.gridViewListaClientes.Location = new System.Drawing.Point(14, 153);
             this.gridViewListaClientes.Name = "gridViewListaClientes";
             this.gridViewListaClientes.ReadOnly = true;
             this.gridViewListaClientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewListaClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewListaClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.gridViewListaClientes.RowHeadersVisible = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            this.gridViewListaClientes.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridViewListaClientes.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.gridViewListaClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridViewListaClientes.Size = new System.Drawing.Size(886, 298);
             this.gridViewListaClientes.TabIndex = 10;
@@ -278,42 +266,6 @@ namespace Presentacion
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // CodigoSuplidor
-            // 
-            this.CodigoSuplidor.HeaderText = "Código";
-            this.CodigoSuplidor.Name = "CodigoSuplidor";
-            this.CodigoSuplidor.ReadOnly = true;
-            // 
-            // NombreSuplidor
-            // 
-            this.NombreSuplidor.HeaderText = "Nombre";
-            this.NombreSuplidor.Name = "NombreSuplidor";
-            this.NombreSuplidor.ReadOnly = true;
-            // 
-            // telefonoSuplidor
-            // 
-            this.telefonoSuplidor.HeaderText = "Teléfono";
-            this.telefonoSuplidor.Name = "telefonoSuplidor";
-            this.telefonoSuplidor.ReadOnly = true;
-            // 
-            // dirrecionsuplidor
-            // 
-            this.dirrecionsuplidor.HeaderText = "Dirección";
-            this.dirrecionsuplidor.Name = "dirrecionsuplidor";
-            this.dirrecionsuplidor.ReadOnly = true;
-            // 
-            // FechaRegistro
-            // 
-            this.FechaRegistro.HeaderText = "Fecha registro";
-            this.FechaRegistro.Name = "FechaRegistro";
-            this.FechaRegistro.ReadOnly = true;
-            // 
-            // estadoSuplidor
-            // 
-            this.estadoSuplidor.HeaderText = "Estado";
-            this.estadoSuplidor.Name = "estadoSuplidor";
-            this.estadoSuplidor.ReadOnly = true;
-            // 
             // FormClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -324,6 +276,7 @@ namespace Presentacion
             this.Controls.Add(this.btnCerrar);
             this.Name = "FormClientes";
             this.Text = "Clientes";
+            this.Load += new System.EventHandler(this.FormClientes_Load);
             this.panelContedorClientes.ResumeLayout(false);
             this.panelContedorClientes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewListaClientes)).EndInit();
@@ -346,12 +299,6 @@ namespace Presentacion
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoSuplidor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreSuplidor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefonoSuplidor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dirrecionsuplidor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estadoSuplidor;
     }
 }
 

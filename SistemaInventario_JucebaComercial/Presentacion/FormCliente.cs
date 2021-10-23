@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
 
 namespace Presentacion
 {
     public partial class FormClientes : Form
     {
+        DominioCliente cliente = new DominioCliente();
+
+
         public FormClientes()
         {
             InitializeComponent();
@@ -21,6 +25,18 @@ namespace Presentacion
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        //Evento cargar del formulario
+        private void FormClientes_Load(object sender, EventArgs e)
+        {
+            MostrarClientes();
+        }
+
+        public void MostrarClientes() 
+        {
+            DominioCliente cliente = new DominioCliente();
+            gridViewListaClientes.DataSource = cliente.ShowClients();
         }
 
         //Agregar cliente

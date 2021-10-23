@@ -113,3 +113,16 @@ GO
 
 ------- Procedimientos alamcenados relacionados con los clientes del sistema
 
+--Muestra todos los clientes 
+CREATE PROCEDURE p_MostrarClientes
+AS
+BEGIN
+  Select clientes.codigo as 'Código', clientes.nombre as 'Nombre', telefonos.telefono as 'Teléfono', dirreciones.dirrecion as 'Dirección', clientes.fecha_registro as 'Fecha Registro', 
+  CASE WHEN clientes.estado = 1 Then 'Activo' ELSE 'Inactivo' END AS Estado
+  FROM clientes join telefonos on clientes.codigo_telefono = telefonos.codigo join dirreciones on clientes.codigo_dirrecion = dirreciones.codigo
+END
+GO
+
+Select * from telefonos;
+select * from dirreciones
+Select * from clientes
