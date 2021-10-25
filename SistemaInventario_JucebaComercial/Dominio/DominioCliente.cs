@@ -56,5 +56,11 @@ namespace Dominio
         {
             cliente.ActualizarCliente(telefono, telefonoViejo, Convert.ToInt32(codigoDireccion), nombreCliente, Convert.ToInt32(codigoCliente), estado);
         }
+
+        //Delete Costumer (change status to inactive)
+        public void DeleteCostumer(string codigo) 
+        {
+            cliente.EliminarCliente(Convert.ToInt32(codigo));
+        }
     }
 }

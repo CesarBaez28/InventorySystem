@@ -89,7 +89,7 @@ namespace Presentacion
             {
                 estadoCliente = true;
                 codigo = gridViewListaClientes.CurrentRow.Cells["Código"].Value.ToString();
-
+                cliente.DeleteCostumer(codigo);
                 MessageBox.Show("Se eliminó correctamente");
                 MostrarClientes();
             }
