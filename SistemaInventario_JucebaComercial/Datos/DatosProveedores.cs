@@ -37,5 +37,15 @@ namespace Datos
             table = ExecuteReader("p_BuscarProveedorNombre");
             return table;
         }
+
+        //Buscar proveedor por Estado
+        public DataTable BuscarProveedorEstado(bool estado) 
+        {
+            DataTable table = new DataTable();
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@estado", estado));
+            table = ExecuteReader("p_BuscarProveedorEstado");
+            return table;
+        }
     }
 }

@@ -35,5 +35,13 @@ namespace Dominio
             table = proveedor.BuscarProveedorNombre(nombre);
             return table;
         }
+
+        //Search suppliers by status
+        public DataTable SearchSupplierbyStatus(bool estado) 
+        {
+            DataTable table = new DataTable();
+            table = proveedor.BuscarProveedorEstado(estado);
+            return table;
+        }
     }
 }

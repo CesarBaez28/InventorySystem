@@ -236,7 +236,7 @@ BEGIN
 END 
 GO
 
---Buscar por nombre
+--Buscar proveedores por nombre
 CREATE PROCEDURE p_BuscarProveedorNombre
   @nombre VARCHAR(100)
 AS
@@ -247,6 +247,20 @@ BEGIN
   WHERE proveedores.nombre LIKE '%' +  @nombre + '%'
 END
  GO
+
+ --Buscar proveedores por Estado (activo o inactivo)
+ CREATE PROCEDURE p_BuscarProveedorEstado
+   @estado BIT
+ AS
+ BEGIN
+   Select proveedores.codigo as 'Código', proveedores.nombre as 'Nombre', telefonos.telefono as 'Teléfono', dirreciones.dirrecion as 'Dirección', 
+  CASE WHEN proveedores.estado = 1 Then 'Activo' ELSE 'Inactivo' END AS Estado
+  FROM proveedores join telefonos on proveedores.codigo_telefono = telefonos.codigo join dirreciones on proveedores.codigo_dirrecion = dirreciones.codigo
+  WHERE proveedores.estado = @estado
+ END
+ GO
+
+ EXEC p_BuscarProveedorEstado 0
 
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
 

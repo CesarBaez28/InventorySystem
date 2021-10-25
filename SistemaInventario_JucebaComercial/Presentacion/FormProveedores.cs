@@ -37,10 +37,11 @@ namespace Presentacion
             PermisosUsuarios();
         }
 
+        //Mostrar proveedores
         private void MostrarProveedores() 
         {
             DominioProveedores proveedor = new DominioProveedores();
-            gridViewListaSuplidores.DataSource = proveedor.ShowSuppliers();
+            gridViewListaSuplidores.DataSource = proveedor.SearchSupplierbyStatus(estadoProveedor);
         }
 
         //Permisos de usuarios
@@ -150,16 +151,22 @@ namespace Presentacion
             {
                 gridViewListaSuplidores.DataSource = proveedor.SearchSupplierByName(txbBuscar.Text);
             }
+            //Buscar proveedores activos
             else if (comboBuscar.Text == "activos")
             {
-
+                estadoProveedor = true;
+                gridViewListaSuplidores.DataSource = proveedor.SearchSupplierbyStatus(estadoProveedor);
             }
+            //Buscar proveedores inactivos
             else if (comboBuscar.Text == "inactivos")
             {
-
+                estadoProveedor = false;
+                gridViewListaSuplidores.DataSource = proveedor.SearchSupplierbyStatus(estadoProveedor);
             }
+            //Mostrar todos los proveedores del sistema
             else 
             {
+                MostrarProveedores();
             }
         }
     }
