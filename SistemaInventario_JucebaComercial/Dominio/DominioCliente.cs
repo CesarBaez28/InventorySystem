@@ -49,5 +49,12 @@ namespace Dominio
         {
             cliente.InsertarCliente(telefono, Convert.ToInt32(codigoDireccion), nombreCliente);
         }
+
+        //Update costumer 
+        public void UpdateCostumer(string telefono, string telefonoViejo, string codigoDireccion, string nombreCliente,
+            string codigoCliente, bool estado) 
+        {
+            cliente.ActualizarCliente(telefono, telefonoViejo, Convert.ToInt32(codigoDireccion), nombreCliente, Convert.ToInt32(codigoCliente), estado);
+        }
     }
 }

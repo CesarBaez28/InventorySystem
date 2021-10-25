@@ -57,5 +57,27 @@ namespace Datos
             parameters.Add(new SqlParameter("@nombreCliente", nombreCliente));
             ExecuteNonQuery("p_InsertarCliente");
         }
+
+        //Actualizar datos del cliente
+        public void ActualizarCliente(string telefono, string telefonoViejo, int codigoDireccion, string nombreCliente, 
+            int codigoCliente,  bool estado) 
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@telefono", telefono));
+            parameters.Add(new SqlParameter("@telefonoViejo", telefonoViejo));
+            parameters.Add(new SqlParameter("@codigoDireccion", codigoDireccion));
+            parameters.Add(new SqlParameter("@nombreCliente", nombreCliente));
+            parameters.Add(new SqlParameter("@codigoCliente", codigoCliente));
+            parameters.Add(new SqlParameter("@estado", estado));
+            ExecuteNonQuery("p_ActualizarCliente");
+        }
+
+        //Eliminar cliente (cambiarle el estado a inactivo)
+        public void EliminarCliente(int codigoCliente) 
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigoCliente", codigoCliente));
+            ExecuteNonQuery("p_EliminarCliente");
+        }
     }
 }

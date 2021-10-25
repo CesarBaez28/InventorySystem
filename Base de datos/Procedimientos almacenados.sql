@@ -111,7 +111,7 @@ BEGIN
 END
 GO
 
-------- Procedimientos alamcenados relacionados con los clientes del sistema
+---------- Procedimientos alamcenados relacionados con los clientes del sistema------------------
 
 --Mostrar todos los clientes 
 CREATE PROCEDURE p_MostrarClientes
@@ -178,11 +178,40 @@ BEGIN
 END
 GO
 
+--Actualizar datos del cliente
+CREATE PROCEDURE p_ActualizarCliente
+  @telefono VARCHAR(25),
+  @telefonoViejo VARCHAR(25),
+  @codigoDireccion INT,
+  @nombreCliente VARCHAR(100),
+  @codigoCliente INT, 
+  @estado BIT
+AS
+BEGIN
+  DECLARE @codigoTelefono INT
+  --Obtengo el codigo del telefono
+  SELECT @codigoTelefono = telefonos.codigo from telefonos where telefonos.telefono = @telefonoViejo;
+  --Actualizo el tefono
+  UPDATE telefonos SET telefono = @telefono WHERE telefonos.codigo = @codigoTelefono;
+  --Actualizo los datos del cliente
+  UPDATE clientes SET nombre = @nombreCliente, codigo_dirrecion = @codigoDireccion, estado = @estado where codigo = @codigoCliente
+END
+GO
+
+--Eliminar cliente (Cambiarle el estado a inactivo)
+CREATE PROCEDURE p_EliminarCliente
+  @codigoCliente INT
+AS
+BEGIN
+  UPDATE clientes SET estado = 0 WHERE codigo = @codigoCliente
+END
+GO
+
+
 -- IF (SELECT CUNT(*) telefonos FROM TELEFONOS) > 0
 --    select * from clientes
 
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
-
 
 --Insertar  nueva Direccion
 CREATE PROCEDURE p_InsertarDireccion 
@@ -202,3 +231,4 @@ BEGIN
   UPDATE dirreciones SET dirrecion = @direccion WHERE dirrecion = @direccionActualizar
 END
 GO
+

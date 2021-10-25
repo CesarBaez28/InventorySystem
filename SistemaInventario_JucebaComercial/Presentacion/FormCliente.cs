@@ -14,8 +14,10 @@ namespace Presentacion
     public partial class FormCliente : Form
     {
         DominioCliente cliente = new DominioCliente();
-        int parseCorrecto; // La uso para vereficar que al momento de buscar un usuario el codigo sea un numero entero.
-        bool estadoCliente = true; // La uso para mostrar los cleintes por estado (activos o inactivos)
+        int parseCorrecto; // La uso para vereficar que al momento de buscar un cliente el codigo sea un numero entero.
+        bool estadoCliente = true; // La uso para mostrar los clintes por estado (activos o inactivos)
+        string codigo; // Me servirá para obtener el codigo de la fila seleccionada en el dataGrid
+
 
         public FormCliente()
         {
@@ -63,10 +65,38 @@ namespace Presentacion
             AbrirDetalleCliente(detalleCliente);
         }
 
+        //Actualizar datos del cliente
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             FormDetalleCliente detalleCliente = new FormDetalleCliente(this);
+            detalleCliente.actualizar = true;
+            detalleCliente.UpdateEventHendler += ActualizarEventHandler;
+
+            //Obtengo los datos del datagridView del cliente para poder actualizarlos
+            detalleCliente.codigo = gridViewListaClientes.CurrentRow.Cells["Código"].Value.ToString();
+            detalleCliente.txbNombre.Text = gridViewListaClientes.CurrentRow.Cells["Nombre"].Value.ToString();
+            detalleCliente.telefonoViejo = gridViewListaClientes.CurrentRow.Cells["Teléfono"].Value.ToString();
+            detalleCliente.direccion = gridViewListaClientes.CurrentRow.Cells["Dirección"].Value.ToString();
+            detalleCliente.cbxEstado.Text = gridViewListaClientes.CurrentRow.Cells["Estado"].Value.ToString();
+
             AbrirDetalleCliente(detalleCliente);
+        }
+
+        //Funcionalidad del boton Eliminar
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (gridViewListaClientes.SelectedRows.Count >=0 ) 
+            {
+                estadoCliente = true;
+                codigo = gridViewListaClientes.CurrentRow.Cells["Código"].Value.ToString();
+
+                MessageBox.Show("Se eliminó correctamente");
+                MostrarClientes();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una fila para poder eliminar");
+            }
         }
 
         //Funcionalidad del bonton Buscar
