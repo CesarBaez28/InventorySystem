@@ -37,7 +37,7 @@ namespace Presentacion
         }
 
         //Mostrar clientes 
-        public void MostrarClientes() 
+        private void MostrarClientes() 
         {
             DominioCliente cliente = new DominioCliente();
             gridViewListaClientes.DataSource = cliente.ShowCostumersByStatus(estadoCliente);

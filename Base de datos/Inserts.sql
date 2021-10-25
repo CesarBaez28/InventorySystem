@@ -1,6 +1,12 @@
 -- Numero de telefono
 INSERT INTO telefonos(telefono) VALUES('8498679962');
 INSERT INTO telefonos(telefono) VALUES('8290937654');
+INSERT INTO telefonos(telefono) VALUES('8091236742');
+INSERT INTO telefonos(telefono) VALUES('8095746598');
+INSERT INTO telefonos(telefono) VALUES('8094537654');
+
+
+
 
 --Dirrecion
 Insert INTO dirreciones(dirrecion, descripcion) Values('Jánico', 'Federico Pichardo #90');
@@ -20,3 +26,10 @@ VALUES(2, 'Andy', 'Andy', '123456', 'Andy@gmail.com');
 INSERT INTO clientes(codigo_telefono, codigo_dirrecion, nombre) VALUES(1,1,'Hilario Fernandez');
 INSERT INTO clientes(codigo_telefono, codigo_dirrecion, nombre) VALUES(2,2,'Samuel');
 
+--Proveedores
+INSERT INTO proveedores(codigo_dirrecion, codigo_telefono, nombre) VALUES (1, 5, 'Ferreteria Lolo') 
+INSERT INTO proveedores(codigo_dirrecion, codigo_telefono, nombre) VALUES (1, 6, 'Colmado Espinal') 
+INSERT INTO proveedores(codigo_dirrecion, codigo_telefono, nombre) VALUES (1, 7, 'Colmado Duran') 
+
+
+select * from telefonos

@@ -6,4 +6,3 @@ C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\S
 C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Dominio\obj\Debug\Dominio.dll
 C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Dominio\obj\Debug\Dominio.pdb
 C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
-C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Dominio\obj\Debug\Dominio.csproj.CopyComplete

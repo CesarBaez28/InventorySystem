@@ -36,7 +36,7 @@ namespace Presentacion
         }
 
         //Mostrar todos los usuarios del sistema (activos o inactivos)
-        public void MostrarUsuarios() 
+        private void MostrarUsuarios() 
         {
             DominioUsuario D_usuario = new DominioUsuario();
             gridViewListaUsuarios.DataSource = D_usuario.ShowUsersByStatus(estadoUsuario);

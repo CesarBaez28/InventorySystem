@@ -89,7 +89,7 @@ namespace Presentacion
         //Boton suplidores
         private void btnSuplidores_Click(object sender, EventArgs e)
         {
-            AbrirFormularios(new FormSuplidores());
+            AbrirFormularios(new FormProveedores());
         }
 
         //Servicios 

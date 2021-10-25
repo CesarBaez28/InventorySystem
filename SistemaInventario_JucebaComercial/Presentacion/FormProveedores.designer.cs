@@ -1,7 +1,7 @@
 ﻿
 namespace Presentacion
 {
-    partial class FormSuplidores
+    partial class FormProveedores
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@ namespace Presentacion
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSuplidores));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProveedores));
             this.panelContedorClientes = new System.Windows.Forms.Panel();
             this.gridViewListaSuplidores = new System.Windows.Forms.DataGridView();
             this.btnNuevo = new System.Windows.Forms.Button();
@@ -46,11 +46,6 @@ namespace Presentacion
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.CodigoSuplidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreSuplidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefonoSuplidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dirrecionsuplidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoSuplidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelContedorClientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewListaSuplidores)).BeginInit();
             this.SuspendLayout();
@@ -78,6 +73,7 @@ namespace Presentacion
             // 
             // gridViewListaSuplidores
             // 
+            this.gridViewListaSuplidores.AllowUserToAddRows = false;
             this.gridViewListaSuplidores.AllowUserToDeleteRows = false;
             this.gridViewListaSuplidores.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -96,12 +92,6 @@ namespace Presentacion
             this.gridViewListaSuplidores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridViewListaSuplidores.ColumnHeadersHeight = 30;
             this.gridViewListaSuplidores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridViewListaSuplidores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CodigoSuplidor,
-            this.NombreSuplidor,
-            this.telefonoSuplidor,
-            this.dirrecionsuplidor,
-            this.estadoSuplidor});
             this.gridViewListaSuplidores.EnableHeadersVisualStyles = false;
             this.gridViewListaSuplidores.GridColor = System.Drawing.Color.Black;
             this.gridViewListaSuplidores.Location = new System.Drawing.Point(14, 153);
@@ -241,7 +231,7 @@ namespace Presentacion
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(913, 33);
             this.lblTitulo.TabIndex = 1;
-            this.lblTitulo.Text = "Lista de suplidores";
+            this.lblTitulo.Text = "Lista de proveedores";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // shapeContainer1
@@ -278,37 +268,7 @@ namespace Presentacion
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // CodigoSuplidor
-            // 
-            this.CodigoSuplidor.HeaderText = "Código";
-            this.CodigoSuplidor.Name = "CodigoSuplidor";
-            this.CodigoSuplidor.ReadOnly = true;
-            // 
-            // NombreSuplidor
-            // 
-            this.NombreSuplidor.HeaderText = "Nombre";
-            this.NombreSuplidor.Name = "NombreSuplidor";
-            this.NombreSuplidor.ReadOnly = true;
-            // 
-            // telefonoSuplidor
-            // 
-            this.telefonoSuplidor.HeaderText = "Teléfono";
-            this.telefonoSuplidor.Name = "telefonoSuplidor";
-            this.telefonoSuplidor.ReadOnly = true;
-            // 
-            // dirrecionsuplidor
-            // 
-            this.dirrecionsuplidor.HeaderText = "Dirreción";
-            this.dirrecionsuplidor.Name = "dirrecionsuplidor";
-            this.dirrecionsuplidor.ReadOnly = true;
-            // 
-            // estadoSuplidor
-            // 
-            this.estadoSuplidor.HeaderText = "Estado";
-            this.estadoSuplidor.Name = "estadoSuplidor";
-            this.estadoSuplidor.ReadOnly = true;
-            // 
-            // FormSuplidores
+            // FormProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -316,7 +276,7 @@ namespace Presentacion
             this.ClientSize = new System.Drawing.Size(939, 573);
             this.Controls.Add(this.panelContedorClientes);
             this.Controls.Add(this.btnCerrar);
-            this.Name = "FormSuplidores";
+            this.Name = "FormProveedores";
             this.Text = "Suplidores";
             this.Load += new System.EventHandler(this.FormClientes_Load);
             this.panelContedorClientes.ResumeLayout(false);
@@ -341,10 +301,5 @@ namespace Presentacion
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.DataGridView gridViewListaSuplidores;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoSuplidor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreSuplidor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefonoSuplidor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dirrecionsuplidor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estadoSuplidor;
     }
 }

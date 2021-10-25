@@ -204,11 +204,11 @@
     <Compile Include="FormDetallesServicio.Designer.cs">
       <DependentUpon>FormDetallesServicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDetalleSuplidor.cs">
+    <Compile Include="FormDetalleProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDetalleSuplidor.designer.cs">
-      <DependentUpon>FormDetalleSuplidor.cs</DependentUpon>
+    <Compile Include="FormDetalleProveedor.designer.cs">
+      <DependentUpon>FormDetalleProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDetalleUsuario.cs">
       <SubType>Form</SubType>
@@ -270,11 +270,11 @@
     <Compile Include="FormServicios.Designer.cs">
       <DependentUpon>FormServicios.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSuplidores.cs">
+    <Compile Include="FormProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSuplidores.designer.cs">
-      <DependentUpon>FormSuplidores.cs</DependentUpon>
+    <Compile Include="FormProveedores.designer.cs">
+      <DependentUpon>FormProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -305,8 +305,8 @@
     <EmbeddedResource Include="FormDetallesServicio.resx">
       <DependentUpon>FormDetallesServicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDetalleSuplidor.resx">
-      <DependentUpon>FormDetalleSuplidor.cs</DependentUpon>
+    <EmbeddedResource Include="FormDetalleProveedor.resx">
+      <DependentUpon>FormDetalleProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDetalleUsuario.resx">
       <DependentUpon>FormDetalleUsuario.cs</DependentUpon>
@@ -338,8 +338,8 @@
     <EmbeddedResource Include="FormServicios.resx">
       <DependentUpon>FormServicios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSuplidores.resx">
-      <DependentUpon>FormSuplidores.cs</DependentUpon>
+    <EmbeddedResource Include="FormProveedores.resx">
+      <DependentUpon>FormProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

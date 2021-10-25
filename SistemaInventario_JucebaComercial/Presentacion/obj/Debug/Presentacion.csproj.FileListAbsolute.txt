@@ -16,11 +16,9 @@ C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\S
 C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\obj\Debug\Presentacion.FormPrincipal.resources
 C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\obj\Debug\Presentacion.FormReportes.resources
 C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\obj\Debug\Presentacion.FormSalidas.resources
-C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\obj\Debug\Presentacion.FormSuplidores.resources
 C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\bin\Debug\Dominio.dll
 C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\bin\Debug\Dominio.pdb
 C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\obj\Debug\Presentacion.FormDetalleUsuario.resources
-C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\obj\Debug\Presentacion.FormDetalleSuplidor.resources
 C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\obj\Debug\Presentacion.FormDetalleCliente.resources
 C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\obj\Debug\Presentacion.FormAgregarTipoMaterial.resources
 C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\obj\Debug\Presentacion.FormDetallesServicio.resources
@@ -101,4 +99,6 @@ C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\S
 C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\bin\Debug\Datos.pdb
 C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\obj\Debug\Presentacion.FormAgregarDirecion.resources
 C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\obj\Debug\Presentacion.FormCliente.resources
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\obj\Debug\Presentacion.FormDetalleProveedor.resources
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\obj\Debug\Presentacion.FormProveedores.resources
 C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete

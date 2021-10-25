@@ -211,6 +211,21 @@ GO
 -- IF (SELECT CUNT(*) telefonos FROM TELEFONOS) > 0
 --    select * from clientes
 
+
+----- Procedimientos alamacenados relacionados a los proveedores
+
+--Mostrar todos los proveedores
+CREATE PROCEDURE p_MostrarProveedores
+AS
+BEGIN 
+  Select proveedores.codigo as 'Código', proveedores.nombre as 'Nombre', telefonos.telefono as 'Teléfono', dirreciones.dirrecion as 'Dirección', 
+  CASE WHEN proveedores.estado = 1 Then 'Activo' ELSE 'Inactivo' END AS Estado
+  FROM proveedores join telefonos on proveedores.codigo_telefono = telefonos.codigo join dirreciones on proveedores.codigo_dirrecion = dirreciones.codigo
+END
+GO
+
+--Mostrar 
+
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
 
 --Insertar  nueva Direccion

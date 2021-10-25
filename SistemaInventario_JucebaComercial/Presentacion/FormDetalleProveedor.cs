@@ -11,14 +11,14 @@ using Dominio;
 
 namespace Presentacion
 {
-    public partial class FormDetalleSuplidor : Form
+    public partial class FormDetalleProveedor : Form
     {
         int posX, posY;
         public bool actualizar = false;
         public string codigo;
         bool estadoCliente;
 
-        public FormDetalleSuplidor()
+        public FormDetalleProveedor()
         {
             InitializeComponent();
         }

@@ -7,23 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
 
 namespace Presentacion
 {
-    public partial class FormSuplidores : Form
+    public partial class FormProveedores : Form
     {
-        bool estadoCliente = true;
+        bool estadoProveedor = true;
         bool actualizar = false;
         public string codigo;
         int parseCorrecto;
 
-        FormPrincipal principal = new FormPrincipal();
+        //FormPrincipal principal = new FormPrincipal();
 
-        public FormSuplidores()
+        public FormProveedores()
         {
             InitializeComponent();
         }
 
+        //Cerrar el fomulario
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -31,7 +33,14 @@ namespace Presentacion
 
         private void FormClientes_Load(object sender, EventArgs e)
         {
+            MostrarProveedores();
             PermisosUsuarios();
+        }
+
+        private void MostrarProveedores() 
+        {
+            DominioProveedores proveedor = new DominioProveedores();
+            gridViewListaSuplidores.DataSource = proveedor.ShowSuppliers();
         }
 
         //Permisos de usuarios
@@ -45,10 +54,10 @@ namespace Presentacion
         }
 
 
-        //Ingresar nuevo cliente
+        //Ingresar nuevo Proveedor
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            FormDetalleSuplidor detalleCliente = new FormDetalleSuplidor();
+            FormDetalleProveedor detalleCliente = new FormDetalleProveedor();
             //detalleCliente.UpdateEventHendler += ActualizarEventHandler;
 
             //Oculto los controles para cambiar el estado del cliente.Solo son necesarios para actualizar
@@ -58,15 +67,15 @@ namespace Presentacion
             detalleCliente.btnAceptar.Location = new Point(15, 232);
             detalleCliente.btnCancelar.Location = new Point(129, 232);
 
-            AbrirDetalleCliente(detalleCliente);
+            AbrirFormulario(detalleCliente);
         }
 
-        //Actualizar cliente
+        //Actualizar Proveedor
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             if (gridViewListaSuplidores.SelectedRows.Count > 0)
             {
-                FormDetalleSuplidor detalleCliente = new FormDetalleSuplidor();
+                FormDetalleProveedor detalleCliente = new FormDetalleProveedor();
 
                 //actualizar = true;
 
@@ -78,7 +87,7 @@ namespace Presentacion
                 //detalleCliente.txbDireccion.Text = gridViewListaSuplidores.CurrentRow.Cells["Dirección"].Value.ToString();
                 //detalleCliente.cbxEstado.Text = gridViewListaSuplidores.CurrentRow.Cells["Estado"].Value.ToString();
 
-                AbrirDetalleCliente(detalleCliente);
+                AbrirFormulario(detalleCliente);
             }
             else 
             {
@@ -96,12 +105,11 @@ namespace Presentacion
             {
                 MessageBox.Show("Seleccione una fila para poder eliminar");
             }
-
         }
 
-        //Metodo para abirar el formulario DetalleCliente
+        //Metodo para abirar el formulario DetalleProveedor
         private Form formActivo = null;
-        private void AbrirDetalleCliente(Form form)
+        private void AbrirFormulario(Form form)
         {
             if (formActivo != null)
             {

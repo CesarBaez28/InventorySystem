@@ -82,7 +82,7 @@ namespace Presentacion
 
         private void btnAgregarSuplidor_Click(object sender, EventArgs e)
         {
-            FormDetalleSuplidor detalleSuplidor = new FormDetalleSuplidor();
+            FormDetalleProveedor detalleSuplidor = new FormDetalleProveedor();
             //detalleCliente.UpdateEventHendler += ActualizarEventHandler;
 
             //Oculto los controles para cambiar el estado del cliente.Solo son necesarios para actualizar

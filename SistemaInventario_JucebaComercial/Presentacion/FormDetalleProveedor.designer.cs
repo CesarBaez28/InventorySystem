@@ -1,7 +1,7 @@
 ﻿
 namespace Presentacion
 {
-    partial class FormDetalleSuplidor
+    partial class FormDetalleProveedor
     {
         /// <summary>
         /// Required designer variable.
@@ -52,7 +52,7 @@ namespace Presentacion
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(247, 37);
             this.lblTitulo.TabIndex = 1;
-            this.lblTitulo.Text = "Detalles del suplidor";
+            this.lblTitulo.Text = "Detalles del proveedor";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTitulo_MouseMove);
             // 
@@ -162,7 +162,7 @@ namespace Presentacion
             this.lblEstado.TabIndex = 17;
             this.lblEstado.Text = "Estado:";
             // 
-            // FormDetalleSuplidor
+            // FormDetalleProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -179,7 +179,7 @@ namespace Presentacion
             this.Controls.Add(this.txbNombre);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblTitulo);
-            this.Name = "FormDetalleSuplidor";
+            this.Name = "FormDetalleProveedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormDetalleCliente";
             this.ResumeLayout(false);
