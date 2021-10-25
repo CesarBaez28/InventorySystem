@@ -124,13 +124,16 @@ namespace Presentacion
         //Funcionalidad del boton buscar
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (comboBuscar.Text == "código")
+            DominioProveedores proveedor = new DominioProveedores();
+
+            //Buscar por código
+            if (comboBuscar.SelectedIndex == 0)
             {
                 if (txbBuscar.Text != "")
                 {
                     if (int.TryParse(txbBuscar.Text, out parseCorrecto))
                     {
-
+                        gridViewListaSuplidores.DataSource = proveedor.SearchSupplierByCode(txbBuscar.Text);
                     }
                     else
                     {
@@ -142,9 +145,10 @@ namespace Presentacion
                     MessageBox.Show("El campo esta vacío");
                 }
             }
-            else if (comboBuscar.Text == "nombre")
+            //Buscar por nombre
+            else if (comboBuscar.SelectedIndex ==1 )
             {
-
+                gridViewListaSuplidores.DataSource = proveedor.SearchSupplierByName(txbBuscar.Text);
             }
             else if (comboBuscar.Text == "activos")
             {

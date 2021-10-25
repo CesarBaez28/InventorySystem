@@ -19,5 +19,21 @@ namespace Dominio
             table = proveedor.MostrarProveedores();
             return table;
         }
+
+        //Search suppliers by code
+        public DataTable SearchSupplierByCode(string codigo) 
+        {
+            DataTable table = new DataTable();
+            table = proveedor.BuscarProveedorCodigo(Convert.ToInt32(codigo));
+            return table;
+        }
+
+        //Search suppliers by name
+        public DataTable SearchSupplierByName(string nombre) 
+        {
+            DataTable table = new DataTable();
+            table = proveedor.BuscarProveedorNombre(nombre);
+            return table;
+        }
     }
 }

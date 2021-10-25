@@ -224,7 +224,29 @@ BEGIN
 END
 GO
 
---Mostrar 
+--Buscar proveedores por codigo
+CREATE PROCEDURE p_BuscarProveedorCodigo
+  @codigo INT
+AS
+BEGIN
+  Select proveedores.codigo as 'Código', proveedores.nombre as 'Nombre', telefonos.telefono as 'Teléfono', dirreciones.dirrecion as 'Dirección', 
+  CASE WHEN proveedores.estado = 1 Then 'Activo' ELSE 'Inactivo' END AS Estado
+  FROM proveedores join telefonos on proveedores.codigo_telefono = telefonos.codigo join dirreciones on proveedores.codigo_dirrecion = dirreciones.codigo
+  WHERE proveedores.codigo = @codigo
+END 
+GO
+
+--Buscar por nombre
+CREATE PROCEDURE p_BuscarProveedorNombre
+  @nombre VARCHAR(100)
+AS
+BEGIN 
+  Select proveedores.codigo as 'Código', proveedores.nombre as 'Nombre', telefonos.telefono as 'Teléfono', dirreciones.dirrecion as 'Dirección', 
+  CASE WHEN proveedores.estado = 1 Then 'Activo' ELSE 'Inactivo' END AS Estado
+  FROM proveedores join telefonos on proveedores.codigo_telefono = telefonos.codigo join dirreciones on proveedores.codigo_dirrecion = dirreciones.codigo
+  WHERE proveedores.nombre LIKE '%' +  @nombre + '%'
+END
+ GO
 
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
 
