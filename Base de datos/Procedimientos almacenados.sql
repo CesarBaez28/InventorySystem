@@ -212,7 +212,7 @@ GO
 --    select * from clientes
 
 
------ Procedimientos alamacenados relacionados a los proveedores
+----- Procedimientos alamacenados relacionados a los proveedores -----------
 
 --Mostrar todos los proveedores
 CREATE PROCEDURE p_MostrarProveedores
@@ -260,8 +260,23 @@ END
  END
  GO
 
+ --Insertar Proveedor
+ CREATE PROCEDURE p_InsertarProveedor
+  @telefono VARCHAR(50),
+  @codigoDirrecion INT,
+  @nombreProveedor VARCHAR(100)
+ AS
+ BEGIN 
+  INSERT INTO telefonos(telefono) Values(@telefono)   --Insertar el telefono suministrado en la tabla telefonos
 
+  DECLARE @codigoTelefono INT
 
+  --Guardo en el codigo del nuevo telefono registrado
+  SELECT @codigoTelefono = telefonos.codigo from telefonos where telefonos.telefono = @telefono;
+
+  INSERT INTO proveedores(codigo_dirrecion, codigo_telefono, nombre) VALUES(@codigoDirrecion, @codigoTelefono, @nombreProveedor);
+ END
+ GO
 
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
 

@@ -47,5 +47,15 @@ namespace Datos
             table = ExecuteReader("p_BuscarProveedorEstado");
             return table;
         }
+
+        //Ingresar nuevo proveedor
+        public void RegistrarProveedor(string telefono, int codigoDireccion, string nombreProveedor) 
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@telefono",telefono));
+            parameters.Add(new SqlParameter("@codigoDirrecion", codigoDireccion));
+            parameters.Add(new SqlParameter("@nombreProveedor", nombreProveedor));
+            ExecuteNonQuery("p_InsertarProveedor");
+        }
     }
 }

@@ -44,6 +44,12 @@ namespace Presentacion
             gridViewListaSuplidores.DataSource = proveedor.SearchSupplierbyStatus(estadoProveedor);
         }
 
+        //Refrescar el datagridView desde el formulario FormDetalleProveedor
+        private void ActualizarEventHandler(object sender, FormDetalleProveedor.UpdateEventArgs args)
+        {
+            MostrarProveedores();
+        }
+
         //Permisos de usuarios
         public void PermisosUsuarios()
         {
@@ -58,17 +64,17 @@ namespace Presentacion
         //Ingresar nuevo Proveedor
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            FormDetalleProveedor detalleCliente = new FormDetalleProveedor();
-            //detalleCliente.UpdateEventHendler += ActualizarEventHandler;
+            FormDetalleProveedor detalleProveedor = new FormDetalleProveedor(this);
+            detalleProveedor.UpdateEventHendler += ActualizarEventHandler;
 
             //Oculto los controles para cambiar el estado del cliente.Solo son necesarios para actualizar
-            detalleCliente.lblEstado.Visible = false;
-            detalleCliente.cbxEstado.Visible = false;
-            detalleCliente.Size = new Size(260, 310);
-            detalleCliente.btnAceptar.Location = new Point(15, 232);
-            detalleCliente.btnCancelar.Location = new Point(129, 232);
+            detalleProveedor.lblEstado.Visible = false;
+            detalleProveedor.cbxEstado.Visible = false;
+            detalleProveedor.Size = new Size(260, 310);
+            detalleProveedor.btnAceptar.Location = new Point(15, 232);
+            detalleProveedor.btnCancelar.Location = new Point(129, 232);
 
-            AbrirFormulario(detalleCliente);
+            AbrirFormulario(detalleProveedor);
         }
 
         //Actualizar Proveedor
@@ -76,7 +82,7 @@ namespace Presentacion
         {
             if (gridViewListaSuplidores.SelectedRows.Count > 0)
             {
-                FormDetalleProveedor detalleCliente = new FormDetalleProveedor();
+                FormDetalleProveedor detalleCliente = new FormDetalleProveedor(this);
 
                 //actualizar = true;
 
@@ -154,18 +160,21 @@ namespace Presentacion
             //Buscar proveedores activos
             else if (comboBuscar.Text == "activos")
             {
+                txbBuscar.Text = "";
                 estadoProveedor = true;
                 gridViewListaSuplidores.DataSource = proveedor.SearchSupplierbyStatus(estadoProveedor);
             }
             //Buscar proveedores inactivos
             else if (comboBuscar.Text == "inactivos")
             {
+                txbBuscar.Text = "";
                 estadoProveedor = false;
                 gridViewListaSuplidores.DataSource = proveedor.SearchSupplierbyStatus(estadoProveedor);
             }
             //Mostrar todos los proveedores del sistema
             else 
             {
+                txbBuscar.Text = "";
                 gridViewListaSuplidores.DataSource = proveedor.ShowSuppliers();
             }
         }

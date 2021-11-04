@@ -13,14 +13,16 @@ namespace Presentacion
 {
     public partial class FormDetalleProveedor : Form
     {
-        int posX, posY;
-        public bool actualizar = false;
-        public string codigo;
-        bool estadoCliente;
+        int posX, posY; // Las uso para capturar las cordenas para mover el formulario
+        public bool actualizar = false; // La uso para actualizar o insertar dependiendo de su estado
+        public string codigo; // La uso para guardar el codigo del registro seleccionado 
+        public string direccion; // Guardo la direccion que se desea Actualizar. La uso para mostrar dicha direccion en el combobox 
+        public string telefonoViejo; //La uso para guardar el telefono que se desea actualizar
+        bool estadoProveedor; // Lo uso para indicar el estado del proveedor (activo o inactivo)
 
         public static FormDetalleProveedor detalleProveedor;
 
-        public FormDetalleProveedor()
+        public FormDetalleProveedor(FormProveedores formProveedores)
         {
             InitializeComponent();
             FormDetalleProveedor.detalleProveedor = this;
@@ -67,27 +69,28 @@ namespace Presentacion
             //Indico que este formulario abrio el formulario de direcciones
             agregarDirecion.quienAbrioFormulario = "DetalleProveedor";
             AbrirFormulario(agregarDirecion);
-
-
         }
 
         //Boton aceptar
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            DominioProveedores proveedor = new DominioProveedores();
 
             //Insertar cliente
             if (actualizar == false)
             {
-                //Valido que por lo menos el campo nombre no esté vacío
-                if (txbNombre.Text != "")
+                //Confirmo que los campos esten llenos
+                if (txbNombre.Text != "" && txbTelefono.Text != "")
                 {
-                    MessageBox.Show("Se insertó correctamente");
-                    VaciarCampos();
+                    proveedor.RegisterSupplier(txbTelefono.Text, comboBoxDirecciones.SelectedValue.ToString(), 
+                        txbNombre.Text);
                     Actualizar();
+                    MessageBox.Show("Registro insertado");
+                    this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Ingrese el nombre del cliente");
+                    MessageBox.Show("Faltan campos por llenar");
                 }
             }
             //Actualizar cliente
@@ -95,24 +98,15 @@ namespace Presentacion
             {
                 if (cbxEstado.Text == "Activo")
                 {
-                    estadoCliente = true;
+                    estadoProveedor = true;
                 }
                 else 
                 {
-                    estadoCliente = false;
+                    estadoProveedor = false;
                 }
 
-                MessageBox.Show("Se actualizó correctamente");
-                VaciarCampos();
                 Actualizar();
             }
-        }
-
-        //Vaciar los campos
-        public void VaciarCampos() 
-        {
-            txbNombre.Text = "";
-            txbTelefono.Text = "";
         }
 
         //Metodo para abrir formulario

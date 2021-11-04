@@ -82,17 +82,17 @@ namespace Presentacion
 
         private void btnAgregarSuplidor_Click(object sender, EventArgs e)
         {
-            FormDetalleProveedor detalleSuplidor = new FormDetalleProveedor();
+            //FormDetalleProveedor detalleSuplidor = new FormDetalleProveedor();
             //detalleCliente.UpdateEventHendler += ActualizarEventHandler;
 
             //Oculto los controles para cambiar el estado del cliente.Solo son necesarios para actualizar
-            detalleSuplidor.lblEstado.Visible = false;
-            detalleSuplidor.cbxEstado.Visible = false;
-            detalleSuplidor.Size = new Size(260, 310);
-            detalleSuplidor.btnAceptar.Location = new Point(15, 232);
-            detalleSuplidor.btnCancelar.Location = new Point(129, 232);
+            //detalleSuplidor.lblEstado.Visible = false;
+            //detalleSuplidor.cbxEstado.Visible = false;
+            //detalleSuplidor.Size = new Size(260, 310);
+            //detalleSuplidor.btnAceptar.Location = new Point(15, 232);
+            //detalleSuplidor.btnCancelar.Location = new Point(129, 232);
 
-            AbrirFormulario(detalleSuplidor);
+            //AbrirFormulario(detalleSuplidor);
         }
 
         private void btnAgregarTipoMaterial_Click(object sender, EventArgs e)

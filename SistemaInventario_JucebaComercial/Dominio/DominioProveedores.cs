@@ -43,5 +43,11 @@ namespace Dominio
             table = proveedor.BuscarProveedorEstado(estado);
             return table;
         }
+
+        // Reegister supplier
+        public void RegisterSupplier(string telefono, string codigoDireccion, string nombreProveedor) 
+        {
+            proveedor.RegistrarProveedor(telefono, Convert.ToInt32(codigoDireccion), nombreProveedor);
+        }
     }
 }

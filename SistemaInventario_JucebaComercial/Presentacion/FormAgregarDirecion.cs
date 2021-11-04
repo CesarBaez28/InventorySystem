@@ -24,7 +24,6 @@ namespace Presentacion
             MostrarDirecciones();
         }
 
-
         //Mostrar todas las direcciones
         public void MostrarDirecciones() 
         {
@@ -43,7 +42,6 @@ namespace Presentacion
         {
             if (txbNombre.Text != "")
             {
-
                 //Insertar
                 if (Actualizar == false)
                 {
@@ -70,7 +68,6 @@ namespace Presentacion
                     FormDetalleCliente.detalleCliente.MostrarDirecciones();
                 else
                     FormDetalleProveedor.detalleProveedor.MostrarDirecciones();
-
             }
             else
             {
@@ -81,7 +78,7 @@ namespace Presentacion
 
         private void gridViewDirecciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Primer columna
+            //Primera columna
             if (e.ColumnIndex == 0) 
             {
                 //Verifico que se haya seleccionado una fila

@@ -92,7 +92,6 @@ namespace Presentacion
                     comboBoxDirecciones.SelectedValue.ToString(), txbNombre.Text, codigo, 
                     estadoCliente);
 
-                MessageBox.Show("Se actualizó correctamente");
                 Actualizar();
                 this.Close();
             }
