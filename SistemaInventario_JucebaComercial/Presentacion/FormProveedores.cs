@@ -20,7 +20,6 @@ namespace Presentacion
         int parseCorrecto;
 
         //FormPrincipal principal = new FormPrincipal();
-
         public FormProveedores()
         {
             InitializeComponent();
@@ -104,6 +103,7 @@ namespace Presentacion
             }
         }
 
+        //Eliminar proveedor
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (gridViewListaSuplidores.SelectedRows.Count > 0)
@@ -134,7 +134,7 @@ namespace Presentacion
             form.Show();
         }
 
-        //Funcionalidad del boton buscar
+        //Buscar proveedores o proveedor
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             DominioProveedores proveedor = new DominioProveedores();
@@ -142,15 +142,17 @@ namespace Presentacion
             //Buscar por código
             if (comboBuscar.SelectedIndex == 0)
             {
+                //Verifico se haya ingresado un código
                 if (txbBuscar.Text != "")
                 {
+                    //Verifico el código se ha correcto
                     if (int.TryParse(txbBuscar.Text, out parseCorrecto))
                     {
                         gridViewListaSuplidores.DataSource = proveedor.SearchSupplierByCode(txbBuscar.Text);
                     }
                     else
                     {
-                        MessageBox.Show("Código no valido");
+                        MessageBox.Show("El Código no correcto");
                     }
                 }
                 else

@@ -87,8 +87,6 @@ CREATE TABLE excedentes_materiales(
     estado BIT DEFAULT 1
 )
 
-
-
 --Tabla de servicios
 CREATE TABLE servicios (
     codigo INT IDENTITY PRIMARY KEY,

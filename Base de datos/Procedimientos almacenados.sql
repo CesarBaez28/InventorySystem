@@ -6,13 +6,15 @@ CREATE PROCEDURE p_LoginUsuario
   @password VARCHAR(100)
 AS 
 BEGIN
-Select usuarios.codigo as 'Código', tipo_usuarios.tipo_usuario as 'Tipo Usuario', usuarios.nombre_usuario as 'Nombre Usuario', 
+Select usuarios.codigo as 'Código', usuarios.codigo_tipo_usuario as 'Código Tipo Usuario', tipo_usuarios.tipo_usuario as 'Tipo Usuario', usuarios.nombre_usuario as 'Nombre Usuario', 
 usuarios.nombre as 'Nombre', usuarios.passwd as 'Contraseña', usuarios.email as'Email', 
 CASE WHEN usuarios.estado = 1 Then 'Activo' ELSE 'Inactivo' END AS Estado
 FROM usuarios join tipo_usuarios on usuarios.codigo_tipo_usuario = tipo_usuarios.codigo 
 WHERE usuarios.nombre_usuario = @nombre_usuario and usuarios.passwd = @password and usuarios.estado = 1;
 END
 GO
+
+EXEC p_LoginUsuario 'Nini', 'jcb123456'
 
 select codigo, tipo_usuario from tipo_usuarios
 
