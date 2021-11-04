@@ -208,5 +208,3 @@ CREATE TABLE detalles_salida(
     cantidad INT,
     estado BIT DEFAULT 1
 )
-
-Select * from dirreciones

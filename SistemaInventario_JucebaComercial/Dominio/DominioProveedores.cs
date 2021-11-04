@@ -13,7 +13,7 @@ namespace Dominio
         DatosProveedores proveedor = new DatosProveedores();
 
         //Show suppliers
-        public DataTable ShowSuppliers() 
+        public DataTable ShowSuppliers()
         {
             DataTable table = new DataTable();
             table = proveedor.MostrarProveedores();
@@ -21,7 +21,7 @@ namespace Dominio
         }
 
         //Search suppliers by code
-        public DataTable SearchSupplierByCode(string codigo) 
+        public DataTable SearchSupplierByCode(string codigo)
         {
             DataTable table = new DataTable();
             table = proveedor.BuscarProveedorCodigo(Convert.ToInt32(codigo));
@@ -29,7 +29,7 @@ namespace Dominio
         }
 
         //Search suppliers by name
-        public DataTable SearchSupplierByName(string nombre) 
+        public DataTable SearchSupplierByName(string nombre)
         {
             DataTable table = new DataTable();
             table = proveedor.BuscarProveedorNombre(nombre);
@@ -37,7 +37,7 @@ namespace Dominio
         }
 
         //Search suppliers by status
-        public DataTable SearchSupplierbyStatus(bool estado) 
+        public DataTable SearchSupplierbyStatus(bool estado)
         {
             DataTable table = new DataTable();
             table = proveedor.BuscarProveedorEstado(estado);
@@ -45,9 +45,23 @@ namespace Dominio
         }
 
         // Reegister supplier
-        public void RegisterSupplier(string telefono, string codigoDireccion, string nombreProveedor) 
+        public void RegisterSupplier(string telefono, string codigoDireccion, string nombreProveedor)
         {
             proveedor.RegistrarProveedor(telefono, Convert.ToInt32(codigoDireccion), nombreProveedor);
+        }
+
+        //Update supllier
+        public void UpdateSupplier(string telefono, string telefonoViejo, string codigoDireccion, string nombreProveedor,
+            string codigoProveedor, bool estado)
+        {
+            proveedor.ActualizarProveedor(telefono, telefonoViejo, Convert.ToInt32(codigoDireccion), 
+                nombreProveedor, Convert.ToInt32(codigoProveedor), estado);
+        }
+
+        //Delete suplier (Change status to inactive)
+        public void DeleteSupplier(string codigoSuplidor) 
+        {
+            proveedor.EliminarProveedor(Convert.ToInt32(codigoSuplidor));
         }
     }
 }

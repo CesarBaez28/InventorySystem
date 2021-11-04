@@ -13,6 +13,7 @@ namespace Presentacion
 {
     public partial class FormProveedores : Form
     {
+        DominioProveedores proveedor = new DominioProveedores();
         bool estadoProveedor = true;
         bool actualizar = false;
         public string codigo;
@@ -80,21 +81,22 @@ namespace Presentacion
         //Actualizar Proveedor
         private void btnActualizar_Click(object sender, EventArgs e)
         {
+            //Verifico que haya una fila seleccionada
             if (gridViewListaSuplidores.SelectedRows.Count > 0)
             {
-                FormDetalleProveedor detalleCliente = new FormDetalleProveedor(this);
+                FormDetalleProveedor detalleProveedor = new FormDetalleProveedor(this);
+                detalleProveedor.UpdateEventHendler += ActualizarEventHandler;
+                actualizar = true;
 
-                //actualizar = true;
+                //Obtengo los datos del dataGridView para poder actualizarlos
+                detalleProveedor.actualizar = actualizar;
+                detalleProveedor.codigo = gridViewListaSuplidores.CurrentRow.Cells["Código"].Value.ToString();
+                detalleProveedor.txbNombre.Text = gridViewListaSuplidores.CurrentRow.Cells["Nombre"].Value.ToString();
+                detalleProveedor.telefonoViejo = gridViewListaSuplidores.CurrentRow.Cells["Teléfono"].Value.ToString();
+                detalleProveedor.direccion = gridViewListaSuplidores.CurrentRow.Cells["Dirección"].Value.ToString();
+                detalleProveedor.cbxEstado.Text = gridViewListaSuplidores.CurrentRow.Cells["Estado"].Value.ToString();
 
-                //detalleCliente.UpdateEventHendler += ActualizarEventHandler;
-                //detalleCliente.actualizar = actualizar;
-                //detalleCliente.codigo = gridViewListaSuplidores.CurrentRow.Cells["Código suplidor"].Value.ToString();
-                //detalleCliente.txbNombre.Text = gridViewListaSuplidores.CurrentRow.Cells["Nombre"].Value.ToString();
-                //detalleCliente.txbTelefono.Text = gridViewListaSuplidores.CurrentRow.Cells["Teléfono"].Value.ToString();
-                //detalleCliente.txbDireccion.Text = gridViewListaSuplidores.CurrentRow.Cells["Dirección"].Value.ToString();
-                //detalleCliente.cbxEstado.Text = gridViewListaSuplidores.CurrentRow.Cells["Estado"].Value.ToString();
-
-                AbrirFormulario(detalleCliente);
+                AbrirFormulario(detalleProveedor);
             }
             else 
             {
@@ -106,7 +108,11 @@ namespace Presentacion
         {
             if (gridViewListaSuplidores.SelectedRows.Count > 0)
             {
-
+                estadoProveedor = true;
+                codigo = gridViewListaSuplidores.CurrentRow.Cells["Código"].Value.ToString();
+                MessageBox.Show("Se eliminó correctamente");
+                proveedor.DeleteSupplier(codigo);
+                MostrarProveedores();
             }
             else 
             {

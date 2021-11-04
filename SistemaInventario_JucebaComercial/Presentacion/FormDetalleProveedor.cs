@@ -51,6 +51,11 @@ namespace Presentacion
         private void FormDetalleProveedor_Load(object sender, EventArgs e)
         {
             MostrarDirecciones();
+
+            if (actualizar == true)
+                comboBoxDirecciones.Text = direccion;
+
+            txbTelefono.Text = telefonoViejo;
         }
 
         //Mostrar todas las dirreciones
@@ -97,15 +102,16 @@ namespace Presentacion
             else 
             {
                 if (cbxEstado.Text == "Activo")
-                {
                     estadoProveedor = true;
-                }
                 else 
-                {
                     estadoProveedor = false;
-                }
+
+                proveedor.UpdateSupplier(txbTelefono.Text, telefonoViejo, comboBoxDirecciones.SelectedValue.ToString(), txbNombre.Text, codigo,
+                    estadoProveedor);
 
                 Actualizar();
+                MessageBox.Show("Registro actualizado");
+                this.Close();
             }
         }
 

@@ -57,5 +57,27 @@ namespace Datos
             parameters.Add(new SqlParameter("@nombreProveedor", nombreProveedor));
             ExecuteNonQuery("p_InsertarProveedor");
         }
+
+        //Actualizar datos del proveedor
+        public void ActualizarProveedor(string telefono, string telefonoViejo, int codigoDireccion, string nombreProveedor,
+            int codigoProveedor, bool estado) 
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@telefono", telefono));
+            parameters.Add(new SqlParameter("@telefonoViejo", telefonoViejo));
+            parameters.Add(new SqlParameter("@codigoDireccion", codigoDireccion));
+            parameters.Add(new SqlParameter("@nombreProveedor", nombreProveedor));
+            parameters.Add(new SqlParameter("@codigoProveedor", codigoProveedor));
+            parameters.Add(new SqlParameter("@estado", estado));
+            ExecuteNonQuery("p_ActualizarProveedor");
+        }
+
+        //Eliminar Proveedor (Cambierle el estado a inactivo)
+        public void EliminarProveedor(int codigoProveedor) 
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigoProveedor", codigoProveedor));
+            ExecuteNonQuery("p_EliminarProveedor");
+        }
     }
 }

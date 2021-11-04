@@ -278,6 +278,35 @@ END
  END
  GO
 
+ --Actualizar datos del proveedor
+CREATE PROCEDURE p_ActualizarProveedor
+  @telefono VARCHAR(25),
+  @telefonoViejo VARCHAR(25),
+  @codigoDireccion INT,
+  @nombreProveedor VARCHAR(100),
+  @codigoProveedor INT, 
+  @estado BIT
+AS
+BEGIN
+   DECLARE @codigoTelefono INT
+  --Obtengo el codigo del telefono
+  SELECT @codigoTelefono = telefonos.codigo from telefonos where telefonos.telefono = @telefonoViejo;
+  --Actualizo el tefono
+  UPDATE telefonos SET telefono = @telefono WHERE telefonos.codigo = @codigoTelefono;
+  --Actualizo los datos del cliente
+  UPDATE proveedores SET nombre = @nombreProveedor, codigo_dirrecion = @codigoDireccion, estado = @estado where codigo = @codigoProveedor
+END
+GO
+
+--Eliminar proveedor (Cambia estado a Inactivo)
+CREATE PROCEDURE p_EliminarProveedor
+  @codigoProveedor INT
+AS
+BEGIN
+  UPDATE proveedores SET estado = 0 WHERE codigo = @codigoProveedor
+END
+GO
+
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
 
 --Insertar  nueva Direccion
