@@ -18,9 +18,12 @@ namespace Presentacion
         public string codigo;
         bool estadoCliente;
 
+        public static FormDetalleProveedor detalleProveedor;
+
         public FormDetalleProveedor()
         {
             InitializeComponent();
+            FormDetalleProveedor.detalleProveedor = this;
         }
 
         public delegate void ActualizarDelagate(object sender, UpdateEventArgs args);
@@ -43,6 +46,32 @@ namespace Presentacion
             this.Close();
         }
 
+        private void FormDetalleProveedor_Load(object sender, EventArgs e)
+        {
+            MostrarDirecciones();
+        }
+
+        //Mostrar todas las dirreciones
+        public void MostrarDirecciones()
+        {
+            DominioDirecciones direcciones = new DominioDirecciones();
+            comboBoxDirecciones.ValueMember = "codigo";
+            comboBoxDirecciones.DisplayMember = "dirrecion";
+            comboBoxDirecciones.DataSource = direcciones.ShowAddresses();
+        }
+
+        //Agregar una nueva direccion
+        private void btnAgregarDireccion_Click(object sender, EventArgs e)
+        {
+            FormAgregarDirecion agregarDirecion = new FormAgregarDirecion();
+            //Indico que este formulario abrio el formulario de direcciones
+            agregarDirecion.quienAbrioFormulario = "DetalleProveedor";
+            AbrirFormulario(agregarDirecion);
+
+
+        }
+
+        //Boton aceptar
         private void btnAceptar_Click(object sender, EventArgs e)
         {
 
@@ -79,11 +108,25 @@ namespace Presentacion
             }
         }
 
+        //Vaciar los campos
         public void VaciarCampos() 
         {
             txbNombre.Text = "";
-            txbDireccion.Text = "";
             txbTelefono.Text = "";
+        }
+
+        //Metodo para abrir formulario
+        private Form formActivo = null;
+        private void AbrirFormulario(Form form)
+        {
+            if (formActivo != null)
+            {
+                formActivo.Close();
+            }
+
+            formActivo = form;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Show();
         }
 
         //Funcionalidad para mover el formulario

@@ -29,17 +29,19 @@ namespace Presentacion
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDetalleProveedor));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txbNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txbTelefono = new System.Windows.Forms.TextBox();
             this.lblTelefono = new System.Windows.Forms.Label();
-            this.txbDireccion = new System.Windows.Forms.TextBox();
-            this.lblDireccion = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.cbxEstado = new System.Windows.Forms.ComboBox();
             this.lblEstado = new System.Windows.Forms.Label();
+            this.comboBoxDirecciones = new System.Windows.Forms.ComboBox();
+            this.btnAgregarDireccion = new System.Windows.Forms.Button();
+            this.lblDireccion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -91,24 +93,6 @@ namespace Presentacion
             this.lblTelefono.Size = new System.Drawing.Size(66, 17);
             this.lblTelefono.TabIndex = 7;
             this.lblTelefono.Text = "Teléfono:";
-            // 
-            // txbDireccion
-            // 
-            this.txbDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbDireccion.Location = new System.Drawing.Point(15, 195);
-            this.txbDireccion.Name = "txbDireccion";
-            this.txbDireccion.Size = new System.Drawing.Size(220, 22);
-            this.txbDireccion.TabIndex = 10;
-            // 
-            // lblDireccion
-            // 
-            this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDireccion.Location = new System.Drawing.Point(12, 175);
-            this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(73, 17);
-            this.lblDireccion.TabIndex = 9;
-            this.lblDireccion.Text = "Dirección:";
             // 
             // btnCancelar
             // 
@@ -162,18 +146,51 @@ namespace Presentacion
             this.lblEstado.TabIndex = 17;
             this.lblEstado.Text = "Estado:";
             // 
+            // comboBoxDirecciones
+            // 
+            this.comboBoxDirecciones.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxDirecciones.FormattingEnabled = true;
+            this.comboBoxDirecciones.Location = new System.Drawing.Point(15, 192);
+            this.comboBoxDirecciones.Name = "comboBoxDirecciones";
+            this.comboBoxDirecciones.Size = new System.Drawing.Size(178, 25);
+            this.comboBoxDirecciones.TabIndex = 38;
+            // 
+            // btnAgregarDireccion
+            // 
+            this.btnAgregarDireccion.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnAgregarDireccion.FlatAppearance.BorderSize = 0;
+            this.btnAgregarDireccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarDireccion.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarDireccion.Image")));
+            this.btnAgregarDireccion.Location = new System.Drawing.Point(199, 192);
+            this.btnAgregarDireccion.Name = "btnAgregarDireccion";
+            this.btnAgregarDireccion.Size = new System.Drawing.Size(36, 25);
+            this.btnAgregarDireccion.TabIndex = 37;
+            this.btnAgregarDireccion.UseVisualStyleBackColor = false;
+            this.btnAgregarDireccion.Click += new System.EventHandler(this.btnAgregarDireccion_Click);
+            // 
+            // lblDireccion
+            // 
+            this.lblDireccion.AutoSize = true;
+            this.lblDireccion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDireccion.Location = new System.Drawing.Point(12, 175);
+            this.lblDireccion.Name = "lblDireccion";
+            this.lblDireccion.Size = new System.Drawing.Size(73, 17);
+            this.lblDireccion.TabIndex = 36;
+            this.lblDireccion.Text = "Dirección:";
+            // 
             // FormDetalleProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
             this.ClientSize = new System.Drawing.Size(247, 338);
+            this.Controls.Add(this.comboBoxDirecciones);
+            this.Controls.Add(this.btnAgregarDireccion);
+            this.Controls.Add(this.lblDireccion);
             this.Controls.Add(this.cbxEstado);
             this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.txbDireccion);
-            this.Controls.Add(this.lblDireccion);
             this.Controls.Add(this.txbTelefono);
             this.Controls.Add(this.lblTelefono);
             this.Controls.Add(this.txbNombre);
@@ -182,6 +199,7 @@ namespace Presentacion
             this.Name = "FormDetalleProveedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormDetalleCliente";
+            this.Load += new System.EventHandler(this.FormDetalleProveedor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,11 +212,12 @@ namespace Presentacion
         private System.Windows.Forms.Label lblNombre;
         public System.Windows.Forms.TextBox txbTelefono;
         private System.Windows.Forms.Label lblTelefono;
-        public System.Windows.Forms.TextBox txbDireccion;
-        private System.Windows.Forms.Label lblDireccion;
         public System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.Button btnAceptar;
         public System.Windows.Forms.ComboBox cbxEstado;
         public System.Windows.Forms.Label lblEstado;
+        public System.Windows.Forms.ComboBox comboBoxDirecciones;
+        public System.Windows.Forms.Button btnAgregarDireccion;
+        private System.Windows.Forms.Label lblDireccion;
     }
 }

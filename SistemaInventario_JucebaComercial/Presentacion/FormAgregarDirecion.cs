@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Dominio;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Dominio;
 
 namespace Presentacion
 {
@@ -16,6 +10,7 @@ namespace Presentacion
         int posX, posY; //Las uso para obtener las cordenadas y poder mover el formulario
         bool Actualizar = false; //La uso para indicar si se va a actualizar o insertar
         string direccionActualizar; //Lo uso para guardar el nombre de la direccion que se desea actualizar
+        public string quienAbrioFormulario; // La uso para saber quien abrio el formulario direcciones
 
         DominioDirecciones direcciones = new DominioDirecciones();
 
@@ -67,8 +62,15 @@ namespace Presentacion
 
                 gridViewDirecciones.DataSource = null;
                 gridViewDirecciones.Rows.Clear();
-                FormDetalleCliente.detalleCliente.MostrarDirecciones();
                 MostrarDirecciones();
+
+                //Actualizo el combobox de direcciones dependiendo si es el formulario de proveedores
+                //o de cliente el que abre el presente formulario
+                if (quienAbrioFormulario == "DetalleCliente")
+                    FormDetalleCliente.detalleCliente.MostrarDirecciones();
+                else
+                    FormDetalleProveedor.detalleProveedor.MostrarDirecciones();
+
             }
             else
             {

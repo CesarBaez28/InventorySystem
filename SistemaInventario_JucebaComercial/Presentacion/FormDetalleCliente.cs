@@ -52,7 +52,10 @@ namespace Presentacion
         private void FormDetalleCliente_Load(object sender, EventArgs e)
         {
             MostrarDirecciones();
-            comboBoxDirecciones.Text = direccion;
+
+            if (actualizar == true)
+                comboBoxDirecciones.Text = direccion;
+
             txtTelefono.Text = telefonoViejo;
         }
 
@@ -122,7 +125,10 @@ namespace Presentacion
         //Agregar direccion
         private void btnAgregarDireccion_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FormAgregarDirecion());
+            FormAgregarDirecion agregarDirecion = new FormAgregarDirecion();
+            //Indico que este formulario abrio el formulario de direcciones
+            agregarDirecion.quienAbrioFormulario = "DetalleCliente";
+            AbrirFormulario(agregarDirecion);
         }
 
         //Metodo para abrir formulario

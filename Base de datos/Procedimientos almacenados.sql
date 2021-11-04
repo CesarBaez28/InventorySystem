@@ -260,7 +260,8 @@ END
  END
  GO
 
- EXEC p_BuscarProveedorEstado 0
+
+
 
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
 

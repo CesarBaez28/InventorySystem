@@ -166,7 +166,7 @@ namespace Presentacion
             //Mostrar todos los proveedores del sistema
             else 
             {
-                MostrarProveedores();
+                gridViewListaSuplidores.DataSource = proveedor.ShowSuppliers();
             }
         }
     }
