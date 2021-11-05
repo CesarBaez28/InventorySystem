@@ -12,6 +12,52 @@ namespace Dominio
     {
         DatosUsuarios usuario = new DatosUsuarios();
 
+        //AtributosUsuario
+        private int codigoUsuario;
+        private int codigo_tipoUsuario;
+        private string tipo_usuario;
+        private string nombreUsuario;
+        private string password;
+        private string nombre;
+        private string email;
+        private bool estado;
+
+        //Constructor DominioUsuario
+        public DominioUsuario(int codigoUsuario, int codigo_tipoUsuario, string tipo_usuario, string nombreUsuario,
+            string password, string nombre, string email, bool estado)
+        {
+            this.codigoUsuario = codigoUsuario;
+            this.codigo_tipoUsuario = codigo_tipoUsuario;
+            this.tipo_usuario = tipo_usuario;
+            this.nombreUsuario = nombreUsuario;
+            this.password = password;
+            this.nombre = nombre;
+            this.email = email;
+            this.estado = estado;
+        }
+
+        //Creo otro constructor sin parametros
+        public DominioUsuario() { }
+
+        //Editar el perfil de usuario
+        public string EditPerfilUsuario()
+        {
+            try
+            {
+                usuario.ActualizarUsuario(codigo_tipoUsuario, nombreUsuario, nombre, password, 
+                    email, estado, codigoUsuario);
+
+                usuario.LoginUsuario(nombreUsuario, password);
+
+                return "Tu perfil se ha actualizado correctamente";
+
+            }
+            catch (Exception ex)
+            {
+                return "El nombre de usuario ya está registrado";
+            }
+        }
+
         //Login Users
         public bool LoginUsuario(string nombreUsuario, string password)
         {

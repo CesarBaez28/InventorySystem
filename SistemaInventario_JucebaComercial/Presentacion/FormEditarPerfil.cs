@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using Comun;
 
 namespace Presentacion
 {
@@ -28,18 +29,18 @@ namespace Presentacion
         //LLenar los labels y texboxs con los datos del usuario
         private void CargarDatosUsuario() 
         {
-            //lblUsuario.Text = UsuarioLoginCache.Nombre_usuario;
-            //lblNombre.Text = UsuarioLoginCache.Nombre;
-            //lblCorreo.Text = UsuarioLoginCache.Email;
-            //lblPosicionUsuario.Text = UsuarioLoginCache.Tipo_usuario;
+            lblUsuario.Text = UsuarioLoginCache.Nombre_usuario;
+            lblNombre.Text = UsuarioLoginCache.Nombre;
+            lblCorreo.Text = UsuarioLoginCache.Email;
+            lblPosicionUsuario.Text = UsuarioLoginCache.Tipo_usuario;
 
 
-            //txbNombreUsuario.Text = UsuarioLoginCache.Nombre_usuario;
-            //txbNombre.Text = UsuarioLoginCache.Nombre;
-            //txbEmail.Text = UsuarioLoginCache.Email;
-            //txbPassword.Text = UsuarioLoginCache.Password;
-            //txbConfirmarPassword.Text = UsuarioLoginCache.Password;
-            //txbPasswordActual.Text = "";
+            txbNombreUsuario.Text = UsuarioLoginCache.Nombre_usuario;
+            txbNombre.Text = UsuarioLoginCache.Nombre;
+            txbEmail.Text = UsuarioLoginCache.Email;
+            txbPassword.Text = UsuarioLoginCache.Password;
+            txbConfirmarPassword.Text = UsuarioLoginCache.Password;
+            txbPasswordActual.Text = "";
 
         }
 
@@ -53,6 +54,7 @@ namespace Presentacion
             txbConfirmarPassword.UseSystemPasswordChar = true;
         }
 
+        //Resetar los datos del usuario
         private void Resetear() 
         {
             CargarDatosUsuario();
@@ -91,26 +93,26 @@ namespace Presentacion
                 {
                     if (txbPassword.Text == txbConfirmarPassword.Text)
                     {
-                        //if (txbPasswordActual.Text == UsuarioLoginCache.Password)
-                        //{
-                        //    var D_usuario = new DominioUsuario(codigoUsuario: UsuarioLoginCache.Codigo_usuario,
-                        //        codigo_tipoUsuario: UsuarioLoginCache.Codigo_tipo_usuario,
-                        //        tipo_usuario: UsuarioLoginCache.Tipo_usuario,
-                        //        nombreUsuario: txbNombreUsuario.Text,
-                        //        password: txbPassword.Text,
-                        //        nombre: txbNombre.Text,
-                        //        email: txbEmail.Text,
-                        //        estado: UsuarioLoginCache.Estado);
+                        if (txbPasswordActual.Text == UsuarioLoginCache.Password)
+                        {
+                            var D_usuario = new DominioUsuario(codigoUsuario: UsuarioLoginCache.Codigo_usuario,
+                                codigo_tipoUsuario: UsuarioLoginCache.Codigo_tipo_usuario,
+                                tipo_usuario: UsuarioLoginCache.Tipo_usuario,
+                                nombreUsuario: txbNombreUsuario.Text,
+                                password: txbPassword.Text,
+                                nombre: txbNombre.Text,
+                                email: txbEmail.Text,
+                                estado: UsuarioLoginCache.Estado);
 
-                        //    var resultado = D_usuario.EditPerfilUsuario();
-                        //    MessageBox.Show(resultado);
-                        //    Resetear();
-                        //    panelEditarPerfil.Visible = false;
-                        //}
-                        //else
-                        //{
-                        //    MessageBox.Show("contraseña actual incorrecta");
-                        //}
+                            var resultado = D_usuario.EditPerfilUsuario();
+                            MessageBox.Show(resultado);
+                            Resetear();
+                            panelEditarPerfil.Visible = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("contraseña actual incorrecta");
+                        }
                     }
                     else
                     {
