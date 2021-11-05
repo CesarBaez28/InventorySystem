@@ -39,8 +39,8 @@ namespace Dominio
         //Creo otro constructor sin parametros
         public DominioUsuario() { }
 
-        //Editar el perfil de usuario
-        public string EditPerfilUsuario()
+        //edit user profile
+        public string EditUserProfile()
         {
             try
             {
@@ -119,7 +119,7 @@ namespace Dominio
                 password, email, estado, Convert.ToInt32(codigoUsuario));
         }
 
-        //Delete users (Actually change the status to false)
+        //Delete users (Actually, change the status to false)
         public void DeleteUser(string codigoUsuario) 
         {
             usuario.EliminarUsuario(Convert.ToInt32(codigoUsuario));

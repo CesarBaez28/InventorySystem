@@ -41,7 +41,6 @@ namespace Presentacion
             txbPassword.Text = UsuarioLoginCache.Password;
             txbConfirmarPassword.Text = UsuarioLoginCache.Password;
             txbPasswordActual.Text = "";
-
         }
 
         //Inicarlizar los componentes para editar el password
@@ -68,6 +67,7 @@ namespace Presentacion
             CargarDatosUsuario();
         }
 
+        //Funcionalidad para editar la contraseña
         private void linkEditarPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (linkEditarPassword.Text == "Editar")
@@ -104,7 +104,7 @@ namespace Presentacion
                                 email: txbEmail.Text,
                                 estado: UsuarioLoginCache.Estado);
 
-                            var resultado = D_usuario.EditPerfilUsuario();
+                            var resultado = D_usuario.EditUserProfile();
                             MessageBox.Show(resultado);
                             Resetear();
                             panelEditarPerfil.Visible = false;
