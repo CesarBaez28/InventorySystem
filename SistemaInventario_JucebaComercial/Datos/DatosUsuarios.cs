@@ -22,6 +22,23 @@ namespace Datos
 
             if (table.Rows.Count > 0)
             {
+                foreach (DataRow fila in table.Rows) 
+                {
+                    //Obtengo los datos del usuario para la cache
+                    UsuarioLoginCache.Codigo_usuario = Convert.ToInt32(fila[0]);
+                    UsuarioLoginCache.Codigo_tipo_usuario = Convert.ToInt32(fila[1]);
+                    UsuarioLoginCache.Tipo_usuario = fila[2].ToString();
+                    UsuarioLoginCache.Nombre_usuario = fila[3].ToString();
+                    UsuarioLoginCache.Nombre = fila[4].ToString();
+                    UsuarioLoginCache.Email = fila[6].ToString();
+                    UsuarioLoginCache.Password = fila[5].ToString();
+
+                    if (fila[7].ToString() == "Activo")
+                        UsuarioLoginCache.Estado = true;
+                    else
+                        UsuarioLoginCache.Estado = false;
+                }
+
                 return true;
             }
             else 
