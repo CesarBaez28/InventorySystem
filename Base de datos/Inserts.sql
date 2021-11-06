@@ -5,9 +5,6 @@ INSERT INTO telefonos(telefono) VALUES('8091236742');
 INSERT INTO telefonos(telefono) VALUES('8095746598');
 INSERT INTO telefonos(telefono) VALUES('8094537654');
 
-
-
-
 --Dirrecion
 Insert INTO dirreciones(dirrecion, descripcion) Values('Jánico', 'Federico Pichardo #90');
 Insert INTO dirreciones(dirrecion) Values('Don juan');
@@ -31,5 +28,13 @@ INSERT INTO proveedores(codigo_dirrecion, codigo_telefono, nombre) VALUES (1, 5,
 INSERT INTO proveedores(codigo_dirrecion, codigo_telefono, nombre) VALUES (1, 6, 'Colmado Espinal') 
 INSERT INTO proveedores(codigo_dirrecion, codigo_telefono, nombre) VALUES (1, 7, 'Colmado Duran') 
 
+--Materiales
+INSERT INTO materiales(codigo_tipo_material, nombre, costo, existencia) VALUES (1, 'Barra 1/2', 100, 10)
+INSERT INTO materiales(codigo_tipo_material, nombre, costo, existencia) VALUES (2, 'Perfil 2x2', 500, 10)
+INSERT INTO materiales(codigo_tipo_material, nombre, costo, existencia) VALUES (3, 'planchuela 1/2', 150, 10)
+INSERT INTO materiales(codigo_tipo_material, nombre, costo, existencia) VALUES (4, 'Angular 1/2', 200, 10)
 
-select * from telefonos
+
+SELECT * FROM tipo_material
+SELECT * FROM materiales
+

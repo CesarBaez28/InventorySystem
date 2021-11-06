@@ -309,6 +309,48 @@ BEGIN
 END
 GO
 
+-------- Procedimientos almacenados relacionados con los materiales---------------
+
+--Insertar tipo de material
+CREATE PROCEDURE p_InsertarTipoMaterial
+  @nombre VARCHAR(75)
+AS
+BEGIN
+  INSERT INTO tipo_material(tipo_material) VALUES (@nombre)
+END
+GO
+
+--Actualizar tipo de material
+CREATE PROCEDURE p_ActualizarTipoMaterial
+  @nombre VARCHAR(75),
+  @tipoMaterialNuevo VARCHAR(75)
+AS
+BEGIN
+  DECLARE @codigoTipoMaterial INT --Declaro una variable para obtener el codigo del tipo de material
+
+  SELECT @codigoTipoMaterial = tipo_material.codigo FROM tipo_material WHERE tipo_material.tipo_material = @nombre -- Obtengo el codigo
+
+  UPDATE tipo_material SET tipo_material = @tipoMaterialNuevo WHERE tipo_material.codigo = @codigoTipoMaterial;
+END
+GO
+
+--Mostrar todos los materiales del sistema
+CREATE PROCEDURE p_MostrarMateriales
+AS
+BEGIN
+  SELECT materiales.codigo as 'Código', tipo_material.tipo_material as 'Tipo material', materiales.nombre as 'Nombre', materiales.descripcion as 'Descripción', materiales.costo as 'Costo', materiales.existencia as 'Existencia', 
+  CASE WHEN materiales.estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado
+  FROM materiales JOIN tipo_material ON materiales.codigo_tipo_material = tipo_material.codigo
+END
+GO
+
+
+
+
+
+
+
+
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
 
 --Insertar  nueva Direccion

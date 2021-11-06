@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Dominio;
 
 namespace Presentacion
 {
@@ -33,11 +33,18 @@ namespace Presentacion
 
         private void FormMateriales_Load(object sender, EventArgs e)
         {
-            PermisosUsuarios();
+            //PermisosUsuarios();
+            MostrarMateriales();
+        }
+
+        private void MostrarMateriales() 
+        {
+            DominioMateriales materiales = new DominioMateriales();
+            gridViewListaMateriales.DataSource = materiales.ShowMaterials();
         }
 
         //Permisos de usuarios
-        public void PermisosUsuarios()
+        private void PermisosUsuarios()
         {
             //if (UsuarioLoginCache.Tipo_usuario == Posiciones.Empleado)
             //{

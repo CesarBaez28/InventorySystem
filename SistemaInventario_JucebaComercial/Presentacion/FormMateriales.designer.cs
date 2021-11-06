@@ -30,10 +30,11 @@ namespace Presentacion
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMateriales));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelContedorUsuarios = new System.Windows.Forms.Panel();
+            this.btnAgregarExcdente = new System.Windows.Forms.Button();
             this.btnEportarExcel = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -47,14 +48,6 @@ namespace Presentacion
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.CodigoMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo_material = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Existencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAgregarExcdente = new System.Windows.Forms.Button();
             this.panelContedorUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewListaMateriales)).BeginInit();
             this.SuspendLayout();
@@ -81,6 +74,23 @@ namespace Presentacion
             this.panelContedorUsuarios.Name = "panelContedorUsuarios";
             this.panelContedorUsuarios.Size = new System.Drawing.Size(915, 502);
             this.panelContedorUsuarios.TabIndex = 4;
+            // 
+            // btnAgregarExcdente
+            // 
+            this.btnAgregarExcdente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarExcdente.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnAgregarExcdente.FlatAppearance.BorderSize = 0;
+            this.btnAgregarExcdente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarExcdente.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarExcdente.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarExcdente.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnAgregarExcdente.Location = new System.Drawing.Point(563, 457);
+            this.btnAgregarExcdente.Name = "btnAgregarExcdente";
+            this.btnAgregarExcdente.Size = new System.Drawing.Size(162, 31);
+            this.btnAgregarExcdente.TabIndex = 28;
+            this.btnAgregarExcdente.Text = "Agregar Excedente";
+            this.btnAgregarExcdente.UseVisualStyleBackColor = false;
+            this.btnAgregarExcdente.Click += new System.EventHandler(this.btnAgregarExcdente_Click);
             // 
             // btnEportarExcel
             // 
@@ -222,6 +232,7 @@ namespace Presentacion
             // 
             // gridViewListaMateriales
             // 
+            this.gridViewListaMateriales.AllowUserToAddRows = false;
             this.gridViewListaMateriales.AllowUserToDeleteRows = false;
             this.gridViewListaMateriales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -230,44 +241,36 @@ namespace Presentacion
             this.gridViewListaMateriales.BackgroundColor = System.Drawing.Color.White;
             this.gridViewListaMateriales.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridViewListaMateriales.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewListaMateriales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewListaMateriales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridViewListaMateriales.ColumnHeadersHeight = 42;
             this.gridViewListaMateriales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridViewListaMateriales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CodigoMaterial,
-            this.Nombre,
-            this.tipo_material,
-            this.descripcion,
-            this.CostoMaterial,
-            this.Existencia,
-            this.estado});
             this.gridViewListaMateriales.EnableHeadersVisualStyles = false;
             this.gridViewListaMateriales.GridColor = System.Drawing.Color.Black;
             this.gridViewListaMateriales.Location = new System.Drawing.Point(14, 153);
             this.gridViewListaMateriales.Name = "gridViewListaMateriales";
             this.gridViewListaMateriales.ReadOnly = true;
             this.gridViewListaMateriales.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewListaMateriales.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewListaMateriales.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridViewListaMateriales.RowHeadersVisible = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            this.gridViewListaMateriales.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridViewListaMateriales.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.gridViewListaMateriales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridViewListaMateriales.Size = new System.Drawing.Size(886, 298);
             this.gridViewListaMateriales.TabIndex = 0;
@@ -306,65 +309,6 @@ namespace Presentacion
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // CodigoMaterial
-            // 
-            this.CodigoMaterial.HeaderText = "Código";
-            this.CodigoMaterial.Name = "CodigoMaterial";
-            this.CodigoMaterial.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // tipo_material
-            // 
-            this.tipo_material.HeaderText = "Tipo Material";
-            this.tipo_material.Name = "tipo_material";
-            this.tipo_material.ReadOnly = true;
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "Descripción";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            // 
-            // CostoMaterial
-            // 
-            this.CostoMaterial.HeaderText = "Costo";
-            this.CostoMaterial.Name = "CostoMaterial";
-            this.CostoMaterial.ReadOnly = true;
-            // 
-            // Existencia
-            // 
-            this.Existencia.HeaderText = "Existencia";
-            this.Existencia.Name = "Existencia";
-            this.Existencia.ReadOnly = true;
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Estado";
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
-            // 
-            // btnAgregarExcdente
-            // 
-            this.btnAgregarExcdente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAgregarExcdente.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnAgregarExcdente.FlatAppearance.BorderSize = 0;
-            this.btnAgregarExcdente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarExcdente.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarExcdente.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarExcdente.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAgregarExcdente.Location = new System.Drawing.Point(563, 457);
-            this.btnAgregarExcdente.Name = "btnAgregarExcdente";
-            this.btnAgregarExcdente.Size = new System.Drawing.Size(162, 31);
-            this.btnAgregarExcdente.TabIndex = 28;
-            this.btnAgregarExcdente.Text = "Agregar Excedente";
-            this.btnAgregarExcdente.UseVisualStyleBackColor = false;
-            this.btnAgregarExcdente.Click += new System.EventHandler(this.btnAgregarExcdente_Click);
-            // 
             // FormMateriales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,13 +344,6 @@ namespace Presentacion
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnEportarExcel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoMaterial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipo_material;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CostoMaterial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Existencia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.Button btnAgregarExcdente;
     }
 }

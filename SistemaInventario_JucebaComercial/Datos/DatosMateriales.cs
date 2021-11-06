@@ -10,6 +10,12 @@ namespace Datos
 {
     public class DatosMateriales : ExecuteCommandSql
     {
-
+        //Mostrar todos lo materiales del sistema
+        public DataTable MostrarMateriales() 
+        {
+            DataTable table = new DataTable();
+            table = ExecuteReader("p_MostrarMateriales");
+            return table;
+        }
     }
 }

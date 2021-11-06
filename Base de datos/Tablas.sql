@@ -62,7 +62,7 @@ CREATE TABLE materiales(
     --CONSTRAINT fk_codigo_unidad_medida_materiales FOREIGN KEY(codigo_unidad_medida) REFERENCES unidades_medidas(codigo),
     nombre VARCHAR(100) UNIQUE,
     costo DECIMAL (20,2),
-	punto_reorden INT DEFAULT 0,
+	punto_reorden INT DEFAULT 5,
     existencia INT,
     --largo NUMERIC(8,2),
     descripcion TEXT DEFAULT '',
