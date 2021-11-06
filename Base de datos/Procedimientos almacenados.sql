@@ -344,12 +344,16 @@ BEGIN
 END
 GO
 
-
-
-
-
-
-
+--Buscar materiales por codigo
+CREATE PROCEDURE p_BuscarMaterialesCodigo
+  @codigo INT
+AS
+BEGIN
+  SELECT materiales.codigo as 'Código', tipo_material.tipo_material as 'Tipo material', materiales.nombre as 'Nombre', materiales.descripcion as 'Descripción', materiales.costo as 'Costo', materiales.existencia as 'Existencia', 
+  CASE WHEN materiales.estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado
+  FROM materiales JOIN tipo_material ON materiales.codigo_tipo_material = tipo_material.codigo WHERE materiales.codigo = @codigo;
+END
+GO
 
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
 

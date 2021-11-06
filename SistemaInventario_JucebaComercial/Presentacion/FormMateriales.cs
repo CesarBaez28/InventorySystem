@@ -37,6 +37,7 @@ namespace Presentacion
             MostrarMateriales();
         }
 
+        //Mostrar materiales
         private void MostrarMateriales() 
         {
             DominioMateriales materiales = new DominioMateriales();
@@ -56,7 +57,21 @@ namespace Presentacion
         //Buscar materiales
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            DominioMateriales materiales = new DominioMateriales();
 
+            //Por codigo
+            if (comboBuscar.SelectedIndex == 0) 
+            {
+                //Verifico se haya ingresado un codigo y que se ha correcto
+                if (comboBuscar.Text != "" && int.TryParse(txbBuscar.Text, out parseCorrecto))
+                {
+                    gridViewListaMateriales.DataSource = materiales.SearchMaterialByCode(txbBuscar.Text);
+                }
+                else 
+                {
+                    MessageBox.Show("Código incorrecto");
+                }
+            }
         }
 
         //Funcionalidad boton nuevo

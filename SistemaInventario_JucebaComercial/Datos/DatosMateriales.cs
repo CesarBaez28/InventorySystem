@@ -17,5 +17,15 @@ namespace Datos
             table = ExecuteReader("p_MostrarMateriales");
             return table;
         }
+
+        //Buscar materiales por codigo
+        public DataTable BuscarMaterialesCodigo(int codigo) 
+        {
+            DataTable table = new DataTable();
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigo", codigo));
+            table = ExecuteReader("p_BuscarMaterialesCodigo");
+            return table;
+        }
     }
 }
