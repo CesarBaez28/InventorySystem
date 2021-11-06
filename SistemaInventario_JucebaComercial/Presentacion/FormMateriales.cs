@@ -44,6 +44,11 @@ namespace Presentacion
             gridViewListaMateriales.DataSource = materiales.SearchMaterialByStatus(estadoMaterial);
         }
 
+        private void ActualizarEventHandler(object sender, FormDetalleMateriales.UpdateEventArgs args)
+        {
+            MostrarMateriales();
+        }
+
         //Permisos de usuarios
         private void PermisosUsuarios()
         {
@@ -106,7 +111,9 @@ namespace Presentacion
         //Funcionalidad boton nuevo
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FormDetalleMateriales(this));
+            FormDetalleMateriales formDetalleMateriales = new FormDetalleMateriales(this);
+            formDetalleMateriales.UpdateEventHendler += ActualizarEventHandler;
+            AbrirFormulario(formDetalleMateriales);
         }
 
         //Funcionaliad boton actualizar

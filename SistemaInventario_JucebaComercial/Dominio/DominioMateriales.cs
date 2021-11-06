@@ -44,5 +44,22 @@ namespace Dominio
             table = materiales.BuscarMaterialesEstado(estado);
             return table;
         }
+
+        //Show type materials
+        public DataTable ShowTypeMaterials() 
+        {
+            DataTable table = new DataTable();
+            table = materiales.MostrarTipoMateriales();
+            return table;
+        }
+
+        //Register material 
+        public void RegisterMaterial(string codigo_tipoMaterial, string nombre, string descripcion,
+            string costo, string existencia) 
+        {
+            materiales.RegistrarMaterial(Convert.ToInt32(codigo_tipoMaterial), nombre, 
+                descripcion, float.Parse(costo), Convert.ToInt32(existencia));
+        }
+
     }
 }

@@ -39,7 +39,7 @@ namespace Presentacion
             public string Datos { get; set; }
         }
 
-        //Actuarlizar la lista de empleados al insertar o actualizar uno.
+        //Actuarlizar la lista de empleados al insertar o actualizar
         protected void Actualizar() 
         {
             UpdateEventArgs args = new UpdateEventArgs();
@@ -141,7 +141,7 @@ namespace Presentacion
         }
 
         //llenar el combobox con los tipos de usuarios
-        public void llenarCombobox()
+        private void llenarCombobox()
         {
             cbxTiposUsuarios.ValueMember = "codigo";
             cbxTiposUsuarios.DisplayMember = "tipo_usuario";

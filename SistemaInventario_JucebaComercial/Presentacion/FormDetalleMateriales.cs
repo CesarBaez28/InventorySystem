@@ -61,6 +61,8 @@ namespace Presentacion
         //Funcionalidad del boton aceptar
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            DominioMateriales material = new DominioMateriales();
+
             //Insertar
             if (actualizar == false)
             {
@@ -70,6 +72,8 @@ namespace Presentacion
                     // Valido que el precio sea un numero valido
                     if (float.TryParse(txbCosto.Text, out parseCorrecto))
                     {
+                        material.RegisterMaterial(cbxTiposMateriales.SelectedValue.ToString(), txbNombre.Text, 
+                            txbDescripcion.Text, txbCosto.Text, txbExistencia.Text);
 
                         MessageBox.Show("Se insertó correctamente");
                         VaciarCampos();
@@ -125,11 +129,11 @@ namespace Presentacion
         //Llenar combobox con los tipos de materiales
         public void llenarCombobox()
         {
-            //DominioMateriales material = new DominioMateriales();
+            DominioMateriales material = new DominioMateriales();
 
-            //cbxTiposMateriales.ValueMember = "codigo";
-            //cbxTiposMateriales.DisplayMember = "nombre";
-            //cbxTiposMateriales.DataSource = material.ObtenerTiposMateriales();
+            cbxTiposMateriales.ValueMember = "codigo";
+            cbxTiposMateriales.DisplayMember = "tipo_material";
+            cbxTiposMateriales.DataSource = material.ShowTypeMaterials();
         }
 
         private void lblTitulo_MouseMove_1(object sender, MouseEventArgs e)

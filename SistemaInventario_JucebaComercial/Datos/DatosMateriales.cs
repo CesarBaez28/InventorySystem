@@ -47,5 +47,26 @@ namespace Datos
             table = ExecuteReader("p_BuscarMaterialesEstado");
             return table;
         }
+
+        //Mostrar tipos de materiales
+        public DataTable MostrarTipoMateriales() 
+        {
+            DataTable table = new DataTable();
+            table = ExecuteReaderText("SELECT codigo, tipo_material FROM tipo_material");
+            return table;
+        }
+
+        //Registrar nuevo material
+        public void RegistrarMaterial(int codigo_tipoMaterial, string nombre, string descripcion, 
+            float costo, int existencia) 
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigo_tipoMaterial", codigo_tipoMaterial));
+            parameters.Add(new SqlParameter("@nombre", nombre));
+            parameters.Add(new SqlParameter("@descripcion", descripcion));
+            parameters.Add(new SqlParameter("@costo", costo));
+            parameters.Add(new SqlParameter("@existencia", existencia));
+            ExecuteNonQuery("p_InsertarMaterial");
+        }
     }
 }

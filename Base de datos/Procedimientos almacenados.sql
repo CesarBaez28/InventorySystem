@@ -377,6 +377,22 @@ BEGIN
 END
 GO
 
+--Insertar nuevo material
+CREATE PROCEDURE p_InsertarMaterial
+  @codigo_tipoMaterial INT,
+  @nombre VARCHAR(75),
+  @descripcion TEXT,
+  @costo NUMERIC(20,2),
+  @existencia INT
+AS
+BEGIN
+  INSERT INTO materiales(codigo_tipo_material, nombre, descripcion, costo, existencia) 
+  VALUES(@codigo_tipoMaterial, @nombre, @descripcion, @costo, @existencia)
+END
+GO
+
+SELECT * FROM materiales
+
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
 
 --Insertar  nueva Direccion
