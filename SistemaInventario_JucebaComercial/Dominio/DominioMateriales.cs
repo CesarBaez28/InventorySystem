@@ -28,5 +28,21 @@ namespace Dominio
             table = materiales.BuscarMaterialesCodigo(Convert.ToInt32(codigo));
             return table;
         }
+
+        //Search material by name
+        public DataTable SearchMaterialByName(string nombre) 
+        {
+            DataTable table = new DataTable();
+            table = materiales.BuscarMaterialesNombre(nombre);
+            return table;
+        }
+
+        //Search material by status
+        public DataTable SearchMaterialByStatus(bool estado) 
+        {
+            DataTable table = new DataTable();
+            table = materiales.BuscarMaterialesEstado(estado);
+            return table;
+        }
     }
 }

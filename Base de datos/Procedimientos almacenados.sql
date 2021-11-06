@@ -355,6 +355,28 @@ BEGIN
 END
 GO
 
+--Buscar materiales por nombre
+CREATE PROCEDURE p_BuscarMaterialesNombre
+  @nombre VARCHAR(75)
+AS
+BEGIN
+  SELECT materiales.codigo as 'Código', tipo_material.tipo_material as 'Tipo material', materiales.nombre as 'Nombre', materiales.descripcion as 'Descripción', materiales.costo as 'Costo', materiales.existencia as 'Existencia', 
+  CASE WHEN materiales.estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado
+  FROM materiales JOIN tipo_material ON materiales.codigo_tipo_material = tipo_material.codigo WHERE materiales.nombre LIKE '%'+ @nombre +'%'
+END
+GO
+
+--Buscar materiales por estado
+CREATE PROCEDURE p_BuscarMaterialesEstado
+  @estado BIT
+AS
+BEGIN
+  SELECT materiales.codigo as 'Código', tipo_material.tipo_material as 'Tipo material', materiales.nombre as 'Nombre', materiales.descripcion as 'Descripción', materiales.costo as 'Costo', materiales.existencia as 'Existencia', 
+  CASE WHEN materiales.estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado
+  FROM materiales JOIN tipo_material ON materiales.codigo_tipo_material = tipo_material.codigo WHERE materiales.estado = @estado
+END
+GO
+
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
 
 --Insertar  nueva Direccion

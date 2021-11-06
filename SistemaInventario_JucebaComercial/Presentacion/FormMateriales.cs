@@ -37,11 +37,11 @@ namespace Presentacion
             MostrarMateriales();
         }
 
-        //Mostrar materiales
+        //Mostrar materiales (los activos)
         private void MostrarMateriales() 
         {
             DominioMateriales materiales = new DominioMateriales();
-            gridViewListaMateriales.DataSource = materiales.ShowMaterials();
+            gridViewListaMateriales.DataSource = materiales.SearchMaterialByStatus(estadoMaterial);
         }
 
         //Permisos de usuarios
@@ -60,17 +60,46 @@ namespace Presentacion
             DominioMateriales materiales = new DominioMateriales();
 
             //Por codigo
-            if (comboBuscar.SelectedIndex == 0) 
+            if (comboBuscar.SelectedIndex == 0)
             {
                 //Verifico se haya ingresado un codigo y que se ha correcto
                 if (comboBuscar.Text != "" && int.TryParse(txbBuscar.Text, out parseCorrecto))
                 {
                     gridViewListaMateriales.DataSource = materiales.SearchMaterialByCode(txbBuscar.Text);
                 }
-                else 
+                else
                 {
                     MessageBox.Show("Código incorrecto");
                 }
+
+                txbBuscar.Text = "";
+            }
+            //Por nombre
+            else if (comboBuscar.SelectedIndex == 1)
+            {
+                //Verifico que el campo este lleno
+                if (txbBuscar.Text != "")
+                {
+                    gridViewListaMateriales.DataSource = materiales.SearchMaterialByName(txbBuscar.Text);
+                }
+
+                txbBuscar.Text = "";
+            }
+            //Por materiales activos
+            else if (comboBuscar.SelectedIndex == 3)
+            {
+                estadoMaterial = true;
+                gridViewListaMateriales.DataSource = materiales.SearchMaterialByStatus(estadoMaterial);
+            }
+            //Por materiales inactivos
+            else if (comboBuscar.SelectedIndex == 4)
+            {
+                estadoMaterial = false;
+                gridViewListaMateriales.DataSource = materiales.SearchMaterialByStatus(estadoMaterial);
+            }
+            else 
+            {
+                gridViewListaMateriales.DataSource = materiales.ShowMaterials();
             }
         }
 
