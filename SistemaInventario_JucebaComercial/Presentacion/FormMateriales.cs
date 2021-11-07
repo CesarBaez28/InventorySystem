@@ -122,7 +122,11 @@ namespace Presentacion
             if (gridViewListaMateriales.SelectedRows.Count >= 0)
             {
                 FormDetalleMateriales detalleMateriales = new FormDetalleMateriales(this);
+                detalleMateriales.UpdateEventHendler += ActualizarEventHandler;
 
+                actualizar = true;
+
+                //Mustros los controles para cambiar el estado del material y organizo los otros componentes
                 detalleMateriales.lblEstado.Visible = true;
                 detalleMateriales.cbxEstado.Visible = true;
                 detalleMateriales.lblEstado.Location = new Point(12,327);
@@ -130,6 +134,16 @@ namespace Presentacion
                 detalleMateriales.btnAceptar.Location = new Point(15,388);
                 detalleMateriales.btnCancelar.Location = new Point(127,388);
                 detalleMateriales.Size = new Size(263,464);
+
+                //Obtengo los datos del datagridview para actualizarlos
+                detalleMateriales.actualizar = actualizar;
+                detalleMateriales.codigo = gridViewListaMateriales.CurrentRow.Cells["Código"].Value.ToString();
+                detalleMateriales.tipoMaterial = gridViewListaMateriales.CurrentRow.Cells["Tipo material"].Value.ToString();
+                detalleMateriales.txbNombre.Text = gridViewListaMateriales.CurrentRow.Cells["Nombre"].Value.ToString();
+                detalleMateriales.txbDescripcion.Text = gridViewListaMateriales.CurrentRow.Cells["Descripción"].Value.ToString();
+                detalleMateriales.txbCosto.Text = gridViewListaMateriales.CurrentRow.Cells["Costo"].Value.ToString();
+                detalleMateriales.txbExistencia.Text = gridViewListaMateriales.CurrentRow.Cells["Existencia"].Value.ToString();
+                detalleMateriales.cbxEstado.Text = gridViewListaMateriales.CurrentRow.Cells["Estado"].Value.ToString();
 
                 AbrirFormulario(detalleMateriales);
             }

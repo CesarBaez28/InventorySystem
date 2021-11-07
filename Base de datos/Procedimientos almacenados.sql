@@ -391,6 +391,22 @@ BEGIN
 END
 GO
 
+--Actualizar material
+CREATE PROCEDURE p_ActualizarMaterial
+  @codigoMaterial INT,
+  @codigo_TipoMaterial INT,
+  @nombre VARCHAR(75),
+  @descripcion TEXT,
+  @costo NUMERIC(20,2),
+  @existencia INT,
+  @estado BIT 
+AS
+BEGIN
+  UPDATE materiales SET codigo_tipo_material = @codigo_TipoMaterial, nombre = @nombre, costo = @costo, existencia = @existencia, 
+  descripcion = @descripcion , estado = @estado WHERE codigo = @codigoMaterial
+END
+GO
+
 SELECT * FROM materiales
 
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------

@@ -89,7 +89,6 @@ namespace Presentacion
             this.txbDescripcion.Name = "txbDescripcion";
             this.txbDescripcion.Size = new System.Drawing.Size(220, 22);
             this.txbDescripcion.TabIndex = 24;
-            this.txbDescripcion.UseSystemPasswordChar = true;
             // 
             // lblDescripcion
             // 

@@ -68,5 +68,20 @@ namespace Datos
             parameters.Add(new SqlParameter("@existencia", existencia));
             ExecuteNonQuery("p_InsertarMaterial");
         }
+
+        //Actualiar material
+        public void ActualizarMaterial(int codigoMaterial, int codigo_tipoMaterial, string nombre, string descripcion,
+            float costo, int existencia, bool estado) 
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigoMaterial", codigoMaterial));
+            parameters.Add(new SqlParameter("@codigo_TipoMaterial", codigo_tipoMaterial));
+            parameters.Add(new SqlParameter("@nombre", nombre));
+            parameters.Add(new SqlParameter("@descripcion", descripcion));
+            parameters.Add(new SqlParameter("@costo", costo));
+            parameters.Add(new SqlParameter("@existencia", existencia));
+            parameters.Add(new SqlParameter("@estado", estado));
+            ExecuteNonQuery("p_ActualizarMaterial");
+        }
     }
 }

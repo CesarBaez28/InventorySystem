@@ -61,5 +61,14 @@ namespace Dominio
                 descripcion, float.Parse(costo), Convert.ToInt32(existencia));
         }
 
+        //Update Material
+        public void UpdateMaterial(string codigoMaterial, string codigo_tipoMaterial, string nombre, string descripcion,
+            string costo, string existencia, bool estado) 
+        {
+            materiales.ActualizarMaterial(Convert.ToInt32(codigoMaterial), 
+                Convert.ToInt32(codigo_tipoMaterial), nombre, descripcion, float.Parse(costo), 
+                Convert.ToInt32(existencia), estado);
+        }
+
     }
 }

@@ -96,15 +96,12 @@ namespace Presentacion
                 if (float.TryParse(txbCosto.Text, out parseCorrecto))
                 {
                     if (cbxEstado.Text == "Activo")
-                    {
                         estadoMaterial = true;
-
-                    }
                     else
-                    {
                         estadoMaterial = false;
 
-                    }
+                    material.UpdateMaterial(codigo, cbxTiposMateriales.SelectedValue.ToString(), txbNombre.Text, 
+                        txbDescripcion.Text, txbCosto.Text, txbExistencia.Text, estadoMaterial);
 
                     MessageBox.Show("Se actualizó correctamente");
                     VaciarCampos();
