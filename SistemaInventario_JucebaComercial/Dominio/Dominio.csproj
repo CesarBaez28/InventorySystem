@@ -44,6 +44,7 @@
     <Compile Include="DominioCliente.cs" />
     <Compile Include="DominioDirecciones.cs" />
     <Compile Include="DominioMateriales.cs" />
+    <Compile Include="DominioMedidas.cs" />
     <Compile Include="DominioProveedores.cs" />
     <Compile Include="DominioUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

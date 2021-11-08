@@ -38,7 +38,7 @@ namespace Presentacion
             this.lblAlto = new System.Windows.Forms.Label();
             this.txbCantidad = new System.Windows.Forms.TextBox();
             this.lblCantidad = new System.Windows.Forms.Label();
-            this.cbxEstado = new System.Windows.Forms.ComboBox();
+            this.cbxMedidas = new System.Windows.Forms.ComboBox();
             this.lblUnidadMedida = new System.Windows.Forms.Label();
             this.txbDescripcion = new System.Windows.Forms.TextBox();
             this.lblDescripcion = new System.Windows.Forms.Label();
@@ -132,17 +132,14 @@ namespace Presentacion
             this.lblCantidad.TabIndex = 27;
             this.lblCantidad.Text = "Cantidad:";
             // 
-            // cbxEstado
+            // cbxMedidas
             // 
-            this.cbxEstado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxEstado.FormattingEnabled = true;
-            this.cbxEstado.Items.AddRange(new object[] {
-            "Activo",
-            "Inactivo"});
-            this.cbxEstado.Location = new System.Drawing.Point(12, 238);
-            this.cbxEstado.Name = "cbxEstado";
-            this.cbxEstado.Size = new System.Drawing.Size(223, 25);
-            this.cbxEstado.TabIndex = 32;
+            this.cbxMedidas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxMedidas.FormattingEnabled = true;
+            this.cbxMedidas.Location = new System.Drawing.Point(12, 238);
+            this.cbxMedidas.Name = "cbxMedidas";
+            this.cbxMedidas.Size = new System.Drawing.Size(223, 25);
+            this.cbxMedidas.TabIndex = 32;
             // 
             // lblUnidadMedida
             // 
@@ -212,7 +209,7 @@ namespace Presentacion
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txbDescripcion);
             this.Controls.Add(this.lblDescripcion);
-            this.Controls.Add(this.cbxEstado);
+            this.Controls.Add(this.cbxMedidas);
             this.Controls.Add(this.lblUnidadMedida);
             this.Controls.Add(this.txbCantidad);
             this.Controls.Add(this.lblCantidad);
@@ -243,7 +240,7 @@ namespace Presentacion
         private System.Windows.Forms.Label lblAlto;
         public System.Windows.Forms.TextBox txbCantidad;
         private System.Windows.Forms.Label lblCantidad;
-        public System.Windows.Forms.ComboBox cbxEstado;
+        public System.Windows.Forms.ComboBox cbxMedidas;
         public System.Windows.Forms.Label lblUnidadMedida;
         public System.Windows.Forms.TextBox txbDescripcion;
         private System.Windows.Forms.Label lblDescripcion;

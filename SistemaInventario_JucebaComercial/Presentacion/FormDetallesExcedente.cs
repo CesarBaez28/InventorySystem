@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
 
 namespace Presentacion
 {
@@ -17,6 +18,26 @@ namespace Presentacion
         public FormDetallesExcedente()
         {
             InitializeComponent();
+        }
+
+        //Cerrar el formulario
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void FormAgregarExcedente_Load(object sender, EventArgs e)
+        {
+            MostrarUnidades();
+        }
+
+        //Mostrar unidades de medida
+        private void MostrarUnidades() 
+        {
+            DominioMedidas medida = new DominioMedidas();
+            cbxMedidas.ValueMember = "codigo";
+            cbxMedidas.DisplayMember = "unidad_medida";
+            cbxMedidas.DataSource = medida.ShowMeasurement();
         }
 
         //Mover el formulario
@@ -34,15 +55,5 @@ namespace Presentacion
             }
         }
 
-        //Cerrar el formulario
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void FormAgregarExcedente_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

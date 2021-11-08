@@ -35,6 +35,14 @@ INSERT INTO materiales(codigo_tipo_material, nombre, costo, existencia) VALUES (
 INSERT INTO materiales(codigo_tipo_material, nombre, costo, existencia) VALUES (4, 'Angular 1/2', 200, 10)
 
 
+--Unidades de medida 
+INSERT INTO unidades_medidas(unidad_medida) VALUES('Pulgadas')
+INSERT INTO unidades_medidas(unidad_medida) VALUES('Pies')
+INSERT INTO unidades_medidas(unidad_medida) VALUES('Metros')
+INSERT INTO unidades_medidas(unidad_medida) VALUES('Centímetros')
+
+SELECT codigo, unidad_medida FROM unidades_medidas
+
 SELECT * FROM tipo_material
 SELECT * FROM materiales
 
