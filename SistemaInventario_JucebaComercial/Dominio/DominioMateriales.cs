@@ -81,5 +81,11 @@ namespace Dominio
         {
             materiales.ActualizarTipoMaterial(nombre, nombreNuevo);
         }
+
+        //Delete type material (change status to inactive)
+        public void DeleteTypeMaterial(string codigo) 
+        {
+            materiales.EliminarTipoMaterial(Convert.ToInt32(codigo));
+        }
     }
 }

@@ -407,7 +407,14 @@ BEGIN
 END
 GO
 
-
+--Eliminar materia (cambiar estado a inactivo)
+CREATE PROCEDURE p_EliminarMaterial
+  @codigo INT
+AS
+BEGIN
+  UPDATE materiales SET estado = 0  WHERE codigo = @codigo
+END
+GO
 
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
 

@@ -13,12 +13,13 @@ namespace Presentacion
 {
     public partial class FormMateriales : Form
     {
-
         public string codigo; // Me servirá para obtener el codigo de la fila seleccionada en el dataGrid
         int parseCorrecto; // Lo uso para vereficar que al momento de buscar un material el codigo sea un numero entero.
         public bool estadoMaterial = true; // Lo utilizo para buscar los materiales por estado (activo o inactivo)
         public bool actualizar = false; //La utilizo para indicar si se va a actualizar o a insertar
         public string tipoMaterial; //La utilizo para guardar el texto del tipo de material seleccionado en el datagridView
+
+        DominioMateriales material = new DominioMateriales();
 
         public FormMateriales()
         {
@@ -158,7 +159,11 @@ namespace Presentacion
         {
             if (gridViewListaMateriales.SelectedRows.Count >= 0) 
             {
-
+                estadoMaterial = true;
+                codigo = gridViewListaMateriales.CurrentRow.Cells["Código"].Value.ToString();
+                material.DeleteTypeMaterial(codigo);
+                MessageBox.Show("Se eliminó correctamente");
+                MostrarMateriales();
             }
             else
             {

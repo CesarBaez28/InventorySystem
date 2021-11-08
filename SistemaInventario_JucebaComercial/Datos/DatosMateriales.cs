@@ -100,5 +100,13 @@ namespace Datos
             parameters.Add(new SqlParameter("@tipoMaterialNuevo", nombreNuevo));
             ExecuteNonQuery("p_ActualizarTipoMaterial");
         }
+
+        //Elminar tipo material (cambiar estado a inactivo)
+        public void EliminarTipoMaterial(int codigo) 
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigo", codigo));
+            ExecuteNonQuery("p_EliminarMaterial");
+        }
     }
 }
