@@ -70,5 +70,16 @@ namespace Dominio
                 Convert.ToInt32(existencia), estado);
         }
 
+        //Register type material
+        public void RegisterTypeMaterial(string nombre) 
+        {
+            materiales.RegistrarTipoMaterial(nombre);
+        }
+
+        //Update type material
+        public void UpdateTypeMaterial(string nombre, string nombreNuevo) 
+        {
+            materiales.ActualizarTipoMaterial(nombre, nombreNuevo);
+        }
     }
 }

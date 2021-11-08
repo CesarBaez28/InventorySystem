@@ -83,5 +83,22 @@ namespace Datos
             parameters.Add(new SqlParameter("@estado", estado));
             ExecuteNonQuery("p_ActualizarMaterial");
         }
+
+        //Registrar tipo de material
+        public void RegistrarTipoMaterial(string nombre) 
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@nombre", nombre));
+            ExecuteNonQuery("p_InsertarTipoMaterial");
+        }
+
+        //Actualizar tipo de material
+        public void ActualizarTipoMaterial(string nombre, string nombreNuevo)
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@nombre", nombre));
+            parameters.Add(new SqlParameter("@tipoMaterialNuevo", nombreNuevo));
+            ExecuteNonQuery("p_ActualizarTipoMaterial");
+        }
     }
 }

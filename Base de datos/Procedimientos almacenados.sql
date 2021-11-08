@@ -407,7 +407,7 @@ BEGIN
 END
 GO
 
-SELECT * FROM materiales
+
 
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
 
