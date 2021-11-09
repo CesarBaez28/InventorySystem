@@ -416,6 +416,27 @@ BEGIN
 END
 GO
 
+--Registrar excedente de material
+CREATE PROCEDURE p_InsertarExcedenteMaterial
+  @tipoMaterial VARCHAR(30),
+  @codigoMaterial INT,
+  @codigoMedida INT,
+  @largo VARCHAR(50),
+  @ancho VARCHAR(50),
+  @alto Varchar(50),
+  @cantidad INT,
+  @descripcion TEXT
+AS
+BEGIN
+  
+  DECLARE @codigo_tipoMaterial INT --La uso para guardar el codigo del tipo de material
+  SELECT @codigo_tipoMaterial = tipo_material.codigo FROM tipo_material WHERE tipo_material = @tipoMaterial -- guardo el codigo en la variable
+
+  INSERT INTO excedentes_materiales(codigo_tipo_material, codigo_material, codigo_unidad_medida, largo, ancho, alto, cantidad, descripcion)
+  VALUES(@codigo_tipoMaterial, @codigoMaterial, @codigoMedida, @largo, @ancho, @alto, @cantidad, @descripcion)
+END
+GO
+
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
 
 --Insertar  nueva Direccion

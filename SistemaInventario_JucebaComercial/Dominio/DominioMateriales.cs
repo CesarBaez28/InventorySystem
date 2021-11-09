@@ -87,5 +87,14 @@ namespace Dominio
         {
             materiales.EliminarTipoMaterial(Convert.ToInt32(codigo));
         }
+
+        //Register leftover material
+        public void RegisterLeftoverMarerial(string tipoMaterial, string codigoMaterial,
+            string codigoMedida, string largo, string ancho, string alto, string cantidad, string descripcion) 
+        {
+            materiales.RegistrarExcenteMaterial(tipoMaterial, Convert.ToInt32(codigoMaterial), 
+                Convert.ToInt32(codigoMedida), largo, ancho, alto, Convert.ToInt32(cantidad), 
+                descripcion);
+        }
     }
 }

@@ -45,4 +45,3 @@ SELECT codigo, unidad_medida FROM unidades_medidas
 
 SELECT * FROM tipo_material
 SELECT * FROM materiales
-

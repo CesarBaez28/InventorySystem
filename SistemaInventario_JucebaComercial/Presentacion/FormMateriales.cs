@@ -174,7 +174,22 @@ namespace Presentacion
         //Agregar excedente
         private void btnAgregarExcdente_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FormDetallesExcedente());
+            //Verifico que haya una fila seleccionada
+            if (gridViewListaMateriales.SelectedRows.Count >= 0)
+            {
+                FormDetallesExcedente detallesExcedente = new FormDetallesExcedente();
+
+                //Obtengo los codigos del material y el tipo para poder ingresar el excedente del material
+                detallesExcedente.codigoMaterial = gridViewListaMateriales.CurrentRow.Cells["Código"].Value.ToString();
+                detallesExcedente.codigoTipoMaterial = gridViewListaMateriales.CurrentRow.Cells["Tipo material"].Value.ToString();
+                detallesExcedente.existencia = gridViewListaMateriales.CurrentRow.Cells["Existencia"].Value.ToString();
+
+                AbrirFormulario(detallesExcedente);
+            }
+            else 
+            {
+                MessageBox.Show("Selecione una fila");
+            }
         }
 
         //Funcionalidad boton exportar en Excel

@@ -14,6 +14,10 @@ namespace Presentacion
     public partial class FormDetallesExcedente : Form
     {
         int posX, posY; //Las uso para obtener las cordenadas y poder mover el formulario
+        int parseCorrecto; // La uso para verificar si la cantidad ingresada es una numero entero
+        public string codigoMaterial; //Guardo el codigo del material
+        public string codigoTipoMaterial; //Guardo el codigo tipo de material
+        public string existencia; //La uso para verificar si hay suficientes materiales 
 
         public FormDetallesExcedente()
         {
@@ -38,6 +42,43 @@ namespace Presentacion
             cbxMedidas.ValueMember = "codigo";
             cbxMedidas.DisplayMember = "unidad_medida";
             cbxMedidas.DataSource = medida.ShowMeasurement();
+        }
+
+        //Boton aceptar
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            DominioMateriales material = new DominioMateriales();
+
+            //Verifico que los campos obligatorios tengan un valor
+            if (txbCantidad.Text != "" && txbAncho.Text != "" && txbAlto.Text != "" && txbLargo.Text != "")
+            {
+                //Verifico que se haya ingresado una cantidad correcta
+                if (int.TryParse(txbCantidad.Text, out parseCorrecto))
+                {
+                    //Verifico que haya materiales disponibles 
+                    if (Convert.ToInt32(existencia) >= Convert.ToInt32(txbCantidad.Text))
+                    {
+                        material.RegisterLeftoverMarerial(codigoTipoMaterial, codigoMaterial,
+                            cbxMedidas.SelectedValue.ToString(), txbLargo.Text, txbAncho.Text,
+                            txbAlto.Text, txbCantidad.Text, txbDescripcion.Text);
+
+                        MessageBox.Show("Se registró correctamente");
+                        this.Close();
+                    }
+                    else 
+                    {
+                        MessageBox.Show("No hay suficientes materiales");
+                    }
+                }
+                else 
+                {
+                    MessageBox.Show("La cantidad ingresada no es correcta");
+                }
+            }
+            else 
+            {
+                MessageBox.Show("LLene los campos obligatorios");
+            }
         }
 
         //Mover el formulario
