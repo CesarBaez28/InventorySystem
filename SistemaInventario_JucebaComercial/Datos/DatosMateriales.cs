@@ -132,5 +132,20 @@ namespace Datos
             parameters.Add(new SqlParameter("@descripcion", descripcion));
             ExecuteNonQuery("p_InsertarExcedenteMaterial");
         }
+
+        //Actualizar excedente de material
+        public void ActualizarExcedenteMaterial(int codigoExcedente, int codigoMedida, 
+            string largo, string ancho, string alto, int cantidad, string descripcion) 
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigo_excedente", codigoExcedente));
+            parameters.Add(new SqlParameter("@codigoMedida", codigoMedida));
+            parameters.Add(new SqlParameter("@largo", largo));
+            parameters.Add(new SqlParameter("@ancho", ancho));
+            parameters.Add(new SqlParameter("@alto", alto));
+            parameters.Add(new SqlParameter("@cantidad", cantidad));
+            parameters.Add(new SqlParameter("@descripcion", descripcion));
+            ExecuteNonQuery("p_ActualizarExcedenteMaterial");
+        }
     }
 }

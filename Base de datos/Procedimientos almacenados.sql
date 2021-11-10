@@ -451,6 +451,22 @@ BEGIN
 END
 GO
 
+--Actualizar excedente material
+CREATE PROCEDURE p_ActualizarExcedenteMaterial
+  @codigo_excedente INT,
+  @codigoMedida INT,
+  @largo VARCHAR(50),
+  @ancho VARCHAR(50),
+  @alto Varchar(50),
+  @cantidad INT,
+  @descripcion TEXT
+AS
+BEGIN
+  UPDATE excedentes_materiales SET codigo_unidad_medida = @codigoMedida,  largo = @largo, ancho = @ancho, alto = @alto, 
+  cantidad = @cantidad, descripcion = @descripcion WHERE codigo = @codigo_excedente
+END
+GO
+
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
 
 --Insertar  nueva Direccion

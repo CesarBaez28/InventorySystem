@@ -17,7 +17,10 @@ namespace Presentacion
         int parseCorrecto; // La uso para verificar si la cantidad ingresada es una numero entero
         public string codigoMaterial; //Guardo el codigo del material
         public string codigoTipoMaterial; //Guardo el codigo tipo de material
+        public string codigoExcedente; // Guardo el codigo del excedente
         public string existencia; //La uso para verificar si hay suficientes materiales 
+        public string unidadMedida; 
+        public bool actualizar = false; // La uso para indicar si se va a insertat o actualizar
 
         public FormDetallesExcedente()
         {
@@ -33,6 +36,9 @@ namespace Presentacion
         private void FormAgregarExcedente_Load(object sender, EventArgs e)
         {
             MostrarUnidades();
+
+            if (actualizar == true)
+                cbxMedidas.Text = unidadMedida;
         }
 
         //Mostrar unidades de medida
@@ -55,19 +61,31 @@ namespace Presentacion
                 //Verifico que se haya ingresado una cantidad correcta
                 if (int.TryParse(txbCantidad.Text, out parseCorrecto))
                 {
-                    //Verifico que haya materiales disponibles 
-                    if (Convert.ToInt32(existencia) >= Convert.ToInt32(txbCantidad.Text))
+                    //Insertar
+                    if (actualizar == false)
                     {
-                        material.RegisterLeftoverMaterial(codigoTipoMaterial, codigoMaterial,
-                            cbxMedidas.SelectedValue.ToString(), txbLargo.Text, txbAncho.Text,
-                            txbAlto.Text, txbCantidad.Text, txbDescripcion.Text);
+                        //Verifico que haya materiales disponibles 
+                        if (Convert.ToInt32(existencia) >= Convert.ToInt32(txbCantidad.Text))
+                        {
+                            material.RegisterLeftoverMaterial(codigoTipoMaterial, codigoMaterial,
+                                cbxMedidas.SelectedValue.ToString(), txbLargo.Text, txbAncho.Text,
+                                txbAlto.Text, txbCantidad.Text, txbDescripcion.Text);
 
-                        MessageBox.Show("Se registró correctamente");
-                        this.Close();
+                            MessageBox.Show("Se registró correctamente");
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No hay suficientes materiales");
+                        }
                     }
+                    //Actualizar
                     else 
                     {
-                        MessageBox.Show("No hay suficientes materiales");
+                        material.UpdateLeftoverMaterial(codigoExcedente, cbxMedidas.SelectedValue.ToString(), 
+                            txbLargo.Text, txbAncho.Text, txbAlto.Text, txbCantidad.Text, txbDescripcion.Text);
+                        MessageBox.Show("Se actualizó correctamente");
+                        this.Close();
                     }
                 }
                 else 

@@ -61,7 +61,6 @@ namespace Dominio
             return table;
         }
 
-
         //Register material 
         public void RegisterMaterial(string codigo_tipoMaterial, string nombre, string descripcion,
             string costo, string existencia) 
@@ -102,6 +101,15 @@ namespace Dominio
             string codigoMedida, string largo, string ancho, string alto, string cantidad, string descripcion) 
         {
             materiales.RegistrarExcenteMaterial(tipoMaterial, Convert.ToInt32(codigoMaterial), 
+                Convert.ToInt32(codigoMedida), largo, ancho, alto, Convert.ToInt32(cantidad), 
+                descripcion);
+        }
+
+        //Update leftover material
+        public void UpdateLeftoverMaterial(string codigoExcedente, string codigoMedida, string largo, 
+            string ancho, string alto, string cantidad, string descripcion) 
+        {
+            materiales.ActualizarExcedenteMaterial(Convert.ToInt32(codigoExcedente), 
                 Convert.ToInt32(codigoMedida), largo, ancho, alto, Convert.ToInt32(cantidad), 
                 descripcion);
         }
