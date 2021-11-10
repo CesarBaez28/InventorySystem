@@ -58,7 +58,7 @@ namespace Presentacion
                     //Verifico que haya materiales disponibles 
                     if (Convert.ToInt32(existencia) >= Convert.ToInt32(txbCantidad.Text))
                     {
-                        material.RegisterLeftoverMarerial(codigoTipoMaterial, codigoMaterial,
+                        material.RegisterLeftoverMaterial(codigoTipoMaterial, codigoMaterial,
                             cbxMedidas.SelectedValue.ToString(), txbLargo.Text, txbAncho.Text,
                             txbAlto.Text, txbCantidad.Text, txbDescripcion.Text);
 

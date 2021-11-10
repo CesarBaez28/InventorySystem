@@ -6,7 +6,7 @@ AS
   SELECT @existencia = existencia FROM materiales JOIN inserted ON inserted.codigo_material = materiales.codigo 
   WHERE materiales.codigo = inserted.codigo_material
 
-  IF(@existencia >= (SELECT cantidad FROM excedentes_materiales)) --Verifico si hay la cantidad
+  IF(@existencia >= (SELECT cantidad FROM excedentes_materiales)) --Verifico si hay la cantidad suficiente
     UPDATE materiales SET existencia = existencia - inserted.cantidad 
 	FROM materiales JOIN inserted ON inserted.codigo_material = materiales.codigo WHERE materiales.codigo = inserted.codigo_material
   ELSE

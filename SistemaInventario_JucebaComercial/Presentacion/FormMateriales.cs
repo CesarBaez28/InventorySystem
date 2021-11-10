@@ -91,6 +91,11 @@ namespace Presentacion
 
                 txbBuscar.Text = "";
             }
+            //Materiales excedentes
+            else if (comboBuscar.SelectedIndex == 2) 
+            {
+                gridViewListaMateriales.DataSource = materiales.ShowLeftoverMaterials();
+            }
             //Por materiales activos
             else if (comboBuscar.SelectedIndex == 3)
             {
@@ -103,7 +108,7 @@ namespace Presentacion
                 estadoMaterial = false;
                 gridViewListaMateriales.DataSource = materiales.SearchMaterialByStatus(estadoMaterial);
             }
-            else 
+            else
             {
                 gridViewListaMateriales.DataSource = materiales.ShowMaterials();
             }

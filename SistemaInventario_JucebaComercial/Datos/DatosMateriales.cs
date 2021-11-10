@@ -56,6 +56,14 @@ namespace Datos
             return table;
         }
 
+        //Mostrar materiales excedentes 
+        public DataTable MostrarExcedentesMateriales() 
+        {
+            DataTable table = new DataTable();
+            table = ExecuteReader("P_MostrarMaterialesExcedentes");
+            return table;
+        }
+
         //Registrar nuevo material
         public void RegistrarMaterial(int codigo_tipoMaterial, string nombre, string descripcion, 
             float costo, int existencia) 

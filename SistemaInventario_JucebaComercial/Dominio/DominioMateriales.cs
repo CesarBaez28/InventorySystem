@@ -53,6 +53,15 @@ namespace Dominio
             return table;
         }
 
+        //Show leftover material
+        public DataTable ShowLeftoverMaterials() 
+        {
+            DataTable table = new DataTable();
+            table = materiales.MostrarExcedentesMateriales();
+            return table;
+        }
+
+
         //Register material 
         public void RegisterMaterial(string codigo_tipoMaterial, string nombre, string descripcion,
             string costo, string existencia) 
@@ -89,7 +98,7 @@ namespace Dominio
         }
 
         //Register leftover material
-        public void RegisterLeftoverMarerial(string tipoMaterial, string codigoMaterial,
+        public void RegisterLeftoverMaterial(string tipoMaterial, string codigoMaterial,
             string codigoMedida, string largo, string ancho, string alto, string cantidad, string descripcion) 
         {
             materiales.RegistrarExcenteMaterial(tipoMaterial, Convert.ToInt32(codigoMaterial), 

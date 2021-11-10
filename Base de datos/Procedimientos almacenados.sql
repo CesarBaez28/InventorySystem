@@ -416,6 +416,20 @@ BEGIN
 END
 GO
 
+--Mostrar materiales excedentes
+CREATE PROCEDURE P_MostrarMaterialesExcedentes
+AS
+BEGIN
+  SELECT excedentes_materiales.codigo as 'Código', tipo_material.tipo_material as 'Tipo material', materiales.nombre as 'Material', 
+  excedentes_materiales.descripcion as 'Descripción', unidades_medidas.unidad_medida as 'Unidad medida',
+  excedentes_materiales.largo as 'Largo', excedentes_materiales.ancho as 'Ancho', excedentes_materiales.alto as 'Alto', 
+  excedentes_materiales.cantidad as 'Cantidad'
+  FROM excedentes_materiales JOIN tipo_material ON excedentes_materiales.codigo_tipo_material = tipo_material.codigo 
+  JOIN materiales ON excedentes_materiales.codigo_material = materiales.codigo 
+  JOIN unidades_medidas ON excedentes_materiales.codigo_unidad_medida = unidades_medidas.codigo
+END 
+GO
+
 --Registrar excedente de material
 CREATE PROCEDURE p_InsertarExcedenteMaterial
   @tipoMaterial VARCHAR(30),
