@@ -23,5 +23,21 @@ namespace Dominio
         {
             servicios.RegistrarMaterialServicio(Convert.ToInt32(codigoMaterial), float.Parse(cantidad));
         }
+
+        //Show all services 
+        public DataTable ShowServices() 
+        {
+            DataTable table = new DataTable();
+            table = servicios.MostrarServicios();
+            return table;
+        }
+
+        //Show materials services 
+        public DataTable ShowMaterialsServices(string codigoServicio) 
+        {
+            DataTable table = new DataTable();
+            table = servicios.MostrarMaterialesServicios(Convert.ToInt32(codigoServicio));
+            return table;
+        }
     }
 }

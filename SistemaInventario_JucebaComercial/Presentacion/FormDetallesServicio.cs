@@ -16,6 +16,8 @@ namespace Presentacion
         int posX, posY; //Las uso para obtener las cordenadas y poder mover el formulario
         int parseCorrecto; //La uso para verificar que la cantidad de materiales se ha un numero entero 
         bool estadoServicio;// la uso para indicar el estado del servicio (activo o inactivo)
+        public bool actualizar = false; // La uso para indicar cuando se va a insertar o actualizar
+        public string codigoServicio;//Guardo el codigo del servicio para actualizar y mostrar datos del mismo
 
         //La uso para actualizar la lista de materiales desde el Form FormDetallesMateriales
         public static FormDetallesServicio detallesServicio;
@@ -29,6 +31,9 @@ namespace Presentacion
         private void FormDetallesServicio_Load(object sender, EventArgs e)
         {
             MostrarMateriales();
+
+            if(actualizar == true)
+              MostrarMaterialesServicio();
         }
 
         public void MostrarMateriales() 
@@ -37,6 +42,12 @@ namespace Presentacion
             comboMaterial.ValueMember = "codigo";
             comboMaterial.DisplayMember = "Material";
             comboMaterial.DataSource = materiales.NamesCodesMaterials();
+        }
+
+        public void MostrarMaterialesServicio() 
+        {
+            DominioServicios servicios = new DominioServicios();
+            gridViewMateriales.DataSource = servicios.ShowMaterialsServices(codigoServicio);
         }
 
         //Cerrar
@@ -96,6 +107,7 @@ namespace Presentacion
                     }
 
                     MessageBox.Show("Registrado correctamente");
+                    FormServicios.formServicios.MostrarServicios(); //Actualizo lista servicios
                     BorrarCampos();
                 }
             }

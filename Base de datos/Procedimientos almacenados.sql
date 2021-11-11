@@ -505,9 +505,16 @@ BEGIN
 END
 GO
 
---Mostrar todos los servicios
-SELECT codigo as'Código', nombre_servicio as 'Nombre', descripcion as 'Descripción', precio as 'Precio',
-CASE WHEN estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado FROM servicios
+--Mostrar los materiales que incluye un servicio
+CREATE PROCEDURE p_MostrarMaterialesServicios
+  @codigoServicio INT
+AS
+BEGIN 
+  SELECT materiales.codigo as 'Código', materiales.nombre as 'Material', servicios_materiales.cantidad as 'Cantidad' FROM materiales
+  JOIN servicios_materiales ON servicios_materiales.codigo_material = materiales.codigo
+  WHERE servicios_materiales.codigo_servicio = @codigoServicio
+END
+GO
 
 SELECT * FROM servicios
 SELECT * FROM servicios_materiales

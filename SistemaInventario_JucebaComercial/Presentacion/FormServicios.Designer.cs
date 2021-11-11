@@ -44,11 +44,6 @@ namespace Presentacion
             this.btnActualizar = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.gridViewListaServicios = new System.Windows.Forms.DataGridView();
-            this.CodigoMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.btnCerrar = new System.Windows.Forms.Button();
@@ -215,6 +210,7 @@ namespace Presentacion
             // 
             // gridViewListaServicios
             // 
+            this.gridViewListaServicios.AllowUserToAddRows = false;
             this.gridViewListaServicios.AllowUserToDeleteRows = false;
             this.gridViewListaServicios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -233,12 +229,6 @@ namespace Presentacion
             this.gridViewListaServicios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridViewListaServicios.ColumnHeadersHeight = 30;
             this.gridViewListaServicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridViewListaServicios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CodigoMaterial,
-            this.Nombre,
-            this.descripcion,
-            this.Precio,
-            this.estado});
             this.gridViewListaServicios.EnableHeadersVisualStyles = false;
             this.gridViewListaServicios.GridColor = System.Drawing.Color.Black;
             this.gridViewListaServicios.Location = new System.Drawing.Point(14, 153);
@@ -262,36 +252,6 @@ namespace Presentacion
             this.gridViewListaServicios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridViewListaServicios.Size = new System.Drawing.Size(886, 298);
             this.gridViewListaServicios.TabIndex = 0;
-            // 
-            // CodigoMaterial
-            // 
-            this.CodigoMaterial.HeaderText = "Código";
-            this.CodigoMaterial.Name = "CodigoMaterial";
-            this.CodigoMaterial.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "Descripción";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Estado";
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
             // 
             // shapeContainer1
             // 
@@ -360,11 +320,6 @@ namespace Presentacion
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoMaterial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.Button btnVerDetalles;
     }
 }

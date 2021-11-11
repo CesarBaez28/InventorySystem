@@ -29,5 +29,25 @@ namespace Datos
             parameters.Add(new SqlParameter("@cantidad", cantidad));
             ExecuteNonQuery("p_InsertarServiciosMateriales");
         }
+
+        //Mostrar todos los datos de los servicios
+        public DataTable MostrarServicios() 
+        {
+            DataTable table = new DataTable();
+            table = ExecuteReaderText("SELECT codigo as'Código', nombre_servicio as 'Nombre', " +
+                "descripcion as 'Descripción', precio as 'Precio',CASE WHEN estado = 1 THEN 'Activo' " +
+                "ELSE 'Inactivo' END AS Estado FROM servicios");
+            return table;
+        }
+
+        //Mostrar materiales que incluye un servicio
+        public DataTable MostrarMaterialesServicios(int codigoServicio) 
+        {
+            DataTable table = new DataTable();
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigoServicio", codigoServicio));
+            table = ExecuteReader("p_MostrarMaterialesServicios");
+            return table;
+        }
     }
 }

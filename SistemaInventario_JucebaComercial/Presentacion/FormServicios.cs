@@ -13,14 +13,24 @@ namespace Presentacion
 {
     public partial class FormServicios : Form
     {
+        //La uso para actualizar la lista de servicios al ingresar o actualizar uno
+        public static FormServicios formServicios;
+
         public FormServicios()
         {
             InitializeComponent();
+            FormServicios.formServicios = this;
         }
 
         private void FormServicios_Load(object sender, EventArgs e)
         {
+            MostrarServicios();
+        }
 
+        public void MostrarServicios() 
+        {
+            DominioServicios servicios = new DominioServicios();
+            gridViewListaServicios.DataSource = servicios.ShowServices();
         }
 
         //Cerrar formulario
@@ -45,6 +55,9 @@ namespace Presentacion
         {
             FormDetallesServicio agregarServicio = new FormDetallesServicio();
             agregarServicio.btnAgregarExcedente.Visible = false;
+            agregarServicio.codigoServicio = gridViewListaServicios.CurrentRow.Cells["Código"].Value.ToString();
+            agregarServicio.gridViewMateriales.Columns.Clear();
+            agregarServicio.actualizar = true;
             AbrirFormulario(agregarServicio);
         }
 
@@ -53,6 +66,9 @@ namespace Presentacion
         {
             FormDetallesServicio agregarServicio = new FormDetallesServicio();
 
+            agregarServicio.gridViewMateriales.Columns.Clear();
+            agregarServicio.actualizar = true;
+            agregarServicio.codigoServicio = gridViewListaServicios.CurrentRow.Cells["Código"].Value.ToString();
             agregarServicio.btnAgregarExcedente.Visible = false;
 
             agregarServicio.gridViewMateriales.Location = new Point(14,49);
@@ -67,6 +83,7 @@ namespace Presentacion
             agregarServicio.btnEliminar.Visible = false;
             agregarServicio.btnTerminar.Visible = false;
             agregarServicio.lineShape1.Visible = false;
+            agregarServicio.btnAgregarMaterial.Visible = false;
 
             AbrirFormulario(agregarServicio);
         }

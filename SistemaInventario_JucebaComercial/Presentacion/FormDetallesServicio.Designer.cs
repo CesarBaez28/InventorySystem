@@ -491,9 +491,9 @@ namespace Presentacion
         public System.Windows.Forms.Button btnAgregar;
         public Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         public System.Windows.Forms.Button btnAgregarExcedente;
-        private System.Windows.Forms.Button btnAgregarMaterial;
         private System.Windows.Forms.DataGridViewTextBoxColumn Código;
         private System.Windows.Forms.DataGridViewTextBoxColumn Material;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        public System.Windows.Forms.Button btnAgregarMaterial;
     }
 }
