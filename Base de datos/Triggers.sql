@@ -2,14 +2,14 @@
 
 --Insertar en la tabla excedentes 
 --Verifica si existe la cantidad disponible de materiales y actualiza la existencia en la tabla materiales
-CREATE TRIGGER t_InsertarExecenteMaterial
+CREATE TRIGGER t_InsertarExcedenteMaterial
 ON excedentes_materiales FOR INSERT 
 AS
   DECLARE @existencia INT --Declaro esta variable para obtener la cantidad de materiales disponibles
   SELECT @existencia = existencia FROM materiales JOIN inserted ON inserted.codigo_material = materiales.codigo 
   WHERE materiales.codigo = inserted.codigo_material
 
-  IF(@existencia >= (SELECT cantidad FROM excedentes_materiales)) --Verifico si hay la cantidad suficiente
+  IF(@existencia >= (SELECT cantidad FROM inserted)) --Verifico si hay la cantidad suficiente
     UPDATE materiales SET existencia = existencia - inserted.cantidad 
 	FROM materiales JOIN inserted ON inserted.codigo_material = materiales.codigo WHERE materiales.codigo = inserted.codigo_material
   ELSE
@@ -34,7 +34,7 @@ AS
   DECLARE @existencia INT -- Declaro esta variable para obtener la cantidad de materiales disponibles
   SELECT @existencia = existencia FROM materiales WHERE codigo = @codigoMaterial
 
-  IF(@existencia >= (SELECT cantidad FROM excedentes_materiales)) --Verifico si hay la cantidad suficiente
+  IF(@existencia >= (SELECT cantidad FROM inserted)) --Verifico si hay la cantidad suficiente
   BEGIN
     IF((SELECT cantidad FROM deleted) < (SELECT cantidad FROM inserted)) --Verifico si la nueva cantidad es mayor que la anterior
     BEGIN
@@ -61,5 +61,7 @@ SELECT * FROM tipo_material
 SELECT * FROM excedentes_materiales
 SELECT* FROM materiales
 
+DELETE excedentes_materiales WHERE codigo = 17
+DELETE FROM excedentes_materiales
 
-Select codigo_material FROM excedentes_materiales WHERE excedentes_materiales.codigo = 3
+EXEC p_InsertarExcedenteMaterial 'Perfil',10,1,35,4,4,1,''

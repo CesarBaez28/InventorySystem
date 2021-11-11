@@ -109,8 +109,9 @@ namespace Dominio
         public void UpdateLeftoverMaterial(string codigoExcedente, string codigoMedida, string largo, 
             string ancho, string alto, string cantidad, string descripcion) 
         {
-            materiales.ActualizarExcedenteMaterial(Convert.ToInt32(codigoExcedente), 
-                Convert.ToInt32(codigoMedida), largo, ancho, alto, Convert.ToInt32(cantidad), 
+
+            materiales.ActualizarExcedenteMaterial(Convert.ToInt32(codigoExcedente),
+                Convert.ToInt32(codigoMedida), largo, ancho, alto, Convert.ToInt32(cantidad),
                 descripcion);
         }
     }

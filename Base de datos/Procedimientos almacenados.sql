@@ -442,7 +442,6 @@ CREATE PROCEDURE p_InsertarExcedenteMaterial
   @descripcion TEXT
 AS
 BEGIN
-  
   DECLARE @codigo_tipoMaterial INT --La uso para guardar el codigo del tipo de material
   SELECT @codigo_tipoMaterial = tipo_material.codigo FROM tipo_material WHERE tipo_material = @tipoMaterial -- guardo el codigo en la variable
 

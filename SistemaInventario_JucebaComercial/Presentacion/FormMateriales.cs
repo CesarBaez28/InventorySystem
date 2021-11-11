@@ -20,11 +20,15 @@ namespace Presentacion
         public string tipoMaterial; //La utilizo para guardar el texto del tipo de material seleccionado en el datagridView
         bool excedente; //La uso para indicar si se va a actualizar o eliminar los materiles o los excedentes del material
 
+        //La uso para actualizar la lista de materiales excedentes desde el fomulario FormDetallesExcedentes
         DominioMateriales material = new DominioMateriales();
+
+        public static FormMateriales formMateriales;
 
         public FormMateriales()
         {
             InitializeComponent();
+            FormMateriales.formMateriales = this;
         }
 
         //Cerrar el formulario

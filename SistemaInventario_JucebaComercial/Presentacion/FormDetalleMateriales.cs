@@ -89,7 +89,6 @@ namespace Presentacion
                     MessageBox.Show("Llene los campos obligatorios");
                 }
             }
-
             //Actualizar
             else 
             {
@@ -104,8 +103,8 @@ namespace Presentacion
                         txbDescripcion.Text, txbCosto.Text, txbExistencia.Text, estadoMaterial);
 
                     MessageBox.Show("Se actualizó correctamente");
-                    VaciarCampos();
                     Actualizar();
+                    this.Close();
                 }
                 else 
                 {

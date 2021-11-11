@@ -19,8 +19,10 @@ namespace Presentacion
         public string codigoTipoMaterial; //Guardo el codigo tipo de material
         public string codigoExcedente; // Guardo el codigo del excedente
         public string existencia; //La uso para verificar si hay suficientes materiales 
-        public string unidadMedida; 
-        public bool actualizar = false; // La uso para indicar si se va a insertat o actualizar
+        public string unidadMedida; //La uso para guardar el texto de la unidad de medida
+        public bool actualizar = false; // La uso para indicar si se va a insertar o actualizar
+
+        DominioMateriales materiales = new DominioMateriales();
 
         public FormDetallesExcedente()
         {
@@ -41,6 +43,12 @@ namespace Presentacion
                 cbxMedidas.Text = unidadMedida;
         }
 
+        //Actualiza la lista de materiales excedentes
+        private void ActualizarListaExcedentes() 
+        {
+            FormMateriales.formMateriales.gridViewListaMateriales.DataSource = materiales.ShowLeftoverMaterials();
+        }
+
         //Mostrar unidades de medida
         private void MostrarUnidades() 
         {
@@ -58,8 +66,8 @@ namespace Presentacion
             //Verifico que los campos obligatorios tengan un valor
             if (txbCantidad.Text != "" && txbAncho.Text != "" && txbAlto.Text != "" && txbLargo.Text != "")
             {
-                //Verifico que se haya ingresado una cantidad correcta
-                if (int.TryParse(txbCantidad.Text, out parseCorrecto))
+                //Verifico que se haya ingresado una cantidad correcta y que se ha mayor que cero
+                if (int.TryParse(txbCantidad.Text, out parseCorrecto) && Convert.ToInt32(txbCantidad.Text) >= 1)
                 {
                     //Insertar
                     if (actualizar == false)
@@ -82,10 +90,18 @@ namespace Presentacion
                     //Actualizar
                     else 
                     {
-                        material.UpdateLeftoverMaterial(codigoExcedente, cbxMedidas.SelectedValue.ToString(), 
-                            txbLargo.Text, txbAncho.Text, txbAlto.Text, txbCantidad.Text, txbDescripcion.Text);
-                        MessageBox.Show("Se actualizó correctamente");
-                        this.Close();
+                        try
+                        {
+                            material.UpdateLeftoverMaterial(codigoExcedente, cbxMedidas.SelectedValue.ToString(),
+                                txbLargo.Text, txbAncho.Text, txbAlto.Text, txbCantidad.Text, txbDescripcion.Text);
+                            MessageBox.Show("Se actualizó correctamente");
+                            ActualizarListaExcedentes();
+                            this.Close();
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("No hay materiales suficientes");
+                        }
                     }
                 }
                 else 
