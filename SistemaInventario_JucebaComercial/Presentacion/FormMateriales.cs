@@ -253,34 +253,34 @@ namespace Presentacion
         //Funcionalidad para exportar datos en excel
         public void ExportarDatos(DataGridView listaMateriales) 
         {
-            //Microsoft.Office.Interop.Excel.Application ExportarExcel = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel.Application ExportarExcel = new Microsoft.Office.Interop.Excel.Application();
 
-            //ExportarExcel.Application.Workbooks.Add(true);
+            ExportarExcel.Application.Workbooks.Add(true);
 
-            //int indiceColumna = 0;
+            int indiceColumna = 0;
 
-            //foreach (DataGridViewColumn columna in listaMateriales.Columns) 
-            //{
-            //    indiceColumna++;
+            foreach (DataGridViewColumn columna in listaMateriales.Columns)
+            {
+                indiceColumna++;
 
-            //    ExportarExcel.Cells[1, indiceColumna] = columna.Name;
-            //}
+                ExportarExcel.Cells[1, indiceColumna] = columna.Name;
+            }
 
-            //int indiceFila = 0;
+            int indiceFila = 0;
 
-            //foreach (DataGridViewRow fila in listaMateriales.Rows)
-            //{
-            //    indiceFila++;
-            //    indiceColumna = 0;
+            foreach (DataGridViewRow fila in listaMateriales.Rows)
+            {
+                indiceFila++;
+                indiceColumna = 0;
 
-            //    foreach (DataGridViewColumn columna in listaMateriales.Columns) 
-            //    {
-            //        indiceColumna++;
-            //        ExportarExcel.Cells[indiceFila + 1, indiceColumna] = fila.Cells[columna.Name].Value;   
-            //    }
-            //}
+                foreach (DataGridViewColumn columna in listaMateriales.Columns)
+                {
+                    indiceColumna++;
+                    ExportarExcel.Cells[indiceFila + 1, indiceColumna] = fila.Cells[columna.Name].Value;
+                }
+            }
 
-            //ExportarExcel.Visible = true;
+            ExportarExcel.Visible = true;
         }
 
         //Metodo para abirar el formulario DetalleMaterial
