@@ -47,6 +47,7 @@
     <Compile Include="DatosMateriales.cs" />
     <Compile Include="DatosMedidas.cs" />
     <Compile Include="DatosProveedores.cs" />
+    <Compile Include="DatosServicios.cs" />
     <Compile Include="ExecuteCommandSql.cs" />
     <Compile Include="ConnectionSql.cs" />
     <Compile Include="DatosUsuarios.cs" />

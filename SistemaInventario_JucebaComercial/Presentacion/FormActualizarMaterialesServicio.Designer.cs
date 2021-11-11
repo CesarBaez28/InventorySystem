@@ -32,8 +32,6 @@ namespace Presentacion
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txbCantidad = new System.Windows.Forms.TextBox();
             this.lblCantidad = new System.Windows.Forms.Label();
-            this.txbCosto = new System.Windows.Forms.TextBox();
-            this.lblCosto = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.comboMaterial = new System.Windows.Forms.ComboBox();
@@ -57,7 +55,7 @@ namespace Presentacion
             // txbCantidad
             // 
             this.txbCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbCantidad.Location = new System.Drawing.Point(12, 177);
+            this.txbCantidad.Location = new System.Drawing.Point(12, 135);
             this.txbCantidad.Name = "txbCantidad";
             this.txbCantidad.Size = new System.Drawing.Size(226, 22);
             this.txbCantidad.TabIndex = 26;
@@ -66,29 +64,11 @@ namespace Presentacion
             // 
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(9, 157);
+            this.lblCantidad.Location = new System.Drawing.Point(9, 115);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(75, 17);
             this.lblCantidad.TabIndex = 25;
             this.lblCantidad.Text = "Cantidad:";
-            // 
-            // txbCosto
-            // 
-            this.txbCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbCosto.Location = new System.Drawing.Point(12, 122);
-            this.txbCosto.Name = "txbCosto";
-            this.txbCosto.Size = new System.Drawing.Size(226, 22);
-            this.txbCosto.TabIndex = 24;
-            // 
-            // lblCosto
-            // 
-            this.lblCosto.AutoSize = true;
-            this.lblCosto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCosto.Location = new System.Drawing.Point(9, 102);
-            this.lblCosto.Name = "lblCosto";
-            this.lblCosto.Size = new System.Drawing.Size(51, 17);
-            this.lblCosto.TabIndex = 23;
-            this.lblCosto.Text = "Costo:";
             // 
             // btnCancelar
             // 
@@ -97,7 +77,7 @@ namespace Presentacion
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(126, 214);
+            this.btnCancelar.Location = new System.Drawing.Point(129, 172);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(106, 31);
             this.btnCancelar.TabIndex = 28;
@@ -112,18 +92,19 @@ namespace Presentacion
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
-            this.btnAceptar.Location = new System.Drawing.Point(12, 214);
+            this.btnAceptar.Location = new System.Drawing.Point(15, 172);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(106, 31);
             this.btnAceptar.TabIndex = 27;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // comboMaterial
             // 
             this.comboMaterial.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboMaterial.FormattingEnabled = true;
-            this.comboMaterial.Location = new System.Drawing.Point(12, 66);
+            this.comboMaterial.Location = new System.Drawing.Point(12, 75);
             this.comboMaterial.Name = "comboMaterial";
             this.comboMaterial.Size = new System.Drawing.Size(226, 28);
             this.comboMaterial.TabIndex = 30;
@@ -132,7 +113,7 @@ namespace Presentacion
             // 
             this.lblMaterial.AutoSize = true;
             this.lblMaterial.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaterial.Location = new System.Drawing.Point(13, 46);
+            this.lblMaterial.Location = new System.Drawing.Point(13, 55);
             this.lblMaterial.Name = "lblMaterial";
             this.lblMaterial.Size = new System.Drawing.Size(60, 17);
             this.lblMaterial.TabIndex = 29;
@@ -143,19 +124,18 @@ namespace Presentacion
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.ClientSize = new System.Drawing.Size(247, 253);
+            this.ClientSize = new System.Drawing.Size(247, 211);
             this.Controls.Add(this.comboMaterial);
             this.Controls.Add(this.lblMaterial);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txbCantidad);
             this.Controls.Add(this.lblCantidad);
-            this.Controls.Add(this.txbCosto);
-            this.Controls.Add(this.lblCosto);
             this.Controls.Add(this.lblTitulo);
             this.Name = "FormActualizarMaterialesServicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormActualizarMaterialesServicio";
+            this.Load += new System.EventHandler(this.FormActualizarMaterialesServicio_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,8 +146,6 @@ namespace Presentacion
         private System.Windows.Forms.Label lblTitulo;
         public System.Windows.Forms.TextBox txbCantidad;
         private System.Windows.Forms.Label lblCantidad;
-        public System.Windows.Forms.TextBox txbCosto;
-        private System.Windows.Forms.Label lblCosto;
         public System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.Button btnAceptar;
         public System.Windows.Forms.ComboBox comboMaterial;

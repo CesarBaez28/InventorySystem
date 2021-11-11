@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
 
 namespace Presentacion
 {
@@ -22,6 +23,7 @@ namespace Presentacion
 
         }
 
+        //Cerrar formulario
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -31,8 +33,8 @@ namespace Presentacion
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             FormDetallesServicio agregarServicio = new FormDetallesServicio();
-            agregarServicio.btnActualizar.Visible = false;
-            agregarServicio.btnEliminar.Location = new Point(14,389);
+            //agregarServicio.btnActualizar.Visible = false;
+            //agregarServicio.btnEliminar.Location = new Point(14,389);
             agregarServicio.btnAgregarExcedente.Visible = false;
 
             AbrirFormulario(agregarServicio);

@@ -21,6 +21,15 @@ namespace Dominio
             return table;
         }
 
+        //Show material names and codes
+        public DataTable NamesCodesMaterials() 
+        {
+            DataTable table = new DataTable();
+            table = materiales.NombreCodigoMateriales();
+            return table;
+        
+        }
+
         //Search materials by code 
         public DataTable SearchMaterialByCode(string codigo) 
         {

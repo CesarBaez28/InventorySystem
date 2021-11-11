@@ -201,7 +201,6 @@ namespace Presentacion
                 //Eliminar material
                 if (excedente == false)
                 {
-
                     estadoMaterial = true;
                     codigo = gridViewListaMateriales.CurrentRow.Cells["Código"].Value.ToString();
                     material.DeleteMaterial(codigo);

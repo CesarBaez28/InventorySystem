@@ -475,6 +475,43 @@ BEGIN
 END 
 GO
 
+
+-----Procedimientos almacenados relacionados con los servicios----------
+
+--Insertar servicio
+CREATE PROCEDURE p_InsertarServicio 
+  @nombre_servicio VARCHAR(100),
+  @descripcion TEXT,
+  @precio NUMERIC(20,2),
+  @estado bit 
+AS
+BEGIN
+  INSERT INTO servicios(nombre_servicio, descripcion, precio, estado) 
+  VALUES(@nombre_servicio, @descripcion, @precio, @estado)
+END
+GO
+
+--Insertar Material que incluye el servicio (tabla servicios_materiales)
+CREATE PROCEDURE p_InsertarServiciosMateriales
+  @codigoMaterial INT,
+  @cantidad INT
+AS
+BEGIN
+  DECLARE @codigoServicio INT --La declaro para obtener el codigo del ultimo servicio insertado
+  SELECT @codigoServicio = MAX(codigo) FROM servicios -- Guardo el codigo
+
+  INSERT INTO servicios_materiales(codigo_material, codigo_servicio, cantidad)
+  VALUES(@codigoMaterial, @codigoServicio, @cantidad)
+END
+GO
+
+--Mostrar todos los servicios
+SELECT codigo as'Código', nombre_servicio as 'Nombre', descripcion as 'Descripción', precio as 'Precio',
+CASE WHEN estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado FROM servicios
+
+SELECT * FROM servicios
+SELECT * FROM servicios_materiales
+
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
 
 --Insertar  nueva Direccion
@@ -496,3 +533,4 @@ BEGIN
 END
 GO
 
+SELECT nombre as 'Material', codigo FROM materiales

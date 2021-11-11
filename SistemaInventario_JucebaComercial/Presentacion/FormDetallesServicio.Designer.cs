@@ -30,10 +30,11 @@ namespace Presentacion
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDetallesServicio));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelContedorIngresos = new System.Windows.Forms.Panel();
+            this.btnAgregarMaterial = new System.Windows.Forms.Button();
             this.btnAgregarExcedente = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.lblCantidad = new System.Windows.Forms.Label();
@@ -41,8 +42,8 @@ namespace Presentacion
             this.comboMaterial = new System.Windows.Forms.ComboBox();
             this.lblMaterial = new System.Windows.Forms.Label();
             this.gridViewMateriales = new System.Windows.Forms.DataGridView();
+            this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnTerminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -53,11 +54,11 @@ namespace Presentacion
             this.cbxEstado = new System.Windows.Forms.ComboBox();
             this.lblEstado = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txbDescripcionServicio = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txbNombreServicio = new System.Windows.Forms.TextBox();
             this.lblPrecio = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txbPrecio = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.panelContedorIngresos.SuspendLayout();
@@ -68,6 +69,7 @@ namespace Presentacion
             // panelContedorIngresos
             // 
             this.panelContedorIngresos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelContedorIngresos.Controls.Add(this.btnAgregarMaterial);
             this.panelContedorIngresos.Controls.Add(this.btnAgregarExcedente);
             this.panelContedorIngresos.Controls.Add(this.btnActualizar);
             this.panelContedorIngresos.Controls.Add(this.lblCantidad);
@@ -84,6 +86,23 @@ namespace Presentacion
             this.panelContedorIngresos.Name = "panelContedorIngresos";
             this.panelContedorIngresos.Size = new System.Drawing.Size(716, 434);
             this.panelContedorIngresos.TabIndex = 17;
+            // 
+            // btnAgregarMaterial
+            // 
+            this.btnAgregarMaterial.BackColor = System.Drawing.Color.Gray;
+            this.btnAgregarMaterial.FlatAppearance.BorderSize = 0;
+            this.btnAgregarMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarMaterial.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarMaterial.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarMaterial.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarMaterial.Image")));
+            this.btnAgregarMaterial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarMaterial.Location = new System.Drawing.Point(246, 63);
+            this.btnAgregarMaterial.Name = "btnAgregarMaterial";
+            this.btnAgregarMaterial.Size = new System.Drawing.Size(33, 28);
+            this.btnAgregarMaterial.TabIndex = 39;
+            this.btnAgregarMaterial.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregarMaterial.UseVisualStyleBackColor = false;
+            this.btnAgregarMaterial.Click += new System.EventHandler(this.btnAgregarMaterial_Click);
             // 
             // btnAgregarExcedente
             // 
@@ -124,7 +143,7 @@ namespace Presentacion
             // 
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(259, 46);
+            this.lblCantidad.Location = new System.Drawing.Point(300, 43);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(75, 17);
             this.lblCantidad.TabIndex = 28;
@@ -132,10 +151,10 @@ namespace Presentacion
             // 
             // txbCantidad
             // 
-            this.txbCantidad.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbCantidad.Location = new System.Drawing.Point(258, 66);
+            this.txbCantidad.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbCantidad.Location = new System.Drawing.Point(299, 63);
             this.txbCantidad.Name = "txbCantidad";
-            this.txbCantidad.Size = new System.Drawing.Size(100, 23);
+            this.txbCantidad.Size = new System.Drawing.Size(100, 26);
             this.txbCantidad.TabIndex = 27;
             // 
             // comboMaterial
@@ -159,6 +178,7 @@ namespace Presentacion
             // 
             // gridViewMateriales
             // 
+            this.gridViewMateriales.AllowUserToAddRows = false;
             this.gridViewMateriales.AllowUserToDeleteRows = false;
             this.gridViewMateriales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -167,19 +187,19 @@ namespace Presentacion
             this.gridViewMateriales.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
             this.gridViewMateriales.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridViewMateriales.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewMateriales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewMateriales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridViewMateriales.ColumnHeadersHeight = 30;
             this.gridViewMateriales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridViewMateriales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Código,
             this.Material,
-            this.Costo,
             this.Cantidad});
             this.gridViewMateriales.EnableHeadersVisualStyles = false;
             this.gridViewMateriales.GridColor = System.Drawing.Color.Black;
@@ -187,35 +207,35 @@ namespace Presentacion
             this.gridViewMateriales.Name = "gridViewMateriales";
             this.gridViewMateriales.ReadOnly = true;
             this.gridViewMateriales.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewMateriales.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewMateriales.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridViewMateriales.RowHeadersVisible = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.gridViewMateriales.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridViewMateriales.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.gridViewMateriales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridViewMateriales.Size = new System.Drawing.Size(687, 225);
             this.gridViewMateriales.TabIndex = 21;
+            // 
+            // Código
+            // 
+            this.Código.HeaderText = "Código";
+            this.Código.Name = "Código";
+            this.Código.ReadOnly = true;
             // 
             // Material
             // 
             this.Material.HeaderText = "Material";
             this.Material.Name = "Material";
             this.Material.ReadOnly = true;
-            // 
-            // Costo
-            // 
-            this.Costo.HeaderText = "Costo";
-            this.Costo.Name = "Costo";
-            this.Costo.ReadOnly = true;
             // 
             // Cantidad
             // 
@@ -240,6 +260,7 @@ namespace Presentacion
             this.btnTerminar.Text = "Terminar y guardar";
             this.btnTerminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTerminar.UseVisualStyleBackColor = false;
+            this.btnTerminar.Click += new System.EventHandler(this.btnTerminar_Click);
             // 
             // btnAgregar
             // 
@@ -257,6 +278,7 @@ namespace Presentacion
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnEliminar
             // 
@@ -272,6 +294,7 @@ namespace Presentacion
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // lblTitulo
             // 
@@ -309,6 +332,9 @@ namespace Presentacion
             // 
             // cbxEstado
             // 
+            this.cbxEstado.AutoCompleteCustomSource.AddRange(new string[] {
+            "Activo",
+            "Inactivo"});
             this.cbxEstado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxEstado.FormattingEnabled = true;
             this.cbxEstado.Items.AddRange(new object[] {
@@ -340,13 +366,13 @@ namespace Presentacion
             this.lblDescripcion.TabIndex = 32;
             this.lblDescripcion.Text = "Descripción";
             // 
-            // textBox3
+            // txbDescripcionServicio
             // 
-            this.textBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(13, 124);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(191, 23);
-            this.textBox3.TabIndex = 31;
+            this.txbDescripcionServicio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbDescripcionServicio.Location = new System.Drawing.Point(13, 124);
+            this.txbDescripcionServicio.Name = "txbDescripcionServicio";
+            this.txbDescripcionServicio.Size = new System.Drawing.Size(191, 23);
+            this.txbDescripcionServicio.TabIndex = 31;
             // 
             // lblNombre
             // 
@@ -358,13 +384,13 @@ namespace Presentacion
             this.lblNombre.TabIndex = 30;
             this.lblNombre.Text = "Nombre";
             // 
-            // textBox2
+            // txbNombreServicio
             // 
-            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(14, 69);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(191, 23);
-            this.textBox2.TabIndex = 29;
+            this.txbNombreServicio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbNombreServicio.Location = new System.Drawing.Point(14, 69);
+            this.txbNombreServicio.Name = "txbNombreServicio";
+            this.txbNombreServicio.Size = new System.Drawing.Size(191, 23);
+            this.txbNombreServicio.TabIndex = 29;
             // 
             // lblPrecio
             // 
@@ -376,13 +402,13 @@ namespace Presentacion
             this.lblPrecio.TabIndex = 28;
             this.lblPrecio.Text = "Precio:";
             // 
-            // textBox1
+            // txbPrecio
             // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(230, 69);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 27;
+            this.txbPrecio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbPrecio.Location = new System.Drawing.Point(230, 69);
+            this.txbPrecio.Name = "txbPrecio";
+            this.txbPrecio.Size = new System.Drawing.Size(100, 23);
+            this.txbPrecio.TabIndex = 27;
             // 
             // label1
             // 
@@ -420,16 +446,17 @@ namespace Presentacion
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbxEstado);
             this.Controls.Add(this.panelContedorIngresos);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txbNombreServicio);
             this.Controls.Add(this.lblPrecio);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txbDescripcionServicio);
             this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txbPrecio);
             this.Name = "FormDetallesServicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormDetalleServicio";
+            this.Load += new System.EventHandler(this.FormDetallesServicio_Load);
             this.panelContedorIngresos.ResumeLayout(false);
             this.panelContedorIngresos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMateriales)).EndInit();
@@ -443,16 +470,13 @@ namespace Presentacion
         private System.Windows.Forms.Panel panelContedorIngresos;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblPrecio;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txbPrecio;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txbNombreServicio;
         private System.Windows.Forms.Label lblDescripcion;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txbDescripcionServicio;
         public System.Windows.Forms.ComboBox cbxEstado;
         public System.Windows.Forms.Label lblEstado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Material;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox btnCerrar;
         public System.Windows.Forms.Button btnActualizar;
@@ -467,5 +491,9 @@ namespace Presentacion
         public System.Windows.Forms.Button btnAgregar;
         public Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         public System.Windows.Forms.Button btnAgregarExcedente;
+        private System.Windows.Forms.Button btnAgregarMaterial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Código;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Material;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
     }
 }
