@@ -91,9 +91,9 @@ namespace Dominio
         }
 
         //Delete type material (change status to inactive)
-        public void DeleteTypeMaterial(string codigo) 
+        public void DeleteMaterial(string codigo) 
         {
-            materiales.EliminarTipoMaterial(Convert.ToInt32(codigo));
+            materiales.EliminarMaterial(Convert.ToInt32(codigo));
         }
 
         //Register leftover material
@@ -113,6 +113,12 @@ namespace Dominio
             materiales.ActualizarExcedenteMaterial(Convert.ToInt32(codigoExcedente),
                 Convert.ToInt32(codigoMedida), largo, ancho, alto, Convert.ToInt32(cantidad),
                 descripcion);
+        }
+
+        //Delete leftover material
+        public void DeleteLeftoverMaterial(string codigoExcedente) 
+        {
+            materiales.EliminarExcedenteMaterial(Convert.ToInt32(codigoExcedente));
         }
     }
 }

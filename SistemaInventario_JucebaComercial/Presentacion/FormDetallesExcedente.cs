@@ -49,6 +49,12 @@ namespace Presentacion
             FormMateriales.formMateriales.gridViewListaMateriales.DataSource = materiales.ShowLeftoverMaterials();
         }
 
+        //Actualizar lista de materiales
+        private void ActualizarListaMateriales() 
+        {
+            FormMateriales.formMateriales.MostrarMateriales();
+        }
+
         //Mostrar unidades de medida
         private void MostrarUnidades() 
         {
@@ -80,6 +86,7 @@ namespace Presentacion
                                 txbAlto.Text, txbCantidad.Text, txbDescripcion.Text);
 
                             MessageBox.Show("Se registró correctamente");
+                            ActualizarListaMateriales();
                             this.Close();
                         }
                         else

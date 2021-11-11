@@ -14,6 +14,7 @@ namespace Presentacion
     public partial class FormMateriales : Form
     {
         public string codigo; // Me servirá para obtener el codigo de la fila seleccionada en el dataGrid
+        string codigoExcedente; //La uso para guardar el codigo del excedente de material
         int parseCorrecto; // Lo uso para vereficar que al momento de buscar un material el codigo sea un numero entero.
         public bool estadoMaterial = true; // Lo utilizo para buscar los materiales por estado (activo o inactivo)
         public bool actualizar = false; //La utilizo para indicar si se va a actualizar o a insertar
@@ -44,7 +45,7 @@ namespace Presentacion
         }
 
         //Mostrar materiales (los activos)
-        private void MostrarMateriales() 
+        public void MostrarMateriales() 
         {
             DominioMateriales materiales = new DominioMateriales();
             gridViewListaMateriales.DataSource = materiales.SearchMaterialByStatus(estadoMaterial);
@@ -197,11 +198,24 @@ namespace Presentacion
         {
             if (gridViewListaMateriales.SelectedRows.Count >= 0) 
             {
-                estadoMaterial = true;
-                codigo = gridViewListaMateriales.CurrentRow.Cells["Código"].Value.ToString();
-                material.DeleteTypeMaterial(codigo);
-                MessageBox.Show("Se eliminó correctamente");
-                MostrarMateriales();
+                //Eliminar material
+                if (excedente == false)
+                {
+
+                    estadoMaterial = true;
+                    codigo = gridViewListaMateriales.CurrentRow.Cells["Código"].Value.ToString();
+                    material.DeleteMaterial(codigo);
+                    MessageBox.Show("Se eliminó correctamente");
+                    MostrarMateriales();
+                }
+                //Eliminar excedente de material
+                else 
+                {
+                    codigoExcedente = gridViewListaMateriales.CurrentRow.Cells["Código"].Value.ToString();
+                    material.DeleteLeftoverMaterial(codigoExcedente);
+                    MessageBox.Show("Se eliminó correctamente");
+                    gridViewListaMateriales.DataSource = material.ShowLeftoverMaterials();
+                }
             }
             else
             {

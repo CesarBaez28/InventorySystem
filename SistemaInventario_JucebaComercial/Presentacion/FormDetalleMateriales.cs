@@ -136,7 +136,7 @@ namespace Presentacion
         {
             if (e.Button != MouseButtons.Left)
             {
-                posX = e.X;
+                posX = e.X; 
                 posY = e.Y;
             }
             else

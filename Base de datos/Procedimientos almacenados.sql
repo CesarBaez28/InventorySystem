@@ -466,6 +466,15 @@ BEGIN
 END
 GO
 
+--Eliminar material excedente
+CREATE PROCEDURE p_EliminarExcedenteMaterial
+  @codigoExcedente INT
+AS
+BEGIN 
+  DELETE FROM excedentes_materiales WHERE codigo = @codigoExcedente
+END 
+GO
+
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
 
 --Insertar  nueva Direccion

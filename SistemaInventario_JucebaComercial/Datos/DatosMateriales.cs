@@ -92,6 +92,14 @@ namespace Datos
             ExecuteNonQuery("p_ActualizarMaterial");
         }
 
+        //Elminar material (cambiar estado a inactivo)
+        public void EliminarMaterial(int codigo)
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigo", codigo));
+            ExecuteNonQuery("p_EliminarMaterial");
+        }
+
         //Registrar tipo de material
         public void RegistrarTipoMaterial(string nombre) 
         {
@@ -107,14 +115,6 @@ namespace Datos
             parameters.Add(new SqlParameter("@nombre", nombre));
             parameters.Add(new SqlParameter("@tipoMaterialNuevo", nombreNuevo));
             ExecuteNonQuery("p_ActualizarTipoMaterial");
-        }
-
-        //Elminar tipo material (cambiar estado a inactivo)
-        public void EliminarTipoMaterial(int codigo) 
-        {
-            parameters = new List<SqlParameter>();
-            parameters.Add(new SqlParameter("@codigo", codigo));
-            ExecuteNonQuery("p_EliminarMaterial");
         }
 
         //Registrar excedente de material
@@ -146,6 +146,14 @@ namespace Datos
             parameters.Add(new SqlParameter("@cantidad", cantidad));
             parameters.Add(new SqlParameter("@descripcion", descripcion));
             ExecuteNonQuery("p_ActualizarExcedenteMaterial");
+        }
+
+        //Eliminar excedente de material
+        public void EliminarExcedenteMaterial(int codigoExcedente) 
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigoExcedente", codigoExcedente));
+            ExecuteNonQuery("p_EliminarExcedenteMaterial");
         }
     }
 }

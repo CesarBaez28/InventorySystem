@@ -56,12 +56,26 @@ AS
 END
 GO
 
+--Eliminar en la tabla excedente 
+-- Actualiza la existencia en la tabla de materiales
+CREATE TRIGGER t_EliminarExcedenteMaterial
+ON excedentes_materiales FOR DELETE 
+AS
+BEGIN
+  DECLARE @codigoMaterial INT --Declaro la variable para obtener el codigo del material
+  
+  --Guardo el codigo del material en la variable
+  SELECT @codigoMaterial = excedentes_materiales.codigo_material FROM excedentes_materiales JOIN deleted 
+  ON deleted.codigo = excedentes_materiales.codigo
+  WHERE excedentes_materiales.codigo = deleted.codigo
+
+  UPDATE materiales SET existencia = existencia + (SELECT cantidad FROM deleted)
+  FROM materiales JOIN deleted ON deleted.codigo_material = materiales.codigo WHERE materiales.codigo = deleted.codigo_material
+END
+GO
+
 SELECT * FROM unidades_medidas
 SELECT * FROM tipo_material
 SELECT * FROM excedentes_materiales
 SELECT* FROM materiales
 
-DELETE excedentes_materiales WHERE codigo = 17
-DELETE FROM excedentes_materiales
-
-EXEC p_InsertarExcedenteMaterial 'Perfil',10,1,35,4,4,1,''
