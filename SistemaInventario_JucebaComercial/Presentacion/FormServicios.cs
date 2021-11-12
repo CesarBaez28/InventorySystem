@@ -16,6 +16,10 @@ namespace Presentacion
         //La uso para actualizar la lista de servicios al ingresar o actualizar uno
         public static FormServicios formServicios;
 
+        DominioServicios servicios = new DominioServicios();
+
+        int parseCorrecto;//La uso para validar que el código del servicio se ha entero
+
         public FormServicios()
         {
             InitializeComponent();
@@ -27,6 +31,7 @@ namespace Presentacion
             MostrarServicios();
         }
 
+        //Mostrar servicios 
         public void MostrarServicios() 
         {
             DominioServicios servicios = new DominioServicios();
@@ -66,6 +71,21 @@ namespace Presentacion
             AbrirFormulario(agregarServicio);
         }
 
+        //Eliminar 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (gridViewListaServicios.SelectedRows.Count > 0)
+            {
+                servicios.DeleteService(gridViewListaServicios.CurrentRow.Cells["Código"].Value.ToString());
+                MessageBox.Show("Se eliminó correctamente");
+                MostrarServicios();
+            }
+            else 
+            {
+                MessageBox.Show("Seleccione una fila");
+            }
+        }
+
         //Ver los detalles del servicio
         private void btnVerDetalles_Click(object sender, EventArgs e)
         {
@@ -96,6 +116,41 @@ namespace Presentacion
             agregarServicio.btnAgregarMaterial.Visible = false;
 
             AbrirFormulario(agregarServicio);
+        }
+
+        //Buscar
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            //Buscar por código
+            if (comboBuscar.SelectedIndex == 0)
+            {
+                //Valido que el código se ha correcto
+                if (int.TryParse(txbBuscar.Text, out parseCorrecto))
+                {
+                    gridViewListaServicios.DataSource = servicios.SearchServiceCode(txbBuscar.Text);
+                    txbBuscar.Text = "";
+                }
+            }
+            //Buscar por nombre
+            else if (comboBuscar.SelectedIndex == 1)
+            {
+
+            }
+            //Buscar servicios activos
+            else if (comboBuscar.SelectedIndex == 2)
+            {
+
+            }
+            //Buscar servicios inactivos
+            else if (comboBuscar.SelectedIndex == 3)
+            {
+
+            }
+            //Buscar todos los servicios (activos e inactivos)
+            else if(comboBuscar.SelectedIndex == 4)
+            {
+            
+            }
         }
 
         //Metodo para abir formulario

@@ -555,8 +555,39 @@ BEGIN
 END
 GO
 
-  UPDATE servicios_materiales SET codigo_material = 6, cantidad = 5
-  WHERE codigo_servicio = 1 and codigo_material = 11
+--Eliminar servicios_materiales
+CREATE PROCEDURE p_EliminarMaterialesServicio
+  @codigoServicio INT,
+  @codigoMaterial INT
+AS
+BEGIN
+  DELETE FROM servicios_materiales WHERE codigo_material = @codigoMaterial and codigo_servicio = @codigoServicio
+END
+GO
+
+--Eliminar servicio 
+CREATE PROCEDURE p_EliminarServicio
+  @codigoServicio INT
+AS
+BEGIN
+  --Borro todos los materiasles que incluía el servicio
+  DELETE FROM servicios_materiales WHERE codigo_servicio = @codigoServicio
+
+  --Borro el servicio 
+  DELETE FROM servicios WHERE codigo = @codigoServicio
+END
+GO
+
+--Buscar servicio por código
+CREATE PROCEDURE p_BuscarServicioCodigo
+  @codigo INT
+AS
+BEGIN
+  SELECT codigo as'Código', nombre_servicio as 'Nombre', descripcion as 'Descripción', precio as 'Precio',
+  CASE WHEN estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado FROM servicios
+  WHERE codigo = @codigo
+END 
+GO
 
 SELECT * FROM servicios
 SELECT * FROM materiales

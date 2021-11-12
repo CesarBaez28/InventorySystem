@@ -43,9 +43,21 @@ namespace Dominio
         public void UpdateMaterialService(string codigoServicio,
             string codigoMaterial, string materialAnterior, string cantidad) 
         {
-            servicios.ActualizarMaterialesServicio(Convert.ToInt32(codigoServicio), 
+            servicios.ActualizarMaterialServicio(Convert.ToInt32(codigoServicio), 
                 Convert.ToInt32(codigoMaterial), Convert.ToInt32(materialAnterior), 
                 Convert.ToInt32(cantidad));
+        }
+
+        //Delete materials services
+        public void DeleteMaterialService(string codigoServicio, string codigoMaterial) 
+        {
+            servicios.EliminarMaterialServicio(Convert.ToInt32(codigoServicio), Convert.ToInt32(codigoMaterial));
+        }
+
+        //Delete service
+        public void DeleteService(string codigoServicio) 
+        {
+            servicios.EliminarServicio(Convert.ToInt32(codigoServicio));
         }
 
         //Show all services 
@@ -61,6 +73,14 @@ namespace Dominio
         {
             DataTable table = new DataTable();
             table = servicios.MostrarMaterialesServicios(Convert.ToInt32(codigoServicio));
+            return table;
+        }
+
+        //Search service by code
+        public DataTable SearchServiceCode(string codigoServicio) 
+        {
+            DataTable table = new DataTable();
+            table = servicios.BuscarServicioCodigo(Convert.ToInt32(codigoServicio));
             return table;
         }
     }

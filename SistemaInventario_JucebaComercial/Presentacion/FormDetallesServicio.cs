@@ -193,6 +193,13 @@ namespace Presentacion
                 {
                     gridViewMateriales.Rows.Remove(gridViewMateriales.CurrentRow);
                 }
+                else 
+                {
+                    servicios.DeleteMaterialService(codigoServicio, 
+                        gridViewMateriales.CurrentRow.Cells["Código"].Value.ToString());
+
+                    MostrarMaterialesServicio();
+                }
             }
         }
 

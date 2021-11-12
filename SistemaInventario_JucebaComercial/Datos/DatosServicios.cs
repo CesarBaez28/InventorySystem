@@ -54,7 +54,7 @@ namespace Datos
         }
 
         //Actualizar materiales que incluye o necesita el servicio
-        public void ActualizarMaterialesServicio(int codigoServicio, 
+        public void ActualizarMaterialServicio(int codigoServicio, 
             int codigoMaterial, int materialAnterior, int cantidad) 
         {
             parameters = new List<SqlParameter>();
@@ -63,6 +63,23 @@ namespace Datos
             parameters.Add(new SqlParameter("@materialAnterior", materialAnterior));
             parameters.Add(new SqlParameter("@cantidad", cantidad));
             ExecuteNonQuery("p_ActualizarMaterialesServicio");
+        }
+
+        //Eliminar materiales que incluye o necesita el servicio
+        public void EliminarMaterialServicio(int codigoServicio, int codigoMaterial) 
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigoServicio", codigoServicio));
+            parameters.Add(new SqlParameter("@codigoMaterial", codigoMaterial));
+            ExecuteNonQuery("p_EliminarMaterialesServicio");
+        }
+
+        //Eliminar Servicio
+        public void EliminarServicio(int codigoServicio) 
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigoServicio",codigoServicio));
+            ExecuteNonQuery("p_EliminarServicio");
         }
 
         //Mostrar todos los datos de los servicios
@@ -82,6 +99,16 @@ namespace Datos
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigoServicio", codigoServicio));
             table = ExecuteReader("p_MostrarMaterialesServicios");
+            return table;
+        }
+
+        //Buscar servicio por codigo
+        public DataTable BuscarServicioCodigo(int codigoServicio) 
+        {
+            DataTable table = new DataTable();
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigo", codigoServicio));
+            table = ExecuteReader("p_BuscarServicioCodigo");
             return table;
         }
     }

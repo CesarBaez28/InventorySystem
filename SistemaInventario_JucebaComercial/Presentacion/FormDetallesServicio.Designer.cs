@@ -114,7 +114,7 @@ namespace Presentacion
             this.btnAgregarExcedente.ForeColor = System.Drawing.Color.White;
             this.btnAgregarExcedente.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarExcedente.Image")));
             this.btnAgregarExcedente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarExcedente.Location = new System.Drawing.Point(326, 388);
+            this.btnAgregarExcedente.Location = new System.Drawing.Point(404, 389);
             this.btnAgregarExcedente.Name = "btnAgregarExcedente";
             this.btnAgregarExcedente.Size = new System.Drawing.Size(186, 31);
             this.btnAgregarExcedente.TabIndex = 38;
@@ -253,11 +253,11 @@ namespace Presentacion
             this.btnTerminar.ForeColor = System.Drawing.Color.White;
             this.btnTerminar.Image = ((System.Drawing.Image)(resources.GetObject("btnTerminar.Image")));
             this.btnTerminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTerminar.Location = new System.Drawing.Point(518, 389);
+            this.btnTerminar.Location = new System.Drawing.Point(596, 389);
             this.btnTerminar.Name = "btnTerminar";
-            this.btnTerminar.Size = new System.Drawing.Size(183, 31);
+            this.btnTerminar.Size = new System.Drawing.Size(105, 31);
             this.btnTerminar.TabIndex = 20;
-            this.btnTerminar.Text = "Terminar y guardar";
+            this.btnTerminar.Text = "Terminar";
             this.btnTerminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTerminar.UseVisualStyleBackColor = false;
             this.btnTerminar.Click += new System.EventHandler(this.btnTerminar_Click);
