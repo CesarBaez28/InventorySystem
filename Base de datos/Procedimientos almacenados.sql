@@ -491,7 +491,7 @@ BEGIN
 END
 GO
 
---Insertar Material que incluye el servicio (tabla servicios_materiales)
+--Insertar Material que incluye el servicio por primera vez (tabla servicios_materiales)
 CREATE PROCEDURE p_InsertarServiciosMateriales
   @codigoMaterial INT,
   @cantidad INT
@@ -500,6 +500,18 @@ BEGIN
   DECLARE @codigoServicio INT --La declaro para obtener el codigo del ultimo servicio insertado
   SELECT @codigoServicio = MAX(codigo) FROM servicios -- Guardo el codigo
 
+  INSERT INTO servicios_materiales(codigo_material, codigo_servicio, cantidad)
+  VALUES(@codigoMaterial, @codigoServicio, @cantidad)
+END
+GO
+
+--Insertar nuevo Material que incluye el servicio por primera vez (tabla servicios_materiales)
+CREATE PROCEDURE p_InsertarNuevoServiciosMateriales
+  @codigoServicio INT,
+  @codigoMaterial INT,
+  @cantidad INT
+AS
+BEGIN
   INSERT INTO servicios_materiales(codigo_material, codigo_servicio, cantidad)
   VALUES(@codigoMaterial, @codigoServicio, @cantidad)
 END
@@ -516,7 +528,38 @@ BEGIN
 END
 GO
 
+--Actualizar servicio
+CREATE PROCEDURE p_ActualizarServicio
+  @codigoServicio INT,
+  @nombreServicio VARCHAR(100),
+  @precio NUMERIC(20,2),
+  @descripcion TEXT,
+  @estado BIT
+AS
+BEGIN 
+  UPDATE servicios SET nombre_servicio = @nombreServicio, precio = @precio, descripcion = @descripcion, estado = @estado
+  WHERE codigo = @codigoServicio
+END 
+GO
+
+--Actualizar servicios_materiales
+CREATE PROCEDURE p_ActualizarMaterialesServicio
+  @codigoServicio INT,
+  @codigoMaterial INT, 
+  @materialAnterior INT,
+  @cantidad INT
+AS
+BEGIN
+  UPDATE servicios_materiales SET codigo_material = @codigoMaterial, cantidad = @cantidad
+  WHERE codigo_servicio = @codigoServicio and codigo_material = @materialAnterior
+END
+GO
+
+  UPDATE servicios_materiales SET codigo_material = 6, cantidad = 5
+  WHERE codigo_servicio = 1 and codigo_material = 11
+
 SELECT * FROM servicios
+SELECT * FROM materiales
 SELECT * FROM servicios_materiales
 
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------

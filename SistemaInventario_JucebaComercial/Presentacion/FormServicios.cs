@@ -56,8 +56,13 @@ namespace Presentacion
             FormDetallesServicio agregarServicio = new FormDetallesServicio();
             agregarServicio.btnAgregarExcedente.Visible = false;
             agregarServicio.codigoServicio = gridViewListaServicios.CurrentRow.Cells["Código"].Value.ToString();
+            agregarServicio.txbNombreServicio.Text = gridViewListaServicios.CurrentRow.Cells["Nombre"].Value.ToString();
+            agregarServicio.txbDescripcionServicio.Text = gridViewListaServicios.CurrentRow.Cells["Descripción"].Value.ToString();
+            agregarServicio.txbPrecio.Text = gridViewListaServicios.CurrentRow.Cells["Precio"].Value.ToString();
+            agregarServicio.cbxEstado.Text = gridViewListaServicios.CurrentRow.Cells["Estado"].Value.ToString();
             agregarServicio.gridViewMateriales.Columns.Clear();
             agregarServicio.actualizar = true;
+
             AbrirFormulario(agregarServicio);
         }
 
@@ -66,9 +71,14 @@ namespace Presentacion
         {
             FormDetallesServicio agregarServicio = new FormDetallesServicio();
 
+            agregarServicio.codigoServicio = gridViewListaServicios.CurrentRow.Cells["Código"].Value.ToString();
+            agregarServicio.txbNombreServicio.Text = gridViewListaServicios.CurrentRow.Cells["Nombre"].Value.ToString();
+            agregarServicio.txbDescripcionServicio.Text = gridViewListaServicios.CurrentRow.Cells["Descripción"].Value.ToString();
+            agregarServicio.txbPrecio.Text = gridViewListaServicios.CurrentRow.Cells["Precio"].Value.ToString();
+            agregarServicio.cbxEstado.Text = gridViewListaServicios.CurrentRow.Cells["Estado"].Value.ToString();
+
             agregarServicio.gridViewMateriales.Columns.Clear();
             agregarServicio.actualizar = true;
-            agregarServicio.codigoServicio = gridViewListaServicios.CurrentRow.Cells["Código"].Value.ToString();
             agregarServicio.btnAgregarExcedente.Visible = false;
 
             agregarServicio.gridViewMateriales.Location = new Point(14,49);

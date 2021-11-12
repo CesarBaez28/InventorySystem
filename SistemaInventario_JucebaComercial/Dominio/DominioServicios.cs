@@ -24,6 +24,30 @@ namespace Dominio
             servicios.RegistrarMaterialServicio(Convert.ToInt32(codigoMaterial), float.Parse(cantidad));
         }
 
+        //Register new materials services
+        public void RegisterNewMaterialService(string codigoServicio, string codigoMaterial, string cantidad) 
+        {
+            servicios.RegistrarNuevoMaterialServicio(Convert.ToInt32(codigoServicio),
+                Convert.ToInt32(codigoMaterial), Convert.ToInt32(cantidad));
+        }
+
+        //Update service
+        public void UpdateService(string codigoServicio, string nombreServicio,
+            string precio, string descripcion, bool estado) 
+        {
+            servicios.ActualizarServicio(Convert.ToInt32(codigoServicio), nombreServicio, 
+                float.Parse(precio), descripcion, estado);
+        }
+
+        //Update materials services
+        public void UpdateMaterialService(string codigoServicio,
+            string codigoMaterial, string materialAnterior, string cantidad) 
+        {
+            servicios.ActualizarMaterialesServicio(Convert.ToInt32(codigoServicio), 
+                Convert.ToInt32(codigoMaterial), Convert.ToInt32(materialAnterior), 
+                Convert.ToInt32(cantidad));
+        }
+
         //Show all services 
         public DataTable ShowServices() 
         {

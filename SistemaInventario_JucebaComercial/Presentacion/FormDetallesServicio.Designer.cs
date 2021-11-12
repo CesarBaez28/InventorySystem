@@ -470,11 +470,8 @@ namespace Presentacion
         private System.Windows.Forms.Panel panelContedorIngresos;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblPrecio;
-        private System.Windows.Forms.TextBox txbPrecio;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.TextBox txbNombreServicio;
         private System.Windows.Forms.Label lblDescripcion;
-        private System.Windows.Forms.TextBox txbDescripcionServicio;
         public System.Windows.Forms.ComboBox cbxEstado;
         public System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.Label label1;
@@ -495,5 +492,8 @@ namespace Presentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Material;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         public System.Windows.Forms.Button btnAgregarMaterial;
+        public System.Windows.Forms.TextBox txbPrecio;
+        public System.Windows.Forms.TextBox txbNombreServicio;
+        public System.Windows.Forms.TextBox txbDescripcionServicio;
     }
 }

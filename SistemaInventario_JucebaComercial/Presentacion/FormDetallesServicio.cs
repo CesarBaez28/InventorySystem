@@ -13,6 +13,8 @@ namespace Presentacion
 {
     public partial class FormDetallesServicio : Form
     {
+        DominioServicios servicios = new DominioServicios();
+
         int posX, posY; //Las uso para obtener las cordenadas y poder mover el formulario
         int parseCorrecto; //La uso para verificar que la cantidad de materiales se ha un numero entero 
         bool estadoServicio;// la uso para indicar el estado del servicio (activo o inactivo)
@@ -69,6 +71,12 @@ namespace Presentacion
             {
                 FormActualizarMaterialesServicio materialesServicio = new FormActualizarMaterialesServicio();
 
+                if (actualizar == true)
+                {
+                    materialesServicio.actualizar = true;
+                    materialesServicio.codigoServicio = codigoServicio;
+                }
+                
                 materialesServicio.txbCantidad.Text = gridViewMateriales.CurrentRow.Cells["Cantidad"].Value.ToString();
                 materialesServicio.material = gridViewMateriales.CurrentRow.Cells["Material"].Value.ToString();
                 materialesServicio.indiceFila = gridViewMateriales.CurrentCell.RowIndex;
@@ -97,18 +105,33 @@ namespace Presentacion
                     else
                         estadoServicio = false;
 
-                    //Registro nuevo servicio
-                    servicios.RegisterService(txbNombreServicio.Text, txbDescripcionServicio.Text, txbPrecio.Text, estadoServicio);
-
-                    //Registro materiales que incluye el servicio
-                    foreach (DataGridViewRow fila in gridViewMateriales.Rows)
+                    //Insertar
+                    if (actualizar == false)
                     {
-                        servicios.RegisterMaterialService(fila.Cells[0].Value.ToString(), fila.Cells[2].Value.ToString());
+                        //Registro nuevo servicio
+                        servicios.RegisterService(txbNombreServicio.Text, txbDescripcionServicio.Text, txbPrecio.Text, estadoServicio);
+
+                        //Registro materiales que incluye el servicio
+                        foreach (DataGridViewRow fila in gridViewMateriales.Rows)
+                        {
+                            servicios.RegisterMaterialService(fila.Cells[0].Value.ToString(), fila.Cells[2].Value.ToString());
+                        }
+
+                        MessageBox.Show("Registrado correctamente");
+                        BorrarCampos();
+                    }
+                    //Actualizar
+                    else
+                    {
+                        //Actualizo datos generales del servicio
+                        servicios.UpdateService(codigoServicio, txbNombreServicio.Text, txbPrecio.Text, 
+                            txbDescripcionServicio.Text, estadoServicio);
+
+                        MessageBox.Show("Se actualizó correctamente");
+                        this.Close();
                     }
 
-                    MessageBox.Show("Registrado correctamente");
                     FormServicios.formServicios.MostrarServicios(); //Actualizo lista servicios
-                    BorrarCampos();
                 }
             }
         }
@@ -132,11 +155,28 @@ namespace Presentacion
         {
             if (int.TryParse(txbCantidad.Text, out parseCorrecto))
             {
-                int indice = gridViewMateriales.Rows.Add();
+                if (actualizar == false)
+                {
+                    int indice = gridViewMateriales.Rows.Add();
 
-                gridViewMateriales.Rows[indice].Cells[0].Value = comboMaterial.SelectedValue.ToString();
-                gridViewMateriales.Rows[indice].Cells[1].Value = comboMaterial.Text;
-                gridViewMateriales.Rows[indice].Cells[2].Value = txbCantidad.Text;
+                    gridViewMateriales.Rows[indice].Cells[0].Value = comboMaterial.SelectedValue.ToString();
+                    gridViewMateriales.Rows[indice].Cells[1].Value = comboMaterial.Text;
+                    gridViewMateriales.Rows[indice].Cells[2].Value = txbCantidad.Text;
+                }
+                else 
+                {
+                    try
+                    {
+                        servicios.RegisterNewMaterialService(codigoServicio,
+                            comboMaterial.SelectedValue.ToString(), txbCantidad.Text);
+
+                        MostrarMaterialesServicio();
+                    }
+                    catch 
+                    {
+                        MessageBox.Show("Ya ese material está  incluido en el servicio");
+                    }
+                }
             }
             else 
             {
@@ -149,7 +189,10 @@ namespace Presentacion
         {
             if (gridViewMateriales.SelectedRows.Count > 0)
             {
-                gridViewMateriales.Rows.Remove(gridViewMateriales.CurrentRow);
+                if (actualizar == false)
+                {
+                    gridViewMateriales.Rows.Remove(gridViewMateriales.CurrentRow);
+                }
             }
         }
 
