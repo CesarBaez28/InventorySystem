@@ -620,9 +620,12 @@ BEGIN
 END
 GO
 
-SELECT * FROM servicios
-SELECT * FROM materiales
-SELECT * FROM servicios_materiales
+
+------- Procedimientos almacenados relacionados con las entradas de materiales-----------------
+
+
+
+
 
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
 

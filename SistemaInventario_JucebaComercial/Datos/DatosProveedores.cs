@@ -18,6 +18,14 @@ namespace Datos
             return table;
         }
 
+        //MostrarNombreCodigoProveedores
+        public DataTable NombreCodigoProveedores() 
+        {
+            DataTable table = new DataTable();
+            table = ExecuteReaderText("SELECT codigo, nombre FROM proveedores");
+            return table;
+        }
+
         //Buscar proveedores por codigo
         public DataTable BuscarProveedorCodigo(int codigo) 
         {

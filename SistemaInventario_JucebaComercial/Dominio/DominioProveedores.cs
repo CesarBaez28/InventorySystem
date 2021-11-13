@@ -20,6 +20,14 @@ namespace Dominio
             return table;
         }
 
+        //Show names and codes about suppliers
+        public DataTable NameCodeSupplier() 
+        {
+            DataTable table = new DataTable();
+            table = proveedor.NombreCodigoProveedores();
+            return table;
+        }
+
         //Search suppliers by code
         public DataTable SearchSupplierByCode(string codigo)
         {

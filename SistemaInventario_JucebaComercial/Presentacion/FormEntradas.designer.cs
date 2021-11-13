@@ -29,10 +29,10 @@ namespace Presentacion
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEntradas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelContedorIngresos = new System.Windows.Forms.Panel();
             this.btnAgregarTipoMaterial = new System.Windows.Forms.Button();
             this.btnAgregarSuplidor = new System.Windows.Forms.Button();
@@ -62,6 +62,7 @@ namespace Presentacion
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnAgregarMaterial = new System.Windows.Forms.Button();
             this.panelContedorIngresos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewEntradas)).BeginInit();
             this.SuspendLayout();
@@ -72,6 +73,7 @@ namespace Presentacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelContedorIngresos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelContedorIngresos.Controls.Add(this.btnAgregarMaterial);
             this.panelContedorIngresos.Controls.Add(this.btnAgregarTipoMaterial);
             this.panelContedorIngresos.Controls.Add(this.btnAgregarSuplidor);
             this.panelContedorIngresos.Controls.Add(this.lblCantidad);
@@ -151,11 +153,12 @@ namespace Presentacion
             // 
             // comboMaterial
             // 
+            this.comboMaterial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboMaterial.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboMaterial.FormattingEnabled = true;
             this.comboMaterial.Location = new System.Drawing.Point(14, 172);
             this.comboMaterial.Name = "comboMaterial";
-            this.comboMaterial.Size = new System.Drawing.Size(265, 28);
+            this.comboMaterial.Size = new System.Drawing.Size(226, 28);
             this.comboMaterial.TabIndex = 26;
             // 
             // lblMaterial
@@ -170,6 +173,7 @@ namespace Presentacion
             // 
             // comboTipoMaterial
             // 
+            this.comboTipoMaterial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboTipoMaterial.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboTipoMaterial.FormattingEnabled = true;
             this.comboTipoMaterial.Location = new System.Drawing.Point(14, 116);
@@ -189,6 +193,7 @@ namespace Presentacion
             // 
             // comboSuplidores
             // 
+            this.comboSuplidores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboSuplidores.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboSuplidores.FormattingEnabled = true;
             this.comboSuplidores.Location = new System.Drawing.Point(14, 60);
@@ -206,14 +211,14 @@ namespace Presentacion
             this.gridViewEntradas.BackgroundColor = System.Drawing.Color.White;
             this.gridViewEntradas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridViewEntradas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewEntradas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewEntradas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.gridViewEntradas.ColumnHeadersHeight = 30;
             this.gridViewEntradas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridViewEntradas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -229,20 +234,20 @@ namespace Presentacion
             this.gridViewEntradas.Name = "gridViewEntradas";
             this.gridViewEntradas.ReadOnly = true;
             this.gridViewEntradas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewEntradas.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewEntradas.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.gridViewEntradas.RowHeadersVisible = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            this.gridViewEntradas.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridViewEntradas.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.gridViewEntradas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridViewEntradas.Size = new System.Drawing.Size(886, 180);
             this.gridViewEntradas.TabIndex = 21;
@@ -431,6 +436,23 @@ namespace Presentacion
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // btnAgregarMaterial
+            // 
+            this.btnAgregarMaterial.BackColor = System.Drawing.Color.Gray;
+            this.btnAgregarMaterial.FlatAppearance.BorderSize = 0;
+            this.btnAgregarMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarMaterial.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarMaterial.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarMaterial.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarMaterial.Image")));
+            this.btnAgregarMaterial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarMaterial.Location = new System.Drawing.Point(246, 172);
+            this.btnAgregarMaterial.Name = "btnAgregarMaterial";
+            this.btnAgregarMaterial.Size = new System.Drawing.Size(33, 28);
+            this.btnAgregarMaterial.TabIndex = 40;
+            this.btnAgregarMaterial.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregarMaterial.UseVisualStyleBackColor = false;
+            this.btnAgregarMaterial.Click += new System.EventHandler(this.btnAgregarMaterial_Click);
+            // 
             // FormEntradas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -441,6 +463,7 @@ namespace Presentacion
             this.Controls.Add(this.panelContedorIngresos);
             this.Name = "FormEntradas";
             this.Text = " ";
+            this.Load += new System.EventHandler(this.FormEntradas_Load);
             this.panelContedorIngresos.ResumeLayout(false);
             this.panelContedorIngresos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewEntradas)).EndInit();
@@ -479,5 +502,6 @@ namespace Presentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
         private System.Windows.Forms.Button btnAgregarTipoMaterial;
         private System.Windows.Forms.Button btnAgregarSuplidor;
+        public System.Windows.Forms.Button btnAgregarMaterial;
     }
 }

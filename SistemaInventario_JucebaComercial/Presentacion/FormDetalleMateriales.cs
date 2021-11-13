@@ -13,13 +13,14 @@ namespace Presentacion
 {
     public partial class FormDetalleMateriales : Form
     {
-        int posX, posY; //Las uso para obtener las cordenadas y poder mover el formulario
-        public bool actualizar = false; // la utilizo para insertar o actulizar dependiendo del estado de la variable
-        public string codigo; //Obtener el codigo del datagridView
-        bool estadoMaterial = false; // La utilizo para cambiar el estado a los materiales
-        float parseCorrecto; //La utilizo para indicar que el costo se ha un numero valido
+        int posX, posY; //Las uso para obtener las cordenadas y poder mover el formulario.
+        public bool actualizar = false; // la utilizo para insertar o actulizar dependiendo del estado de la variable.
+        public string codigo; //Obtener el codigo del datagridView.
+        bool estadoMaterial = false; // La utilizo para cambiar el estado a los materiales.
+        float parseCorrecto; //La utilizo para indicar que el costo se ha un numero valido.
         public string tipoMaterial; //Guardo el texto del tipo de material seleccionado en el datagridView para mostrarlo en el comobobox tipo de material
-        public bool formDetallesServicios; // La uso para saber si el Formulario FormDetallesServicios abrio este formulario
+        public bool formDetallesServicios; // La uso para saber si el Formulario FormDetallesServicios abrió este formulario.
+        public bool formEntrada; // La uso para saber si el FormEntrada abrió este formulario.
 
         //La utilizo para actualizar el comobobox Tipo de materiales desde el formulario AgregarTipoMateriales
         public static FormDetalleMateriales formDetalleMaterial;
@@ -83,17 +84,22 @@ namespace Presentacion
                         material.RegisterMaterial(cbxTiposMateriales.SelectedValue.ToString(), txbNombre.Text,
                             txbDescripcion.Text, txbCosto.Text, txbExistencia.Text);
 
-                        ///Verifico si el FormDetallesServicios abrio el formulario
-                        if (formDetallesServicios != true)
+                        ///Verifico qué  formulario externo abrio el formulario
+                        if (formDetallesServicios != true && formEntrada != true)
                         {
                             MessageBox.Show("Se insertó correctamente");
                             VaciarCampos();
                             Actualizar(); //Actualizo Lista en FormMateriales
                         }
-                        else 
+                        else if (formDetallesServicios == true)
                         {
                             //Actualizo Lista de materiales en FormDetallesServicio
                             FormDetallesServicio.detallesServicio.MostrarMateriales();
+                            this.Close();
+                        }
+                        else
+                        {
+                            FormEntradas.formEntrada.MostrarMateriales();
                             this.Close();
                         }
                     }

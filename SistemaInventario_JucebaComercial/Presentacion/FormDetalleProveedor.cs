@@ -19,6 +19,7 @@ namespace Presentacion
         public string direccion; // Guardo la direccion que se desea Actualizar. La uso para mostrar dicha direccion en el combobox 
         public string telefonoViejo; //La uso para guardar el telefono que se desea actualizar
         bool estadoProveedor; // Lo uso para indicar el estado del proveedor (activo o inactivo)
+        public bool formEntrada; // La uso para indicar si el FormEntradas abrió este formulario
 
         public static FormDetalleProveedor detalleProveedor;
 
@@ -26,6 +27,11 @@ namespace Presentacion
         {
             InitializeComponent();
             FormDetalleProveedor.detalleProveedor = this;
+        }
+
+        public FormDetalleProveedor() 
+        {
+            InitializeComponent();
         }
 
         public delegate void ActualizarDelagate(object sender, UpdateEventArgs args);
@@ -81,7 +87,7 @@ namespace Presentacion
         {
             DominioProveedores proveedor = new DominioProveedores();
 
-            //Insertar cliente
+            //Insertar proveedor
             if (actualizar == false)
             {
                 //Confirmo que los campos esten llenos
@@ -89,16 +95,27 @@ namespace Presentacion
                 {
                     proveedor.RegisterSupplier(txbTelefono.Text, comboBoxDirecciones.SelectedValue.ToString(), 
                         txbNombre.Text);
-                    Actualizar();
-                    MessageBox.Show("Registro insertado");
-                    this.Close();
+
+                    //Verifico si el FormEntrada abrió este formulario
+                    if (formEntrada != true)
+                    {
+                        Actualizar();
+                        MessageBox.Show("Registro insertado");
+                        this.Close();
+                    }
+                    else 
+                    {
+                        //Actualizo la lista de suplidores en FormEntrada
+                        FormEntradas.formEntrada.MostrarProveedores();
+                        this.Close();
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Faltan campos por llenar");
                 }
             }
-            //Actualizar cliente
+            //Actualizar proveedor
             else 
             {
                 if (cbxEstado.Text == "Activo")
