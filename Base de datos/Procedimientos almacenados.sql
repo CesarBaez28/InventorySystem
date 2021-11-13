@@ -565,7 +565,7 @@ BEGIN
 END
 GO
 
---Eliminar servicio 
+--Eliminar servicio
 CREATE PROCEDURE p_EliminarServicio
   @codigoServicio INT
 AS
@@ -578,6 +578,15 @@ BEGIN
 END
 GO
 
+--Eliminar servicio por estado (cambia de activo a inactivo)
+CREATE PROCEDURE p_EliminarServicioEstado
+  @codigoServicio INT
+AS
+BEGIN 
+  UPDATE servicios SET estado = 0 WHERE codigo = @codigoServicio
+END
+GO
+
 --Buscar servicio por código
 CREATE PROCEDURE p_BuscarServicioCodigo
   @codigo INT
@@ -587,6 +596,28 @@ BEGIN
   CASE WHEN estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado FROM servicios
   WHERE codigo = @codigo
 END 
+GO
+
+--Buscar servicio por nombre
+CREATE PROCEDURE p_BuscarServicioNombre
+  @nombreServicio VARCHAR(100)
+AS
+BEGIN
+  SELECT codigo as'Código', nombre_servicio as 'Nombre', descripcion as 'Descripción', precio as 'Precio',
+  CASE WHEN estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado FROM servicios
+  WHERE nombre_servicio LIKE '%'+ @nombreServicio + '%'
+END
+GO
+
+--Buscar servicios activos
+CREATE PROCEDURE p_BuscarServicioEstado
+  @estado VARCHAR(100)
+AS
+BEGIN
+  SELECT codigo as'Código', nombre_servicio as 'Nombre', descripcion as 'Descripción', precio as 'Precio',
+  CASE WHEN estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado FROM servicios
+  WHERE estado = @estado
+END
 GO
 
 SELECT * FROM servicios

@@ -82,6 +82,14 @@ namespace Datos
             ExecuteNonQuery("p_EliminarServicio");
         }
 
+        //Eliminar servicio por estado (cambia de activo a inactivo)
+        public void EliminarServicioEstado(int codigoServicio) 
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigoServicio", codigoServicio));
+            ExecuteNonQuery("p_EliminarServicioEstado");
+        }
+
         //Mostrar todos los datos de los servicios
         public DataTable MostrarServicios() 
         {
@@ -109,6 +117,26 @@ namespace Datos
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigo", codigoServicio));
             table = ExecuteReader("p_BuscarServicioCodigo");
+            return table;
+        }
+
+        //Buscar servicio por nombre 
+        public DataTable BuscarServicioNombre(string nombreServicio) 
+        {
+            DataTable table = new DataTable();
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@nombreServicio", nombreServicio));
+            table = ExecuteReader("p_BuscarServicioNombre");
+            return table;
+        }
+
+        //Buscar servicio por estado
+        public DataTable BuscarServicioEstado(bool estado) 
+        {
+            DataTable table = new DataTable();
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@estado",estado));
+            table = ExecuteReader("p_BuscarServicioEstado");
             return table;
         }
     }

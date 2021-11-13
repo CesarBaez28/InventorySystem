@@ -13,12 +13,14 @@ namespace Presentacion
 {
     public partial class FormServicios : Form
     {
-        //La uso para actualizar la lista de servicios al ingresar o actualizar uno
+        //La uso para actualizar la lista de servicios al ingresar o actualizar uno.
         public static FormServicios formServicios;
+        int parseCorrecto;//La uso para validar que el código del servicio se ha entero.
+        bool estadoServicio = true; //La uso para buscar servicios por estado (activo o inactivo).
+        bool Buscarinactivos;//La uso para indicar se van eliminar permanentemente los materiales inactivos cuando se buscan dichos materiales.
+
 
         DominioServicios servicios = new DominioServicios();
-
-        int parseCorrecto;//La uso para validar que el código del servicio se ha entero
 
         public FormServicios()
         {
@@ -35,7 +37,7 @@ namespace Presentacion
         public void MostrarServicios() 
         {
             DominioServicios servicios = new DominioServicios();
-            gridViewListaServicios.DataSource = servicios.ShowServices();
+            gridViewListaServicios.DataSource = servicios.SearchServiceStatus(estadoServicio);
         }
 
         //Cerrar formulario
@@ -76,9 +78,24 @@ namespace Presentacion
         {
             if (gridViewListaServicios.SelectedRows.Count > 0)
             {
-                servicios.DeleteService(gridViewListaServicios.CurrentRow.Cells["Código"].Value.ToString());
+                estadoServicio = true;
+
+                //Eliminar por estado (cambiar de activo a inactivo)
+                if (Buscarinactivos == false)
+                {
+                    servicios.DeleteServiceStatus(gridViewListaServicios.CurrentRow.Cells["Código"].Value.ToString());
+                    MostrarServicios();
+                }
+                //Eliminar definitivamente
+                else 
+                {
+                    estadoServicio = false;
+                    servicios.DeleteService(gridViewListaServicios.CurrentRow.Cells["Código"].Value.ToString());
+                    MostrarServicios();
+                    estadoServicio = true;
+                }
+
                 MessageBox.Show("Se eliminó correctamente");
-                MostrarServicios();
             }
             else 
             {
@@ -121,6 +138,8 @@ namespace Presentacion
         //Buscar
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            Buscarinactivos = false;
+
             //Buscar por código
             if (comboBuscar.SelectedIndex == 0)
             {
@@ -134,22 +153,26 @@ namespace Presentacion
             //Buscar por nombre
             else if (comboBuscar.SelectedIndex == 1)
             {
-
+                gridViewListaServicios.DataSource = servicios.SearchServiceName(txbBuscar.Text);
+                txbBuscar.Text = "";
             }
             //Buscar servicios activos
             else if (comboBuscar.SelectedIndex == 2)
             {
-
+                estadoServicio = true;
+                MostrarServicios();
             }
             //Buscar servicios inactivos
             else if (comboBuscar.SelectedIndex == 3)
             {
-
+                estadoServicio = false;
+                Buscarinactivos = true;
+                MostrarServicios();
             }
             //Buscar todos los servicios (activos e inactivos)
             else if(comboBuscar.SelectedIndex == 4)
             {
-            
+                gridViewListaServicios.DataSource = servicios.ShowServices();
             }
         }
 

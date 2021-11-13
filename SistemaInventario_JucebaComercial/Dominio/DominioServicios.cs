@@ -60,6 +60,12 @@ namespace Dominio
             servicios.EliminarServicio(Convert.ToInt32(codigoServicio));
         }
 
+        //Delete service by status
+        public void DeleteServiceStatus(string codigoServicio) 
+        {
+            servicios.EliminarServicioEstado(Convert.ToInt32(codigoServicio));
+        }
+
         //Show all services 
         public DataTable ShowServices() 
         {
@@ -81,6 +87,22 @@ namespace Dominio
         {
             DataTable table = new DataTable();
             table = servicios.BuscarServicioCodigo(Convert.ToInt32(codigoServicio));
+            return table;
+        }
+
+        //Search service by name
+        public DataTable SearchServiceName(string nombreServicio) 
+        {
+            DataTable table = new DataTable();
+            table = servicios.BuscarServicioNombre(nombreServicio);
+            return table;
+        }
+
+        //Search service by status
+        public DataTable SearchServiceStatus(bool estado) 
+        {
+            DataTable table = new DataTable();
+            table = servicios.BuscarServicioEstado(estado);
             return table;
         }
     }

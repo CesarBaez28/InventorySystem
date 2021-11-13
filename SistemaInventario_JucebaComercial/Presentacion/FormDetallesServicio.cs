@@ -15,11 +15,13 @@ namespace Presentacion
     {
         DominioServicios servicios = new DominioServicios();
 
-        int posX, posY; //Las uso para obtener las cordenadas y poder mover el formulario
-        int parseCorrecto; //La uso para verificar que la cantidad de materiales se ha un numero entero 
-        bool estadoServicio;// la uso para indicar el estado del servicio (activo o inactivo)
-        public bool actualizar = false; // La uso para indicar cuando se va a insertar o actualizar
-        public string codigoServicio;//Guardo el codigo del servicio para actualizar y mostrar datos del mismo
+        int posX, posY; //Las uso para obtener las cordenadas y poder mover el formulario.
+        int parseCorrecto; //La uso para verificar que la cantidad de materiales se ha un número entero.
+        bool estadoServicio; // la uso para indicar el estado del servicio (activo o inactivo).
+        public bool actualizar = false; // La uso para indicar cúando se va a insertar o actualizar.
+        public string codigoServicio; //Guardo el código del servicio para actualizar y mostrar datos del mismo.
+        bool primerRegistro = false; //La uso para que, luego de agregar un primer material, verificar si este u otros se agregan repetidos.
+        bool yaIncluido = false; //La uso para validar que no se ingrese un material repetido.
 
         //La uso para actualizar la lista de materiales desde el Form FormDetallesMateriales
         public static FormDetallesServicio detallesServicio;
@@ -38,6 +40,7 @@ namespace Presentacion
               MostrarMaterialesServicio();
         }
 
+        //Mostrar materiales en el comboboxMateriales
         public void MostrarMateriales() 
         {
             DominioMateriales materiales = new DominioMateriales();
@@ -46,6 +49,7 @@ namespace Presentacion
             comboMaterial.DataSource = materiales.NamesCodesMaterials();
         }
 
+        //Mostrar materiales en el datagridview
         public void MostrarMaterialesServicio() 
         {
             DominioServicios servicios = new DominioServicios();
@@ -150,6 +154,16 @@ namespace Presentacion
             AbrirFormulario(detalleMateriales);
         }
 
+        //Agrega los materiales seleccionados al datagridView
+        private void AgregarMaterial() 
+        {
+            int indice = gridViewMateriales.Rows.Add();
+
+            gridViewMateriales.Rows[indice].Cells[0].Value = comboMaterial.SelectedValue.ToString();
+            gridViewMateriales.Rows[indice].Cells[1].Value = comboMaterial.Text;
+            gridViewMateriales.Rows[indice].Cells[2].Value = txbCantidad.Text;
+        }
+
         //boton Agregar
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -157,11 +171,36 @@ namespace Presentacion
             {
                 if (actualizar == false)
                 {
-                    int indice = gridViewMateriales.Rows.Add();
+                    //Verifico si ya se ha ingresado un material
+                    if (primerRegistro == false)
+                    {
+                        AgregarMaterial();
+                        primerRegistro = true;
+                        txbCantidad.Text = "";
+                    }
+                    else 
+                    {
+                        //Verifico si el material agregado está repetidos
+                        foreach (DataGridViewRow fila in gridViewMateriales.Rows)
+                        {
+                            if (fila.Cells[0].Value.ToString() == comboMaterial.SelectedValue.ToString())
+                            {
+                                yaIncluido = true;
+                                break;
+                            }
+                        }
 
-                    gridViewMateriales.Rows[indice].Cells[0].Value = comboMaterial.SelectedValue.ToString();
-                    gridViewMateriales.Rows[indice].Cells[1].Value = comboMaterial.Text;
-                    gridViewMateriales.Rows[indice].Cells[2].Value = txbCantidad.Text;
+                        //Si no está repetido, agrega el material. De lo contrario, arroja un mensaje.
+                        if (yaIncluido != true)
+                        {
+                            AgregarMaterial();
+                            txbCantidad.Text = "";
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ya ingresó ese material");
+                        }
+                    }
                 }
                 else 
                 {
@@ -170,6 +209,7 @@ namespace Presentacion
                         servicios.RegisterNewMaterialService(codigoServicio,
                             comboMaterial.SelectedValue.ToString(), txbCantidad.Text);
 
+                        txbCantidad.Text = "";
                         MostrarMaterialesServicio();
                     }
                     catch 
