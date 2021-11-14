@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="DatosClientes.cs" />
     <Compile Include="DatosDirecciones.cs" />
+    <Compile Include="DatosEntradas.cs" />
     <Compile Include="DatosMateriales.cs" />
     <Compile Include="DatosMedidas.cs" />
     <Compile Include="DatosProveedores.cs" />

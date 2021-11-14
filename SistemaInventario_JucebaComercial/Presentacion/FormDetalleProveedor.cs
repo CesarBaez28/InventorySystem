@@ -93,21 +93,28 @@ namespace Presentacion
                 //Confirmo que los campos esten llenos
                 if (txbNombre.Text != "" && txbTelefono.Text != "")
                 {
-                    proveedor.RegisterSupplier(txbTelefono.Text, comboBoxDirecciones.SelectedValue.ToString(), 
-                        txbNombre.Text);
+                    try
+                    {
+                        proveedor.RegisterSupplier(txbTelefono.Text, comboBoxDirecciones.SelectedValue.ToString(),
+                            txbNombre.Text);
 
-                    //Verifico si el FormEntrada abrió este formulario
-                    if (formEntrada != true)
-                    {
-                        Actualizar();
-                        MessageBox.Show("Registro insertado");
-                        this.Close();
+                        //Verifico si el FormEntrada abrió este formulario
+                        if (formEntrada != true)
+                        {
+                            Actualizar();
+                            MessageBox.Show("Registro insertado");
+                            this.Close();
+                        }
+                        else
+                        {
+                            //Actualizo la lista de suplidores en FormEntrada
+                            FormEntradas.formEntrada.MostrarProveedores();
+                            this.Close();
+                        }
                     }
-                    else 
+                    catch 
                     {
-                        //Actualizo la lista de suplidores en FormEntrada
-                        FormEntradas.formEntrada.MostrarProveedores();
-                        this.Close();
+                        MessageBox.Show("Ya existe un proveedor con ese nombre");
                     }
                 }
                 else
@@ -123,12 +130,19 @@ namespace Presentacion
                 else 
                     estadoProveedor = false;
 
-                proveedor.UpdateSupplier(txbTelefono.Text, telefonoViejo, comboBoxDirecciones.SelectedValue.ToString(), txbNombre.Text, codigo,
-                    estadoProveedor);
+                try
+                {
+                    proveedor.UpdateSupplier(txbTelefono.Text, telefonoViejo, comboBoxDirecciones.SelectedValue.ToString(), txbNombre.Text, codigo,
+                        estadoProveedor);
 
-                Actualizar();
-                MessageBox.Show("Registro actualizado");
-                this.Close();
+                    Actualizar();
+                    MessageBox.Show("Registro actualizado");
+                    this.Close();
+                }
+                catch 
+                {
+                    MessageBox.Show("Ya existe un proveedor con ese nombre");
+                }
             }
         }
 

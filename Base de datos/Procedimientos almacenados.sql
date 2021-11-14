@@ -620,13 +620,34 @@ BEGIN
 END
 GO
 
-
 ------- Procedimientos almacenados relacionados con las entradas de materiales-----------------
 
+CREATE PROCEDURE p_RegistrarEntrada
+  @fechaEntrada DATETIME,
+  @codigoUsuario INT,
+  @suplidor VARCHAR(50),
+  @tipoMaterial VARCHAR(50),
+  @material VARCHAR(50),
+  @cantidad INT,
+  @costo NUMERIC(20,2)
+AS
+BEGIN 
+  INSERT INTO entradas(fecha_entrada) VALUES (@fechaEntrada)
 
+  DECLARE @codigoEntrada INT
+  DECLARE @codigoSuplidor INT
+  DECLARE @codigoMaterial INT
+  DECLARE @codigoTipoMaterial INT
 
+  SELECT @codigoEntrada = MAX(codigo) FROM entradas
+  SELECT @codigoSuplidor = codigo FROM proveedores WHERE nombre = @suplidor
+  SELECT @codigoMaterial = codigo FROM materiales WHERE nombre = @material
+  SELECT @codigoTipoMaterial = codigo FROM tipo_material WHERE tipo_material = @tipoMaterial
 
-
+  INSERT INTO detalle_entrada(codigo_entrada, codigo_suplidor, codigo_material, codigo_tipo_material, codigo_usuario, costo, cantidad)
+  VALUES(@codigoEntrada, @codigoSuplidor, @codigoMaterial, @codigoTipoMaterial, @codigoUsuario, @costo, @cantidad)
+END 
+GO
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
 
 --Insertar  nueva Direccion
@@ -648,4 +669,3 @@ BEGIN
 END
 GO
 
-SELECT nombre as 'Material', codigo FROM materiales

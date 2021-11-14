@@ -113,26 +113,40 @@ namespace Presentacion
                     if (actualizar == false)
                     {
                         //Registro nuevo servicio
-                        servicios.RegisterService(txbNombreServicio.Text, txbDescripcionServicio.Text, txbPrecio.Text, estadoServicio);
-
-                        //Registro materiales que incluye el servicio
-                        foreach (DataGridViewRow fila in gridViewMateriales.Rows)
+                        try
                         {
-                            servicios.RegisterMaterialService(fila.Cells[0].Value.ToString(), fila.Cells[2].Value.ToString());
-                        }
+                            servicios.RegisterService(txbNombreServicio.Text, txbDescripcionServicio.Text, txbPrecio.Text, estadoServicio);
 
-                        MessageBox.Show("Registrado correctamente");
-                        BorrarCampos();
+                            //Registro materiales que incluye el servicio
+                            foreach (DataGridViewRow fila in gridViewMateriales.Rows)
+                            {
+                                servicios.RegisterMaterialService(fila.Cells[0].Value.ToString(), fila.Cells[2].Value.ToString());
+                            }
+
+                            MessageBox.Show("Registrado correctamente");
+                            BorrarCampos();
+                        }
+                        catch 
+                        {
+                            MessageBox.Show("Ya existe un servicio con ese nombre");
+                        }
                     }
                     //Actualizar
                     else
                     {
                         //Actualizo datos generales del servicio
-                        servicios.UpdateService(codigoServicio, txbNombreServicio.Text, txbPrecio.Text, 
-                            txbDescripcionServicio.Text, estadoServicio);
+                        try
+                        {
+                            servicios.UpdateService(codigoServicio, txbNombreServicio.Text, txbPrecio.Text,
+                                txbDescripcionServicio.Text, estadoServicio);
 
-                        MessageBox.Show("Se actualizó correctamente");
-                        this.Close();
+                            MessageBox.Show("Se actualizó correctamente");
+                            this.Close();
+                        }
+                        catch 
+                        {
+                            MessageBox.Show("Ya existe un servicio con ese nombre");
+                        }
                     }
 
                     FormServicios.formServicios.MostrarServicios(); //Actualizo lista servicios
@@ -180,7 +194,7 @@ namespace Presentacion
                     }
                     else 
                     {
-                        //Verifico si el material agregado está repetidos
+                        //Verifico si el material agregado está repetido
                         foreach (DataGridViewRow fila in gridViewMateriales.Rows)
                         {
                             if (fila.Cells[0].Value.ToString() == comboMaterial.SelectedValue.ToString())
@@ -190,7 +204,7 @@ namespace Presentacion
                             }
                         }
 
-                        //Si no está repetido, agrega el material. De lo contrario, arroja un mensaje.
+                        //Si no está repetido, agrega el material. De lo contrario, arroja un mensaje de error.
                         if (yaIncluido != true)
                         {
                             AgregarMaterial();
@@ -199,6 +213,7 @@ namespace Presentacion
                         else
                         {
                             MessageBox.Show("Ya ingresó ese material");
+                            yaIncluido = false;
                         }
                     }
                 }

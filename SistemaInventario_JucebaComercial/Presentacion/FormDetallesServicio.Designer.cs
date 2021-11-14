@@ -159,6 +159,7 @@ namespace Presentacion
             // 
             // comboMaterial
             // 
+            this.comboMaterial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboMaterial.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboMaterial.FormattingEnabled = true;
             this.comboMaterial.Location = new System.Drawing.Point(14, 63);

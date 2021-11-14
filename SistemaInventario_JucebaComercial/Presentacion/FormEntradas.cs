@@ -14,7 +14,9 @@ namespace Presentacion
     public partial class FormEntradas : Form
     {
         float parseCorrecto;
-        int codigo_tipoRegistro = 1; //Este codigo indica que, en la base de datos, el registro ingresado sera de tipo ingreso.
+        float montoToal; // La uso para guardar el monto total de la compra.
+        bool primerRegistro = false; //La uso para que, luego de agregar un primer material, verificar si este u otros se agregan repetidos.
+        bool yaRegistrado = false; // La uso para validar que no se ingrese un material repetido.
 
         //La uso para actualizar datos desde otro formulario
         public static FormEntradas formEntrada;
@@ -23,6 +25,20 @@ namespace Presentacion
         {
             InitializeComponent();
             FormEntradas.formEntrada = this;
+        }
+
+        private void codigoMaterial() 
+        {
+            string codigoMaterial;
+
+            for (int i = 0; i <= comboMaterial.DisplayMember[0]; i++) { }
+
+        }
+
+        //Cerrar el formulario
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void FormEntradas_Load(object sender, EventArgs e)
@@ -59,42 +75,71 @@ namespace Presentacion
             comboSuplidores.DataSource = proveedores.NameCodeSupplier();
         }
 
-        //Cerrar el formulario
-        private void btnCerrar_Click(object sender, EventArgs e)
+        //Agregar entrada a la lista
+        private void AgregarEntrada() 
         {
-            this.Close();
+            int indice = gridViewEntradas.Rows.Add();
+
+            gridViewEntradas.Rows[indice].Cells[0].Value = comboSuplidores.Text;
+            gridViewEntradas.Rows[indice].Cells[1].Value = comboTipoMaterial.Text;
+            gridViewEntradas.Rows[indice].Cells[2].Value = comboMaterial.Text;
+            gridViewEntradas.Rows[indice].Cells[3].Value = dateTimeEntrada.Text;
+            gridViewEntradas.Rows[indice].Cells[4].Value = txbCantidad.Text;
+            gridViewEntradas.Rows[indice].Cells[5].Value = txbMonto.Text;
         }
 
         //Boton Agregar
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            //if (float.TryParse(txbMonto.Text, out parseCorrecto))
-            //{
-            //    int indice = gridViewEntradas.Rows.Add();
+            if (float.TryParse(txbMonto.Text, out parseCorrecto) && int.TryParse(txbCantidad.Text, out int parse))
+            {
+                if (primerRegistro == false) //Verifico si ya se ha ingresado un material
+                {
+                    AgregarEntrada();
+                    primerRegistro = true;
+                }
+                else 
+                {
+                    //Verifico si el material agregado está repetido
+                    foreach (DataGridViewRow fila in gridViewEntradas.Rows) 
+                    {
+                        if (fila.Cells[2].Value.ToString() == comboMaterial.Text)
+                        {
+                            yaRegistrado = true;
+                            break;
+                        }
+                    }
 
-            //    gridViewIngresos.Rows[indice].Cells[0].Value = txbCliente.Text;
-            //    gridViewIngresos.Rows[indice].Cells[1].Value = txbServicio.Text;
-            //    gridViewIngresos.Rows[indice].Cells[2].Value = txbComentario.Text;
-            //    gridViewIngresos.Rows[indice].Cells[3].Value = dateTimeIngreso.Text;
-            //    gridViewIngresos.Rows[indice].Cells[4].Value = txbMonto.Text;
+                    //Si no está repetido, agrega la entrada. De lo contrario, arroja un mensaje de error.
+                    if (yaRegistrado != true)
+                    {
+                        AgregarEntrada();
+                    }
+                    else 
+                    {
+                        MessageBox.Show("Ya ingresó ese material");
+                        yaRegistrado = false;
+                    }
+                }
 
-            //    BorrarCampos();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("El monto ingrsado no es válido");
-
-            //}
+                BorrarCampos();
+            }
+            else
+            {
+                MessageBox.Show("Faltan campos por llenar");
+            }
         }
 
+        //Eliminar 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (gridViewEntradas.SelectedRows.Count > 0) 
             {
-                //gridViewEntradas.Rows.Remove(gridViewEntradas.CurrentRow);
+                gridViewEntradas.Rows.Remove(gridViewEntradas.CurrentRow);
             }
         }
 
+        //Terminar y registrar la entrada
         private void btnTerminar_Click(object sender, EventArgs e)
         {
             if (gridViewEntradas.Rows.Count != 0)
@@ -116,6 +161,7 @@ namespace Presentacion
         public void BorrarCampos() 
         {
             txbMonto.Text = "";
+            txbCantidad.Text = "";
         }
 
         //Agregar suplidor

@@ -70,10 +70,17 @@ namespace Presentacion
                 //Confirmo que los campos esten llenos
                 if (txbNombre.Text != "" && txtTelefono.Text != "")
                 {
-                    cliente.RegisterCostumer(txtTelefono.Text, comboBoxDirecciones.SelectedValue.ToString(),
-                        txbNombre.Text);
-                    Actualizar();
-                    this.Close();
+                    try
+                    {
+                        cliente.RegisterCostumer(txtTelefono.Text, comboBoxDirecciones.SelectedValue.ToString(),
+                            txbNombre.Text);
+                        Actualizar();
+                        this.Close();
+                    }
+                    catch 
+                    {
+                        MessageBox.Show("Ya existe un cliente con ese nombre");
+                    }
                 }
                 else
                 {
@@ -88,12 +95,19 @@ namespace Presentacion
                 else
                     estadoCliente = false;
 
-                cliente.UpdateCostumer(txtTelefono.Text, telefonoViejo, 
-                    comboBoxDirecciones.SelectedValue.ToString(), txbNombre.Text, codigo, 
-                    estadoCliente);
+                try
+                {
+                    cliente.UpdateCostumer(txtTelefono.Text, telefonoViejo,
+                        comboBoxDirecciones.SelectedValue.ToString(), txbNombre.Text, codigo,
+                        estadoCliente);
 
-                Actualizar();
-                this.Close();
+                    Actualizar();
+                    this.Close();
+                }
+                catch 
+                {
+                    MessageBox.Show("Ya existe un cliente por ese nombre");
+                }
             }
         }
 

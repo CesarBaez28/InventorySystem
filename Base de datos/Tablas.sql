@@ -157,7 +157,7 @@ CREATE TABLE usuarios (
 CREATE TABLE entradas(
     codigo INT IDENTITY PRIMARY KEY,
     fecha_entrada DATETIME DEFAULT GETDATE(),
-    total_entrada DECIMAL(20,2),
+    total_entrada DECIMAL(20,2) DEFAULT 0,
     estado BIT DEFAULT 1
 )
 

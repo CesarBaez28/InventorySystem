@@ -72,12 +72,19 @@ namespace Presentacion
                     // confirmo que las contraseñas estén correctas
                     if (txbConfirmarPassword.Text == txbPassword.Text)
                     {
-                        usuario.RegisterUser(cbxTiposUsuarios.SelectedValue.ToString(), 
-                            txbNombreUsuario.Text, txbNombre.Text, txbPassword.Text, txbEmail.Text);
-                        MessageBox.Show("Se insertó correctamente");
-                        //vaciarTexboxs();
-                        Actualizar();
-                        this.Close();
+                        try
+                        {
+                            usuario.RegisterUser(cbxTiposUsuarios.SelectedValue.ToString(),
+                                txbNombreUsuario.Text, txbNombre.Text, txbPassword.Text, txbEmail.Text);
+                            MessageBox.Show("Se insertó correctamente");
+                            //vaciarTexboxs();
+                            Actualizar();
+                            this.Close();
+                        }
+                        catch 
+                        {
+                            MessageBox.Show("Ya existe un usuario con ese nombre");
+                        }
                     }
                     else
                     {
@@ -96,27 +103,34 @@ namespace Presentacion
                 // confirmo que las contraseñas estén correctas
                 if (txbConfirmarPassword.Text == txbPassword.Text && txbPassword.Text != "")
                 {
-                    //Activo
-                    if (cbxEstado.SelectedIndex == 0)
+                    try
                     {
-                        estadoUsuario = true;
-                        usuario.UpdateUser(cbxTiposUsuarios.SelectedValue.ToString(), 
-                            txbNombreUsuario.Text, txbNombre.Text,txbPassword.Text,txbEmail.Text,
-                            estadoUsuario, codigo);
-                    }
-                    //Inactivo
-                    else 
-                    {
-                        estadoUsuario = false;
-                        usuario.UpdateUser(cbxTiposUsuarios.SelectedValue.ToString(), 
-                            txbNombreUsuario.Text, txbNombre.Text, txbPassword.Text, txbEmail.Text, 
-                            estadoUsuario, codigo);
-                    }
+                        //Activo
+                        if (cbxEstado.SelectedIndex == 0)
+                        {
+                            estadoUsuario = true;
+                            usuario.UpdateUser(cbxTiposUsuarios.SelectedValue.ToString(),
+                                txbNombreUsuario.Text, txbNombre.Text, txbPassword.Text, txbEmail.Text,
+                                estadoUsuario, codigo);
+                        }
+                        //Inactivo
+                        else
+                        {
+                            estadoUsuario = false;
+                            usuario.UpdateUser(cbxTiposUsuarios.SelectedValue.ToString(),
+                                txbNombreUsuario.Text, txbNombre.Text, txbPassword.Text, txbEmail.Text,
+                                estadoUsuario, codigo);
+                        }
 
-                    MessageBox.Show("Se actualizó correctamente");
-                   // vaciarTexboxs();
-                    Actualizar();
-                    this.Close();
+                        MessageBox.Show("Se actualizó correctamente");
+                        // vaciarTexboxs();
+                        Actualizar();
+                        this.Close();
+                    }
+                    catch 
+                    {
+                        MessageBox.Show("Ya existe un usuario con ese nombre");
+                    }
                 }
                 else
                 {

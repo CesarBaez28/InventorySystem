@@ -30,11 +30,12 @@ namespace Presentacion
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSalidas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.panelContedorIngresos = new System.Windows.Forms.Panel();
+            this.btnAgregarCliente = new System.Windows.Forms.Button();
             this.btnVerDetalles = new System.Windows.Forms.Button();
             this.comboServicios = new System.Windows.Forms.ComboBox();
             this.lblServicio = new System.Windows.Forms.Label();
@@ -55,7 +56,6 @@ namespace Presentacion
             this.lblTitulo = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.btnAgregarCliente = new System.Windows.Forms.Button();
             this.panelContedorIngresos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewEntradas)).BeginInit();
             this.SuspendLayout();
@@ -101,6 +101,23 @@ namespace Presentacion
             this.panelContedorIngresos.TabIndex = 17;
             this.panelContedorIngresos.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContedorIngresos_Paint);
             // 
+            // btnAgregarCliente
+            // 
+            this.btnAgregarCliente.BackColor = System.Drawing.Color.Gray;
+            this.btnAgregarCliente.FlatAppearance.BorderSize = 0;
+            this.btnAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarCliente.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarCliente.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCliente.Image")));
+            this.btnAgregarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarCliente.Location = new System.Drawing.Point(246, 85);
+            this.btnAgregarCliente.Name = "btnAgregarCliente";
+            this.btnAgregarCliente.Size = new System.Drawing.Size(33, 28);
+            this.btnAgregarCliente.TabIndex = 30;
+            this.btnAgregarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregarCliente.UseVisualStyleBackColor = false;
+            this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
+            // 
             // btnVerDetalles
             // 
             this.btnVerDetalles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -122,6 +139,7 @@ namespace Presentacion
             // 
             // comboServicios
             // 
+            this.comboServicios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboServicios.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboServicios.FormattingEnabled = true;
             this.comboServicios.Location = new System.Drawing.Point(14, 141);
@@ -141,6 +159,7 @@ namespace Presentacion
             // 
             // comboClientes
             // 
+            this.comboClientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboClientes.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboClientes.FormattingEnabled = true;
             this.comboClientes.Location = new System.Drawing.Point(14, 85);
@@ -158,14 +177,14 @@ namespace Presentacion
             this.gridViewEntradas.BackgroundColor = System.Drawing.Color.White;
             this.gridViewEntradas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridViewEntradas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewEntradas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewEntradas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridViewEntradas.ColumnHeadersHeight = 30;
             this.gridViewEntradas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridViewEntradas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -179,20 +198,20 @@ namespace Presentacion
             this.gridViewEntradas.Name = "gridViewEntradas";
             this.gridViewEntradas.ReadOnly = true;
             this.gridViewEntradas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewEntradas.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewEntradas.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridViewEntradas.RowHeadersVisible = false;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
-            this.gridViewEntradas.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridViewEntradas.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.gridViewEntradas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridViewEntradas.Size = new System.Drawing.Size(886, 180);
             this.gridViewEntradas.TabIndex = 21;
@@ -352,23 +371,6 @@ namespace Presentacion
             this.lineShape1.X2 = 912;
             this.lineShape1.Y1 = 254;
             this.lineShape1.Y2 = 254;
-            // 
-            // btnAgregarCliente
-            // 
-            this.btnAgregarCliente.BackColor = System.Drawing.Color.Gray;
-            this.btnAgregarCliente.FlatAppearance.BorderSize = 0;
-            this.btnAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarCliente.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarCliente.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCliente.Image")));
-            this.btnAgregarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarCliente.Location = new System.Drawing.Point(246, 85);
-            this.btnAgregarCliente.Name = "btnAgregarCliente";
-            this.btnAgregarCliente.Size = new System.Drawing.Size(33, 28);
-            this.btnAgregarCliente.TabIndex = 30;
-            this.btnAgregarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregarCliente.UseVisualStyleBackColor = false;
-            this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
             // 
             // FormSalidas
             // 

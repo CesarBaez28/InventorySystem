@@ -64,13 +64,13 @@ namespace Presentacion
             // 
             // cbxTiposMateriales
             // 
+            this.cbxTiposMateriales.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTiposMateriales.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxTiposMateriales.FormattingEnabled = true;
             this.cbxTiposMateriales.Location = new System.Drawing.Point(15, 287);
             this.cbxTiposMateriales.Name = "cbxTiposMateriales";
             this.cbxTiposMateriales.Size = new System.Drawing.Size(178, 25);
             this.cbxTiposMateriales.TabIndex = 26;
-            this.cbxTiposMateriales.Text = "Barra";
             // 
             // lblTipoMaterial
             // 
@@ -199,6 +199,7 @@ namespace Presentacion
             // 
             // cbxEstado
             // 
+            this.cbxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxEstado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxEstado.FormattingEnabled = true;
             this.cbxEstado.Items.AddRange(new object[] {

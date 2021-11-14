@@ -148,6 +148,7 @@ namespace Presentacion
             // 
             // comboBoxDirecciones
             // 
+            this.comboBoxDirecciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDirecciones.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxDirecciones.FormattingEnabled = true;
             this.comboBoxDirecciones.Location = new System.Drawing.Point(15, 192);
