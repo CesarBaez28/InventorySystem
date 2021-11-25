@@ -623,7 +623,14 @@ GO
 ------- Procedimientos almacenados relacionados con las entradas de materiales-----------------
 
 CREATE PROCEDURE p_RegistrarEntrada
-  @fechaEntrada DATETIME,
+  @fechaEntrada DATETIME
+AS
+BEGIN
+  INSERT INTO entradas(fecha_entrada) VALUES(@fechaEntrada)
+END
+GO
+
+CREATE PROCEDURE p_RegistrarDetalleEntrada
   @codigoUsuario INT,
   @suplidor VARCHAR(50),
   @tipoMaterial VARCHAR(50),
@@ -632,8 +639,6 @@ CREATE PROCEDURE p_RegistrarEntrada
   @costo NUMERIC(20,2)
 AS
 BEGIN 
-  INSERT INTO entradas(fecha_entrada) VALUES (@fechaEntrada)
-
   DECLARE @codigoEntrada INT
   DECLARE @codigoSuplidor INT
   DECLARE @codigoMaterial INT
@@ -648,6 +653,7 @@ BEGIN
   VALUES(@codigoEntrada, @codigoSuplidor, @codigoMaterial, @codigoTipoMaterial, @codigoUsuario, @costo, @cantidad)
 END 
 GO
+
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
 
 --Insertar  nueva Direccion

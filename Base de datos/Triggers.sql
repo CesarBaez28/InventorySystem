@@ -74,8 +74,27 @@ BEGIN
 END
 GO
 
+------ triggers relacionados con entradas al inventario-----------------
+CREATE TRIGGER t_RegistrarEntrada
+ON detalle_entrada FOR INSERT
+AS
+BEGIN
+  --Actualizo el total de la entrada
+  UPDATE entradas SET total_entrada = total_entrada + (SELECT costo FROM inserted)
+  FROM entradas JOIN detalle_entrada ON (SELECT codigo_entrada FROM inserted) = entradas.codigo
+  WHERE entradas.codigo = (SELECT codigo_entrada FROM inserted)
+
+  --Actualizo la existencia en el inventario
+  UPDATE materiales SET existencia = existencia + (SELECT cantidad FROM inserted) FROM
+  materiales JOIN inserted ON (SELECT codigo_material FROM inserted) = materiales.codigo WHERE
+  materiales.codigo = (SELECT codigo_material FROM inserted)
+END
+GO
+
+
 SELECT * FROM unidades_medidas
 SELECT * FROM tipo_material
 SELECT * FROM excedentes_materiales
 SELECT* FROM materiales
+
 

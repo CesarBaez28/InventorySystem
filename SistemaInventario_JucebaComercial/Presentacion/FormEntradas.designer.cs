@@ -45,12 +45,6 @@ namespace Presentacion
             this.TipoMaterial = new System.Windows.Forms.Label();
             this.comboSuplidores = new System.Windows.Forms.ComboBox();
             this.gridViewEntradas = new System.Windows.Forms.DataGridView();
-            this.Suplidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnTerminar = new System.Windows.Forms.Button();
             this.lblFecha = new System.Windows.Forms.Label();
             this.dateTimeEntrada = new System.Windows.Forms.DateTimePicker();
@@ -63,6 +57,11 @@ namespace Presentacion
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.Suplidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelContedorIngresos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewEntradas)).BeginInit();
             this.SuspendLayout();
@@ -243,7 +242,6 @@ namespace Presentacion
             this.Suplidor,
             this.materialTipo,
             this.Material,
-            this.Fecha,
             this.Cantidad,
             this.Monto});
             this.gridViewEntradas.EnableHeadersVisualStyles = false;
@@ -269,42 +267,6 @@ namespace Presentacion
             this.gridViewEntradas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridViewEntradas.Size = new System.Drawing.Size(886, 180);
             this.gridViewEntradas.TabIndex = 21;
-            // 
-            // Suplidor
-            // 
-            this.Suplidor.HeaderText = "Suplidor";
-            this.Suplidor.Name = "Suplidor";
-            this.Suplidor.ReadOnly = true;
-            // 
-            // materialTipo
-            // 
-            this.materialTipo.HeaderText = "Tipo Material";
-            this.materialTipo.Name = "materialTipo";
-            this.materialTipo.ReadOnly = true;
-            // 
-            // Material
-            // 
-            this.Material.HeaderText = "Material";
-            this.Material.Name = "Material";
-            this.Material.ReadOnly = true;
-            // 
-            // Fecha
-            // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            // 
-            // Monto
-            // 
-            this.Monto.HeaderText = "Monto";
-            this.Monto.Name = "Monto";
-            this.Monto.ReadOnly = true;
             // 
             // btnTerminar
             // 
@@ -454,6 +416,36 @@ namespace Presentacion
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // Suplidor
+            // 
+            this.Suplidor.HeaderText = "Suplidor";
+            this.Suplidor.Name = "Suplidor";
+            this.Suplidor.ReadOnly = true;
+            // 
+            // materialTipo
+            // 
+            this.materialTipo.HeaderText = "Tipo Material";
+            this.materialTipo.Name = "materialTipo";
+            this.materialTipo.ReadOnly = true;
+            // 
+            // Material
+            // 
+            this.Material.HeaderText = "Material";
+            this.Material.Name = "Material";
+            this.Material.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            // 
+            // Monto
+            // 
+            this.Monto.HeaderText = "Monto";
+            this.Monto.Name = "Monto";
+            this.Monto.ReadOnly = true;
+            // 
             // FormEntradas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -495,14 +487,13 @@ namespace Presentacion
         private System.Windows.Forms.Label TipoMaterial;
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.TextBox txbCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Suplidor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn materialTipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Material;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
         private System.Windows.Forms.Button btnAgregarTipoMaterial;
         private System.Windows.Forms.Button btnAgregarSuplidor;
         public System.Windows.Forms.Button btnAgregarMaterial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Suplidor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn materialTipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Material;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
     }
 }

@@ -8,15 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using Comun;
 
 namespace Presentacion
 {
     public partial class FormEntradas : Form
     {
-        float parseCorrecto;
+        float parseCorrecto; // La uso para verificar si el monto ingresado es correcto
         float montoToal; // La uso para guardar el monto total de la compra.
         bool primerRegistro = false; //La uso para que, luego de agregar un primer material, verificar si este u otros se agregan repetidos.
         bool yaRegistrado = false; // La uso para validar que no se ingrese un material repetido.
+
+        DominioEntrada entrada = new DominioEntrada();
 
         //La uso para actualizar datos desde otro formulario
         public static FormEntradas formEntrada;
@@ -83,14 +86,14 @@ namespace Presentacion
             gridViewEntradas.Rows[indice].Cells[0].Value = comboSuplidores.Text;
             gridViewEntradas.Rows[indice].Cells[1].Value = comboTipoMaterial.Text;
             gridViewEntradas.Rows[indice].Cells[2].Value = comboMaterial.Text;
-            gridViewEntradas.Rows[indice].Cells[3].Value = dateTimeEntrada.Text;
-            gridViewEntradas.Rows[indice].Cells[4].Value = txbCantidad.Text;
-            gridViewEntradas.Rows[indice].Cells[5].Value = txbMonto.Text;
+            gridViewEntradas.Rows[indice].Cells[3].Value = txbCantidad.Text;
+            gridViewEntradas.Rows[indice].Cells[4].Value = txbMonto.Text;
         }
 
         //Boton Agregar
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            //Verifico que el monto y la cantidad se han números válidos.
             if (float.TryParse(txbMonto.Text, out parseCorrecto) && int.TryParse(txbCantidad.Text, out int parse))
             {
                 if (primerRegistro == false) //Verifico si ya se ha ingresado un material
@@ -126,7 +129,7 @@ namespace Presentacion
             }
             else
             {
-                MessageBox.Show("Faltan campos por llenar");
+                MessageBox.Show("Faltan campos por llenar o ingresó un campo de manera incorrecta");
             }
         }
 
@@ -142,11 +145,19 @@ namespace Presentacion
         //Terminar y registrar la entrada
         private void btnTerminar_Click(object sender, EventArgs e)
         {
+            //Verifico que el datagridview no esté vacío. 
             if (gridViewEntradas.Rows.Count != 0)
             {
+                //Registro entrada
+                entrada.RegisterEntry(dateTimeEntrada.Value);
+
                 foreach (DataGridViewRow fila in gridViewEntradas.Rows) 
                 {
-
+                    //Registro detalles de la entrada
+                    entrada.RegisterDetailsEntry(UsuarioLoginCache.Codigo_usuario.ToString(), 
+                        fila.Cells[0].Value.ToString(), fila.Cells[1].Value.ToString(),
+                        fila.Cells[2].Value.ToString(),fila.Cells[3].Value.ToString(),
+                        fila.Cells[4].Value.ToString());
                 }
 
                 MessageBox.Show("Registro exitoso");
@@ -154,7 +165,7 @@ namespace Presentacion
             }
             else 
             {
-                MessageBox.Show("Registre un ingreso");
+                MessageBox.Show("No hay entradas agregadas");
             }
         }
 
