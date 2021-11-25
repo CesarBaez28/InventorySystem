@@ -56,6 +56,7 @@ namespace Presentacion
             this.lblTitulo = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.btnAgregarServicio = new System.Windows.Forms.Button();
             this.panelContedorIngresos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewEntradas)).BeginInit();
             this.SuspendLayout();
@@ -79,6 +80,7 @@ namespace Presentacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelContedorIngresos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelContedorIngresos.Controls.Add(this.btnAgregarServicio);
             this.panelContedorIngresos.Controls.Add(this.btnAgregarCliente);
             this.panelContedorIngresos.Controls.Add(this.btnVerDetalles);
             this.panelContedorIngresos.Controls.Add(this.comboServicios);
@@ -144,7 +146,7 @@ namespace Presentacion
             this.comboServicios.FormattingEnabled = true;
             this.comboServicios.Location = new System.Drawing.Point(14, 141);
             this.comboServicios.Name = "comboServicios";
-            this.comboServicios.Size = new System.Drawing.Size(265, 28);
+            this.comboServicios.Size = new System.Drawing.Size(226, 28);
             this.comboServicios.TabIndex = 24;
             // 
             // lblServicio
@@ -372,6 +374,22 @@ namespace Presentacion
             this.lineShape1.Y1 = 254;
             this.lineShape1.Y2 = 254;
             // 
+            // btnAgregarServicio
+            // 
+            this.btnAgregarServicio.BackColor = System.Drawing.Color.Gray;
+            this.btnAgregarServicio.FlatAppearance.BorderSize = 0;
+            this.btnAgregarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarServicio.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarServicio.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarServicio.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarServicio.Image")));
+            this.btnAgregarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarServicio.Location = new System.Drawing.Point(246, 141);
+            this.btnAgregarServicio.Name = "btnAgregarServicio";
+            this.btnAgregarServicio.Size = new System.Drawing.Size(33, 28);
+            this.btnAgregarServicio.TabIndex = 31;
+            this.btnAgregarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregarServicio.UseVisualStyleBackColor = false;
+            // 
             // FormSalidas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -414,5 +432,6 @@ namespace Presentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
         private System.Windows.Forms.Button btnVerDetalles;
         private System.Windows.Forms.Button btnAgregarCliente;
+        private System.Windows.Forms.Button btnAgregarServicio;
     }
 }

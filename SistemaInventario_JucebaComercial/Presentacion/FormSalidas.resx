@@ -126,6 +126,17 @@
         AAZ1AAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="btnAgregarServicio.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAASlJREFUSEvd
+        lCESwjAURCsqEAgOhMAhOEAlEsExkAgOgOQAHABZ0SMgKyoQHAFRdpudSQv5TVscb+ab7Et+SUKS/6au
+        6xS1Rp1RBapU5agTaiV1PJi8Qd1RMdh4qWlxIPOrD5w5ghdqryX6gXhspkyjvwmEzHmT4S8JbxeCGYoH
+        aCKVbh+FtC4Iti63kRprQL5vFwavLrOROqTBSaoHg5XLbKQOaZBL9SjooCiK9DalIo+CDoqiSG9TKfJg
+        8OEyG6nBj/ng+yZh8OYyG6lDGpylejC4c5mN1CEN1lI9GFygnk1sIDXWgA9kKrULgn2j/MZGy4WBcHHe
+        JA5axgbSHDWlCV/h8NaEgMzt6j0TwQcy07RxYCIPnreLV7j9P+GzwreLD+RM+l+SJG/bAqJ+w0ECjAAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
   <data name="btnAgregarCliente.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAASlJREFUSEvd

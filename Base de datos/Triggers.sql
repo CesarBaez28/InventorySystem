@@ -10,7 +10,8 @@ AS
   WHERE materiales.codigo = inserted.codigo_material
 
   IF(@existencia >= (SELECT cantidad FROM inserted)) --Verifico si hay la cantidad suficiente
-    UPDATE materiales SET existencia = existencia - inserted.cantidad 
+    --Le resto uno a la existencial del material
+    UPDATE materiales SET existencia = existencia - 1 
 	FROM materiales JOIN inserted ON inserted.codigo_material = materiales.codigo WHERE materiales.codigo = inserted.codigo_material
   ELSE
   BEGIN 
@@ -69,7 +70,8 @@ BEGIN
   ON deleted.codigo = excedentes_materiales.codigo
   WHERE excedentes_materiales.codigo = deleted.codigo
 
-  UPDATE materiales SET existencia = existencia + (SELECT cantidad FROM deleted)
+  --Le sumo uno a la exitencia del material
+  UPDATE materiales SET existencia = existencia + 1
   FROM materiales JOIN deleted ON deleted.codigo_material = materiales.codigo WHERE materiales.codigo = deleted.codigo_material
 END
 GO
