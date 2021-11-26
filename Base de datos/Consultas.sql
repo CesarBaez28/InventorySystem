@@ -9,3 +9,9 @@ SELECT nombre as 'Material', codigo FROM materiales
 
 -- Mostrar codigo y nombre de proveedores
 SELECT codigo, nombre FROM proveedores
+
+--Mostrar nombre y código de los servicio 
+SELECT codigo, nombre_servicio FROM servicios
+
+--Mostrar nombre y código de los clientes 
+Select codigo, nombre FROM clientes

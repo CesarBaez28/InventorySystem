@@ -22,6 +22,7 @@ namespace Presentacion
         public string codigoServicio; //Guardo el código del servicio para actualizar y mostrar datos del mismo.
         bool primerRegistro = false; //La uso para que, luego de agregar un primer material, verificar si este u otros se agregan repetidos.
         bool yaIncluido = false; //La uso para validar que no se ingrese un material repetido.
+        public bool formSalidas; //La uso para indicar si el FormSalidas abrió este formulario.
 
         //La uso para actualizar la lista de materiales desde el Form FormDetallesMateriales
         public static FormDetallesServicio detallesServicio;
@@ -123,6 +124,17 @@ namespace Presentacion
                                 servicios.RegisterMaterialService(fila.Cells[0].Value.ToString(), fila.Cells[2].Value.ToString());
                             }
 
+                            //Verifico si el FormSalidas abrió este formulario
+                            if (formSalidas == true)
+                            {
+                                //Actualizo la lista de servicio en FormSalidas
+                                FormSalidas.formSalidas.MostrarServicios();
+                            }
+                            else
+                            {   //Actualizo lista servicios en FormServicios
+                                FormServicios.formServicios.MostrarServicios(); 
+                            }
+
                             MessageBox.Show("Registrado correctamente");
                             BorrarCampos();
                         }
@@ -141,6 +153,7 @@ namespace Presentacion
                                 txbDescripcionServicio.Text, estadoServicio);
 
                             MessageBox.Show("Se actualizó correctamente");
+                            FormServicios.formServicios.MostrarServicios(); // Actualizo lista servicios en FormServicios
                             this.Close();
                         }
                         catch 
@@ -148,8 +161,6 @@ namespace Presentacion
                             MessageBox.Show("Ya existe un servicio con ese nombre");
                         }
                     }
-
-                    FormServicios.formServicios.MostrarServicios(); //Actualizo lista servicios
                 }
             }
         }

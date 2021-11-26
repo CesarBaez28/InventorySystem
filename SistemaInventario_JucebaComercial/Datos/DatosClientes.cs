@@ -18,6 +18,14 @@ namespace Datos
             return table;
         }
 
+        //Mostrar nombre y código de los clientes 
+        public DataTable MostrarNombreCodigoClientes() 
+        {
+            DataTable table = new DataTable();
+            table = ExecuteReaderText("Select codigo, nombre FROM clientes");
+            return table;
+        }
+
         //Buscar cliente por codigo
         public DataTable MostrarClienteCodigo(int codigoCliente)
         {

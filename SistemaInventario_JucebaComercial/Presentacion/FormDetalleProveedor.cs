@@ -103,14 +103,14 @@ namespace Presentacion
                         {
                             Actualizar();
                             MessageBox.Show("Registro insertado");
-                            this.Close();
                         }
                         else
                         {
                             //Actualizo la lista de suplidores en FormEntrada
                             FormEntradas.formEntrada.MostrarProveedores();
-                            this.Close();
                         }
+
+                        this.Close();
                     }
                     catch 
                     {

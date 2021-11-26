@@ -35,6 +35,7 @@ namespace Presentacion
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.panelContedorIngresos = new System.Windows.Forms.Panel();
+            this.btnAgregarServicio = new System.Windows.Forms.Button();
             this.btnAgregarCliente = new System.Windows.Forms.Button();
             this.btnVerDetalles = new System.Windows.Forms.Button();
             this.comboServicios = new System.Windows.Forms.ComboBox();
@@ -56,7 +57,6 @@ namespace Presentacion
             this.lblTitulo = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.btnAgregarServicio = new System.Windows.Forms.Button();
             this.panelContedorIngresos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewEntradas)).BeginInit();
             this.SuspendLayout();
@@ -101,7 +101,23 @@ namespace Presentacion
             this.panelContedorIngresos.Name = "panelContedorIngresos";
             this.panelContedorIngresos.Size = new System.Drawing.Size(915, 502);
             this.panelContedorIngresos.TabIndex = 17;
-            this.panelContedorIngresos.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContedorIngresos_Paint);
+            // 
+            // btnAgregarServicio
+            // 
+            this.btnAgregarServicio.BackColor = System.Drawing.Color.Gray;
+            this.btnAgregarServicio.FlatAppearance.BorderSize = 0;
+            this.btnAgregarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarServicio.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarServicio.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarServicio.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarServicio.Image")));
+            this.btnAgregarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarServicio.Location = new System.Drawing.Point(246, 141);
+            this.btnAgregarServicio.Name = "btnAgregarServicio";
+            this.btnAgregarServicio.Size = new System.Drawing.Size(33, 28);
+            this.btnAgregarServicio.TabIndex = 31;
+            this.btnAgregarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregarServicio.UseVisualStyleBackColor = false;
+            this.btnAgregarServicio.Click += new System.EventHandler(this.btnAgregarServicio_Click);
             // 
             // btnAgregarCliente
             // 
@@ -374,22 +390,6 @@ namespace Presentacion
             this.lineShape1.Y1 = 254;
             this.lineShape1.Y2 = 254;
             // 
-            // btnAgregarServicio
-            // 
-            this.btnAgregarServicio.BackColor = System.Drawing.Color.Gray;
-            this.btnAgregarServicio.FlatAppearance.BorderSize = 0;
-            this.btnAgregarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarServicio.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarServicio.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarServicio.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarServicio.Image")));
-            this.btnAgregarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarServicio.Location = new System.Drawing.Point(246, 141);
-            this.btnAgregarServicio.Name = "btnAgregarServicio";
-            this.btnAgregarServicio.Size = new System.Drawing.Size(33, 28);
-            this.btnAgregarServicio.TabIndex = 31;
-            this.btnAgregarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregarServicio.UseVisualStyleBackColor = false;
-            // 
             // FormSalidas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,6 +400,7 @@ namespace Presentacion
             this.Controls.Add(this.panelContedorIngresos);
             this.Name = "FormSalidas";
             this.Text = "FormSalidas";
+            this.Load += new System.EventHandler(this.FormSalidas_Load);
             this.panelContedorIngresos.ResumeLayout(false);
             this.panelContedorIngresos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewEntradas)).EndInit();

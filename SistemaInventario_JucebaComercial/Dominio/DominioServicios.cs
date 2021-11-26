@@ -74,6 +74,14 @@ namespace Dominio
             return table;
         }
 
+        //Show services name and code
+        public DataTable ShowServicesNameCode() 
+        {
+            DataTable table = new DataTable();
+            table = servicios.MostrarNombreCodigoServicios();
+            return table;
+        }
+
         //Show materials services 
         public DataTable ShowMaterialsServices(string codigoServicio) 
         {

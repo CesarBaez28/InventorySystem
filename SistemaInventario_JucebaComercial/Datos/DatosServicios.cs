@@ -100,6 +100,14 @@ namespace Datos
             return table;
         }
 
+        //Mostrar nombre y código de los servicios
+        public DataTable MostrarNombreCodigoServicios() 
+        {
+            DataTable table = new DataTable();
+            table = ExecuteReaderText("SELECT codigo, nombre_servicio FROM servicios");
+            return table;
+        }
+
         //Mostrar materiales que incluye un servicio
         public DataTable MostrarMaterialesServicios(int codigoServicio) 
         {

@@ -20,6 +20,7 @@ AS
 END
 GO
 
+-- Esta trigger fue eliminado
 --actualizar en la tabla excedentes 
 --Verifica si existe la cantidad disponible de materiales y actualiza la existencia en la tabla materiales
 CREATE TRIGGER t_ActualizarExcedenteMaterial
@@ -92,11 +93,5 @@ BEGIN
   materiales.codigo = (SELECT codigo_material FROM inserted)
 END
 GO
-
-
-SELECT * FROM unidades_medidas
-SELECT * FROM tipo_material
-SELECT * FROM excedentes_materiales
-SELECT* FROM materiales
 
 

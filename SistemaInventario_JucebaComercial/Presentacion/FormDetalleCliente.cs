@@ -19,6 +19,7 @@ namespace Presentacion
         public string direccion; // Guardo la direccion que se desea Actualizar. La uso para mostrar dicha direccion en el combobox 
         public string telefonoViejo; //La uso para guardar el telefono que se desea actualizar
         bool estadoCliente; // Lo uso para indicar el estado del cliente (activo o inactivo)
+        public bool formSalida; // La uso para indicar si el FormSalidas abró este formulario. 
 
         public static FormDetalleCliente detalleCliente;
         
@@ -26,6 +27,12 @@ namespace Presentacion
         {
             InitializeComponent();
             FormDetalleCliente.detalleCliente = this;
+        }
+
+        //Sobre cargo el constructor
+        public FormDetalleCliente() 
+        {
+            InitializeComponent();
         }
 
         //Cerrar el formulario
@@ -74,7 +81,17 @@ namespace Presentacion
                     {
                         cliente.RegisterCostumer(txtTelefono.Text, comboBoxDirecciones.SelectedValue.ToString(),
                             txbNombre.Text);
-                        Actualizar();
+
+                        //Verifico si el FormSalidad abrió este formulario
+                        if (formSalida != true)
+                        {
+                            Actualizar();
+                        }
+                        else
+                        {
+                            //Actualizo la lista de servicio en el FormSalidas
+                            FormSalidas.formSalidas.MostrarClientes();
+                        }
                         this.Close();
                     }
                     catch 

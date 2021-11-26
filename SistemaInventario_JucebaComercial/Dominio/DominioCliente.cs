@@ -20,6 +20,14 @@ namespace Dominio
             return table;
         }
 
+        //show customer name and code
+        public DataTable ShowCustumerNameCode() 
+        {
+            DataTable table = new DataTable();
+            table = cliente.MostrarNombreCodigoClientes();
+            return table;
+        }
+
         //Show costumers by code
         public DataTable ShowCostumerByCode(String codigoCliente) 
         {
