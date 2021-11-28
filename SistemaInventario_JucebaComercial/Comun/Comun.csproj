@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DetallesSalida.cs" />
     <Compile Include="UsuarioLoginCache.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

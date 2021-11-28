@@ -20,7 +20,7 @@ AS
 END
 GO
 
--- Esta trigger fue eliminado
+-- Este trigger fue eliminado
 --actualizar en la tabla excedentes 
 --Verifica si existe la cantidad disponible de materiales y actualiza la existencia en la tabla materiales
 CREATE TRIGGER t_ActualizarExcedenteMaterial
@@ -94,4 +94,46 @@ BEGIN
 END
 GO
 
+----- Triggers relacionados con las salidas del inventario-------
+
+--Insertar en la tabla detalles_salida
+CREATE TRIGGER t_registrarSalida
+ON detalles_salida FOR INSERT
+AS
+BEGIN 
+  --Actualizo el total de la salida
+  UPDATE salidas SET total_salida = total_salida + (SELECT precio FROM inserted) FROM 
+  salidas JOIN detalles_salida ON (SELECT codigo_salida FROM inserted) = salidas.codigo 
+  WHERE salidas.codigo = (SELECT codigo_salida FROM inserted)
+
+  -- Creo una tabla virtual de servicios_materiales para verificar si está disponible la cantidad suficiente de material para registrar el servicio
+  DECLARE @servicios_materiales TABLE (codigo_mateterial INT, codigo_servicio INT, cantidad INT)
+
+  --Inserto en la tabla virtual los detalles del servicio que se registró
+  INSERT INTO @servicios_materiales(codigo_mateterial, codigo_servicio, cantidad) 
+  SELECT codigo_material, codigo_servicio, cantidad FROM servicios_materiales WHERE codigo_servicio = (SELECT codigo_servicio FROM inserted)
+
+  --Declaro una variable @count para ir verificando si están disponibles cada uno de los materiales necesarios del servicio.
+  DECLARE @count int  = (SELECT COUNT(*) FROM @servicios_materiales)
+
+  WHILE @count > 0
+  BEGIN
+    --Declaro las variables cantidad y existencia para verificar si se cuentan con los materiales suficientes.
+    DECLARE @cantidad INT = (SELECT TOP(1) cantidad FROM @servicios_materiales)
+	DECLARE @existencia INT = (SELECT existencia FROM materiales WHERE materiales.codigo = (SELECT TOP(1) codigo_mateterial FROM @servicios_materiales))
+	
+	--Verifico si está disponible la cantidad de material y actualizo en la existencia en la tabla materiales. De lo contrario, envía un error.
+	IF(@existencia >= @cantidad)
+	  UPDATE materiales SET materiales.existencia  = materiales.existencia - @cantidad
+	  FROM materiales WHERE materiales.codigo = (SELECT TOP(1) codigo_mateterial FROM @servicios_materiales)
+	ELSE
+    BEGIN 
+      RAISERROR ('No hay materiales suficientes',16,1)
+	END
+
+	DELETE TOP(1) FROM @servicios_materiales 
+	SET @count = (SELECT COUNT(*) FROM @servicios_materiales)
+  END
+END
+GO
 

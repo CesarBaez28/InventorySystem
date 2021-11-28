@@ -654,6 +654,23 @@ BEGIN
 END 
 GO
 
+-------Procedimientos almacenados relacionados con las salidas del inventario--------------
+CREATE PROCEDURE p_RegistrarSalida
+  @fechaSalida DATETIME
+AS
+BEGIN 
+  INSERT INTO salidas(fecha_salida) VALUES(@fechaSalida)
+END
+GO
+
+--Eliminar útila salida 
+CREATE PROCEDURE p_EliminarUltimaSalida
+AS
+BEGIN
+  DELETE FROM salidas WHERE codigo=(SELECT MAX(codigo) FROM salidas)
+END
+GO
+
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
 
 --Insertar  nueva Direccion

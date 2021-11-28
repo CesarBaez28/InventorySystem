@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using Comun;
 
 namespace Presentacion
 {
@@ -15,6 +16,10 @@ namespace Presentacion
     {
         DominioServicios servicios = new DominioServicios();
         DominioCliente clientes = new DominioCliente();
+        DominioSalida salida = new DominioSalida();
+
+        bool yaRegistrado = false; // La uso para validar que no se ingrese un servicio repetido.
+        bool primerRegistro = false; //La uso para que, luego de agregar un primer servicio, verificar si este u otros se agregan repetidos.
 
         public static FormSalidas formSalidas;
 
@@ -22,6 +27,12 @@ namespace Presentacion
         {
             InitializeComponent();
             FormSalidas.formSalidas = this;
+        }
+
+        //Cerrar el formulario
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void FormSalidas_Load(object sender, EventArgs e)
@@ -46,10 +57,112 @@ namespace Presentacion
             comboClientes.DataSource = clientes.ShowCustumerNameCode();
         }
 
-        //Cerrar el formulario
-        private void btnCerrar_Click(object sender, EventArgs e)
+        //Agregar salida a la lista
+        private void AgregarSalida() 
         {
-            this.Close();
+            int indice = gridViewSalidas.Rows.Add();
+
+            gridViewSalidas.Rows[indice].Cells["codigoCliente"].Value = comboClientes.SelectedValue.ToString();
+            gridViewSalidas.Rows[indice].Cells["Cliente"].Value = comboClientes.Text;
+            gridViewSalidas.Rows[indice].Cells["codigoServicio"].Value = comboServicios.SelectedValue.ToString();
+            gridViewSalidas.Rows[indice].Cells["Servicio"].Value = comboServicios.Text;
+            gridViewSalidas.Rows[indice].Cells["Monto"].Value = txbMonto.Text;
+            gridViewSalidas.Rows[indice].Cells["Cantidad"].Value = txbCantidad.Text;
+        }
+
+        //Botón agregar salida
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            //Verifico que el monto y la cantidad se han números válidos.
+            if (float.TryParse(txbMonto.Text, out float parseCorrecto) && int.TryParse(txbCantidad.Text, out int parse))
+            {
+                if (primerRegistro == false)
+                {
+                    AgregarSalida();
+                    primerRegistro = true;
+                }
+                else
+                {
+                    //Verifico que el servicio no esté repetido 
+                    foreach (DataGridViewRow fila in gridViewSalidas.Rows)
+                    {
+                        if (fila.Cells["Servicio"].Value.ToString() == comboServicios.Text)
+                        {
+                            yaRegistrado = true;
+                            break;
+                        }
+                    }
+
+                    //Si no está repetido, agrega la salida. De lo contrario, arroja un mensaje de error.
+                    if (yaRegistrado != true)
+                    {
+                        AgregarSalida();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ya ingresó ese servicio");
+                        yaRegistrado = false;
+                    }
+                }
+
+                txbMonto.Text = "";
+                txbCantidad.Text = "";
+            }
+            else 
+            {
+                MessageBox.Show("Faltan campos por llenar o ingresó un campo de manera incorrecta");
+            }
+        }
+
+        //Botón terminar y guardar
+        private void btnTerminar_Click(object sender, EventArgs e)
+        {
+            DominioSalida salida = new DominioSalida();
+
+            //Verifico que el datagridview no esté vacío. 
+            if (gridViewSalidas.Rows.Count != 0)
+            {
+                try
+                {
+                    //Registro salida 
+                    salida.SaleOfService(dateTimeSalida.Value);
+
+                    //Obtengo el último código de la salida. Lo necesito para insertar los detalles de la salida
+                    int codigoSalida = Convert.ToInt32(salida.GetCodeSale().Rows[0]["codigo"]);
+
+                    //Creo una lista para guardar cada uno de los detalles de la salida
+                    List<DetallesSalida> listaDetalles = new List<DetallesSalida>();
+
+                    //Guardo cada uno de los detalles de la salida en la lista
+                    foreach (DataGridViewRow fila in gridViewSalidas.Rows) 
+                    {
+                        var detalles = new DetallesSalida()
+                        {
+                        codigo_salida = codigoSalida,
+                        codigo_servicio = Convert.ToInt32(fila.Cells["codigoServicio"].Value.ToString()),
+                        codigo_cliente = Convert.ToInt32(fila.Cells["codigoCliente"].Value.ToString()),
+                        codigo_usuario = UsuarioLoginCache.Codigo_usuario,
+                        precio = float.Parse(fila.Cells["Monto"].Value.ToString()),
+                        cantidad = Convert.ToInt32(fila.Cells["Cantidad"].Value.ToString())
+                        };
+
+                        listaDetalles.Add(detalles);
+                    }
+
+                    salida.add_MultipleSingleInsert(listaDetalles);
+                    MessageBox.Show("Registro exitoso");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("No hay suficiente material para registrar uno de los servicios");
+                }
+
+                gridViewSalidas.Rows.Clear();
+            }
+            else
+            {
+                MessageBox.Show("No hay servicios agregados");
+            }
         }
 
         //Agregar cliente
@@ -83,12 +196,20 @@ namespace Presentacion
             AbrirFormulario(detallesServicio);
         }
 
-
         //Ver detalles del servicio
         private void btnVerDetalles_Click(object sender, EventArgs e)
         {
             FormDetallesServicio detallesServicio = new FormDetallesServicio();
             AbrirFormulario(detallesServicio);
+        }
+
+        //Botón eliminar
+         private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (gridViewSalidas.SelectedRows.Count > 0)
+            {
+                gridViewSalidas.Rows.Remove(gridViewSalidas.CurrentRow);
+            }
         }
 
         //Metodo para abirar el formulario DetalleSuplidor

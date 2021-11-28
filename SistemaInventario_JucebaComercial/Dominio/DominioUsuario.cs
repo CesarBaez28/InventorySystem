@@ -52,7 +52,7 @@ namespace Dominio
                 return "Tu perfil se ha actualizado correctamente";
 
             }
-            catch (Exception ex)
+            catch
             {
                 return "El nombre de usuario ya está registrado";
             }

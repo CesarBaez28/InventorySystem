@@ -182,10 +182,8 @@ CREATE TABLE detalle_entrada(
 --Salidas del inventario
 CREATE TABLE salidas(
     codigo INT IDENTITY PRIMARY KEY,
-    codigo_servicio INT NOT NULL,
-    CONSTRAINT fk_codigo_servicio_salida FOREIGN KEY(codigo_servicio) REFERENCES servicios(codigo),
     fecha_salida DATETIME DEFAULT GETDATE(),
-    total_salida DECIMAL(20,2),
+    total_salida DECIMAL(20,2) DEFAULT 0,
     estado BIT DEFAULT 1
 )
 
@@ -194,12 +192,14 @@ CREATE TABLE detalles_salida(
     codigo INT IDENTITY PRIMARY KEY,
     codigo_salida INT NOT NULL,
     CONSTRAINT fk_codigo_salida FOREIGN KEY(codigo_salida) REFERENCES salidas(codigo),
+	codigo_servicio INT NOT NULL,
+    CONSTRAINT fk_codigo_servicio_salida FOREIGN KEY(codigo_servicio) REFERENCES servicios(codigo),
     codigo_cliente INT NOT NULL,
     CONSTRAINT fk_codigo_cliente_salida FOREIGN KEY(codigo_cliente) REFERENCES clientes(codigo),
     --codigo_tipo_material INT NOT NULL,
     --CONSTRAINT fk_codigo_tipo_material_salidas FOREIGN KEY(codigo_tipo_material) REFERENCES tipo_material(codigo),
-    codigo_material INT NOT NULL,
-    CONSTRAINT fk_codigo_material_salidas FOREIGN KEY(codigo_material) REFERENCES materiales(codigo),
+    --codigo_material INT NOT NULL,
+    --CONSTRAINT fk_codigo_material_salidas FOREIGN KEY(codigo_material) REFERENCES materiales(codigo),
     codigo_usuario INT NOT NULL,
 	CONSTRAINT fk_codigo_usuario_salida FOREIGN KEY(codigo_usuario) REFERENCES usuarios(codigo),
     precio DECIMAL(20,2),

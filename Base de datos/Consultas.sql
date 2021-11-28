@@ -15,3 +15,6 @@ SELECT codigo, nombre_servicio FROM servicios
 
 --Mostrar nombre y código de los clientes 
 Select codigo, nombre FROM clientes
+
+SELECT * FROM servicios
+SELECT * FROM materiales

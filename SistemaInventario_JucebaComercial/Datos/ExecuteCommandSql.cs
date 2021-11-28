@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using Comun;
 
 namespace Datos
 {
@@ -12,7 +13,7 @@ namespace Datos
     {
         protected List<SqlParameter> parameters;
 
-        //Ejecutar comando de no consultas
+        //Ejecutar comando de no consultas con procedimiento almacenado
         protected int ExecuteNonQuery(string commandSql) 
         {
             using (var conexion = GetConnection()) 
@@ -23,14 +24,63 @@ namespace Datos
                 {
                     comando.CommandType = CommandType.StoredProcedure;
 
-                    foreach (SqlParameter item in parameters) 
+                    //Verifico si se utilizaron parametros para la consulta
+                    if (parameters != null) 
                     {
-                        comando.Parameters.Add(item);
+                        foreach (SqlParameter item in parameters)
+                        {
+                            comando.Parameters.Add(item);
+                        }
                     }
 
                     int result = comando.ExecuteNonQuery();
                     parameters.Clear();
                     return result;
+                }
+            }
+        }
+
+        //Ejecutar multiples inserts
+        protected void ExecuteMultipleSingleInsert(string commandSql, DataTable table) 
+        {
+            using (var conexion = GetConnection()) 
+            {
+                conexion.Open();
+
+                using (SqlTransaction transaction = conexion.BeginTransaction()) 
+                {
+                    using (var comando = new SqlCommand(commandSql, conexion)) 
+                    {
+                        comando.CommandType = CommandType.Text;
+                        comando.Transaction = transaction;
+
+                        foreach (SqlParameter item in parameters)
+                        {
+                            comando.Parameters.Add(item);
+                        }
+                        
+                        try
+                        {
+                            for (int fila = 0; fila < table.Rows.Count; fila++)
+                            {
+                                for (int columna = 0; columna < table.Columns.Count; columna++)
+                                {
+                                    parameters[columna].Value = table.Rows[fila][columna];
+                                }
+
+                                comando.ExecuteNonQuery();
+                            }
+
+                            transaction.Commit();
+                            parameters.Clear();
+                        }
+                        catch(Exception) 
+                        {
+                            transaction.Rollback();
+                            parameters.Clear();
+                            throw;
+                        }
+                    }
                 }
             }
         }
