@@ -23,6 +23,7 @@ namespace Presentacion
         bool primerRegistro = false; //La uso para que, luego de agregar un primer material, verificar si este u otros se agregan repetidos.
         bool yaIncluido = false; //La uso para validar que no se ingrese un material repetido.
         public bool formSalidas; //La uso para indicar si el FormSalidas abrió este formulario.
+        public int indiceFila; // La uso para guardar la posición de la fila seleccionada del datagridView del FormSalidas para poder actualizar los datos
 
         //La uso para actualizar la lista de materiales desde el Form FormDetallesMateriales
         public static FormDetallesServicio detallesServicio;
@@ -152,8 +153,20 @@ namespace Presentacion
                             servicios.UpdateService(codigoServicio, txbNombreServicio.Text, txbPrecio.Text,
                                 txbDescripcionServicio.Text, estadoServicio);
 
-                            MessageBox.Show("Se actualizó correctamente");
-                            FormServicios.formServicios.MostrarServicios(); // Actualizo lista servicios en FormServicios
+                            //Verifico si el FormSalidas abrió este formulario
+                            if (formSalidas != true)
+                            {
+                                MessageBox.Show("Se actualizó correctamente");
+                                FormServicios.formServicios.MostrarServicios(); // Actualizo lista servicios en FormServicios
+                            }
+                            //Actualizó los datos en el dataGridView y de la lista de servicios del Form Salidas
+                            else 
+                            {
+                                FormSalidas.formSalidas.MostrarServicios();
+                                FormSalidas.formSalidas.gridViewSalidas.Rows[indiceFila].Cells["Servicio"].Value = txbNombreServicio.Text;
+                                FormSalidas.formSalidas.gridViewSalidas.Rows[indiceFila].Cells["Monto"].Value = txbPrecio.Text;
+                            }
+
                             this.Close();
                         }
                         catch 

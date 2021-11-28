@@ -15,7 +15,7 @@ namespace Datos
 
         //Ejecutar comando de no consultas con procedimiento almacenado
         protected int ExecuteNonQuery(string commandSql) 
-        {
+         {
             using (var conexion = GetConnection()) 
             {
                 conexion.Open();
@@ -40,8 +40,8 @@ namespace Datos
             }
         }
 
-        //Ejecutar multiples inserts
-        protected void ExecuteMultipleSingleInsert(string commandSql, DataTable table) 
+        //Ejecutar multiples comandos de no consulta
+        protected void ExecuteMultipleNonQuery(string commandSql, DataTable table) 
         {
             using (var conexion = GetConnection()) 
             {

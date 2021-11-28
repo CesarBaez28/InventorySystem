@@ -199,8 +199,30 @@ namespace Presentacion
         //Ver detalles del servicio
         private void btnVerDetalles_Click(object sender, EventArgs e)
         {
-            FormDetallesServicio detallesServicio = new FormDetallesServicio();
-            AbrirFormulario(detallesServicio);
+            //Me aseguro que haya una fila selccionada
+            if (gridViewSalidas.SelectedRows.Count > 0) 
+            {
+                FormDetallesServicio detallesServicio = new FormDetallesServicio();
+                DominioServicios servicios = new DominioServicios();
+                DataTable table = new DataTable();
+
+                //Indico que este formulario (FormSalidas) abrió el FormDetallesServicio
+                detallesServicio.formSalidas = true;
+
+                string codigoServicio = gridViewSalidas.CurrentRow.Cells["codigoServicio"].Value.ToString();
+                int fila = gridViewSalidas.CurrentRow.Index; //Guardo el índice de la fila para luego poder hacer modificaiones si es necesario
+
+                table = servicios.SearchServiceCode(codigoServicio);
+                detallesServicio.codigoServicio = codigoServicio;
+                detallesServicio.indiceFila = fila;
+                detallesServicio.actualizar = true;
+                detallesServicio.gridViewMateriales.Columns.Clear();
+                detallesServicio.txbNombreServicio.Text = gridViewSalidas.CurrentRow.Cells["Servicio"].Value.ToString();
+                detallesServicio.txbDescripcionServicio.Text = table.Rows[0]["Descripción"].ToString();
+                detallesServicio.txbPrecio.Text = gridViewSalidas.CurrentRow.Cells["Monto"].Value.ToString();
+
+                AbrirFormulario(detallesServicio);
+            }
         }
 
         //Botón eliminar

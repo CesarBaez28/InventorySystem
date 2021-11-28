@@ -44,6 +44,12 @@ namespace Presentacion
             this.lblServicio = new System.Windows.Forms.Label();
             this.comboClientes = new System.Windows.Forms.ComboBox();
             this.gridViewSalidas = new System.Windows.Forms.DataGridView();
+            this.codigoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoServicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Servicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnTerminar = new System.Windows.Forms.Button();
             this.lblFecha = new System.Windows.Forms.Label();
             this.dateTimeSalida = new System.Windows.Forms.DateTimePicker();
@@ -55,12 +61,6 @@ namespace Presentacion
             this.lblTitulo = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.codigoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoServicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Servicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelContedorIngresos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewSalidas)).BeginInit();
             this.SuspendLayout();
@@ -261,6 +261,42 @@ namespace Presentacion
             this.gridViewSalidas.Size = new System.Drawing.Size(886, 180);
             this.gridViewSalidas.TabIndex = 21;
             // 
+            // codigoCliente
+            // 
+            this.codigoCliente.HeaderText = "Código Cliente";
+            this.codigoCliente.Name = "codigoCliente";
+            this.codigoCliente.ReadOnly = true;
+            // 
+            // Cliente
+            // 
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
+            // 
+            // codigoServicio
+            // 
+            this.codigoServicio.HeaderText = "Código Servicio";
+            this.codigoServicio.Name = "codigoServicio";
+            this.codigoServicio.ReadOnly = true;
+            // 
+            // Servicio
+            // 
+            this.Servicio.HeaderText = "Servicio";
+            this.Servicio.Name = "Servicio";
+            this.Servicio.ReadOnly = true;
+            // 
+            // Monto
+            // 
+            this.Monto.HeaderText = "Monto";
+            this.Monto.Name = "Monto";
+            this.Monto.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            // 
             // btnTerminar
             // 
             this.btnTerminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -396,42 +432,6 @@ namespace Presentacion
             this.lineShape1.Y1 = 254;
             this.lineShape1.Y2 = 254;
             // 
-            // codigoCliente
-            // 
-            this.codigoCliente.HeaderText = "Código Cliente";
-            this.codigoCliente.Name = "codigoCliente";
-            this.codigoCliente.ReadOnly = true;
-            // 
-            // Cliente
-            // 
-            this.Cliente.HeaderText = "Cliente";
-            this.Cliente.Name = "Cliente";
-            this.Cliente.ReadOnly = true;
-            // 
-            // codigoServicio
-            // 
-            this.codigoServicio.HeaderText = "Código Servicio";
-            this.codigoServicio.Name = "codigoServicio";
-            this.codigoServicio.ReadOnly = true;
-            // 
-            // Servicio
-            // 
-            this.Servicio.HeaderText = "Servicio";
-            this.Servicio.Name = "Servicio";
-            this.Servicio.ReadOnly = true;
-            // 
-            // Monto
-            // 
-            this.Monto.HeaderText = "Monto";
-            this.Monto.Name = "Monto";
-            this.Monto.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            // 
             // FormSalidas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -457,7 +457,6 @@ namespace Presentacion
         private System.Windows.Forms.ComboBox comboServicios;
         private System.Windows.Forms.Label lblServicio;
         private System.Windows.Forms.ComboBox comboClientes;
-        private System.Windows.Forms.DataGridView gridViewSalidas;
         private System.Windows.Forms.Button btnTerminar;
         private System.Windows.Forms.Label lblFecha;
         public System.Windows.Forms.DateTimePicker dateTimeSalida;
@@ -480,5 +479,6 @@ namespace Presentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Servicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        public System.Windows.Forms.DataGridView gridViewSalidas;
     }
 }

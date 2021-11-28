@@ -97,7 +97,7 @@ GO
 ----- Triggers relacionados con las salidas del inventario-------
 
 --Insertar en la tabla detalles_salida
-CREATE TRIGGER t_registrarSalida
+ALTER TRIGGER t_registrarSalida
 ON detalles_salida FOR INSERT
 AS
 BEGIN 
@@ -124,7 +124,7 @@ BEGIN
 	
 	--Verifico si está disponible la cantidad de material y actualizo en la existencia en la tabla materiales. De lo contrario, envía un error.
 	IF(@existencia >= @cantidad)
-	  UPDATE materiales SET materiales.existencia  = materiales.existencia - @cantidad
+	  UPDATE materiales SET materiales.existencia  = materiales.existencia - (@cantidad * (SELECT cantidad FROM inserted))
 	  FROM materiales WHERE materiales.codigo = (SELECT TOP(1) codigo_mateterial FROM @servicios_materiales)
 	ELSE
     BEGIN 
@@ -137,3 +137,4 @@ BEGIN
 END
 GO
 
+SELECT * FROM detalles_salida

@@ -80,7 +80,7 @@ namespace Datos
 
             try
             {
-                ExecuteMultipleSingleInsert("INSERT INTO detalles_salida(codigo_salida, " +
+                ExecuteMultipleNonQuery("INSERT INTO detalles_salida(codigo_salida, " +
                     "codigo_cliente, codigo_usuario, codigo_servicio, precio, cantidad)" +
                     "VALUES(@codigoSalida, @codigoCliente, @codigoUsuario, @codigoServicio, " +
                     "@precio, @cantidad)", table);
