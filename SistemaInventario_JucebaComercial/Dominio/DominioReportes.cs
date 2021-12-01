@@ -28,5 +28,21 @@ namespace Dominio
             table = reporte.ReporteEntradaDetallado(fechaInicial, fechaFinal);
             return table;
         }
+
+        //Genral sales report
+        public DataTable GeneralSalesReport(DateTime fechaInicial, DateTime fechaFinal) 
+        {
+            DataTable table = new DataTable();
+            table = reporte.ReporteSalidasGeneral(fechaInicial, fechaFinal);
+            return table;
+        }
+
+        //Datailed sales report
+        public DataTable DetailedSalesReport(DateTime fechaInicial, DateTime fechaFinal) 
+        {
+            DataTable table = new DataTable();
+            table = reporte.ReporteSalidasDetallado(fechaInicial, fechaFinal);
+            return table;
+        }
     }
 }

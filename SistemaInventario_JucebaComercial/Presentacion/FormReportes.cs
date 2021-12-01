@@ -13,7 +13,6 @@ namespace Presentacion
 {
     public partial class FormReportes : Form
     {
-
         DominioReportes reporte = new DominioReportes();
         DateTime fechaInicial;
         DateTime fechaFinal;
@@ -53,16 +52,47 @@ namespace Presentacion
                 new DateTime(fechaFinal.Year, fechaFinal.Month, fechaFinal.Day, 23, 59, 59));
         }
 
+        //Reporte general de salidas
+        private void ReporteGeneralSalidas() 
+        {
+            fechaInicial = dateTimeFechaInicio.Value;
+            fechaFinal = dateTimeFechaFin.Value;
+
+            gridViewReportes.DataSource = reporte.GeneralSalesReport(fechaInicial,
+                new DateTime(fechaFinal.Year, fechaFinal.Month, fechaFinal.Day, 23, 59, 59));
+        }
+
+        //Reporte detallada de salidas
+        private void ReporteDetalladosSalidas() 
+        {
+            fechaInicial = dateTimeFechaInicio.Value;
+            fechaFinal = dateTimeFechaFin.Value;
+
+            gridViewReportes.DataSource = reporte.DetailedSalesReport(fechaInicial,
+                new DateTime(fechaFinal.Year, fechaFinal.Month, fechaFinal.Day, 23, 59, 59));
+        }
+
         //Consultar
         private void btnConsultar_Click(object sender, EventArgs e)
         {
+            //Reporte entradas general
             if (comboReportes.SelectedIndex == 0 && radioButtonGeneral.Checked)
             {
                 ReporteGeneralEntrada();
             }
-            else if (comboReportes.SelectedIndex == 0 && radioButtonDetallado.Checked) 
+            //Reporte entradas detalllado
+            else if (comboReportes.SelectedIndex == 0 && radioButtonDetallado.Checked)
             {
                 ReporteDetalladoEntrada();
+            }
+            //Reporte salidas general
+            else if (comboReportes.SelectedIndex == 1 && radioButtonGeneral.Checked)
+            {
+                ReporteGeneralSalidas();
+            }
+            else if(comboReportes.SelectedIndex == 1 && radioButtonDetallado.Checked)
+            {
+                ReporteDetalladosSalidas();
             }
         }
 
@@ -70,6 +100,12 @@ namespace Presentacion
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             gridViewReportes.DataSource = null;
+        }
+
+        //Exportar en Excel
+        private void btnTerminar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

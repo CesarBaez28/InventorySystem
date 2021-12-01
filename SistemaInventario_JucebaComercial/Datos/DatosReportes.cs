@@ -31,5 +31,27 @@ namespace Datos
             table = ExecuteReader("p_reporteEntradasDetallado");
             return table;
         }
+
+        //Reporte de salidas general
+        public DataTable ReporteSalidasGeneral(DateTime fechaInicial, DateTime fechaFinal) 
+        {
+            DataTable table = new DataTable();
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@fechainicial", fechaInicial));
+            parameters.Add(new SqlParameter("@fechaFinal", fechaFinal));
+            table = ExecuteReader("p_reporteGeneralSalidas");
+            return table;
+        }
+
+        //Reporte de salidas detallado
+        public DataTable ReporteSalidasDetallado(DateTime fechaInicial, DateTime fechaFinal) 
+        {
+            DataTable table = new DataTable();
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@fechainicial", fechaInicial));
+            parameters.Add(new SqlParameter("@fechaFinal", fechaFinal));
+            table = ExecuteReader("p_reporteDetalladoSalidas");
+            return table;
+        }
     }
 }

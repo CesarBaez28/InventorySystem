@@ -712,6 +712,56 @@ BEGIN
 END
 GO
 
+--Reporte General de salidas
+CREATE PROCEDURE p_reporteGeneralSalidas
+  @fechainicial DATETIME,
+  @fechaFinal DATETIME
+AS
+BEGIN
+  SELECT salidas.codigo as 'Código',
+  salidas.fecha_salida as 'Fecha',
+  clientes.nombre as  'Cliente',
+  salidas.total_salida as 'Total'
+  FROM salidas JOIN detalles_salida ON salidas.codigo = detalles_salida.codigo_salida
+  JOIN clientes ON detalles_salida.codigo_cliente = clientes.codigo
+  WHERE salidas.fecha_salida BETWEEN @fechainicial AND @fechaFinal
+  GROUP BY salidas.codigo, salidas.fecha_salida, clientes.nombre, salidas.total_salida
+END
+GO
+
+--Reporte detallada de ssalidas
+CREATE PROCEDURE p_reporteDetalladoSalidas
+  @fechainicial DATETIME,
+  @fechaFinal DATETIME
+AS
+BEGIN 
+  SELECT  salidas.codigo as 'Código', 
+  salidas.fecha_salida as 'Fecha', 
+  clientes.nombre as 'Cliente', 
+  usuarios.nombre as 'Empleado', 
+  servicios.nombre_servicio as 'Servicio',
+  detalles_salida.cantidad as 'Cantidad',
+  detalles_salida.precio as 'Precio'
+  FROM salidas JOIN detalles_salida ON salidas.codigo = detalles_salida.codigo_salida
+  JOIN clientes ON clientes.codigo = detalles_salida.codigo_cliente
+  JOIN usuarios ON usuarios.codigo = detalles_salida.codigo_usuario
+  JOIN servicios ON servicios.codigo = detalles_salida.codigo_servicio
+  WHERE salidas.fecha_salida BETWEEN @fechainicial AND @fechaFinal
+END
+GO
+
+EXEC p_reporteDetalladoSalidas '2021/11/28', '2021/12/1 23:59:59'
+EXEC p_reporteGeneralSalidas '2021/11/28', '2021/12/1 23:59:59'
+
+
+Select * FROM servicios
+SELECT * FROM servicios_materiales
+SELECT * FROM detalles_salida
+
+SELECT * FROM salidas
+SELECT * FROM detalles_salida
+SELECT * FROM clientes
+
 EXEC p_reporteEntradasGeneral '2021/11/14', '2021/11/25 23:59:59'
 SELECT * FROM entradas
 
