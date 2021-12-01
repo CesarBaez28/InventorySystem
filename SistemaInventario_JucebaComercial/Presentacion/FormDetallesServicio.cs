@@ -165,6 +165,7 @@ namespace Presentacion
                                 FormSalidas.formSalidas.MostrarServicios();
                                 FormSalidas.formSalidas.gridViewSalidas.Rows[indiceFila].Cells["Servicio"].Value = txbNombreServicio.Text;
                                 FormSalidas.formSalidas.gridViewSalidas.Rows[indiceFila].Cells["Monto"].Value = txbPrecio.Text;
+                                MessageBox.Show("Se actualizó correctamente");
                             }
 
                             this.Close();

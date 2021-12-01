@@ -18,7 +18,7 @@ EXEC p_LoginUsuario 'Nini', 'jcb123456'
 
 select codigo, tipo_usuario from tipo_usuarios
 
---Procedimiento alamcenado para mostrarUsuarios
+------Procedimiento alamcenado para mostrarUsuarios---------
 CREATE PROCEDURE p_MostrarUsuarios
 AS
 BEGIN
@@ -31,7 +31,7 @@ GO
 
 Exec p_MostrarUsuarios
 
---Procedimiento almacenado para buscar usuarios por su codigo
+--------Procedimiento almacenado para buscar usuarios por su codigo------------
 CREATE PROCEDURE p_MostrarUsuariosCodigo
  @codigo INT
 AS
@@ -670,6 +670,54 @@ BEGIN
   DELETE FROM salidas WHERE codigo=(SELECT MAX(codigo) FROM salidas)
 END
 GO
+
+-------Procedimientos almacenados para realizar reportes----------------
+
+--Reporte detallada de entradas
+CREATE PROCEDURE p_reporteEntradasDetallado
+  @fechainicial DATETIME,
+  @fechaFinal DATETIME
+AS
+BEGIN 
+  SELECT entradas.codigo as 'Código', 
+  entradas.fecha_entrada as 'Fecha',
+  proveedores.nombre as 'Proveedor', 
+  usuarios.nombre as 'Empleado',
+  materiales.nombre as 'Material', 
+  detalle_entrada.cantidad as 'Cantidad', 
+  detalle_entrada.costo as 'Costo' 
+  FROM entradas JOIN detalle_entrada ON entradas.codigo = detalle_entrada.codigo_entrada
+  JOIN materiales ON detalle_entrada.codigo_material = materiales.codigo
+  JOIN proveedores ON detalle_entrada.codigo_suplidor = proveedores.codigo
+  JOIN usuarios ON detalle_entrada.codigo_usuario = usuarios.codigo
+  WHERE entradas.fecha_entrada BETWEEN @fechainicial AND @fechaFinal
+END 
+GO
+
+--Reporte general de entradas
+CREATE PROCEDURE p_reporteEntradasGeneral
+  @fechainicial DATETIME,
+  @fechaFinal DATETIME
+AS
+BEGIN
+  SELECT entradas.codigo as 'Código', 
+  entradas.fecha_entrada as 'Fecha', 
+  proveedores.nombre as 'Proveedor',
+  entradas.total_entrada as 'Total'
+  FROM entradas JOIN detalle_entrada ON entradas.codigo = detalle_entrada.codigo_entrada
+  JOIN proveedores ON detalle_entrada.codigo_suplidor = proveedores.codigo
+  WHERE entradas.fecha_entrada BETWEEN @fechainicial AND @fechaFinal
+  GROUP BY entradas.codigo, entradas.fecha_entrada, proveedores.nombre, entradas.total_entrada
+  ORDER BY entradas.codigo
+END
+GO
+
+EXEC p_reporteEntradasGeneral '2021/11/14', '2021/11/25 23:59:59'
+SELECT * FROM entradas
+
+
+EXEC p_reporteEntradasDetallado '2021/11/14', '2021/11/25 23:59:59'
+SELECT * FROM detalle_entrada
 
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
 

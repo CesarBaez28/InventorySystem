@@ -29,12 +29,13 @@ namespace Presentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormReportes));
             this.panelContedorReporteGeneral = new System.Windows.Forms.Panel();
-            this.gridViewReporteGeneral = new System.Windows.Forms.DataGridView();
+            this.radioButtonGeneral = new System.Windows.Forms.RadioButton();
+            this.gridViewReportes = new System.Windows.Forms.DataGridView();
             this.btnExportarPdf = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.lblFechaFin = new System.Windows.Forms.Label();
@@ -49,8 +50,9 @@ namespace Presentacion
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.radioButtonDetallado = new System.Windows.Forms.RadioButton();
             this.panelContedorReporteGeneral.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewReporteGeneral)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewReportes)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContedorReporteGeneral
@@ -59,7 +61,9 @@ namespace Presentacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelContedorReporteGeneral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelContedorReporteGeneral.Controls.Add(this.gridViewReporteGeneral);
+            this.panelContedorReporteGeneral.Controls.Add(this.radioButtonDetallado);
+            this.panelContedorReporteGeneral.Controls.Add(this.radioButtonGeneral);
+            this.panelContedorReporteGeneral.Controls.Add(this.gridViewReportes);
             this.panelContedorReporteGeneral.Controls.Add(this.btnExportarPdf);
             this.panelContedorReporteGeneral.Controls.Add(this.btnLimpiar);
             this.panelContedorReporteGeneral.Controls.Add(this.lblFechaFin);
@@ -77,50 +81,63 @@ namespace Presentacion
             this.panelContedorReporteGeneral.Size = new System.Drawing.Size(915, 502);
             this.panelContedorReporteGeneral.TabIndex = 4;
             // 
-            // gridViewReporteGeneral
+            // radioButtonGeneral
             // 
-            this.gridViewReporteGeneral.AllowUserToAddRows = false;
-            this.gridViewReporteGeneral.AllowUserToDeleteRows = false;
-            this.gridViewReporteGeneral.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.radioButtonGeneral.AutoSize = true;
+            this.radioButtonGeneral.Checked = true;
+            this.radioButtonGeneral.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonGeneral.Location = new System.Drawing.Point(192, 51);
+            this.radioButtonGeneral.Name = "radioButtonGeneral";
+            this.radioButtonGeneral.Size = new System.Drawing.Size(77, 21);
+            this.radioButtonGeneral.TabIndex = 28;
+            this.radioButtonGeneral.TabStop = true;
+            this.radioButtonGeneral.Text = "General";
+            this.radioButtonGeneral.UseVisualStyleBackColor = true;
+            // 
+            // gridViewReportes
+            // 
+            this.gridViewReportes.AllowUserToAddRows = false;
+            this.gridViewReportes.AllowUserToDeleteRows = false;
+            this.gridViewReportes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridViewReporteGeneral.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gridViewReporteGeneral.BackgroundColor = System.Drawing.Color.White;
-            this.gridViewReporteGeneral.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.gridViewReporteGeneral.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewReporteGeneral.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.gridViewReporteGeneral.ColumnHeadersHeight = 30;
-            this.gridViewReporteGeneral.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridViewReporteGeneral.EnableHeadersVisualStyles = false;
-            this.gridViewReporteGeneral.GridColor = System.Drawing.Color.Black;
-            this.gridViewReporteGeneral.Location = new System.Drawing.Point(14, 138);
-            this.gridViewReporteGeneral.Name = "gridViewReporteGeneral";
-            this.gridViewReporteGeneral.ReadOnly = true;
-            this.gridViewReporteGeneral.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewReporteGeneral.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.gridViewReporteGeneral.RowHeadersVisible = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.gridViewReporteGeneral.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.gridViewReporteGeneral.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridViewReporteGeneral.Size = new System.Drawing.Size(886, 313);
-            this.gridViewReporteGeneral.TabIndex = 27;
+            this.gridViewReportes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridViewReportes.BackgroundColor = System.Drawing.Color.White;
+            this.gridViewReportes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridViewReportes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewReportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            this.gridViewReportes.ColumnHeadersHeight = 30;
+            this.gridViewReportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gridViewReportes.EnableHeadersVisualStyles = false;
+            this.gridViewReportes.GridColor = System.Drawing.Color.Black;
+            this.gridViewReportes.Location = new System.Drawing.Point(14, 138);
+            this.gridViewReportes.Name = "gridViewReportes";
+            this.gridViewReportes.ReadOnly = true;
+            this.gridViewReportes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewReportes.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            this.gridViewReportes.RowHeadersVisible = false;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridViewReportes.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            this.gridViewReportes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridViewReportes.Size = new System.Drawing.Size(886, 313);
+            this.gridViewReportes.TabIndex = 27;
             // 
             // btnExportarPdf
             // 
@@ -147,18 +164,19 @@ namespace Presentacion
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.Location = new System.Drawing.Point(549, 74);
+            this.btnLimpiar.Location = new System.Drawing.Point(646, 74);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(100, 27);
             this.btnLimpiar.TabIndex = 25;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // lblFechaFin
             // 
             this.lblFechaFin.AutoSize = true;
             this.lblFechaFin.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaFin.Location = new System.Drawing.Point(308, 51);
+            this.lblFechaFin.Location = new System.Drawing.Point(405, 51);
             this.lblFechaFin.Name = "lblFechaFin";
             this.lblFechaFin.Size = new System.Drawing.Size(80, 20);
             this.lblFechaFin.TabIndex = 24;
@@ -169,13 +187,14 @@ namespace Presentacion
             this.dateTimeFechaFin.CalendarFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeFechaFin.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimeFechaFin.Location = new System.Drawing.Point(312, 74);
+            this.dateTimeFechaFin.Location = new System.Drawing.Point(409, 74);
             this.dateTimeFechaFin.Name = "dateTimeFechaFin";
             this.dateTimeFechaFin.Size = new System.Drawing.Size(105, 26);
             this.dateTimeFechaFin.TabIndex = 23;
             // 
             // comboReportes
             // 
+            this.comboReportes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboReportes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboReportes.FormattingEnabled = true;
             this.comboReportes.Items.AddRange(new object[] {
@@ -219,7 +238,7 @@ namespace Presentacion
             // 
             this.lblFechaInicio.AutoSize = true;
             this.lblFechaInicio.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaInicio.Location = new System.Drawing.Point(188, 50);
+            this.lblFechaInicio.Location = new System.Drawing.Point(285, 50);
             this.lblFechaInicio.Name = "lblFechaInicio";
             this.lblFechaInicio.Size = new System.Drawing.Size(101, 20);
             this.lblFechaInicio.TabIndex = 19;
@@ -230,7 +249,7 @@ namespace Presentacion
             this.dateTimeFechaInicio.CalendarFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeFechaInicio.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimeFechaInicio.Location = new System.Drawing.Point(192, 73);
+            this.dateTimeFechaInicio.Location = new System.Drawing.Point(289, 73);
             this.dateTimeFechaInicio.Name = "dateTimeFechaInicio";
             this.dateTimeFechaInicio.Size = new System.Drawing.Size(105, 26);
             this.dateTimeFechaInicio.TabIndex = 18;
@@ -242,12 +261,13 @@ namespace Presentacion
             this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultar.ForeColor = System.Drawing.Color.White;
-            this.btnConsultar.Location = new System.Drawing.Point(434, 73);
+            this.btnConsultar.Location = new System.Drawing.Point(531, 73);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(100, 27);
             this.btnConsultar.TabIndex = 9;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // lblTitulo
             // 
@@ -296,6 +316,17 @@ namespace Presentacion
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // radioButtonDetallado
+            // 
+            this.radioButtonDetallado.AutoSize = true;
+            this.radioButtonDetallado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonDetallado.Location = new System.Drawing.Point(192, 77);
+            this.radioButtonDetallado.Name = "radioButtonDetallado";
+            this.radioButtonDetallado.Size = new System.Drawing.Size(91, 21);
+            this.radioButtonDetallado.TabIndex = 29;
+            this.radioButtonDetallado.Text = "Detallado";
+            this.radioButtonDetallado.UseVisualStyleBackColor = true;
+            // 
             // FormReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -308,7 +339,7 @@ namespace Presentacion
             this.Text = "Reportes";
             this.panelContedorReporteGeneral.ResumeLayout(false);
             this.panelContedorReporteGeneral.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewReporteGeneral)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewReportes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -330,6 +361,8 @@ namespace Presentacion
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnExportarPdf;
         private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.DataGridView gridViewReporteGeneral;
+        private System.Windows.Forms.DataGridView gridViewReportes;
+        private System.Windows.Forms.RadioButton radioButtonGeneral;
+        private System.Windows.Forms.RadioButton radioButtonDetallado;
     }
 }
