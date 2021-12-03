@@ -129,7 +129,7 @@ namespace Presentacion
                 {
                     if (float.TryParse(txbCosto.Text, out parseCorrecto) && float.Parse(txbCosto.Text) >= 0)
                     {
-                        if (float.TryParse(txbCosto.Text, out parseCorrecto) && float.Parse(txbCosto.Text) >= 0)
+                        if (int.TryParse(txbExistencia.Text, out int parseCorrecto) && Convert.ToInt32(txbExistencia.Text) >= 0)
                         {
                             try
                             {
