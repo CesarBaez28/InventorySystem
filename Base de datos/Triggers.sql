@@ -137,4 +137,7 @@ BEGIN
 END
 GO
 
+SELECT * FROM proveedores
+
+SELECT * FROM salidas
 SELECT * FROM detalles_salida

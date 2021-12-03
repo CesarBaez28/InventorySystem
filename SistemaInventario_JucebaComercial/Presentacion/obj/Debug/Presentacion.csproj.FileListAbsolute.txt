@@ -105,3 +105,6 @@ C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\S
 C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\bin\Debug\Comun.pdb
 C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\obj\Debug\Presentacion.csproj.ResolveComReference.cache
 C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\bin\Debug\itextsharp.dll
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\bin\Debug\itextsharp.xml
