@@ -26,6 +26,14 @@ namespace Datos
             return table;
         }
 
+        //Obtener punto de reorden de los materiales
+        public DataTable PuntoReorden() 
+        {
+            DataTable table = new DataTable();
+            table = ExecuteReaderText("Select punto_reorden FROM materiales GROUP BY punto_reorden");
+            return table;
+        }
+
         //Buscar materiales por codigo
         public DataTable BuscarMaterialesCodigo(int codigo) 
         {

@@ -1,5 +1,3 @@
----- Consultas relacionadas con los servicios-----
-
 --Mostrar todos los servicios
 SELECT codigo as'Código', nombre_servicio as 'Nombre', descripcion as 'Descripción', precio as 'Precio',
 CASE WHEN estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado FROM servicios
@@ -16,5 +14,7 @@ SELECT codigo, nombre_servicio FROM servicios
 --Mostrar nombre y código de los clientes 
 Select codigo, nombre FROM clientes
 
-SELECT * FROM servicios
+--Punto de reorden de los materiales
+Select punto_reorden FROM materiales GROUP BY punto_reorden
+
 SELECT * FROM materiales

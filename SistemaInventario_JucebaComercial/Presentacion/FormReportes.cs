@@ -210,7 +210,6 @@ namespace Presentacion
                     table.AddCell(gridViewReportes.Rows[i].Cells[j].Value.ToString());
                 }
             }
-
             reporte.Add(table);
 
             //Total del reporte

@@ -321,6 +321,7 @@ namespace Presentacion
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMateriales";
             this.Load += new System.EventHandler(this.FormMateriales_Load);
+            this.Shown += new System.EventHandler(this.FormMateriales_Shown);
             this.panelContedorUsuarios.ResumeLayout(false);
             this.panelContedorUsuarios.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewListaMateriales)).EndInit();

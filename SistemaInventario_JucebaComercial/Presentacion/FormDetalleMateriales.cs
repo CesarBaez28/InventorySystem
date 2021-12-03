@@ -71,36 +71,88 @@ namespace Presentacion
         {
             DominioMateriales material = new DominioMateriales();
 
-            //Insertar
-            if (actualizar == false)
+            //confirmo que los campos obligatorios estén llenos
+            if (txbNombre.Text != "" && txbExistencia.Text != "" && txbCosto.Text != "")
             {
-                //confirmo que los campos obligatorios estén llenos
-                if (txbNombre.Text != "" && txbExistencia.Text != "" && txbCosto.Text != "")
+                //Insertar
+                if (actualizar == false)
                 {
-                    // Valido que el precio sea un numero valido
-                    if (float.TryParse(txbCosto.Text, out parseCorrecto))
+                    // Valido que el precio se ha un número válido y que se ha mayor o igual que cero
+                    if (float.TryParse(txbCosto.Text, out parseCorrecto) && float.Parse(txbCosto.Text) >= 0)
                     {
-                        //Realizo la insercion
-                        material.RegisterMaterial(cbxTiposMateriales.SelectedValue.ToString(), txbNombre.Text,
-                            txbDescripcion.Text, txbCosto.Text, txbExistencia.Text);
+                        //Verifico que la existencia se ha un número válido y que se ha mayor o igual que cero
+                        if (int.TryParse(txbExistencia.Text, out int parseCorrecto) && Convert.ToInt32(txbExistencia.Text) >= 0)
+                        {
+                            try
+                            {
+                                //Realizo la insercion
+                                material.RegisterMaterial(cbxTiposMateriales.SelectedValue.ToString(), txbNombre.Text,
+                                    txbDescripcion.Text, txbCosto.Text, txbExistencia.Text);
 
-                        ///Verifico qué  formulario externo abrio el formulario
-                        if (formDetallesServicios != true && formEntrada != true)
-                        {
-                            MessageBox.Show("Se insertó correctamente");
-                            VaciarCampos();
-                            Actualizar(); //Actualizo Lista en FormMateriales
-                        }
-                        else if (formDetallesServicios == true)
-                        {
-                            //Actualizo Lista de materiales en FormDetallesServicio
-                            FormDetallesServicio.detallesServicio.MostrarMateriales();
-                            this.Close();
+                                ///Verifico qué formulario abrió este formulario
+                                if (formDetallesServicios != true && formEntrada != true)
+                                {
+                                    MessageBox.Show("Se insertó correctamente");
+                                    VaciarCampos();
+                                    Actualizar(); //Actualizo Lista en FormMateriales
+                                }
+                                else if (formDetallesServicios == true)
+                                {
+                                    //Actualizo Lista de materiales en FormDetallesServicio
+                                    FormDetallesServicio.detallesServicio.MostrarMateriales();
+                                    this.Close();
+                                }
+                                else
+                                {
+                                    FormEntradas.formEntrada.MostrarMateriales();
+                                    this.Close();
+                                }
+                            }
+                            catch 
+                            {
+                                MessageBox.Show("Ya existe un material con ese nombre");
+                            }
                         }
                         else
                         {
-                            FormEntradas.formEntrada.MostrarMateriales();
-                            this.Close();
+                            MessageBox.Show("La existencia ingresada no es válida");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("El precio ingresado no es valido");
+                    }
+
+                }
+                //Actualizar
+                else
+                {
+                    if (float.TryParse(txbCosto.Text, out parseCorrecto) && float.Parse(txbCosto.Text) >= 0)
+                    {
+                        if (float.TryParse(txbCosto.Text, out parseCorrecto) && float.Parse(txbCosto.Text) >= 0)
+                        {
+                            try
+                            {
+                                if (cbxEstado.Text == "Activo")
+                                    estadoMaterial = true;
+                                else
+                                    estadoMaterial = false;
+
+                                material.UpdateMaterial(codigo, cbxTiposMateriales.SelectedValue.ToString(), txbNombre.Text,
+                                    txbDescripcion.Text, txbCosto.Text, txbExistencia.Text, estadoMaterial);
+
+                                MessageBox.Show("Se actualizó correctamente");
+                                Actualizar();
+                                this.Close();
+                            }
+                            catch 
+                            {
+                                MessageBox.Show("Ya existe un material con ese nombre");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("La existencia ingresada no es válida");
                         }
                     }
                     else
@@ -108,32 +160,10 @@ namespace Presentacion
                         MessageBox.Show("El precio ingresado no es valido");
                     }
                 }
-                else 
-                {
-                    MessageBox.Show("Llene los campos obligatorios");
-                }
             }
-            //Actualizar
             else 
             {
-                if (float.TryParse(txbCosto.Text, out parseCorrecto))
-                {
-                    if (cbxEstado.Text == "Activo")
-                        estadoMaterial = true;
-                    else
-                        estadoMaterial = false;
-
-                    material.UpdateMaterial(codigo, cbxTiposMateriales.SelectedValue.ToString(), txbNombre.Text, 
-                        txbDescripcion.Text, txbCosto.Text, txbExistencia.Text, estadoMaterial);
-
-                    MessageBox.Show("Se actualizó correctamente");
-                    Actualizar();
-                    this.Close();
-                }
-                else 
-                {
-                    MessageBox.Show("El precio ingresado no es valido");
-                }
+                MessageBox.Show("Llene los campos obligatorios");
             }
         }
 
@@ -193,4 +223,3 @@ namespace Presentacion
         }
     }
 }
-

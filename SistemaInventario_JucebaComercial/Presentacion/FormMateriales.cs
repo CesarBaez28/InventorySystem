@@ -44,11 +44,42 @@ namespace Presentacion
             MostrarMateriales();
         }
 
+        private void FormMateriales_Shown(object sender, EventArgs e)
+        {
+            PuntoReorden();
+        }
+
         //Mostrar materiales (los activos)
         public void MostrarMateriales() 
         {
             DominioMateriales materiales = new DominioMateriales();
             gridViewListaMateriales.DataSource = materiales.SearchMaterialByStatus(estadoMaterial);
+        }
+
+        //Punto de reorden
+        private void PuntoReorden()
+        {
+            DominioMateriales materiales = new DominioMateriales();
+
+            // Guardo el punto de reorden de los materiales cuando se necesite solicitar más
+            int puntoReorden = Convert.ToInt32(materiales.ReorderPoint().Rows[0]["punto_reorden"]);
+            string listaMateriales = ""; //Lista de materiales que necesitan comprarse
+
+            //Verifico si hay que comprar más materiales
+            foreach (DataGridViewRow fila in gridViewListaMateriales.Rows)
+            {
+                if (Convert.ToInt32(fila.Cells["Existencia"].Value) <= puntoReorden)
+                {
+                    listaMateriales = listaMateriales + fila.Cells["Nombre"].Value.ToString() + "\n";
+                }
+            }
+
+            //Mando un mensaje con los materiales que se necesitan
+            if (listaMateriales != "")
+            {
+                MessageBox.Show("Necesitas comprar más de los siguientes materiales: " 
+                    + "\n" + "\n" + listaMateriales);
+            }
         }
 
         private void ActualizarEventHandler(object sender, FormDetalleMateriales.UpdateEventArgs args)

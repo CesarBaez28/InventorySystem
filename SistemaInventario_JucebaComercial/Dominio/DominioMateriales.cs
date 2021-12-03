@@ -30,6 +30,14 @@ namespace Dominio
         
         }
 
+        //reorder point
+        public DataTable ReorderPoint() 
+        {
+            DataTable table = new DataTable();
+            table = materiales.PuntoReorden();
+            return table;
+        }
+
         //Search materials by code 
         public DataTable SearchMaterialByCode(string codigo) 
         {
