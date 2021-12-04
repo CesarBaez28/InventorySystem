@@ -62,10 +62,6 @@ namespace Presentacion
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             FormDetallesServicio agregarServicio = new FormDetallesServicio();
-            //agregarServicio.btnActualizar.Visible = false;
-            //agregarServicio.btnEliminar.Location = new Point(14,389);
-            agregarServicio.btnAgregarExcedente.Visible = false;
-
             AbrirFormulario(agregarServicio);
         }
 
@@ -73,7 +69,7 @@ namespace Presentacion
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             FormDetallesServicio agregarServicio = new FormDetallesServicio();
-            agregarServicio.btnAgregarExcedente.Visible = false;
+
             agregarServicio.codigoServicio = gridViewListaServicios.CurrentRow.Cells["Código"].Value.ToString();
             agregarServicio.txbNombreServicio.Text = gridViewListaServicios.CurrentRow.Cells["Nombre"].Value.ToString();
             agregarServicio.txbDescripcionServicio.Text = gridViewListaServicios.CurrentRow.Cells["Descripción"].Value.ToString();
@@ -113,38 +109,6 @@ namespace Presentacion
             {
                 MessageBox.Show("Seleccione una fila");
             }
-        }
-
-        //Ver los detalles del servicio
-        private void btnVerDetalles_Click(object sender, EventArgs e)
-        {
-            FormDetallesServicio agregarServicio = new FormDetallesServicio();
-
-            agregarServicio.codigoServicio = gridViewListaServicios.CurrentRow.Cells["Código"].Value.ToString();
-            agregarServicio.txbNombreServicio.Text = gridViewListaServicios.CurrentRow.Cells["Nombre"].Value.ToString();
-            agregarServicio.txbDescripcionServicio.Text = gridViewListaServicios.CurrentRow.Cells["Descripción"].Value.ToString();
-            agregarServicio.txbPrecio.Text = gridViewListaServicios.CurrentRow.Cells["Precio"].Value.ToString();
-            agregarServicio.cbxEstado.Text = gridViewListaServicios.CurrentRow.Cells["Estado"].Value.ToString();
-
-            agregarServicio.gridViewMateriales.Columns.Clear();
-            agregarServicio.actualizar = true;
-            agregarServicio.btnAgregarExcedente.Visible = false;
-
-            agregarServicio.gridViewMateriales.Location = new Point(14,49);
-            agregarServicio.gridViewMateriales.Size = new Size(687,369);
-
-            agregarServicio.lblMaterial.Visible = false;
-            agregarServicio.lblCantidad.Visible = false;
-            agregarServicio.comboMaterial.Visible = false;
-            agregarServicio.txbCantidad.Visible = false;
-            agregarServicio.btnAgregar.Visible = false;
-            agregarServicio.btnActualizar.Visible = false;
-            agregarServicio.btnEliminar.Visible = false;
-            agregarServicio.btnTerminar.Visible = false;
-            agregarServicio.lineShape1.Visible = false;
-            agregarServicio.btnAgregarMaterial.Visible = false;
-
-            AbrirFormulario(agregarServicio);
         }
 
         //Buscar

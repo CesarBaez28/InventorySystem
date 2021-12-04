@@ -150,13 +150,10 @@
   </data>
   <data name="btnVerDetalles.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAATZJREFUSEvd
-        lTFuAjEURFdEdHCRcIw0dFCQW1BwC7gHHCkFCl24AVRUPzP+s6wsezEBN+RJI+3OjG2tDbvN/8bMhtAn
-        tIW+obPEa3rMhqr/DQycQweoBDtzDSuD8gBac6T4glbQOzSSeE2PWQvHDDRNPyhtQt3sAi2hN0UJzNRh
-        l2wU5UFh5r0w4EN2EXY1hsxkxyDggbZ7vpQdocx0GwGbT0I4R3rwMBch9n3NbovHvQtwu9ozWcjugLnz
-        zFayEpRnFyCIePBkJ6sD5t4zm8hKUH5rgYk3bC+rA+bJMxvLuk5YQnX2x+7YSVYHTc+qLJA+JbyaW5Rd
-        oOYhZxeo+TPNLlDrjxaQHQO/xqsioCgF2TMvuyuqpCB79HUdoen6QefeD06OH01zGxRzn8wSR2iqKV6e
-        pvkFcF1YHnjRlIIAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAACXSURBVEhL7ZBBDoQgEATZ1/kM9xUmJn7Asz/0E3sy2M00K2z2hOONSjqQAWp0QudxYowDsiOr
+        Sn5I/kEym458gHA2b8X9P4GEXz5qv9BasKdLrUCQx3Igb9VyE9aHdLEFPpYkUzbhuNzkGzLZ9mrSDAS/
+        8pdW4jqWLjf4WBLS5ReSEH85MVfCX07MV+EnJ+b84ivv/CeEE6YN61Kl6HSqAAAAAElFTkSuQmCC
 </value>
   </data>
   <metadata name="codigoCliente.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -201,10 +198,19 @@
 </value>
   </data>
   <metadata name="lineShape1.Bounds" type="System.Drawing.Rectangle, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>0, 254, 912, 0</value>
+    <value>0, 204, 912, 0</value>
   </metadata>
   <metadata name="lineShape1.Location" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>0, 254</value>
+    <value>0, 204</value>
+  </metadata>
+  <metadata name="lineShape1.Size" type="System.Drawing.Size, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>912, 0</value>
+  </metadata>
+  <metadata name="lineShape1.Bounds" type="System.Drawing.Rectangle, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 204, 912, 0</value>
+  </metadata>
+  <metadata name="lineShape1.Location" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 204</value>
   </metadata>
   <metadata name="lineShape1.Size" type="System.Drawing.Size, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>912, 0</value>

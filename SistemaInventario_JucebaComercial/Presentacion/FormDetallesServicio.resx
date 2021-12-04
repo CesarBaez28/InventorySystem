@@ -129,17 +129,6 @@
         AABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btnAgregarExcedente.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAATZJREFUSEvd
-        lTFuAjEURFdEdHCRcIw0dFCQW1BwC7gHHCkFCl24AVRUPzP+s6wsezEBN+RJI+3OjG2tDbvN/8bMhtAn
-        tIW+obPEa3rMhqr/DQycQweoBDtzDSuD8gBac6T4glbQOzSSeE2PWQvHDDRNPyhtQt3sAi2hN0UJzNRh
-        l2wU5UFh5r0w4EN2EXY1hsxkxyDggbZ7vpQdocx0GwGbT0I4R3rwMBch9n3NbovHvQtwu9ozWcjugLnz
-        zFayEpRnFyCIePBkJ6sD5t4zm8hKUH5rgYk3bC+rA+bJMxvLuk5YQnX2x+7YSVYHTc+qLJA+JbyaW5Rd
-        oOYhZxeo+TPNLlDrjxaQHQO/xqsioCgF2TMvuyuqpCB79HUdoen6QefeD06OH01zGxRzn8wSR2iqKV6e
-        pvkFcF1YHnjRlIIAAAAASUVORK5CYII=
-</value>
-  </data>
   <metadata name="Código.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -169,6 +158,15 @@
         AABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="lineShape1.Bounds" type="System.Drawing.Rectangle, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 147, 713, 0</value>
+  </metadata>
+  <metadata name="lineShape1.Location" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 147</value>
+  </metadata>
+  <metadata name="lineShape1.Size" type="System.Drawing.Size, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>713, 0</value>
+  </metadata>
   <metadata name="lineShape1.Bounds" type="System.Drawing.Rectangle, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 147, 713, 0</value>
   </metadata>

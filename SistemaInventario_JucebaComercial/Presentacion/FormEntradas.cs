@@ -15,7 +15,7 @@ namespace Presentacion
     public partial class FormEntradas : Form
     {
         float parseCorrecto; // La uso para verificar si el monto ingresado es correcto
-        float montoToal; // La uso para guardar el monto total de la compra.
+        float montoTotal; // La uso para guardar el monto total de la compra.
         bool primerRegistro = false; //La uso para que, luego de agregar un primer material, verificar si este u otros se agregan repetidos.
         bool yaRegistrado = false; // La uso para validar que no se ingrese un material repetido.
 

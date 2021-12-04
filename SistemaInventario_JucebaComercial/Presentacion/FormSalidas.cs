@@ -187,9 +187,6 @@ namespace Presentacion
         {
             FormDetallesServicio detallesServicio = new FormDetallesServicio();
 
-            //Oculto el botón para agregar excedentes del formulario
-            detallesServicio.btnAgregarExcedente.Visible = false;
-
             //Indico que este formulario (FormSalidas) abrió el FormDetallesServicio
             detallesServicio.formSalidas = true;
 
@@ -246,6 +243,11 @@ namespace Presentacion
             formActivo = form;
             form.FormBorderStyle = FormBorderStyle.None;
             form.Show();
+        }
+
+        private void btnAgregarExcedente_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FormAgregarExcedente());
         }
     }
 }

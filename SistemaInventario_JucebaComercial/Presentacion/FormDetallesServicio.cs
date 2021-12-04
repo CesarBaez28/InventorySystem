@@ -179,12 +179,6 @@ namespace Presentacion
             }
         }
 
-        //Agregar Excedente
-        private void btnAgregarExcedente_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario(new FormAgregarExcedente());
-        }
-
         //Agregar Material
         private void btnAgregarMaterial_Click(object sender, EventArgs e)
         {

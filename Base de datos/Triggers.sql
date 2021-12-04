@@ -123,7 +123,7 @@ BEGIN
 	DECLARE @existencia INT = (SELECT existencia FROM materiales WHERE materiales.codigo = (SELECT TOP(1) codigo_mateterial FROM @servicios_materiales))
 	
 	--Verifico si está disponible la cantidad de material y actualizo en la existencia en la tabla materiales. De lo contrario, envía un error.
-	IF(@existencia >= @cantidad)
+	IF(@existencia >= @cantidad * (SELECT cantidad FROM inserted))
 	  UPDATE materiales SET materiales.existencia  = materiales.existencia - (@cantidad * (SELECT cantidad FROM inserted))
 	  FROM materiales WHERE materiales.codigo = (SELECT TOP(1) codigo_mateterial FROM @servicios_materiales)
 	ELSE

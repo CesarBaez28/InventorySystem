@@ -34,7 +34,6 @@ namespace Presentacion
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelContedorUsuarios = new System.Windows.Forms.Panel();
-            this.btnVerDetalles = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txbBuscar = new System.Windows.Forms.TextBox();
@@ -57,7 +56,6 @@ namespace Presentacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelContedorUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelContedorUsuarios.Controls.Add(this.btnVerDetalles);
             this.panelContedorUsuarios.Controls.Add(this.btnNuevo);
             this.panelContedorUsuarios.Controls.Add(this.btnBuscar);
             this.panelContedorUsuarios.Controls.Add(this.txbBuscar);
@@ -72,25 +70,6 @@ namespace Presentacion
             this.panelContedorUsuarios.Name = "panelContedorUsuarios";
             this.panelContedorUsuarios.Size = new System.Drawing.Size(915, 502);
             this.panelContedorUsuarios.TabIndex = 6;
-            // 
-            // btnVerDetalles
-            // 
-            this.btnVerDetalles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnVerDetalles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnVerDetalles.FlatAppearance.BorderSize = 0;
-            this.btnVerDetalles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerDetalles.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerDetalles.ForeColor = System.Drawing.Color.White;
-            this.btnVerDetalles.Image = ((System.Drawing.Image)(resources.GetObject("btnVerDetalles.Image")));
-            this.btnVerDetalles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVerDetalles.Location = new System.Drawing.Point(770, 457);
-            this.btnVerDetalles.Name = "btnVerDetalles";
-            this.btnVerDetalles.Size = new System.Drawing.Size(130, 31);
-            this.btnVerDetalles.TabIndex = 26;
-            this.btnVerDetalles.Text = "Ver detalles";
-            this.btnVerDetalles.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnVerDetalles.UseVisualStyleBackColor = false;
-            this.btnVerDetalles.Click += new System.EventHandler(this.btnVerDetalles_Click);
             // 
             // btnNuevo
             // 
@@ -322,6 +301,5 @@ namespace Presentacion
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.Button btnVerDetalles;
     }
 }

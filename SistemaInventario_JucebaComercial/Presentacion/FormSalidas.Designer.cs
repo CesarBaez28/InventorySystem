@@ -30,9 +30,9 @@ namespace Presentacion
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSalidas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.panelContedorIngresos = new System.Windows.Forms.Panel();
             this.lblCantidad = new System.Windows.Forms.Label();
@@ -61,6 +61,7 @@ namespace Presentacion
             this.lblTitulo = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.btnAgregarExcedente = new System.Windows.Forms.Button();
             this.panelContedorIngresos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewSalidas)).BeginInit();
             this.SuspendLayout();
@@ -84,6 +85,7 @@ namespace Presentacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelContedorIngresos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelContedorIngresos.Controls.Add(this.btnAgregarExcedente);
             this.panelContedorIngresos.Controls.Add(this.lblCantidad);
             this.panelContedorIngresos.Controls.Add(this.txbCantidad);
             this.panelContedorIngresos.Controls.Add(this.btnAgregarServicio);
@@ -105,14 +107,14 @@ namespace Presentacion
             this.panelContedorIngresos.Controls.Add(this.shapeContainer1);
             this.panelContedorIngresos.Location = new System.Drawing.Point(13, 42);
             this.panelContedorIngresos.Name = "panelContedorIngresos";
-            this.panelContedorIngresos.Size = new System.Drawing.Size(915, 502);
+            this.panelContedorIngresos.Size = new System.Drawing.Size(915, 519);
             this.panelContedorIngresos.TabIndex = 17;
             // 
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(460, 121);
+            this.lblCantidad.Location = new System.Drawing.Point(460, 100);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(75, 17);
             this.lblCantidad.TabIndex = 33;
@@ -121,7 +123,7 @@ namespace Presentacion
             // txbCantidad
             // 
             this.txbCantidad.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbCantidad.Location = new System.Drawing.Point(459, 141);
+            this.txbCantidad.Location = new System.Drawing.Point(459, 120);
             this.txbCantidad.Name = "txbCantidad";
             this.txbCantidad.Size = new System.Drawing.Size(133, 23);
             this.txbCantidad.TabIndex = 32;
@@ -135,7 +137,7 @@ namespace Presentacion
             this.btnAgregarServicio.ForeColor = System.Drawing.Color.White;
             this.btnAgregarServicio.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarServicio.Image")));
             this.btnAgregarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarServicio.Location = new System.Drawing.Point(246, 141);
+            this.btnAgregarServicio.Location = new System.Drawing.Point(246, 120);
             this.btnAgregarServicio.Name = "btnAgregarServicio";
             this.btnAgregarServicio.Size = new System.Drawing.Size(33, 28);
             this.btnAgregarServicio.TabIndex = 31;
@@ -152,7 +154,7 @@ namespace Presentacion
             this.btnAgregarCliente.ForeColor = System.Drawing.Color.White;
             this.btnAgregarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCliente.Image")));
             this.btnAgregarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarCliente.Location = new System.Drawing.Point(246, 85);
+            this.btnAgregarCliente.Location = new System.Drawing.Point(246, 64);
             this.btnAgregarCliente.Name = "btnAgregarCliente";
             this.btnAgregarCliente.Size = new System.Drawing.Size(33, 28);
             this.btnAgregarCliente.TabIndex = 30;
@@ -170,9 +172,9 @@ namespace Presentacion
             this.btnVerDetalles.ForeColor = System.Drawing.Color.White;
             this.btnVerDetalles.Image = ((System.Drawing.Image)(resources.GetObject("btnVerDetalles.Image")));
             this.btnVerDetalles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVerDetalles.Location = new System.Drawing.Point(581, 457);
+            this.btnVerDetalles.Location = new System.Drawing.Point(582, 474);
             this.btnVerDetalles.Name = "btnVerDetalles";
-            this.btnVerDetalles.Size = new System.Drawing.Size(130, 31);
+            this.btnVerDetalles.Size = new System.Drawing.Size(129, 31);
             this.btnVerDetalles.TabIndex = 25;
             this.btnVerDetalles.Text = "Ver detalles";
             this.btnVerDetalles.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -184,7 +186,7 @@ namespace Presentacion
             this.comboServicios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboServicios.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboServicios.FormattingEnabled = true;
-            this.comboServicios.Location = new System.Drawing.Point(14, 141);
+            this.comboServicios.Location = new System.Drawing.Point(14, 120);
             this.comboServicios.Name = "comboServicios";
             this.comboServicios.Size = new System.Drawing.Size(226, 28);
             this.comboServicios.TabIndex = 24;
@@ -193,7 +195,7 @@ namespace Presentacion
             // 
             this.lblServicio.AutoSize = true;
             this.lblServicio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblServicio.Location = new System.Drawing.Point(15, 121);
+            this.lblServicio.Location = new System.Drawing.Point(15, 100);
             this.lblServicio.Name = "lblServicio";
             this.lblServicio.Size = new System.Drawing.Size(57, 17);
             this.lblServicio.TabIndex = 23;
@@ -204,7 +206,7 @@ namespace Presentacion
             this.comboClientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboClientes.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboClientes.FormattingEnabled = true;
-            this.comboClientes.Location = new System.Drawing.Point(14, 85);
+            this.comboClientes.Location = new System.Drawing.Point(14, 64);
             this.comboClientes.Name = "comboClientes";
             this.comboClientes.Size = new System.Drawing.Size(226, 28);
             this.comboClientes.TabIndex = 22;
@@ -220,14 +222,14 @@ namespace Presentacion
             this.gridViewSalidas.BackgroundColor = System.Drawing.Color.White;
             this.gridViewSalidas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridViewSalidas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewSalidas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewSalidas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.gridViewSalidas.ColumnHeadersHeight = 30;
             this.gridViewSalidas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridViewSalidas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -239,26 +241,26 @@ namespace Presentacion
             this.Cantidad});
             this.gridViewSalidas.EnableHeadersVisualStyles = false;
             this.gridViewSalidas.GridColor = System.Drawing.Color.Black;
-            this.gridViewSalidas.Location = new System.Drawing.Point(14, 271);
+            this.gridViewSalidas.Location = new System.Drawing.Point(14, 212);
             this.gridViewSalidas.Name = "gridViewSalidas";
             this.gridViewSalidas.ReadOnly = true;
             this.gridViewSalidas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewSalidas.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewSalidas.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.gridViewSalidas.RowHeadersVisible = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            this.gridViewSalidas.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridViewSalidas.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.gridViewSalidas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridViewSalidas.Size = new System.Drawing.Size(886, 180);
+            this.gridViewSalidas.Size = new System.Drawing.Size(886, 256);
             this.gridViewSalidas.TabIndex = 21;
             // 
             // codigoCliente
@@ -307,7 +309,7 @@ namespace Presentacion
             this.btnTerminar.ForeColor = System.Drawing.Color.White;
             this.btnTerminar.Image = ((System.Drawing.Image)(resources.GetObject("btnTerminar.Image")));
             this.btnTerminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTerminar.Location = new System.Drawing.Point(717, 457);
+            this.btnTerminar.Location = new System.Drawing.Point(717, 474);
             this.btnTerminar.Name = "btnTerminar";
             this.btnTerminar.Size = new System.Drawing.Size(183, 31);
             this.btnTerminar.TabIndex = 20;
@@ -320,7 +322,7 @@ namespace Presentacion
             // 
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.Location = new System.Drawing.Point(312, 65);
+            this.lblFecha.Location = new System.Drawing.Point(312, 44);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(51, 17);
             this.lblFecha.TabIndex = 19;
@@ -331,7 +333,7 @@ namespace Presentacion
             this.dateTimeSalida.CalendarFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeSalida.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeSalida.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimeSalida.Location = new System.Drawing.Point(311, 85);
+            this.dateTimeSalida.Location = new System.Drawing.Point(311, 64);
             this.dateTimeSalida.Name = "dateTimeSalida";
             this.dateTimeSalida.Size = new System.Drawing.Size(133, 23);
             this.dateTimeSalida.TabIndex = 18;
@@ -340,7 +342,7 @@ namespace Presentacion
             // 
             this.lblMonto.AutoSize = true;
             this.lblMonto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMonto.Location = new System.Drawing.Point(312, 121);
+            this.lblMonto.Location = new System.Drawing.Point(312, 100);
             this.lblMonto.Name = "lblMonto";
             this.lblMonto.Size = new System.Drawing.Size(54, 17);
             this.lblMonto.TabIndex = 17;
@@ -349,7 +351,7 @@ namespace Presentacion
             // txbMonto
             // 
             this.txbMonto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbMonto.Location = new System.Drawing.Point(311, 141);
+            this.txbMonto.Location = new System.Drawing.Point(311, 120);
             this.txbMonto.Name = "txbMonto";
             this.txbMonto.Size = new System.Drawing.Size(133, 23);
             this.txbMonto.TabIndex = 16;
@@ -358,7 +360,7 @@ namespace Presentacion
             // 
             this.lblCliente.AutoSize = true;
             this.lblCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCliente.Location = new System.Drawing.Point(15, 65);
+            this.lblCliente.Location = new System.Drawing.Point(15, 44);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(54, 17);
             this.lblCliente.TabIndex = 11;
@@ -373,7 +375,7 @@ namespace Presentacion
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(14, 213);
+            this.btnAgregar.Location = new System.Drawing.Point(14, 159);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(100, 34);
             this.btnAgregar.TabIndex = 9;
@@ -390,7 +392,7 @@ namespace Presentacion
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(18, 457);
+            this.btnEliminar.Location = new System.Drawing.Point(18, 474);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(84, 31);
             this.btnEliminar.TabIndex = 3;
@@ -418,7 +420,7 @@ namespace Presentacion
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(913, 500);
+            this.shapeContainer1.Size = new System.Drawing.Size(913, 517);
             this.shapeContainer1.TabIndex = 4;
             this.shapeContainer1.TabStop = false;
             // 
@@ -429,8 +431,24 @@ namespace Presentacion
             this.lineShape1.Name = "lineShape1";
             this.lineShape1.X1 = 0;
             this.lineShape1.X2 = 912;
-            this.lineShape1.Y1 = 254;
-            this.lineShape1.Y2 = 254;
+            this.lineShape1.Y1 = 204;
+            this.lineShape1.Y2 = 204;
+            // 
+            // btnAgregarExcedente
+            // 
+            this.btnAgregarExcedente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAgregarExcedente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnAgregarExcedente.FlatAppearance.BorderSize = 0;
+            this.btnAgregarExcedente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarExcedente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarExcedente.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarExcedente.Location = new System.Drawing.Point(108, 474);
+            this.btnAgregarExcedente.Name = "btnAgregarExcedente";
+            this.btnAgregarExcedente.Size = new System.Drawing.Size(143, 31);
+            this.btnAgregarExcedente.TabIndex = 34;
+            this.btnAgregarExcedente.Text = "Agregar Excedente";
+            this.btnAgregarExcedente.UseVisualStyleBackColor = false;
+            this.btnAgregarExcedente.Click += new System.EventHandler(this.btnAgregarExcedente_Click);
             // 
             // FormSalidas
             // 
@@ -480,5 +498,6 @@ namespace Presentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         public System.Windows.Forms.DataGridView gridViewSalidas;
+        private System.Windows.Forms.Button btnAgregarExcedente;
     }
 }
