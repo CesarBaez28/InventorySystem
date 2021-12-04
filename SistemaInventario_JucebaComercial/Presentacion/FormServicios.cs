@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using Comun;
 
 namespace Presentacion
 {
@@ -31,6 +32,17 @@ namespace Presentacion
         private void FormServicios_Load(object sender, EventArgs e)
         {
             MostrarServicios();
+            PermisosUsuarios();
+        }
+
+        //Permisos de usuarios
+        private void PermisosUsuarios()
+        {
+            if (UsuarioLoginCache.Tipo_usuario == Posiciones.Empleado)
+            {
+                btnEliminar.Enabled = false;
+                btnActualizar.Enabled = false;
+            }
         }
 
         //Mostrar servicios 

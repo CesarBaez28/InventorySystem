@@ -16,5 +16,3 @@ Select codigo, nombre FROM clientes
 
 --Punto de reorden de los materiales
 Select punto_reorden FROM materiales GROUP BY punto_reorden
-
-SELECT * FROM materiales

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Comun;
+
 
 namespace Presentacion
 {
@@ -136,10 +138,10 @@ namespace Presentacion
         //Permisos de usuarios
         public void PermisosUsuarios() 
         {
-            //if (UsuarioLoginCache.Tipo_usuario == Posiciones.Empleado)
-            //{
-            //    btnEmpleados.Enabled = false;
-            //}
+            if (UsuarioLoginCache.Tipo_usuario == Posiciones.Empleado)
+            {
+                btnEmpleados.Enabled = false;
+            }
         }
 
         //Metodo para abrir los formularios

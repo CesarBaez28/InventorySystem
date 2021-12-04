@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using Comun;
 
 namespace Presentacion
 {
@@ -17,7 +18,6 @@ namespace Presentacion
         int parseCorrecto; // La uso para vereficar que al momento de buscar un cliente el codigo sea un numero entero.
         bool estadoCliente = true; // La uso para mostrar los clintes por estado (activos o inactivos)
         string codigo; // Me servirá para obtener el codigo de la fila seleccionada en el dataGrid
-
 
         public FormCliente()
         {
@@ -34,6 +34,17 @@ namespace Presentacion
         private void FormClientes_Load(object sender, EventArgs e)
         {
             MostrarClientes();
+            PermisosUsuarios();
+        }
+
+        //Permisos de usuarios
+        private void PermisosUsuarios()
+        {
+            if (UsuarioLoginCache.Tipo_usuario == Posiciones.Empleado)
+            {
+                btnEliminar.Enabled = false;
+                btnActualizar.Enabled = false;
+            }
         }
 
         //Mostrar clientes 
