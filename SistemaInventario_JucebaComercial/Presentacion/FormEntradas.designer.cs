@@ -45,6 +45,11 @@ namespace Presentacion
             this.TipoMaterial = new System.Windows.Forms.Label();
             this.comboSuplidores = new System.Windows.Forms.ComboBox();
             this.gridViewEntradas = new System.Windows.Forms.DataGridView();
+            this.Suplidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnTerminar = new System.Windows.Forms.Button();
             this.lblFecha = new System.Windows.Forms.Label();
             this.dateTimeEntrada = new System.Windows.Forms.DateTimePicker();
@@ -57,11 +62,6 @@ namespace Presentacion
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.Suplidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelContedorIngresos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewEntradas)).BeginInit();
             this.SuspendLayout();
@@ -95,7 +95,7 @@ namespace Presentacion
             this.panelContedorIngresos.Controls.Add(this.shapeContainer1);
             this.panelContedorIngresos.Location = new System.Drawing.Point(13, 42);
             this.panelContedorIngresos.Name = "panelContedorIngresos";
-            this.panelContedorIngresos.Size = new System.Drawing.Size(915, 502);
+            this.panelContedorIngresos.Size = new System.Drawing.Size(915, 519);
             this.panelContedorIngresos.TabIndex = 3;
             // 
             // btnAgregarMaterial
@@ -265,8 +265,38 @@ namespace Presentacion
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.gridViewEntradas.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.gridViewEntradas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridViewEntradas.Size = new System.Drawing.Size(886, 180);
+            this.gridViewEntradas.Size = new System.Drawing.Size(886, 197);
             this.gridViewEntradas.TabIndex = 21;
+            // 
+            // Suplidor
+            // 
+            this.Suplidor.HeaderText = "Suplidor";
+            this.Suplidor.Name = "Suplidor";
+            this.Suplidor.ReadOnly = true;
+            // 
+            // materialTipo
+            // 
+            this.materialTipo.HeaderText = "Tipo Material";
+            this.materialTipo.Name = "materialTipo";
+            this.materialTipo.ReadOnly = true;
+            // 
+            // Material
+            // 
+            this.Material.HeaderText = "Material";
+            this.Material.Name = "Material";
+            this.Material.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            // 
+            // Monto
+            // 
+            this.Monto.HeaderText = "Monto";
+            this.Monto.Name = "Monto";
+            this.Monto.ReadOnly = true;
             // 
             // btnTerminar
             // 
@@ -278,7 +308,7 @@ namespace Presentacion
             this.btnTerminar.ForeColor = System.Drawing.Color.White;
             this.btnTerminar.Image = ((System.Drawing.Image)(resources.GetObject("btnTerminar.Image")));
             this.btnTerminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTerminar.Location = new System.Drawing.Point(717, 457);
+            this.btnTerminar.Location = new System.Drawing.Point(717, 474);
             this.btnTerminar.Name = "btnTerminar";
             this.btnTerminar.Size = new System.Drawing.Size(183, 31);
             this.btnTerminar.TabIndex = 20;
@@ -361,7 +391,7 @@ namespace Presentacion
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(18, 457);
+            this.btnEliminar.Location = new System.Drawing.Point(18, 474);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(84, 31);
             this.btnEliminar.TabIndex = 3;
@@ -389,7 +419,7 @@ namespace Presentacion
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(913, 500);
+            this.shapeContainer1.Size = new System.Drawing.Size(913, 517);
             this.shapeContainer1.TabIndex = 4;
             this.shapeContainer1.TabStop = false;
             // 
@@ -415,36 +445,6 @@ namespace Presentacion
             this.btnCerrar.TabIndex = 16;
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // Suplidor
-            // 
-            this.Suplidor.HeaderText = "Suplidor";
-            this.Suplidor.Name = "Suplidor";
-            this.Suplidor.ReadOnly = true;
-            // 
-            // materialTipo
-            // 
-            this.materialTipo.HeaderText = "Tipo Material";
-            this.materialTipo.Name = "materialTipo";
-            this.materialTipo.ReadOnly = true;
-            // 
-            // Material
-            // 
-            this.Material.HeaderText = "Material";
-            this.Material.Name = "Material";
-            this.Material.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            // 
-            // Monto
-            // 
-            this.Monto.HeaderText = "Monto";
-            this.Monto.Name = "Monto";
-            this.Monto.ReadOnly = true;
             // 
             // FormEntradas
             // 

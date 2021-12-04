@@ -729,7 +729,7 @@ BEGIN
 END
 GO
 
---Reporte detallada de ssalidas
+--Reporte detallada de salidas
 CREATE PROCEDURE p_reporteDetalladoSalidas
   @fechainicial DATETIME,
   @fechaFinal DATETIME
@@ -749,25 +749,6 @@ BEGIN
   WHERE salidas.fecha_salida BETWEEN @fechainicial AND @fechaFinal
 END
 GO
-
-EXEC p_reporteDetalladoSalidas '2021/11/28', '2021/12/1 23:59:59'
-EXEC p_reporteGeneralSalidas '2021/11/28', '2021/12/1 23:59:59'
-
-
-Select * FROM servicios
-SELECT * FROM servicios_materiales
-SELECT * FROM detalles_salida
-
-SELECT * FROM salidas
-SELECT * FROM detalles_salida
-SELECT * FROM clientes
-
-EXEC p_reporteEntradasGeneral '2021/11/14', '2021/11/25 23:59:59'
-SELECT * FROM entradas
-
-
-EXEC p_reporteEntradasDetallado '2021/11/14', '2021/11/25 23:59:59'
-SELECT * FROM detalle_entrada
 
 ------ Procedimientos alamacenados relacionados con la tabla de direcciones--------
 

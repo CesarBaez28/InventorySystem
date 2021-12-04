@@ -118,8 +118,9 @@ namespace Presentacion
         private void btnTerminar_Click(object sender, EventArgs e)
         {
             DominioSalida salida = new DominioSalida();
+            DominioMateriales materiales = new DominioMateriales();
 
-            //Verifico que el datagridview no esté vacío. 
+            //Verifico que el datagridviewSalidas no esté vacío. 
             if (gridViewSalidas.Rows.Count != 0)
             {
                 try
@@ -162,6 +163,21 @@ namespace Presentacion
             else
             {
                 MessageBox.Show("No hay servicios agregados");
+            }
+
+            //Verifico si se utilizaron excedentes
+            if (gridViewExcedentes.RowCount > 0)
+            {
+                //Actualizo la cantidad de existencia de los excedentes
+                foreach (DataGridViewRow fila in gridViewExcedentes.Rows) 
+                {
+                    materiales.UpdateAmountLeftover(fila.Cells["Codigo"].Value.ToString(), 
+                        fila.Cells["CantidadExcedente"].Value.ToString());
+                }
+
+                gridViewExcedentes.Rows.Clear();
+                gridViewExcedentes.Visible = false;
+                gridViewSalidas.Height = 256;
             }
         }
 
@@ -224,12 +240,12 @@ namespace Presentacion
 
         //Botón eliminar
          private void btnEliminar_Click(object sender, EventArgs e)
-        {
+         {
             if (gridViewSalidas.SelectedRows.Count > 0)
             {
                 gridViewSalidas.Rows.Remove(gridViewSalidas.CurrentRow);
             }
-        }
+         }
 
         //Metodo para abirar el formulario DetalleSuplidor
         private Form formActivo = null;
@@ -245,9 +261,32 @@ namespace Presentacion
             form.Show();
         }
 
+        //Agregar excedente de material
         private void btnAgregarExcedente_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FormAgregarExcedente());
+        }
+
+        //Borrar excedente
+        private void gridViewExcedentes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 7) 
+            {
+                if (gridViewExcedentes.SelectedCells.Count > 0)
+                {
+                    gridViewExcedentes.Rows.Remove(gridViewExcedentes.CurrentRow);
+                }
+                else 
+                {
+                    MessageBox.Show("Selecione una celda");
+                }
+
+                if (gridViewExcedentes.RowCount <= 0) 
+                {
+                    gridViewExcedentes.Visible = false;
+                    gridViewSalidas.Height = 256;
+                }
+            }
         }
     }
 }

@@ -149,6 +149,16 @@ namespace Datos
             ExecuteNonQuery("p_InsertarExcedenteMaterial");
         }
 
+        //Actualilzar cantidad del excedente
+        public void ActualizarCantidadExcedente(int codigo, int cantidad) 
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@cantidad", cantidad));
+            parameters.Add(new SqlParameter("@codigo", codigo));
+            ExecuteNonQueryText("UPDATE excedentes_materiales SET cantidad = " +
+                "cantidad - @cantidad FROM excedentes_materiales WHERE codigo = @codigo");
+        }
+
         //Actualizar excedente de material
         public void ActualizarExcedenteMaterial(int codigoExcedente, int codigoMedida, 
             string largo, string ancho, string alto, int cantidad, string descripcion) 

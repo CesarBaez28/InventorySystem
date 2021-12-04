@@ -68,7 +68,7 @@ namespace Presentacion
             this.panelContedorUsuarios.Controls.Add(this.shapeContainer1);
             this.panelContedorUsuarios.Location = new System.Drawing.Point(13, 42);
             this.panelContedorUsuarios.Name = "panelContedorUsuarios";
-            this.panelContedorUsuarios.Size = new System.Drawing.Size(915, 502);
+            this.panelContedorUsuarios.Size = new System.Drawing.Size(915, 519);
             this.panelContedorUsuarios.TabIndex = 6;
             // 
             // btnNuevo
@@ -152,7 +152,7 @@ namespace Presentacion
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(104, 457);
+            this.btnEliminar.Location = new System.Drawing.Point(104, 474);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(84, 31);
             this.btnEliminar.TabIndex = 3;
@@ -168,7 +168,7 @@ namespace Presentacion
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.Color.White;
-            this.btnActualizar.Location = new System.Drawing.Point(14, 457);
+            this.btnActualizar.Location = new System.Drawing.Point(14, 474);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(84, 31);
             this.btnActualizar.TabIndex = 2;
@@ -231,7 +231,7 @@ namespace Presentacion
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.gridViewListaServicios.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.gridViewListaServicios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridViewListaServicios.Size = new System.Drawing.Size(886, 298);
+            this.gridViewListaServicios.Size = new System.Drawing.Size(886, 315);
             this.gridViewListaServicios.TabIndex = 0;
             // 
             // shapeContainer1
@@ -241,7 +241,7 @@ namespace Presentacion
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(913, 500);
+            this.shapeContainer1.Size = new System.Drawing.Size(913, 517);
             this.shapeContainer1.TabIndex = 4;
             this.shapeContainer1.TabStop = false;
             // 

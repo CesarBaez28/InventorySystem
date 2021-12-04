@@ -30,14 +30,6 @@ namespace Presentacion
             FormEntradas.formEntrada = this;
         }
 
-        //private void codigoMaterial() 
-        //{
-        //    string codigoMaterial;
-
-        //    for (int i = 0; i <= comboMaterial.DisplayMember[0]; i++) { }
-
-        //}
-
         //Cerrar el formulario
         private void btnCerrar_Click(object sender, EventArgs e)
         {

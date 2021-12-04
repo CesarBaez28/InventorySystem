@@ -122,6 +122,12 @@ namespace Dominio
                 descripcion);
         }
 
+        //Update amount leftover material
+        public void UpdateAmountLeftover(string codigo, string cantidad) 
+        {
+            materiales.ActualizarCantidadExcedente(Convert.ToInt32(codigo), Convert.ToInt32(cantidad));
+        }
+
         //Update leftover material
         public void UpdateLeftoverMaterial(string codigoExcedente, string codigoMedida, string largo, 
             string ancho, string alto, string cantidad, string descripcion) 

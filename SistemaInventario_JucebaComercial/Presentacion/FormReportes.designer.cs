@@ -29,11 +29,12 @@ namespace Presentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormReportes));
             this.panelContedorReporteGeneral = new System.Windows.Forms.Panel();
+            this.radioButtonDetallado = new System.Windows.Forms.RadioButton();
             this.radioButtonGeneral = new System.Windows.Forms.RadioButton();
             this.gridViewReportes = new System.Windows.Forms.DataGridView();
             this.btnExportarPdf = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@ namespace Presentacion
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.radioButtonDetallado = new System.Windows.Forms.RadioButton();
             this.panelContedorReporteGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewReportes)).BeginInit();
             this.SuspendLayout();
@@ -78,8 +78,19 @@ namespace Presentacion
             this.panelContedorReporteGeneral.Controls.Add(this.shapeContainer1);
             this.panelContedorReporteGeneral.Location = new System.Drawing.Point(13, 42);
             this.panelContedorReporteGeneral.Name = "panelContedorReporteGeneral";
-            this.panelContedorReporteGeneral.Size = new System.Drawing.Size(915, 502);
+            this.panelContedorReporteGeneral.Size = new System.Drawing.Size(915, 519);
             this.panelContedorReporteGeneral.TabIndex = 4;
+            // 
+            // radioButtonDetallado
+            // 
+            this.radioButtonDetallado.AutoSize = true;
+            this.radioButtonDetallado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonDetallado.Location = new System.Drawing.Point(192, 77);
+            this.radioButtonDetallado.Name = "radioButtonDetallado";
+            this.radioButtonDetallado.Size = new System.Drawing.Size(91, 21);
+            this.radioButtonDetallado.TabIndex = 29;
+            this.radioButtonDetallado.Text = "Detallado";
+            this.radioButtonDetallado.UseVisualStyleBackColor = true;
             // 
             // radioButtonGeneral
             // 
@@ -105,14 +116,14 @@ namespace Presentacion
             this.gridViewReportes.BackgroundColor = System.Drawing.Color.White;
             this.gridViewReportes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridViewReportes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewReportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewReportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridViewReportes.ColumnHeadersHeight = 30;
             this.gridViewReportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridViewReportes.EnableHeadersVisualStyles = false;
@@ -121,22 +132,22 @@ namespace Presentacion
             this.gridViewReportes.Name = "gridViewReportes";
             this.gridViewReportes.ReadOnly = true;
             this.gridViewReportes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewReportes.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewReportes.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridViewReportes.RowHeadersVisible = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.gridViewReportes.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridViewReportes.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.gridViewReportes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridViewReportes.Size = new System.Drawing.Size(886, 313);
+            this.gridViewReportes.Size = new System.Drawing.Size(886, 330);
             this.gridViewReportes.TabIndex = 27;
             // 
             // btnExportarPdf
@@ -149,7 +160,7 @@ namespace Presentacion
             this.btnExportarPdf.ForeColor = System.Drawing.Color.White;
             this.btnExportarPdf.Image = ((System.Drawing.Image)(resources.GetObject("btnExportarPdf.Image")));
             this.btnExportarPdf.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExportarPdf.Location = new System.Drawing.Point(747, 457);
+            this.btnExportarPdf.Location = new System.Drawing.Point(747, 474);
             this.btnExportarPdf.Name = "btnExportarPdf";
             this.btnExportarPdf.Size = new System.Drawing.Size(153, 31);
             this.btnExportarPdf.TabIndex = 26;
@@ -226,7 +237,7 @@ namespace Presentacion
             this.btnTerminar.ForeColor = System.Drawing.Color.White;
             this.btnTerminar.Image = ((System.Drawing.Image)(resources.GetObject("btnTerminar.Image")));
             this.btnTerminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTerminar.Location = new System.Drawing.Point(572, 457);
+            this.btnTerminar.Location = new System.Drawing.Point(572, 474);
             this.btnTerminar.Name = "btnTerminar";
             this.btnTerminar.Size = new System.Drawing.Size(169, 31);
             this.btnTerminar.TabIndex = 20;
@@ -290,7 +301,7 @@ namespace Presentacion
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(913, 500);
+            this.shapeContainer1.Size = new System.Drawing.Size(913, 517);
             this.shapeContainer1.TabIndex = 4;
             this.shapeContainer1.TabStop = false;
             // 
@@ -316,17 +327,6 @@ namespace Presentacion
             this.btnCerrar.TabIndex = 17;
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // radioButtonDetallado
-            // 
-            this.radioButtonDetallado.AutoSize = true;
-            this.radioButtonDetallado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonDetallado.Location = new System.Drawing.Point(192, 77);
-            this.radioButtonDetallado.Name = "radioButtonDetallado";
-            this.radioButtonDetallado.Size = new System.Drawing.Size(91, 21);
-            this.radioButtonDetallado.TabIndex = 29;
-            this.radioButtonDetallado.Text = "Detallado";
-            this.radioButtonDetallado.UseVisualStyleBackColor = true;
             // 
             // FormReportes
             // 

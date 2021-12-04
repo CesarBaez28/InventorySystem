@@ -40,6 +40,33 @@ namespace Datos
             }
         }
 
+        //Ejecutar comando de no consultas con procedimiento almacenado
+        protected int ExecuteNonQueryText(string commandSql)
+        {
+            using (var conexion = GetConnection())
+            {
+                conexion.Open();
+
+                using (var comando = new SqlCommand(commandSql, conexion))
+                {
+                    comando.CommandType = CommandType.Text;
+
+                    //Verifico si se utilizaron parametros para la consulta
+                    if (parameters != null)
+                    {
+                        foreach (SqlParameter item in parameters)
+                        {
+                            comando.Parameters.Add(item);
+                        }
+                    }
+
+                    int result = comando.ExecuteNonQuery();
+                    parameters.Clear();
+                    return result;
+                }
+            }
+        }
+
         //Ejecutar multiples comandos de no consulta
         protected void ExecuteMultipleNonQuery(string commandSql, DataTable table) 
         {

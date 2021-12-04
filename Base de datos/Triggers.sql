@@ -97,7 +97,7 @@ GO
 ----- Triggers relacionados con las salidas del inventario-------
 
 --Insertar en la tabla detalles_salida
-ALTER TRIGGER t_registrarSalida
+CREATE TRIGGER t_registrarSalida
 ON detalles_salida FOR INSERT
 AS
 BEGIN 
@@ -137,7 +137,16 @@ BEGIN
 END
 GO
 
-SELECT * FROM proveedores
+------- Triger relacionado con la tabla excedentes_materiales ---------
 
-SELECT * FROM salidas
-SELECT * FROM detalles_salida
+--Si la existencia de un excedente es igual cero, se elimina.
+CREATE TRIGGER t_actualizarExcedente
+ON excedentes_materiales FOR UPDATE
+AS
+BEGIN
+  IF (SELECT cantidad FROM inserted) = 0
+    BEGIN 
+	  DELETE FROM excedentes_materiales WHERE codigo = (SELECT codigo from inserted)
+	END
+END
+GO

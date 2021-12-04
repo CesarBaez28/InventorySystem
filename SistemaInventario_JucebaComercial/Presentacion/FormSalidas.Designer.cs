@@ -30,11 +30,17 @@ namespace Presentacion
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSalidas));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.panelContedorIngresos = new System.Windows.Forms.Panel();
+            this.gridViewExcedentes = new System.Windows.Forms.DataGridView();
+            this.btnAgregarExcedente = new System.Windows.Forms.Button();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.txbCantidad = new System.Windows.Forms.TextBox();
             this.btnAgregarServicio = new System.Windows.Forms.Button();
@@ -61,8 +67,16 @@ namespace Presentacion
             this.lblTitulo = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.btnAgregarExcedente = new System.Windows.Forms.Button();
+            this.Borrar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.cantidadExcedente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Alto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ancho = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Largo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnidadMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Excedente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelContedorIngresos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewExcedentes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewSalidas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,6 +99,7 @@ namespace Presentacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelContedorIngresos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelContedorIngresos.Controls.Add(this.gridViewExcedentes);
             this.panelContedorIngresos.Controls.Add(this.btnAgregarExcedente);
             this.panelContedorIngresos.Controls.Add(this.lblCantidad);
             this.panelContedorIngresos.Controls.Add(this.txbCantidad);
@@ -109,6 +124,78 @@ namespace Presentacion
             this.panelContedorIngresos.Name = "panelContedorIngresos";
             this.panelContedorIngresos.Size = new System.Drawing.Size(915, 519);
             this.panelContedorIngresos.TabIndex = 17;
+            // 
+            // gridViewExcedentes
+            // 
+            this.gridViewExcedentes.AllowUserToAddRows = false;
+            this.gridViewExcedentes.AllowUserToDeleteRows = false;
+            this.gridViewExcedentes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridViewExcedentes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridViewExcedentes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.gridViewExcedentes.BackgroundColor = System.Drawing.Color.White;
+            this.gridViewExcedentes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridViewExcedentes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewExcedentes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.gridViewExcedentes.ColumnHeadersHeight = 30;
+            this.gridViewExcedentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gridViewExcedentes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Codigo,
+            this.Excedente,
+            this.UnidadMedida,
+            this.Largo,
+            this.Ancho,
+            this.Alto,
+            this.cantidadExcedente,
+            this.Borrar});
+            this.gridViewExcedentes.EnableHeadersVisualStyles = false;
+            this.gridViewExcedentes.GridColor = System.Drawing.Color.Black;
+            this.gridViewExcedentes.Location = new System.Drawing.Point(14, 339);
+            this.gridViewExcedentes.Name = "gridViewExcedentes";
+            this.gridViewExcedentes.ReadOnly = true;
+            this.gridViewExcedentes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewExcedentes.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.gridViewExcedentes.RowHeadersVisible = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridViewExcedentes.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.gridViewExcedentes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.gridViewExcedentes.Size = new System.Drawing.Size(886, 129);
+            this.gridViewExcedentes.TabIndex = 40;
+            this.gridViewExcedentes.Visible = false;
+            this.gridViewExcedentes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewExcedentes_CellContentClick);
+            // 
+            // btnAgregarExcedente
+            // 
+            this.btnAgregarExcedente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAgregarExcedente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnAgregarExcedente.FlatAppearance.BorderSize = 0;
+            this.btnAgregarExcedente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarExcedente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarExcedente.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarExcedente.Location = new System.Drawing.Point(108, 474);
+            this.btnAgregarExcedente.Name = "btnAgregarExcedente";
+            this.btnAgregarExcedente.Size = new System.Drawing.Size(143, 31);
+            this.btnAgregarExcedente.TabIndex = 34;
+            this.btnAgregarExcedente.Text = "Agregar Excedente";
+            this.btnAgregarExcedente.UseVisualStyleBackColor = false;
+            this.btnAgregarExcedente.Click += new System.EventHandler(this.btnAgregarExcedente_Click);
             // 
             // lblCantidad
             // 
@@ -219,17 +306,18 @@ namespace Presentacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridViewSalidas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridViewSalidas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.gridViewSalidas.BackgroundColor = System.Drawing.Color.White;
             this.gridViewSalidas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridViewSalidas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewSalidas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewSalidas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.gridViewSalidas.ColumnHeadersHeight = 30;
             this.gridViewSalidas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridViewSalidas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -245,20 +333,20 @@ namespace Presentacion
             this.gridViewSalidas.Name = "gridViewSalidas";
             this.gridViewSalidas.ReadOnly = true;
             this.gridViewSalidas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewSalidas.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewSalidas.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.gridViewSalidas.RowHeadersVisible = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.gridViewSalidas.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridViewSalidas.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.gridViewSalidas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridViewSalidas.Size = new System.Drawing.Size(886, 256);
             this.gridViewSalidas.TabIndex = 21;
@@ -434,21 +522,61 @@ namespace Presentacion
             this.lineShape1.Y1 = 204;
             this.lineShape1.Y2 = 204;
             // 
-            // btnAgregarExcedente
+            // Borrar
             // 
-            this.btnAgregarExcedente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAgregarExcedente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnAgregarExcedente.FlatAppearance.BorderSize = 0;
-            this.btnAgregarExcedente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarExcedente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarExcedente.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarExcedente.Location = new System.Drawing.Point(108, 474);
-            this.btnAgregarExcedente.Name = "btnAgregarExcedente";
-            this.btnAgregarExcedente.Size = new System.Drawing.Size(143, 31);
-            this.btnAgregarExcedente.TabIndex = 34;
-            this.btnAgregarExcedente.Text = "Agregar Excedente";
-            this.btnAgregarExcedente.UseVisualStyleBackColor = false;
-            this.btnAgregarExcedente.Click += new System.EventHandler(this.btnAgregarExcedente_Click);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
+            this.Borrar.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Borrar.HeaderText = "Borrar";
+            this.Borrar.Image = ((System.Drawing.Image)(resources.GetObject("Borrar.Image")));
+            this.Borrar.Name = "Borrar";
+            this.Borrar.ReadOnly = true;
+            this.Borrar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // cantidadExcedente
+            // 
+            this.cantidadExcedente.HeaderText = "Cantidad";
+            this.cantidadExcedente.Name = "cantidadExcedente";
+            this.cantidadExcedente.ReadOnly = true;
+            // 
+            // Alto
+            // 
+            this.Alto.HeaderText = "Alto";
+            this.Alto.Name = "Alto";
+            this.Alto.ReadOnly = true;
+            // 
+            // Ancho
+            // 
+            this.Ancho.HeaderText = "Ancho";
+            this.Ancho.Name = "Ancho";
+            this.Ancho.ReadOnly = true;
+            // 
+            // Largo
+            // 
+            this.Largo.HeaderText = "Largo";
+            this.Largo.Name = "Largo";
+            this.Largo.ReadOnly = true;
+            // 
+            // UnidadMedida
+            // 
+            this.UnidadMedida.HeaderText = "Medida";
+            this.UnidadMedida.Name = "UnidadMedida";
+            this.UnidadMedida.ReadOnly = true;
+            // 
+            // Excedente
+            // 
+            this.Excedente.HeaderText = "Excedente";
+            this.Excedente.Name = "Excedente";
+            this.Excedente.ReadOnly = true;
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Código";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
             // 
             // FormSalidas
             // 
@@ -463,6 +591,7 @@ namespace Presentacion
             this.Load += new System.EventHandler(this.FormSalidas_Load);
             this.panelContedorIngresos.ResumeLayout(false);
             this.panelContedorIngresos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewExcedentes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewSalidas)).EndInit();
             this.ResumeLayout(false);
 
@@ -499,5 +628,14 @@ namespace Presentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         public System.Windows.Forms.DataGridView gridViewSalidas;
         private System.Windows.Forms.Button btnAgregarExcedente;
+        public System.Windows.Forms.DataGridView gridViewExcedentes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Excedente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnidadMedida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Largo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ancho;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Alto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadExcedente;
+        private System.Windows.Forms.DataGridViewImageColumn Borrar;
     }
 }
