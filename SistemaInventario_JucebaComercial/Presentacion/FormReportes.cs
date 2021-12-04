@@ -40,8 +40,9 @@ namespace Presentacion
              fechaInicial = dateTimeFechaInicio.Value;
              fechaFinal = dateTimeFechaFin.Value;
 
-            gridViewReportes.DataSource = reporte.GeneralEntryReport(fechaInicial, 
-                new DateTime(fechaFinal.Year, fechaFinal.Month, fechaFinal.Day, 23,59,59));
+            gridViewReportes.DataSource = reporte.GeneralEntryReport(
+                new DateTime(fechaInicial.Year, fechaInicial.Month, fechaInicial.Day, 00,00,00),
+                new DateTime(fechaFinal.Year, fechaFinal.Month, fechaFinal.Day, 23, 59, 59));
         }
 
         //Reporte detallado de entradas
@@ -50,7 +51,8 @@ namespace Presentacion
             fechaInicial = dateTimeFechaInicio.Value;
             fechaFinal = dateTimeFechaFin.Value;
 
-            gridViewReportes.DataSource = reporte.DetailedEntryReport(fechaInicial,
+            gridViewReportes.DataSource = reporte.DetailedEntryReport(
+                new DateTime(fechaInicial.Year, fechaInicial.Month, fechaInicial.Day, 00, 00, 00),
                 new DateTime(fechaFinal.Year, fechaFinal.Month, fechaFinal.Day, 23, 59, 59));
         }
 
@@ -60,7 +62,8 @@ namespace Presentacion
             fechaInicial = dateTimeFechaInicio.Value;
             fechaFinal = dateTimeFechaFin.Value;
 
-            gridViewReportes.DataSource = reporte.GeneralSalesReport(fechaInicial,
+            gridViewReportes.DataSource = reporte.GeneralSalesReport(
+                new DateTime(fechaInicial.Year, fechaInicial.Month, fechaInicial.Day, 00, 00, 00),
                 new DateTime(fechaFinal.Year, fechaFinal.Month, fechaFinal.Day, 23, 59, 59));
         }
 
@@ -70,7 +73,8 @@ namespace Presentacion
             fechaInicial = dateTimeFechaInicio.Value;
             fechaFinal = dateTimeFechaFin.Value;
 
-            gridViewReportes.DataSource = reporte.DetailedSalesReport(fechaInicial,
+            gridViewReportes.DataSource = reporte.DetailedSalesReport(
+                new DateTime(fechaInicial.Year, fechaInicial.Month, fechaInicial.Day, 00, 00, 00),
                 new DateTime(fechaFinal.Year, fechaFinal.Month, fechaFinal.Day, 23, 59, 59));
         }
 
