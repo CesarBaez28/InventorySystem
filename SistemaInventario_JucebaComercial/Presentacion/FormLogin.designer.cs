@@ -140,7 +140,7 @@ namespace Presentacion
             // btnCerrar
             // 
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(670, 4);
+            this.btnCerrar.Location = new System.Drawing.Point(670, 3);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(20, 20);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -210,6 +210,7 @@ namespace Presentacion
             this.linkLabelPassword.TabIndex = 11;
             this.linkLabelPassword.TabStop = true;
             this.linkLabelPassword.Text = "¿Has olvidado tu contraseña?";
+            this.linkLabelPassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelPassword_LinkClicked);
             // 
             // FormLogin
             // 

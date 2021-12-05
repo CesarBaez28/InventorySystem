@@ -64,6 +64,12 @@ namespace Dominio
             return usuario.LoginUsuario(nombreUsuario, password);
         }
 
+        //RecoverPassword
+        public string RecoverPassword(string usuarioSolicitante) 
+        {
+            return usuario.RecuperarPassword(usuarioSolicitante);
+        }
+
         //Show all system users
         public DataTable ShowUsers()
         {

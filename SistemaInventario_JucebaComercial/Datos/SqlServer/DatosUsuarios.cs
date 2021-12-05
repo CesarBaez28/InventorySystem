@@ -47,6 +47,52 @@ namespace Datos
             }
         }
 
+        //Recuperar contraseña
+        public string RecuperarPassword(string usuarioSolicitante) 
+        {
+            DataTable table = new DataTable();
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@usuario", usuarioSolicitante));
+            parameters.Add(new SqlParameter("@correo", usuarioSolicitante));
+
+            table = ExecuteReaderText("SELECT codigo, nombre_usuario, nombre, passwd, email " +
+                "FROM usuarios WHERE nombre_usuario = @usuario or email = @correo");
+
+            if (table.Rows.Count > 0)
+            {
+                string nombreUsuario = "";
+                string nombre = "";
+                string correo = "";
+                string password = "";
+
+                foreach (DataRow fila in table.Rows)
+                {
+                    nombreUsuario = fila[1].ToString();
+                    nombre = fila[2].ToString();
+                    correo = fila[4].ToString();
+                    password = fila[3].ToString();
+
+                    var servicioCorreo = new ServiciosCorreo.SoporteCorreo();
+
+                    servicioCorreo.enviarCorreo(
+                        asunto: "Solicitud de recuperación de contraseña",
+                        cuerpo: "Hola, " + nombre + "\nTu solicitud para recuperar tu contraseña.\n" +
+                        "Tu contraseña actual es: " + password + ".\n"+
+                        "Sin embargo, le pedimos que cambie su contraseña inmediatamente ingrese al sistema.",
+                        correoDestinatario: new List<string> { correo }
+                        );
+                }
+
+                return "Hola, " + nombre + "\nHas solicitado recuperar tu contraseña.\n"+
+                    "Por favor, revisa tu correo electrónico: " + correo +".\n" +
+                    "Sin embargo, le pedimos que cambie su contraseña inmediatamente ingrese al sistema.";
+            }
+            else 
+            {
+                return "Lo sentimos, no tienes una cuenta con ese correo o nombre de usuario";
+            }
+        } 
+
         //Consultar todos los usuarios del sistema 
         public DataTable ShowUsers() 
         {

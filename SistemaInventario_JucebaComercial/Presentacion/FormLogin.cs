@@ -143,6 +143,13 @@ namespace Presentacion
             }
         }
 
+        //Recuperar contraseña
+        private void linkLabelPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var recuperarPassword = new FormRecuperarPassword();
+            recuperarPassword.ShowDialog();
+        }
+
         //Metodo para mover el panel
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
@@ -158,6 +165,5 @@ namespace Presentacion
                 Top = Top + (e.Y - posy);
             }
         }
-
     }
 }
