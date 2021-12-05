@@ -87,11 +87,11 @@ namespace Presentacion
         {
             DominioProveedores proveedor = new DominioProveedores();
 
-            //Insertar proveedor
-            if (actualizar == false)
+            //Confirmo que los campos esten llenos
+            if (txbNombre.Text != "" && txbTelefono.Text != "")
             {
-                //Confirmo que los campos esten llenos
-                if (txbNombre.Text != "" && txbTelefono.Text != "")
+                //Insertar proveedor
+                if (actualizar == false)
                 {
                     try
                     {
@@ -112,37 +112,38 @@ namespace Presentacion
 
                         this.Close();
                     }
-                    catch 
+                    catch
+                    {
+                        MessageBox.Show("Ya existe un proveedor con ese nombre");
+                    }
+
+                }
+                //Actualizar proveedor
+                else
+                {
+                    if (cbxEstado.Text == "Activo")
+                        estadoProveedor = true;
+                    else
+                        estadoProveedor = false;
+
+                    try
+                    {
+                        proveedor.UpdateSupplier(txbTelefono.Text, telefonoViejo, comboBoxDirecciones.SelectedValue.ToString(), txbNombre.Text, codigo,
+                            estadoProveedor);
+
+                        Actualizar();
+                        MessageBox.Show("Registro actualizado");
+                        this.Close();
+                    }
+                    catch
                     {
                         MessageBox.Show("Ya existe un proveedor con ese nombre");
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Faltan campos por llenar");
-                }
             }
-            //Actualizar proveedor
-            else 
+            else
             {
-                if (cbxEstado.Text == "Activo")
-                    estadoProveedor = true;
-                else 
-                    estadoProveedor = false;
-
-                try
-                {
-                    proveedor.UpdateSupplier(txbTelefono.Text, telefonoViejo, comboBoxDirecciones.SelectedValue.ToString(), txbNombre.Text, codigo,
-                        estadoProveedor);
-
-                    Actualizar();
-                    MessageBox.Show("Registro actualizado");
-                    this.Close();
-                }
-                catch 
-                {
-                    MessageBox.Show("Ya existe un proveedor con ese nombre");
-                }
+                MessageBox.Show("Faltan campos por llenar");
             }
         }
 

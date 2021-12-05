@@ -71,11 +71,11 @@ namespace Presentacion
         {
             DominioCliente cliente = new DominioCliente();
 
-            //Agregar nuevo cliente
-            if (actualizar == false)
+            //Confirmo que los campos esten llenos
+            if (txbNombre.Text != "" && txtTelefono.Text != "")
             {
-                //Confirmo que los campos esten llenos
-                if (txbNombre.Text != "" && txtTelefono.Text != "")
+                //Agregar nuevo cliente
+                if (actualizar == false)
                 {
                     try
                     {
@@ -94,37 +94,38 @@ namespace Presentacion
                         }
                         this.Close();
                     }
-                    catch 
+                    catch
                     {
-                        MessageBox.Show("Ya existe un cliente con ese nombre");
+                        MessageBox.Show("Ya existe un cliente con ese nombre.");
                     }
                 }
+                //Actualizar datos del cliente
                 else
                 {
-                    MessageBox.Show("Faltan campos por llenar");
+                    if (cbxEstado.Text == "Activo")
+                        estadoCliente = true;
+                    else
+                        estadoCliente = false;
+
+                    try
+                    {
+                        cliente.UpdateCostumer(txtTelefono.Text, telefonoViejo,
+                            comboBoxDirecciones.SelectedValue.ToString(), txbNombre.Text, codigo,
+                            estadoCliente);
+
+                        Actualizar();
+                        this.Close();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Ya existe un cliente por ese nombre.");
+                    }
                 }
             }
-            //Actualizar datos del cliente
             else 
             {
-                if (cbxEstado.Text == "Activo")
-                    estadoCliente = true;
-                else
-                    estadoCliente = false;
-
-                try
-                {
-                    cliente.UpdateCostumer(txtTelefono.Text, telefonoViejo,
-                        comboBoxDirecciones.SelectedValue.ToString(), txbNombre.Text, codigo,
-                        estadoCliente);
-
-                    Actualizar();
-                    this.Close();
-                }
-                catch 
-                {
-                    MessageBox.Show("Ya existe un cliente por ese nombre");
-                }
+                MessageBox.Show("Faltan campos por llenar.");
+            
             }
         }
 

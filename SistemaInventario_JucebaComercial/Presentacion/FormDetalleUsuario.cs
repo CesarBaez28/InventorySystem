@@ -13,11 +13,11 @@ namespace Presentacion
 {
     public partial class FormDetalleUsuario : Form
     {
-        int posX, posY;//Las uso para obtener la posicion del formulario
-        public bool actualizar = false; // La uso para actualizar o insertar dependiendo de su estado
-        public string codigo; // La uso para guardar el codigo del registro seleccionado 
-        bool estadoUsuario; // Lo uso para indicar el estado del usuario (activo o inactivo)
-        public string tipoUsuario; ///La utilizo para guardar el texto del tipo de usuario seleccionado en el datagridView
+        int posX, posY;//Las uso para obtener la posicion del formulario.
+        public bool actualizar = false; // La uso para actualizar o insertar dependiendo de su estado.
+        public string codigo; // La uso para guardar el codigo del registro seleccionado.
+        bool estadoUsuario; // Lo uso para indicar el estado del usuario (activo o inactivo).
+        public string tipoUsuario; ///La utilizo para guardar el texto del tipo de usuario seleccionado en el datagridView.
         DominioUsuario usuario = new DominioUsuario();
 
         public FormDetalleUsuario(FormEmpleados formEmpleados)
@@ -39,7 +39,7 @@ namespace Presentacion
             public string Datos { get; set; }
         }
 
-        //Actuarlizar la lista de empleados al insertar o actualizar
+        //Actuarlizar la lista de empleados al insertar o actualizar.
         protected void Actualizar() 
         {
             UpdateEventArgs args = new UpdateEventArgs();
@@ -48,7 +48,7 @@ namespace Presentacion
 
         private void FormDetalleUsuario_Load(object sender, EventArgs e)
         {
-            //Llleno el combobox con los tipos de usuarios del sistema
+            //Llleno el combobox con los tipos de usuarios del sistema.
             llenarCombobox();
 
             if (actualizar == true) 
@@ -62,80 +62,79 @@ namespace Presentacion
         {
             DominioUsuario usuario = new DominioUsuario();
 
-            //Insertar
-            if (actualizar == false)
-            {
-                //confirmo que los campos obligatorios estén llenos
-                if (txbNombre.Text != "" && txbNombreUsuario.Text != "" && txbPassword.Text != "" &&
+            //confirmo que los campos obligatorios estén llenos
+            if (txbNombre.Text != "" && txbNombreUsuario.Text != "" && txbPassword.Text != "" &&
                     txbConfirmarPassword.Text != "")
-                {
-                    // confirmo que las contraseñas estén correctas
-                    if (txbConfirmarPassword.Text == txbPassword.Text)
-                    {
-                        try
-                        {
-                            usuario.RegisterUser(cbxTiposUsuarios.SelectedValue.ToString(),
-                                txbNombreUsuario.Text, txbNombre.Text, txbPassword.Text, txbEmail.Text);
-                            MessageBox.Show("Se insertó correctamente");
-                            //vaciarTexboxs();
-                            Actualizar();
-                            this.Close();
-                        }
-                        catch 
-                        {
-                            MessageBox.Show("Ya existe un usuario con ese nombre");
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Las contraseñas no coinciden");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Faltan campos obligatorios por llenar.");
-                }
-            }
-
-            //Actualizar
-            else 
             {
                 // confirmo que las contraseñas estén correctas
-                if (txbConfirmarPassword.Text == txbPassword.Text && txbPassword.Text != "")
+                if (txbConfirmarPassword.Text == txbPassword.Text)
                 {
-                    try
+                    //Confirmo que las contraseñas tenga al menos 5 caracteres
+                    if (txbPassword.Text.Length >= 5)
                     {
-                        //Activo
-                        if (cbxEstado.SelectedIndex == 0)
+                        //Insertar
+                        if (actualizar == false)
                         {
-                            estadoUsuario = true;
-                            usuario.UpdateUser(cbxTiposUsuarios.SelectedValue.ToString(),
-                                txbNombreUsuario.Text, txbNombre.Text, txbPassword.Text, txbEmail.Text,
-                                estadoUsuario, codigo);
+                            try
+                            {
+                                usuario.RegisterUser(cbxTiposUsuarios.SelectedValue.ToString(),
+                                    txbNombreUsuario.Text, txbNombre.Text, txbPassword.Text, txbEmail.Text);
+                                MessageBox.Show("Se insertó correctamente.");
+                                //vaciarTexboxs();
+                                Actualizar();
+                                this.Close();
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Ya existe un usuario con ese nombre.");
+                            }
                         }
-                        //Inactivo
+                        //Actualizar
                         else
                         {
-                            estadoUsuario = false;
-                            usuario.UpdateUser(cbxTiposUsuarios.SelectedValue.ToString(),
-                                txbNombreUsuario.Text, txbNombre.Text, txbPassword.Text, txbEmail.Text,
-                                estadoUsuario, codigo);
-                        }
+                            try
+                            {
+                                //Activo
+                                if (cbxEstado.SelectedIndex == 0)
+                                {
+                                    estadoUsuario = true;
+                                    usuario.UpdateUser(cbxTiposUsuarios.SelectedValue.ToString(),
+                                        txbNombreUsuario.Text, txbNombre.Text, txbPassword.Text, txbEmail.Text,
+                                        estadoUsuario, codigo);
+                                }
+                                //Inactivo
+                                else
+                                {
+                                    estadoUsuario = false;
+                                    usuario.UpdateUser(cbxTiposUsuarios.SelectedValue.ToString(),
+                                        txbNombreUsuario.Text, txbNombre.Text, txbPassword.Text, txbEmail.Text,
+                                        estadoUsuario, codigo);
+                                }
 
-                        MessageBox.Show("Se actualizó correctamente");
-                        // vaciarTexboxs();
-                        Actualizar();
-                        this.Close();
+                                MessageBox.Show("Se actualizó correctamente.");
+                                // vaciarTexboxs();
+                                Actualizar();
+                                this.Close();
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Ya existe un usuario con ese nombre.");
+                            }
+                        }
                     }
-                    catch 
+                    else 
                     {
-                        MessageBox.Show("Ya existe un usuario con ese nombre");
+                        MessageBox.Show("La contraseña debe tener al menos 5 caracteres.");
                     }
                 }
-                else
+                else 
                 {
-                    MessageBox.Show("Las contraseñas no coinciden o faltan campos por llenar");
+                    MessageBox.Show("Las contraseñas no coinciden.");
                 }
+            }
+            else 
+            {
+                MessageBox.Show("Faltan campos por llenar.");
             }
         }
 
