@@ -42,18 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatosClientes.cs" />
-    <Compile Include="DatosDirecciones.cs" />
-    <Compile Include="DatosEntradas.cs" />
-    <Compile Include="DatosMateriales.cs" />
-    <Compile Include="DatosMedidas.cs" />
-    <Compile Include="DatosProveedores.cs" />
-    <Compile Include="DatosReportes.cs" />
-    <Compile Include="DatosSalidas.cs" />
-    <Compile Include="DatosServicios.cs" />
-    <Compile Include="ExecuteCommandSql.cs" />
-    <Compile Include="ConnectionSql.cs" />
-    <Compile Include="DatosUsuarios.cs" />
+    <Compile Include="SqlServer\DatosClientes.cs" />
+    <Compile Include="SqlServer\DatosDirecciones.cs" />
+    <Compile Include="SqlServer\DatosEntradas.cs" />
+    <Compile Include="SqlServer\DatosMateriales.cs" />
+    <Compile Include="SqlServer\DatosMedidas.cs" />
+    <Compile Include="SqlServer\DatosProveedores.cs" />
+    <Compile Include="SqlServer\DatosReportes.cs" />
+    <Compile Include="SqlServer\DatosSalidas.cs" />
+    <Compile Include="SqlServer\DatosServicios.cs" />
+    <Compile Include="SqlServer\ExecuteCommandSql.cs" />
+    <Compile Include="SqlServer\ConnectionSql.cs" />
+    <Compile Include="SqlServer\DatosUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
