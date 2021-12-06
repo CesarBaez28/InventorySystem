@@ -104,7 +104,7 @@ namespace Datos
         public DataTable MostrarNombreCodigoServicios() 
         {
             DataTable table = new DataTable();
-            table = ExecuteReaderText("SELECT codigo, nombre_servicio FROM servicios");
+            table = ExecuteReaderText("SELECT codigo, nombre_servicio FROM servicios WHERE estado = 1");
             return table;
         }
 

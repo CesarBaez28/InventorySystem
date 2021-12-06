@@ -51,7 +51,7 @@ namespace Presentacion
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
             this.lblTitulo.Location = new System.Drawing.Point(0, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(899, 33);
+            this.lblTitulo.Size = new System.Drawing.Size(960, 33);
             this.lblTitulo.TabIndex = 37;
             this.lblTitulo.Text = "Agregar excedente";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -62,7 +62,7 @@ namespace Presentacion
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(873, 5);
+            this.btnCerrar.Location = new System.Drawing.Point(934, 5);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(24, 24);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -112,14 +112,14 @@ namespace Presentacion
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.gridViewExcedentes.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.gridViewExcedentes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridViewExcedentes.Size = new System.Drawing.Size(886, 224);
+            this.gridViewExcedentes.Size = new System.Drawing.Size(947, 246);
             this.gridViewExcedentes.TabIndex = 39;
             // 
             // txbCantidad
             // 
             this.txbCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txbCantidad.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbCantidad.Location = new System.Drawing.Point(583, 52);
+            this.txbCantidad.Location = new System.Drawing.Point(644, 52);
             this.txbCantidad.Name = "txbCantidad";
             this.txbCantidad.Size = new System.Drawing.Size(203, 26);
             this.txbCantidad.TabIndex = 42;
@@ -129,7 +129,7 @@ namespace Presentacion
             this.lblCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(499, 55);
+            this.lblCantidad.Location = new System.Drawing.Point(560, 55);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(82, 20);
             this.lblCantidad.TabIndex = 40;
@@ -145,7 +145,7 @@ namespace Presentacion
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(793, 49);
+            this.btnAgregar.Location = new System.Drawing.Point(854, 49);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(99, 32);
             this.btnAgregar.TabIndex = 44;
@@ -159,7 +159,7 @@ namespace Presentacion
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.ClientSize = new System.Drawing.Size(899, 322);
+            this.ClientSize = new System.Drawing.Size(960, 344);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txbCantidad);
             this.Controls.Add(this.lblCantidad);

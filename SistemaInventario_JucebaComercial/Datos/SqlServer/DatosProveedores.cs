@@ -22,7 +22,7 @@ namespace Datos
         public DataTable NombreCodigoProveedores() 
         {
             DataTable table = new DataTable();
-            table = ExecuteReaderText("SELECT codigo, nombre FROM proveedores");
+            table = ExecuteReaderText("SELECT codigo, nombre FROM proveedores WHERE estado = 1");
             return table;
         }
 

@@ -159,25 +159,25 @@ namespace Presentacion
                 }
 
                 gridViewSalidas.Rows.Clear();
+
+                //Verifico si se utilizaron excedentes
+                if (gridViewExcedentes.RowCount > 0)
+                {
+                    //Actualizo la cantidad de existencia de los excedentes
+                    foreach (DataGridViewRow fila in gridViewExcedentes.Rows)
+                    {
+                        materiales.UpdateAmountLeftover(fila.Cells["Codigo"].Value.ToString(),
+                            fila.Cells["CantidadExcedente"].Value.ToString());
+                    }
+
+                    gridViewExcedentes.Rows.Clear();
+                    gridViewExcedentes.Visible = false;
+                    gridViewSalidas.Height = 256;
+                }
             }
             else
             {
                 MessageBox.Show("No hay servicios agregados");
-            }
-
-            //Verifico si se utilizaron excedentes
-            if (gridViewExcedentes.RowCount > 0)
-            {
-                //Actualizo la cantidad de existencia de los excedentes
-                foreach (DataGridViewRow fila in gridViewExcedentes.Rows) 
-                {
-                    materiales.UpdateAmountLeftover(fila.Cells["Codigo"].Value.ToString(), 
-                        fila.Cells["CantidadExcedente"].Value.ToString());
-                }
-
-                gridViewExcedentes.Rows.Clear();
-                gridViewExcedentes.Visible = false;
-                gridViewSalidas.Height = 256;
             }
         }
 
