@@ -39,7 +39,6 @@ namespace Presentacion
         private void FormEntradas_Load(object sender, EventArgs e)
         {
             MostrarMateriales();
-            MostrarTipoMateriales();
             MostrarProveedores();
         }
 
@@ -50,15 +49,6 @@ namespace Presentacion
             comboMaterial.ValueMember = "codigo";
             comboMaterial.DisplayMember = "Material";
             comboMaterial.DataSource = materiales.NamesCodesMaterials();
-        }
-
-        //Mostrar tipo de materiales
-        public void MostrarTipoMateriales() 
-        {
-            DominioMateriales materiales = new DominioMateriales();
-            comboTipoMaterial.ValueMember = "codigo";
-            comboTipoMaterial.DisplayMember = "tipo_material";
-            comboTipoMaterial.DataSource = materiales.ShowTypeMaterials();
         }
 
         //Mostrar Proveedores
@@ -75,11 +65,10 @@ namespace Presentacion
         {
             int indice = gridViewEntradas.Rows.Add();
 
-            gridViewEntradas.Rows[indice].Cells[0].Value = comboSuplidores.Text;
-            gridViewEntradas.Rows[indice].Cells[1].Value = comboTipoMaterial.Text;
-            gridViewEntradas.Rows[indice].Cells[2].Value = comboMaterial.Text;
-            gridViewEntradas.Rows[indice].Cells[3].Value = txbCantidad.Text;
-            gridViewEntradas.Rows[indice].Cells[4].Value = txbMonto.Text;
+            gridViewEntradas.Rows[indice].Cells["Suplidor"].Value = comboSuplidores.Text;
+            gridViewEntradas.Rows[indice].Cells["Material"].Value = comboMaterial.Text;
+            gridViewEntradas.Rows[indice].Cells["Cantidad"].Value = txbCantidad.Text;
+            gridViewEntradas.Rows[indice].Cells["Monto"].Value = txbMonto.Text;
         }
 
         //Boton Agregar
@@ -147,9 +136,8 @@ namespace Presentacion
                 {
                     //Registro detalles de la entrada
                     entrada.RegisterDetailsEntry(UsuarioLoginCache.Codigo_usuario.ToString(), 
-                        fila.Cells[0].Value.ToString(), fila.Cells[1].Value.ToString(),
-                        fila.Cells[2].Value.ToString(),fila.Cells[3].Value.ToString(),
-                        fila.Cells[4].Value.ToString());
+                        fila.Cells["Suplidor"].Value.ToString(), fila.Cells["Material"].Value.ToString(),
+                        fila.Cells["Cantidad"].Value.ToString(),fila.Cells["Monto"].Value.ToString());
                 }
 
                 MessageBox.Show("Registro exitoso");
@@ -182,14 +170,6 @@ namespace Presentacion
             detalleSuplidor.formEntrada = true;
 
             AbrirFormulario(detalleSuplidor);
-        }
-
-        //Agregar tipo material
-        private void btnAgregarTipoMaterial_Click(object sender, EventArgs e)
-        {
-            FormAgregarTipoMaterial agregarTipoMaterial = new FormAgregarTipoMaterial();
-            agregarTipoMaterial.formEntrada = true;
-            AbrirFormulario(agregarTipoMaterial);
         }
 
         //Agregar material

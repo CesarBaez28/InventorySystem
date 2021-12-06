@@ -16,7 +16,6 @@ namespace Presentacion
         int posX, posY; //Las uso para obtener las cordenadas y poder mover el formulario
         bool Actualizar = false; //La uso para indicar si se va a actualizar o insertar;
         string materialActualizar; //Lo uso para guardar el nombre del tipo de material que se desea actualizar.
-        public bool formEntrada; //La uso para indicar si el FormEntrada Abrió este formulario
 
         DominioMateriales materiales = new DominioMateriales();
 
@@ -81,19 +80,8 @@ namespace Presentacion
                 {
                     //Inserto el tipo de material
                     materiales.RegisterTypeMaterial(txbNombre.Text);
-
-                    //Verifico si el FormEntrada abrió este formulario
-                    if (formEntrada != true)
-                    {
-                        MessageBox.Show("Registro insertado");
-                        txbNombre.Text = "";
-                    }
-                    else 
-                    {
-                        //Actualizo lista de tipo de materiales en el FormEntrada
-                        FormEntradas.formEntrada.MostrarTipoMateriales();
-                        this.Close();
-                    }
+                    MessageBox.Show("Registro insertado");
+                    txbNombre.Text = "";
                 }
                 //Actualizar
                 else
@@ -106,17 +94,12 @@ namespace Presentacion
 
                 gridViewTipoMateriales.DataSource = null;
                 gridViewTipoMateriales.Rows.Clear();
-
-                if (formEntrada != true)
-                {
-                    MostrarTipoMateriales();
-                    FormDetalleMateriales.formDetalleMaterial.llenarCombobox();
-                }
+                MostrarTipoMateriales();
+                FormDetalleMateriales.formDetalleMaterial.llenarCombobox();
             }
             else 
             {
                 MessageBox.Show("El campo está vacío");
-            
             }
         }
 

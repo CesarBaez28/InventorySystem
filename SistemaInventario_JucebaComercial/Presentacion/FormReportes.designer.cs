@@ -85,7 +85,7 @@ namespace Presentacion
             // 
             this.radioButtonDetallado.AutoSize = true;
             this.radioButtonDetallado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonDetallado.Location = new System.Drawing.Point(192, 77);
+            this.radioButtonDetallado.Location = new System.Drawing.Point(192, 80);
             this.radioButtonDetallado.Name = "radioButtonDetallado";
             this.radioButtonDetallado.Size = new System.Drawing.Size(91, 21);
             this.radioButtonDetallado.TabIndex = 29;

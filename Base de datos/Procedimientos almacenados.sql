@@ -630,10 +630,9 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE p_RegistrarDetalleEntrada
+ CREATE PROCEDURE p_RegistrarDetalleEntrada
   @codigoUsuario INT,
   @suplidor VARCHAR(50),
-  @tipoMaterial VARCHAR(50),
   @material VARCHAR(50),
   @cantidad INT,
   @costo NUMERIC(20,2)
@@ -647,7 +646,7 @@ BEGIN
   SELECT @codigoEntrada = MAX(codigo) FROM entradas
   SELECT @codigoSuplidor = codigo FROM proveedores WHERE nombre = @suplidor
   SELECT @codigoMaterial = codigo FROM materiales WHERE nombre = @material
-  SELECT @codigoTipoMaterial = codigo FROM tipo_material WHERE tipo_material = @tipoMaterial
+  SELECT @codigoTipoMaterial = codigo_tipo_material FROM materiales WHERE codigo = @codigoMaterial
 
   INSERT INTO detalle_entrada(codigo_entrada, codigo_suplidor, codigo_material, codigo_tipo_material, codigo_usuario, costo, cantidad)
   VALUES(@codigoEntrada, @codigoSuplidor, @codigoMaterial, @codigoTipoMaterial, @codigoUsuario, @costo, @cantidad)
@@ -663,7 +662,7 @@ BEGIN
 END
 GO
 
---Eliminar útila salida 
+--Eliminar últila salida 
 CREATE PROCEDURE p_EliminarUltimaSalida
 AS
 BEGIN

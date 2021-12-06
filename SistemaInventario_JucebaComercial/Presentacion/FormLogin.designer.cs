@@ -142,7 +142,7 @@ namespace Presentacion
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
             this.btnCerrar.Location = new System.Drawing.Point(670, 3);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(20, 20);
+            this.btnCerrar.Size = new System.Drawing.Size(23, 23);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrar.TabIndex = 7;
             this.btnCerrar.TabStop = false;
@@ -153,7 +153,7 @@ namespace Presentacion
             this.btbMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btbMinimizar.Image")));
             this.btbMinimizar.Location = new System.Drawing.Point(638, 3);
             this.btbMinimizar.Name = "btbMinimizar";
-            this.btbMinimizar.Size = new System.Drawing.Size(20, 20);
+            this.btbMinimizar.Size = new System.Drawing.Size(23, 23);
             this.btbMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btbMinimizar.TabIndex = 8;
             this.btbMinimizar.TabStop = false;

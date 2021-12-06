@@ -19,12 +19,11 @@ namespace Datos
 
         //Registrar entrada al inventario
         public void RegistrarDetalleEntrada(int codigoUsuario, string suplidor, 
-            string tipoMaterial, string material, int cantidad, float costo) 
+             string material, int cantidad, float costo) 
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigoUsuario", codigoUsuario));
             parameters.Add(new SqlParameter("@suplidor", suplidor));
-            parameters.Add(new SqlParameter("@tipoMaterial", tipoMaterial));
             parameters.Add(new SqlParameter("@material", material));
             parameters.Add(new SqlParameter("@cantidad", cantidad));
             parameters.Add(new SqlParameter("@costo", costo));
