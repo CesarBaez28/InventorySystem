@@ -40,7 +40,7 @@ namespace Datos
             }
         }
 
-        //Ejecutar comando de no consultas con procedimiento almacenado
+        //Ejecutar comando de no consultas sin procedimiento almacenado
         protected int ExecuteNonQueryText(string commandSql)
         {
             using (var conexion = GetConnection())
