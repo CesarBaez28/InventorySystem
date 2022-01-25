@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "dd00e90a-d9f8-4ecb-ac51-b1471a76d77a": {
+      "ProjectGuid": "dd00e90a-d9f8-4ecb-ac51-b1471a76d77a",
+      "DisplayName": "Comun",
+      "ColorIndex": 0
+    },
+    "58a9ba1d-26a0-4f58-8d0e-928efae90faa": {
+      "ProjectGuid": "58a9ba1d-26a0-4f58-8d0e-928efae90faa",
+      "DisplayName": "Presentacion",
+      "ColorIndex": 1
+    },
+    "49619767-8cd9-43b2-a463-91fc49c809cd": {
+      "ProjectGuid": "49619767-8cd9-43b2-a463-91fc49c809cd",
+      "DisplayName": "Datos",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Archivos varios",
+      "ColorIndex": -1
+    },
+    "eed194a3-1b56-4298-9ae7-a62076e9154c": {
+      "ProjectGuid": "eed194a3-1b56-4298-9ae7-a62076e9154c",
+      "DisplayName": "Dominio",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}

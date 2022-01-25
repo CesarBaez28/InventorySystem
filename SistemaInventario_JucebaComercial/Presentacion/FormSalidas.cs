@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
-using Comun;
+using Comun; 
 
 namespace Presentacion
 {
@@ -61,6 +57,7 @@ namespace Presentacion
         private void AgregarSalida() 
         {
             int indice = gridViewSalidas.Rows.Add();
+            float total = Convert.ToInt32(txbCantidad.Text) * float.Parse(txbMonto.Text); //Total del servicio
 
             gridViewSalidas.Rows[indice].Cells["codigoCliente"].Value = comboClientes.SelectedValue.ToString();
             gridViewSalidas.Rows[indice].Cells["Cliente"].Value = comboClientes.Text;
@@ -68,6 +65,7 @@ namespace Presentacion
             gridViewSalidas.Rows[indice].Cells["Servicio"].Value = comboServicios.Text;
             gridViewSalidas.Rows[indice].Cells["Monto"].Value = txbMonto.Text;
             gridViewSalidas.Rows[indice].Cells["Cantidad"].Value = txbCantidad.Text;
+            gridViewSalidas.Rows[indice].Cells["Total"].Value = total.ToString();
         }
 
         //Botón agregar salida
@@ -143,7 +141,7 @@ namespace Presentacion
                         codigo_servicio = Convert.ToInt32(fila.Cells["codigoServicio"].Value.ToString()),
                         codigo_cliente = Convert.ToInt32(fila.Cells["codigoCliente"].Value.ToString()),
                         codigo_usuario = UsuarioLoginCache.Codigo_usuario,
-                        precio = float.Parse(fila.Cells["Monto"].Value.ToString()),
+                        precio = float.Parse(fila.Cells["Total"].Value.ToString()),
                         cantidad = Convert.ToInt32(fila.Cells["Cantidad"].Value.ToString())
                         };
 

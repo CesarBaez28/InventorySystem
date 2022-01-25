@@ -33,13 +33,21 @@ namespace Presentacion
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.panelContedorIngresos = new System.Windows.Forms.Panel();
             this.gridViewExcedentes = new System.Windows.Forms.DataGridView();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Excedente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnidadMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Largo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ancho = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Alto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadExcedente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Borrar = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnAgregarExcedente = new System.Windows.Forms.Button();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.txbCantidad = new System.Windows.Forms.TextBox();
@@ -50,12 +58,6 @@ namespace Presentacion
             this.lblServicio = new System.Windows.Forms.Label();
             this.comboClientes = new System.Windows.Forms.ComboBox();
             this.gridViewSalidas = new System.Windows.Forms.DataGridView();
-            this.codigoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoServicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Servicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnTerminar = new System.Windows.Forms.Button();
             this.lblFecha = new System.Windows.Forms.Label();
             this.dateTimeSalida = new System.Windows.Forms.DateTimePicker();
@@ -67,14 +69,13 @@ namespace Presentacion
             this.lblTitulo = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.Borrar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.cantidadExcedente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Alto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ancho = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Largo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnidadMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Excedente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoServicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Servicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelContedorIngresos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewExcedentes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewSalidas)).BeginInit();
@@ -180,6 +181,62 @@ namespace Presentacion
             this.gridViewExcedentes.TabIndex = 40;
             this.gridViewExcedentes.Visible = false;
             this.gridViewExcedentes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewExcedentes_CellContentClick);
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Código";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            // 
+            // Excedente
+            // 
+            this.Excedente.HeaderText = "Excedente";
+            this.Excedente.Name = "Excedente";
+            this.Excedente.ReadOnly = true;
+            // 
+            // UnidadMedida
+            // 
+            this.UnidadMedida.HeaderText = "Medida";
+            this.UnidadMedida.Name = "UnidadMedida";
+            this.UnidadMedida.ReadOnly = true;
+            // 
+            // Largo
+            // 
+            this.Largo.HeaderText = "Largo";
+            this.Largo.Name = "Largo";
+            this.Largo.ReadOnly = true;
+            // 
+            // Ancho
+            // 
+            this.Ancho.HeaderText = "Ancho";
+            this.Ancho.Name = "Ancho";
+            this.Ancho.ReadOnly = true;
+            // 
+            // Alto
+            // 
+            this.Alto.HeaderText = "Alto";
+            this.Alto.Name = "Alto";
+            this.Alto.ReadOnly = true;
+            // 
+            // cantidadExcedente
+            // 
+            this.cantidadExcedente.HeaderText = "Cantidad";
+            this.cantidadExcedente.Name = "cantidadExcedente";
+            this.cantidadExcedente.ReadOnly = true;
+            // 
+            // Borrar
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
+            this.Borrar.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Borrar.HeaderText = "Borrar";
+            this.Borrar.Image = ((System.Drawing.Image)(resources.GetObject("Borrar.Image")));
+            this.Borrar.Name = "Borrar";
+            this.Borrar.ReadOnly = true;
+            this.Borrar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // btnAgregarExcedente
             // 
@@ -326,7 +383,8 @@ namespace Presentacion
             this.codigoServicio,
             this.Servicio,
             this.Monto,
-            this.Cantidad});
+            this.Cantidad,
+            this.Total});
             this.gridViewSalidas.EnableHeadersVisualStyles = false;
             this.gridViewSalidas.GridColor = System.Drawing.Color.Black;
             this.gridViewSalidas.Location = new System.Drawing.Point(14, 212);
@@ -350,42 +408,6 @@ namespace Presentacion
             this.gridViewSalidas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridViewSalidas.Size = new System.Drawing.Size(886, 256);
             this.gridViewSalidas.TabIndex = 21;
-            // 
-            // codigoCliente
-            // 
-            this.codigoCliente.HeaderText = "Código Cliente";
-            this.codigoCliente.Name = "codigoCliente";
-            this.codigoCliente.ReadOnly = true;
-            // 
-            // Cliente
-            // 
-            this.Cliente.HeaderText = "Cliente";
-            this.Cliente.Name = "Cliente";
-            this.Cliente.ReadOnly = true;
-            // 
-            // codigoServicio
-            // 
-            this.codigoServicio.HeaderText = "Código Servicio";
-            this.codigoServicio.Name = "codigoServicio";
-            this.codigoServicio.ReadOnly = true;
-            // 
-            // Servicio
-            // 
-            this.Servicio.HeaderText = "Servicio";
-            this.Servicio.Name = "Servicio";
-            this.Servicio.ReadOnly = true;
-            // 
-            // Monto
-            // 
-            this.Monto.HeaderText = "Monto";
-            this.Monto.Name = "Monto";
-            this.Monto.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
             // 
             // btnTerminar
             // 
@@ -522,61 +544,47 @@ namespace Presentacion
             this.lineShape1.Y1 = 204;
             this.lineShape1.Y2 = 204;
             // 
-            // Borrar
+            // codigoCliente
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
-            this.Borrar.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Borrar.HeaderText = "Borrar";
-            this.Borrar.Image = ((System.Drawing.Image)(resources.GetObject("Borrar.Image")));
-            this.Borrar.Name = "Borrar";
-            this.Borrar.ReadOnly = true;
-            this.Borrar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.codigoCliente.HeaderText = "Código Cliente";
+            this.codigoCliente.Name = "codigoCliente";
+            this.codigoCliente.ReadOnly = true;
             // 
-            // cantidadExcedente
+            // Cliente
             // 
-            this.cantidadExcedente.HeaderText = "Cantidad";
-            this.cantidadExcedente.Name = "cantidadExcedente";
-            this.cantidadExcedente.ReadOnly = true;
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
             // 
-            // Alto
+            // codigoServicio
             // 
-            this.Alto.HeaderText = "Alto";
-            this.Alto.Name = "Alto";
-            this.Alto.ReadOnly = true;
+            this.codigoServicio.HeaderText = "Código Servicio";
+            this.codigoServicio.Name = "codigoServicio";
+            this.codigoServicio.ReadOnly = true;
             // 
-            // Ancho
+            // Servicio
             // 
-            this.Ancho.HeaderText = "Ancho";
-            this.Ancho.Name = "Ancho";
-            this.Ancho.ReadOnly = true;
+            this.Servicio.HeaderText = "Servicio";
+            this.Servicio.Name = "Servicio";
+            this.Servicio.ReadOnly = true;
             // 
-            // Largo
+            // Monto
             // 
-            this.Largo.HeaderText = "Largo";
-            this.Largo.Name = "Largo";
-            this.Largo.ReadOnly = true;
+            this.Monto.HeaderText = "Monto";
+            this.Monto.Name = "Monto";
+            this.Monto.ReadOnly = true;
             // 
-            // UnidadMedida
+            // Cantidad
             // 
-            this.UnidadMedida.HeaderText = "Medida";
-            this.UnidadMedida.Name = "UnidadMedida";
-            this.UnidadMedida.ReadOnly = true;
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
             // 
-            // Excedente
+            // Total
             // 
-            this.Excedente.HeaderText = "Excedente";
-            this.Excedente.Name = "Excedente";
-            this.Excedente.ReadOnly = true;
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Código";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
             // 
             // FormSalidas
             // 
@@ -620,12 +628,6 @@ namespace Presentacion
         private System.Windows.Forms.Button btnAgregarServicio;
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.TextBox txbCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoServicio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Servicio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         public System.Windows.Forms.DataGridView gridViewSalidas;
         private System.Windows.Forms.Button btnAgregarExcedente;
         public System.Windows.Forms.DataGridView gridViewExcedentes;
@@ -637,5 +639,12 @@ namespace Presentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Alto;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidadExcedente;
         private System.Windows.Forms.DataGridViewImageColumn Borrar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoServicio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Servicio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
     }
 }

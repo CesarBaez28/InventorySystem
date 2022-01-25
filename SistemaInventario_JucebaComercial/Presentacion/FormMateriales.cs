@@ -47,7 +47,7 @@ namespace Presentacion
 
         private void FormMateriales_Shown(object sender, EventArgs e)
         {
-            //Verifico si hay materiales ingresado
+            //Verifico si hay materiales ingresados
             if(gridViewListaMateriales.DataSource != null)
                 PuntoReorden(); //Punto de reorden
         }
