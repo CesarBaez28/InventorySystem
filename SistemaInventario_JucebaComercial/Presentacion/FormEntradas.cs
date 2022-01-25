@@ -15,7 +15,7 @@ namespace Presentacion
     public partial class FormEntradas : Form
     {
         float parseCorrecto; // La uso para verificar si el monto ingresado es correcto
-        float montoTotal; // La uso para guardar el monto total de la compra.
+        float total; // La uso para guardar el monto total de la compra.
         bool primerRegistro = false; //La uso para que, luego de agregar un primer material, verificar si este u otros se agregan repetidos.
         bool yaRegistrado = false; // La uso para validar que no se ingrese un material repetido.
 
@@ -64,11 +64,17 @@ namespace Presentacion
         private void AgregarEntrada() 
         {
             int indice = gridViewEntradas.Rows.Add();
+            float total_entrada = Convert.ToInt32(txbCantidad.Text) * float.Parse(txbMonto.Text); //Total de una compra
 
             gridViewEntradas.Rows[indice].Cells["Suplidor"].Value = comboSuplidores.Text;
             gridViewEntradas.Rows[indice].Cells["Material"].Value = comboMaterial.Text;
             gridViewEntradas.Rows[indice].Cells["Cantidad"].Value = txbCantidad.Text;
             gridViewEntradas.Rows[indice].Cells["Monto"].Value = txbMonto.Text;
+            gridViewEntradas.Rows[indice].Cells["Total_entrada"].Value = total_entrada.ToString();
+
+            //Total de la entrada en general
+            total += total_entrada;
+            lblTotalEntrada.Text = "Total: " + total.ToString();
         }
 
         //Boton Agregar
@@ -119,6 +125,8 @@ namespace Presentacion
         {
             if (gridViewEntradas.SelectedRows.Count > 0) 
             {
+                //Actualizo el total 
+                total = total - (float.Parse(gridViewEntradas.CurrentRow.Cells["Monto"].Value.ToString()));
                 gridViewEntradas.Rows.Remove(gridViewEntradas.CurrentRow);
             }
         }
@@ -137,7 +145,7 @@ namespace Presentacion
                     //Registro detalles de la entrada
                     entrada.RegisterDetailsEntry(UsuarioLoginCache.Codigo_usuario.ToString(), 
                         fila.Cells["Suplidor"].Value.ToString(), fila.Cells["Material"].Value.ToString(),
-                        fila.Cells["Cantidad"].Value.ToString(),fila.Cells["Monto"].Value.ToString());
+                        fila.Cells["Cantidad"].Value.ToString(),fila.Cells["Total_entrada"].Value.ToString());
                 }
 
                 MessageBox.Show("Registro exitoso");
