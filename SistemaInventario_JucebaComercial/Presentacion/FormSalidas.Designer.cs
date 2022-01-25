@@ -76,6 +76,7 @@ namespace Presentacion
             this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTotalSalida = new System.Windows.Forms.Label();
             this.panelContedorIngresos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewExcedentes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewSalidas)).BeginInit();
@@ -100,6 +101,7 @@ namespace Presentacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelContedorIngresos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelContedorIngresos.Controls.Add(this.lblTotalSalida);
             this.panelContedorIngresos.Controls.Add(this.gridViewExcedentes);
             this.panelContedorIngresos.Controls.Add(this.btnAgregarExcedente);
             this.panelContedorIngresos.Controls.Add(this.lblCantidad);
@@ -586,6 +588,16 @@ namespace Presentacion
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
             // 
+            // lblTotalSalida
+            // 
+            this.lblTotalSalida.AutoSize = true;
+            this.lblTotalSalida.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalSalida.Location = new System.Drawing.Point(714, 175);
+            this.lblTotalSalida.Name = "lblTotalSalida";
+            this.lblTotalSalida.Size = new System.Drawing.Size(46, 18);
+            this.lblTotalSalida.TabIndex = 41;
+            this.lblTotalSalida.Text = "Total:";
+            // 
             // FormSalidas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -646,5 +658,6 @@ namespace Presentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.Label lblTotalSalida;
     }
 }

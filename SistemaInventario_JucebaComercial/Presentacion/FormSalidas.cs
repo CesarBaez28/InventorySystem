@@ -16,6 +16,7 @@ namespace Presentacion
 
         bool yaRegistrado = false; // La uso para validar que no se ingrese un servicio repetido.
         bool primerRegistro = false; //La uso para que, luego de agregar un primer servicio, verificar si este u otros se agregan repetidos.
+        float total = 0; //Guardo el total de la salida.
 
         public static FormSalidas formSalidas;
 
@@ -57,15 +58,20 @@ namespace Presentacion
         private void AgregarSalida() 
         {
             int indice = gridViewSalidas.Rows.Add();
-            float total = Convert.ToInt32(txbCantidad.Text) * float.Parse(txbMonto.Text); //Total del servicio
+            float total_servicio = Convert.ToInt32(txbCantidad.Text) * float.Parse(txbMonto.Text); //Total del servicio
 
+            //Agrego los datos a la lista
             gridViewSalidas.Rows[indice].Cells["codigoCliente"].Value = comboClientes.SelectedValue.ToString();
             gridViewSalidas.Rows[indice].Cells["Cliente"].Value = comboClientes.Text;
             gridViewSalidas.Rows[indice].Cells["codigoServicio"].Value = comboServicios.SelectedValue.ToString();
             gridViewSalidas.Rows[indice].Cells["Servicio"].Value = comboServicios.Text;
             gridViewSalidas.Rows[indice].Cells["Monto"].Value = txbMonto.Text;
             gridViewSalidas.Rows[indice].Cells["Cantidad"].Value = txbCantidad.Text;
-            gridViewSalidas.Rows[indice].Cells["Total"].Value = total.ToString();
+            gridViewSalidas.Rows[indice].Cells["Total"].Value = total_servicio.ToString();
+
+            //Total de la salida
+            total += total_servicio;
+            lblTotalSalida.Text = "Total: " + total.ToString();
         }
 
         //Botón agregar salida
@@ -241,6 +247,10 @@ namespace Presentacion
          {
             if (gridViewSalidas.SelectedRows.Count > 0)
             {
+                //Actualizo el total de la salida
+                total = total - (float.Parse(gridViewSalidas.CurrentRow.Cells["Total"].Value.ToString()));
+                lblTotalSalida.Text = "Total: " + total.ToString();
+
                 gridViewSalidas.Rows.Remove(gridViewSalidas.CurrentRow);
             }
          }
