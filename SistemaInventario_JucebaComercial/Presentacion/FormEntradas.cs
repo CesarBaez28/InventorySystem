@@ -155,6 +155,9 @@ namespace Presentacion
             {
                 MessageBox.Show("No hay entradas agregadas");
             }
+
+            total = 0;
+            lblTotalEntrada.Text = "Total: ";
         }
 
         public void BorrarCampos() 
