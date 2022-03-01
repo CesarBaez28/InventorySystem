@@ -25,7 +25,22 @@
       "ProjectGuid": "eed194a3-1b56-4298-9ae7-a62076e9154c",
       "DisplayName": "Dominio",
       "ColorIndex": 3
+    },
+    "e253e1f6-8ae6-4e7e-804a-3b088314461a": {
+      "ProjectGuid": "e253e1f6-8ae6-4e7e-804a-3b088314461a",
+      "DisplayName": "TestProject",
+      "ColorIndex": 4
+    },
+    "e9d173bd-c555-40fe-9597-be6f4d431016": {
+      "ProjectGuid": "e9d173bd-c555-40fe-9597-be6f4d431016",
+      "DisplayName": "TestProject1",
+      "ColorIndex": 5
+    },
+    "af20fc9d-96c2-43f9-af8c-acc88544f800": {
+      "ProjectGuid": "af20fc9d-96c2-43f9-af8c-acc88544f800",
+      "DisplayName": "TestProject2",
+      "ColorIndex": 6
     }
   },
-  "NextColorIndex": 4
+  "NextColorIndex": 7
 }

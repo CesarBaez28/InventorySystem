@@ -110,3 +110,13 @@ C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\S
 C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\bin\Debug\itextsharp.xml
 C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\obj\Debug\Presentacion.FormRecuperarPassword.resources
 C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\obj\Debug\Presentacion.csproj.SuggestedBindingRedirects.cache
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\bin\Debug\System.Data.SqlClient.xml
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\bin\Debug\System.Security.AccessControl.dll
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\bin\Debug\System.Security.Permissions.dll
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\bin\Debug\System.Security.AccessControl.xml
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\bin\Debug\System.Security.Permissions.xml
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Presentacion\bin\Debug\System.Security.Principal.Windows.xml

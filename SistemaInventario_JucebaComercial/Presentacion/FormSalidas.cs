@@ -65,13 +65,13 @@ namespace Presentacion
             float total_servicio = Convert.ToInt32(txbCantidad.Text) * float.Parse(txbMonto.Text); //Total del servicio
 
             //Agrego los datos a la lista
-            gridViewSalidas.Rows[indice].Cells["codigoCliente"].Value = comboClientes.SelectedValue.ToString();
-            gridViewSalidas.Rows[indice].Cells["Cliente"].Value = comboClientes.Text;
+            //gridViewSalidas.Rows[indice].Cells["codigoCliente"].Value = comboClientes.SelectedValue.ToString();
+            //gridViewSalidas.Rows[indice].Cells["Cliente"].Value = comboClientes.Text;
             gridViewSalidas.Rows[indice].Cells["codigoServicio"].Value = comboServicios.SelectedValue.ToString();
             gridViewSalidas.Rows[indice].Cells["Servicio"].Value = comboServicios.Text;
             gridViewSalidas.Rows[indice].Cells["Monto"].Value = txbMonto.Text;
             gridViewSalidas.Rows[indice].Cells["Cantidad"].Value = txbCantidad.Text;
-            gridViewSalidas.Rows[indice].Cells["Total"].Value = total_servicio.ToString();
+            gridViewSalidas.Rows[indice].Cells["Total_Salida"].Value = total_servicio.ToString();
 
             //Total de la salida
             total += total_servicio;
@@ -164,9 +164,9 @@ namespace Presentacion
                         {
                         codigo_salida = codigoSalida,
                         codigo_servicio = Convert.ToInt32(fila.Cells["codigoServicio"].Value.ToString()),
-                        codigo_cliente = Convert.ToInt32(fila.Cells["codigoCliente"].Value.ToString()),
+                        codigo_cliente = Convert.ToInt32(comboClientes.SelectedValue),
                         codigo_usuario = UsuarioLoginCache.Codigo_usuario,
-                        precio = float.Parse(fila.Cells["Total"].Value.ToString()),
+                        precio = float.Parse(fila.Cells["Total_Salida"].Value.ToString()),
                         cantidad = Convert.ToInt32(fila.Cells["Cantidad"].Value.ToString())
                         };
 
@@ -255,7 +255,7 @@ namespace Presentacion
             if (gridViewSalidas.SelectedRows.Count > 0)
             {
                 //Actualizo el total de la salida
-                total = total - (float.Parse(gridViewSalidas.CurrentRow.Cells["Total"].Value.ToString()));
+                total = total - (float.Parse(gridViewSalidas.CurrentRow.Cells["Total_Salida"].Value.ToString()));
                 lblTotalSalida.Text = "Total: " + total.ToString();
 
                 gridViewSalidas.Rows.Remove(gridViewSalidas.CurrentRow);
@@ -362,7 +362,7 @@ namespace Presentacion
             factura.Add(new Chunk("\n", fntHead));
 
             //Escribir la tabla
-            PdfPTable table = new PdfPTable(gridViewSalidas.Columns.Count - 3);
+            PdfPTable table = new PdfPTable(gridViewSalidas.Columns.Count - 1);
             table.WidthPercentage = 100; //La tabla ocupa el 100 porciento del documento
 
             //Cabecera de la tabla
@@ -372,7 +372,7 @@ namespace Presentacion
             table.HorizontalAlignment = Element.ALIGN_CENTER;
 
             //Escribir cabecera
-            for (int i = 3; i < gridViewSalidas.Columns.Count; i++)
+            for (int i = 1; i < gridViewSalidas.Columns.Count; i++)
             {
                 PdfPCell cell = new PdfPCell();
                 cell.BackgroundColor = BaseColor.GRAY;
@@ -383,7 +383,7 @@ namespace Presentacion
             //Ingresar datos a la tabla
             for (int i = 0; i < gridViewSalidas.Rows.Count; i++)
             {
-                for (int j = 3; j < gridViewSalidas.Columns.Count; j++)
+                for (int j = 1; j < gridViewSalidas.Columns.Count; j++)
                 {
                     table.AddCell(gridViewSalidas.Rows[i].Cells[j].Value.ToString());
                 }
