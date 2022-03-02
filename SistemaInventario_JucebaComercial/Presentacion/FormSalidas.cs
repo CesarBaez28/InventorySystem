@@ -21,6 +21,7 @@ namespace Presentacion
         bool primerRegistro = false; //La uso para que, luego de agregar un primer servicio, verificar si este u otros se agregan repetidos.
         float total = 0; //Guardo el total de la salida.
         int codigoSalida = 0; //Guardo el código de la salida registrada. 
+        string precioServicio = ""; //Guardo el precio de los servicios para mostrarlos autimaticamente.
 
         public static FormSalidas formSalidas;
 
@@ -35,7 +36,7 @@ namespace Presentacion
         {
             this.Close();
         }
-
+        
         private void FormSalidas_Load(object sender, EventArgs e)
         {
             MostrarServicios();
@@ -48,6 +49,7 @@ namespace Presentacion
             comboServicios.ValueMember = "codigo";
             comboServicios.DisplayMember = "nombre_servicio";
             comboServicios.DataSource = servicios.ShowServicesNameCode();
+            comboServicios.SelectedIndex = -1;
         }
 
         //Mostrar Clientes
@@ -56,6 +58,14 @@ namespace Presentacion
             comboClientes.ValueMember = "codigo";
             comboClientes.DisplayMember = "nombre";
             comboClientes.DataSource = clientes.ShowCustumerNameCode();
+            comboClientes.SelectedIndex = -1;
+        }
+
+        //Muestra el valor del precio del servicio al seleccionar uno.
+        private void comboServicios_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            precioServicio = servicios.SearchServiceCode(comboServicios.SelectedValue.ToString()).Rows[0]["Precio"].ToString();
+            txbMonto.Text = precioServicio;
         }
 
         //Agregar salida a la lista
@@ -82,7 +92,8 @@ namespace Presentacion
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             //Verifico que el monto y la cantidad se han números válidos.
-            if (float.TryParse(txbMonto.Text, out float parseCorrecto) && int.TryParse(txbCantidad.Text, out int parse))
+            //Y que el combobox de servicios tenga un elemento seleccionado.
+            if (float.TryParse(txbMonto.Text, out float parseCorrecto) && int.TryParse(txbCantidad.Text, out int parse) && comboServicios.SelectedIndex != -1)
             {
                 if (primerRegistro == false)
                 {
@@ -118,7 +129,7 @@ namespace Presentacion
             }
             else 
             {
-                MessageBox.Show("Faltan campos por llenar o ingresó un campo de manera incorrecta");
+                MessageBox.Show("Faltan campos por llenar o ingresó un valor de manera incorrecta");
             }
         }
 
@@ -129,7 +140,8 @@ namespace Presentacion
             DominioMateriales materiales = new DominioMateriales();
 
             //Verifico que el datagridviewSalidas no esté vacío. 
-            if (gridViewSalidas.Rows.Count != 0)
+            //Y que los combobox tengan un elemento seleccionado.
+            if (gridViewSalidas.Rows.Count != 0 && comboClientes.SelectedIndex != -1 && comboServicios.SelectedIndex != -1)
             {
                 try
                 {
@@ -180,14 +192,13 @@ namespace Presentacion
                 {
                     MessageBox.Show("No hay suficiente material para registrar uno de los servicios");
                 }
-
-                gridViewSalidas.Rows.Clear();
             }
             else
             {
-                MessageBox.Show("No hay servicios agregados");
+                MessageBox.Show("No hay servicios agregados o faltan campos por seleccionar");
             }
 
+            gridViewSalidas.Rows.Clear();
             lblTotalSalida.Text = "Total: ";
             total = 0;
         }
