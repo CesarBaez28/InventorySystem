@@ -1,5 +1,6 @@
 ------ Triggers relacionados con los materiales---------
 
+--Este trigger fue eliminado
 --Insertar en la tabla excedentes 
 --Verifica si existe la cantidad disponible de materiales y actualiza la existencia en la tabla materiales
 CREATE TRIGGER t_InsertarExcedenteMaterial
@@ -58,6 +59,7 @@ AS
 END
 GO
 
+--Este trigger fue eliminado
 --Eliminar en la tabla excedente 
 -- Actualiza la existencia en la tabla de materiales
 CREATE TRIGGER t_EliminarExcedenteMaterial

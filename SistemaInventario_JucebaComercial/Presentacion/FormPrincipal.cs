@@ -145,7 +145,7 @@ namespace Presentacion
             }
         }
 
-        //Desplejar el menu
+        //Botón Menu lateral
         private void btnMenuLateral_Click(object sender, EventArgs e)
         {
             if (estaDesplejado == false)
@@ -163,42 +163,18 @@ namespace Presentacion
         //Menu desplejado
         private void MenuDesplejado() 
         {
-            int ancho = 140, alto = 40;
+            int ancho = 180, alto = 40;
 
             Menu.Size = new Size(ancho, 644); // Tamaño de la barra lateral
 
             //Botones de la barra lateral
-            btnEmpleados.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEmpleados.Size = new Size(ancho, alto);
-            btnEmpleados.Text = "Usuarios";
-
-            btnClientes.ImageAlign = ContentAlignment.MiddleLeft;
-            btnClientes.Size = new Size(ancho, alto);
-            btnClientes.Text = "Clientes";
-
-            btnSuplidores.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSuplidores.Size = new Size(ancho, alto);
-            btnSuplidores.Text = "Suplidores";
-
-            btnServicios.ImageAlign = ContentAlignment.MiddleLeft;
-            btnServicios.Size = new Size(ancho, alto);
-            btnServicios.Text = "Servicios";
-
-            btnEntradas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEntradas.Size = new Size(ancho, alto);
-            btnEntradas.Text = "Entradas";
-
-            btnSalidas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSalidas.Size = new Size(ancho, alto);
-            btnSalidas.Text = "Salidas";
-
-            btnMaterialesCatalogo.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMaterialesCatalogo.Size = new Size(ancho, alto);
-            btnMaterialesCatalogo.Text = "Materiales";
-
-            btnReportes.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReportes.Size = new Size(ancho, alto);
-            btnReportes.Text = "Reportes";
+            foreach (Button buttonMenu in Menu.Controls.OfType<Button>()) 
+            {
+                buttonMenu.Text = "              "+ buttonMenu.Tag.ToString();
+                buttonMenu.ImageAlign = ContentAlignment.MiddleLeft;
+                buttonMenu.Size = new Size(ancho, alto);
+                buttonMenu.Padding = new Padding(10,0,0,0);
+            } 
         }
 
         //Menu sin desplejar 
@@ -209,37 +185,13 @@ namespace Presentacion
             Menu.Size = new Size(ancho, 644); // Tamaño de la barra lateral
 
             //Botones de la barra lateral
-            btnEmpleados.ImageAlign = ContentAlignment.MiddleCenter;
-            btnEmpleados.Size = new Size(ancho, alto);
-            btnEmpleados.Text = "";
-
-            btnClientes.ImageAlign = ContentAlignment.MiddleCenter;
-            btnClientes.Size = new Size(ancho, alto);
-            btnClientes.Text = "";
-
-            btnSuplidores.ImageAlign = ContentAlignment.MiddleCenter;
-            btnSuplidores.Size = new Size(ancho, alto);
-            btnSuplidores.Text = "";
-
-            btnServicios.ImageAlign = ContentAlignment.MiddleCenter;
-            btnServicios.Size = new Size(ancho, alto);
-            btnServicios.Text = "";
-
-            btnEntradas.ImageAlign = ContentAlignment.MiddleCenter;
-            btnEntradas.Size = new Size(ancho, alto);
-            btnEntradas.Text = "";
-
-            btnSalidas.ImageAlign = ContentAlignment.MiddleCenter;
-            btnSalidas.Size = new Size(ancho, alto);
-            btnSalidas.Text = "";
-
-            btnMaterialesCatalogo.ImageAlign = ContentAlignment.MiddleCenter;
-            btnMaterialesCatalogo.Size = new Size(ancho, alto);
-            btnMaterialesCatalogo.Text = "";
-
-            btnReportes.ImageAlign = ContentAlignment.MiddleCenter;
-            btnReportes.Size = new Size(ancho, alto);
-            btnReportes.Text = "";
+            foreach (Button buttonMenu in Menu.Controls.OfType<Button>())
+            {
+                buttonMenu.Text = "";
+                buttonMenu.ImageAlign = ContentAlignment.MiddleCenter;
+                buttonMenu.Size = new Size(ancho, alto);
+                buttonMenu.Padding = new Padding(0);
+            }
         }
 
         //Metodo para abrir los formularios

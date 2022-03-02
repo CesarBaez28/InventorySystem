@@ -75,7 +75,7 @@ namespace Presentacion
             this.BarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.BarraTitulo.Location = new System.Drawing.Point(0, 0);
             this.BarraTitulo.Name = "BarraTitulo";
-            this.BarraTitulo.Size = new System.Drawing.Size(1068, 35);
+            this.BarraTitulo.Size = new System.Drawing.Size(1068, 36);
             this.BarraTitulo.TabIndex = 0;
             this.BarraTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseMove);
             // 
@@ -86,18 +86,19 @@ namespace Presentacion
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
             this.lblTitulo.Location = new System.Drawing.Point(3, 7);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(127, 19);
+            this.lblTitulo.Size = new System.Drawing.Size(155, 19);
             this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "Menú principal";
+            this.lblTitulo.Text = "Juceba Comercial";
             // 
             // PerfilUsuario
             // 
             this.PerfilUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PerfilUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PerfilUsuario.Image = ((System.Drawing.Image)(resources.GetObject("PerfilUsuario.Image")));
-            this.PerfilUsuario.Location = new System.Drawing.Point(903, 0);
+            this.PerfilUsuario.Location = new System.Drawing.Point(902, 0);
             this.PerfilUsuario.Name = "PerfilUsuario";
-            this.PerfilUsuario.Size = new System.Drawing.Size(35, 35);
-            this.PerfilUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PerfilUsuario.Size = new System.Drawing.Size(36, 36);
+            this.PerfilUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.PerfilUsuario.TabIndex = 13;
             this.PerfilUsuario.TabStop = false;
             this.PerfilUsuario.Click += new System.EventHandler(this.PerfilUsuario_Click);
@@ -165,15 +166,13 @@ namespace Presentacion
             this.Menu.Controls.Add(this.btnMaterialesCatalogo);
             this.Menu.Controls.Add(this.btnEmpleados);
             this.Menu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Menu.Location = new System.Drawing.Point(0, 35);
+            this.Menu.Location = new System.Drawing.Point(0, 36);
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(70, 644);
+            this.Menu.Size = new System.Drawing.Size(70, 643);
             this.Menu.TabIndex = 1;
             // 
             // btnMenuLateral
             // 
-            this.btnMenuLateral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMenuLateral.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenuLateral.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuLateral.Image")));
             this.btnMenuLateral.Location = new System.Drawing.Point(0, 6);
@@ -198,7 +197,8 @@ namespace Presentacion
             this.btnServicios.Name = "btnServicios";
             this.btnServicios.Size = new System.Drawing.Size(70, 40);
             this.btnServicios.TabIndex = 14;
-            this.btnServicios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnServicios.Tag = "Servicios";
+            this.btnServicios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnServicios.UseVisualStyleBackColor = true;
             this.btnServicios.Click += new System.EventHandler(this.btnServicios_Click);
             // 
@@ -216,7 +216,8 @@ namespace Presentacion
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(70, 40);
             this.btnReportes.TabIndex = 14;
-            this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnReportes.Tag = "Reportes";
+            this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReportes.UseVisualStyleBackColor = true;
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
@@ -234,7 +235,8 @@ namespace Presentacion
             this.btnSalidas.Name = "btnSalidas";
             this.btnSalidas.Size = new System.Drawing.Size(70, 40);
             this.btnSalidas.TabIndex = 14;
-            this.btnSalidas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSalidas.Tag = "Salidas";
+            this.btnSalidas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalidas.UseVisualStyleBackColor = true;
             this.btnSalidas.Click += new System.EventHandler(this.btnSalidas_Click);
             // 
@@ -252,7 +254,8 @@ namespace Presentacion
             this.btnEntradas.Name = "btnEntradas";
             this.btnEntradas.Size = new System.Drawing.Size(70, 40);
             this.btnEntradas.TabIndex = 14;
-            this.btnEntradas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEntradas.Tag = "Entradas";
+            this.btnEntradas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEntradas.UseVisualStyleBackColor = true;
             this.btnEntradas.Click += new System.EventHandler(this.btnEntradas_Click);
             // 
@@ -271,7 +274,8 @@ namespace Presentacion
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(70, 40);
             this.btnClientes.TabIndex = 6;
-            this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnClientes.Tag = "Clientes";
+            this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click_1);
             // 
@@ -289,22 +293,27 @@ namespace Presentacion
             this.btnSuplidores.Name = "btnSuplidores";
             this.btnSuplidores.Size = new System.Drawing.Size(70, 40);
             this.btnSuplidores.TabIndex = 12;
-            this.btnSuplidores.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSuplidores.Tag = "Suplidores";
+            this.btnSuplidores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSuplidores.UseVisualStyleBackColor = true;
             this.btnSuplidores.Click += new System.EventHandler(this.btnSuplidores_Click);
             // 
             // btnCerrarSesion
             // 
-            this.btnCerrarSesion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCerrarSesion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
             this.btnCerrarSesion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrarSesion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
             this.btnCerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarSesion.Image")));
-            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 609);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 603);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(35, 35);
+            this.btnCerrarSesion.Size = new System.Drawing.Size(70, 35);
             this.btnCerrarSesion.TabIndex = 9;
+            this.btnCerrarSesion.Tag = "Salir";
+            this.btnCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCerrarSesion.UseVisualStyleBackColor = true;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
@@ -322,7 +331,8 @@ namespace Presentacion
             this.btnMaterialesCatalogo.Name = "btnMaterialesCatalogo";
             this.btnMaterialesCatalogo.Size = new System.Drawing.Size(70, 40);
             this.btnMaterialesCatalogo.TabIndex = 10;
-            this.btnMaterialesCatalogo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMaterialesCatalogo.Tag = "Materiales";
+            this.btnMaterialesCatalogo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMaterialesCatalogo.UseVisualStyleBackColor = true;
             this.btnMaterialesCatalogo.Click += new System.EventHandler(this.btnMaterialesCatalogo_Click);
             // 
@@ -341,7 +351,8 @@ namespace Presentacion
             this.btnEmpleados.Name = "btnEmpleados";
             this.btnEmpleados.Size = new System.Drawing.Size(70, 40);
             this.btnEmpleados.TabIndex = 4;
-            this.btnEmpleados.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEmpleados.Tag = "Usuarios";
+            this.btnEmpleados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEmpleados.UseVisualStyleBackColor = true;
             this.btnEmpleados.Click += new System.EventHandler(this.btnEmpleados_Click);
             // 
@@ -350,9 +361,9 @@ namespace Presentacion
             this.panelContenedor.BackColor = System.Drawing.Color.White;
             this.panelContenedor.Controls.Add(this.lblLogo);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(70, 35);
+            this.panelContenedor.Location = new System.Drawing.Point(70, 36);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(998, 644);
+            this.panelContenedor.Size = new System.Drawing.Size(998, 643);
             this.panelContenedor.TabIndex = 2;
             // 
             // lblLogo
@@ -360,7 +371,7 @@ namespace Presentacion
             this.lblLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblLogo.AutoSize = true;
             this.lblLogo.Font = new System.Drawing.Font("Freestyle Script", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogo.Location = new System.Drawing.Point(218, 265);
+            this.lblLogo.Location = new System.Drawing.Point(218, 264);
             this.lblLogo.Name = "lblLogo";
             this.lblLogo.Size = new System.Drawing.Size(575, 95);
             this.lblLogo.TabIndex = 0;
