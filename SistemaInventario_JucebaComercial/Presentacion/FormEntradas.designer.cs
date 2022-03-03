@@ -34,6 +34,7 @@ namespace Presentacion
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelContedorIngresos = new System.Windows.Forms.Panel();
+            this.lblTotalEntrada = new System.Windows.Forms.Label();
             this.btnAgregarMaterial = new System.Windows.Forms.Button();
             this.btnAgregarSuplidor = new System.Windows.Forms.Button();
             this.lblCantidad = new System.Windows.Forms.Label();
@@ -42,6 +43,11 @@ namespace Presentacion
             this.lblMaterial = new System.Windows.Forms.Label();
             this.comboSuplidores = new System.Windows.Forms.ComboBox();
             this.gridViewEntradas = new System.Windows.Forms.DataGridView();
+            this.Suplidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total_entrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnTerminar = new System.Windows.Forms.Button();
             this.lblFecha = new System.Windows.Forms.Label();
             this.dateTimeEntrada = new System.Windows.Forms.DateTimePicker();
@@ -54,12 +60,6 @@ namespace Presentacion
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.lblTotalEntrada = new System.Windows.Forms.Label();
-            this.Suplidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total_entrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelContedorIngresos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewEntradas)).BeginInit();
             this.SuspendLayout();
@@ -93,6 +93,17 @@ namespace Presentacion
             this.panelContedorIngresos.Name = "panelContedorIngresos";
             this.panelContedorIngresos.Size = new System.Drawing.Size(915, 519);
             this.panelContedorIngresos.TabIndex = 3;
+            // 
+            // lblTotalEntrada
+            // 
+            this.lblTotalEntrada.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTotalEntrada.AutoSize = true;
+            this.lblTotalEntrada.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalEntrada.Location = new System.Drawing.Point(714, 168);
+            this.lblTotalEntrada.Name = "lblTotalEntrada";
+            this.lblTotalEntrada.Size = new System.Drawing.Size(46, 18);
+            this.lblTotalEntrada.TabIndex = 42;
+            this.lblTotalEntrada.Text = "Total:";
             // 
             // btnAgregarMaterial
             // 
@@ -155,6 +166,7 @@ namespace Presentacion
             this.comboMaterial.Name = "comboMaterial";
             this.comboMaterial.Size = new System.Drawing.Size(226, 28);
             this.comboMaterial.TabIndex = 26;
+            this.comboMaterial.SelectionChangeCommitted += new System.EventHandler(this.comboMaterial_SelectionChangeCommitted);
             // 
             // lblMaterial
             // 
@@ -226,6 +238,36 @@ namespace Presentacion
             this.gridViewEntradas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridViewEntradas.Size = new System.Drawing.Size(886, 263);
             this.gridViewEntradas.TabIndex = 21;
+            // 
+            // Suplidor
+            // 
+            this.Suplidor.HeaderText = "Suplidor";
+            this.Suplidor.Name = "Suplidor";
+            this.Suplidor.ReadOnly = true;
+            // 
+            // Material
+            // 
+            this.Material.HeaderText = "Material";
+            this.Material.Name = "Material";
+            this.Material.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            // 
+            // Monto
+            // 
+            this.Monto.HeaderText = "Monto";
+            this.Monto.Name = "Monto";
+            this.Monto.ReadOnly = true;
+            // 
+            // Total_entrada
+            // 
+            this.Total_entrada.HeaderText = "Total";
+            this.Total_entrada.Name = "Total_entrada";
+            this.Total_entrada.ReadOnly = true;
             // 
             // btnTerminar
             // 
@@ -374,47 +416,6 @@ namespace Presentacion
             this.btnCerrar.TabIndex = 16;
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // lblTotalEntrada
-            // 
-            this.lblTotalEntrada.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTotalEntrada.AutoSize = true;
-            this.lblTotalEntrada.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalEntrada.Location = new System.Drawing.Point(714, 168);
-            this.lblTotalEntrada.Name = "lblTotalEntrada";
-            this.lblTotalEntrada.Size = new System.Drawing.Size(46, 18);
-            this.lblTotalEntrada.TabIndex = 42;
-            this.lblTotalEntrada.Text = "Total:";
-            // 
-            // Suplidor
-            // 
-            this.Suplidor.HeaderText = "Suplidor";
-            this.Suplidor.Name = "Suplidor";
-            this.Suplidor.ReadOnly = true;
-            // 
-            // Material
-            // 
-            this.Material.HeaderText = "Material";
-            this.Material.Name = "Material";
-            this.Material.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            // 
-            // Monto
-            // 
-            this.Monto.HeaderText = "Monto";
-            this.Monto.Name = "Monto";
-            this.Monto.ReadOnly = true;
-            // 
-            // Total_entrada
-            // 
-            this.Total_entrada.HeaderText = "Total";
-            this.Total_entrada.Name = "Total_entrada";
-            this.Total_entrada.ReadOnly = true;
             // 
             // FormEntradas
             // 

@@ -18,8 +18,11 @@ namespace Presentacion
         float total; // La uso para guardar el monto total de la compra.
         bool primerRegistro = false; //La uso para que, luego de agregar un primer material, verificar si este u otros se agregan repetidos.
         bool yaRegistrado = false; // La uso para validar que no se ingrese un material repetido.
+        string costoMaterial = ""; //Guardo el costo de un material para mostrarlo automáticamente.
 
         DominioEntrada entrada = new DominioEntrada();
+        DominioMateriales materiales = new DominioMateriales();
+
 
         //La uso para actualizar datos desde otro formulario
         public static FormEntradas formEntrada;
@@ -45,10 +48,10 @@ namespace Presentacion
         //Mostrar materiales
         public void MostrarMateriales() 
         {
-            DominioMateriales materiales = new DominioMateriales();
             comboMaterial.ValueMember = "codigo";
             comboMaterial.DisplayMember = "Material";
             comboMaterial.DataSource = materiales.NamesCodesMaterials();
+            comboMaterial.SelectedIndex = -1;
         }
 
         //Mostrar Proveedores
@@ -58,6 +61,14 @@ namespace Presentacion
             comboSuplidores.ValueMember = "codigo";
             comboSuplidores.DisplayMember = "nombre";
             comboSuplidores.DataSource = proveedores.NameCodeSupplier();
+            comboSuplidores.SelectedIndex = -1;
+        }
+
+        //Muestra el precio del material automáticamente al seleccionar uno.
+        private void comboMaterial_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            costoMaterial = materiales.SearchCostMaterial(comboMaterial.SelectedValue.ToString()).Rows[0]["costo"].ToString();
+            txbMonto.Text = costoMaterial;
         }
 
         //Agregar entrada a la lista
@@ -81,7 +92,9 @@ namespace Presentacion
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             //Verifico que el monto y la cantidad se han números válidos.
-            if (float.TryParse(txbMonto.Text, out parseCorrecto) && int.TryParse(txbCantidad.Text, out int parse))
+            //Y que los combobox de los materiales y suplidores tengan un elemento seleccionado
+            if (float.TryParse(txbMonto.Text, out parseCorrecto) && int.TryParse(txbCantidad.Text, out int parse) 
+                && comboMaterial.SelectedIndex != -1 && comboSuplidores.SelectedIndex != -1)
             {
                 if (primerRegistro == false) //Verifico si ya se ha ingresado un material
                 {
@@ -135,7 +148,8 @@ namespace Presentacion
         private void btnTerminar_Click(object sender, EventArgs e)
         {
             //Verifico que el datagridview no esté vacío. 
-            if (gridViewEntradas.Rows.Count != 0)
+            //Y que los combobox tengan un elemento seleccionado.
+            if (gridViewEntradas.Rows.Count != 0 && comboMaterial.SelectedIndex != -1 && comboSuplidores.SelectedIndex != -1)
             {
                 //Registro entrada
                 entrada.RegisterEntry(dateTimeEntrada.Value);
@@ -149,7 +163,6 @@ namespace Presentacion
                 }
 
                 MessageBox.Show("Registro exitoso");
-                gridViewEntradas.Rows.Clear();
             }
             else 
             {
@@ -158,6 +171,7 @@ namespace Presentacion
 
             total = 0;
             lblTotalEntrada.Text = "Total: ";
+            gridViewEntradas.Rows.Clear();
         }
 
         public void BorrarCampos() 

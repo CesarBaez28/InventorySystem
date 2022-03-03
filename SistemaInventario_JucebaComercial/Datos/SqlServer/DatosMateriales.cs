@@ -26,6 +26,16 @@ namespace Datos
             return table;
         }
 
+        //Buscar costo de un material por su código.
+        public DataTable BuscarCostoMaterial(int codigoMaterial) 
+        {
+            DataTable table = new DataTable();
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigoMaterial",codigoMaterial));
+            table = ExecuteReaderText("SELECT costo FROM materiales WHERE codigo = @codigoMaterial");
+            return table;
+        }
+
         //Obtener punto de reorden de los materiales
         public DataTable PuntoReorden() 
         {

@@ -30,6 +30,14 @@ namespace Dominio
         
         }
 
+        //Search cost material
+        public DataTable SearchCostMaterial(string codigoMaterial) 
+        {
+            DataTable table = new DataTable();
+            table = materiales.BuscarCostoMaterial(Convert.ToInt32(codigoMaterial));
+            return table;
+        }
+
         //reorder point
         public DataTable ReorderPoint() 
         {
