@@ -64,7 +64,7 @@ namespace Presentacion
         //Muestra el valor del precio del servicio al seleccionar uno.
         private void comboServicios_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            precioServicio = servicios.SearchServiceCode(comboServicios.SelectedValue.ToString()).Rows[0]["Precio"].ToString();
+            precioServicio = servicios.SearchServicePrice(comboServicios.SelectedValue.ToString()).Rows[0]["Precio"].ToString();
             txbMonto.Text = precioServicio;
         }
 

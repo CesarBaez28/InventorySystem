@@ -82,6 +82,14 @@ namespace Dominio
             return table;
         }
 
+        //Search service price
+        public DataTable SearchServicePrice(string codigoServicio) 
+        {
+            DataTable table = new DataTable();
+            table = servicios.BuscarPrecioServicio(Convert.ToInt32(codigoServicio));
+            return table;
+        }
+
         //Show materials services 
         public DataTable ShowMaterialsServices(string codigoServicio) 
         {

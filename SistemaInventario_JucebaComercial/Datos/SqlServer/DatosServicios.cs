@@ -108,6 +108,16 @@ namespace Datos
             return table;
         }
 
+        //Buscar precio de un servicio por su código
+        public DataTable BuscarPrecioServicio(int codigoServicio) 
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigoServicio", codigoServicio));
+            DataTable table = new DataTable();
+            table = ExecuteReaderText("SELECT precio FROM servicios WHERE codigo = @codigoServicio");
+            return table;
+        }
+
         //Mostrar materiales que incluye un servicio
         public DataTable MostrarMaterialesServicios(int codigoServicio) 
         {
