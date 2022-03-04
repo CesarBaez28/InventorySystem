@@ -172,11 +172,11 @@ namespace Presentacion
             // 
             // lblTitulo
             // 
-            this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Font = new System.Drawing.Font("Freestyle Script", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(8, 100);
+            this.lblTitulo.Location = new System.Drawing.Point(0, 92);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(235, 92);
+            this.lblTitulo.Size = new System.Drawing.Size(250, 119);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "JUCEBA COMERCIAL";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -206,7 +206,7 @@ namespace Presentacion
             this.linkLabelPassword.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.linkLabelPassword.Location = new System.Drawing.Point(383, 291);
             this.linkLabelPassword.Name = "linkLabelPassword";
-            this.linkLabelPassword.Size = new System.Drawing.Size(181, 16);
+            this.linkLabelPassword.Size = new System.Drawing.Size(180, 16);
             this.linkLabelPassword.TabIndex = 11;
             this.linkLabelPassword.TabStop = true;
             this.linkLabelPassword.Text = "¿Has olvidado tu contraseña?";
@@ -229,6 +229,7 @@ namespace Presentacion
             this.Controls.Add(this.panelTitulo);
             this.Controls.Add(this.shapeContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormLogin";
             this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
