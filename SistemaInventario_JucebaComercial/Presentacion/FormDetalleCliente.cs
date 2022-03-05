@@ -19,7 +19,7 @@ namespace Presentacion
         public string direccion; // Guardo la direccion que se desea Actualizar. La uso para mostrar dicha direccion en el combobox 
         public string telefonoViejo; //La uso para guardar el telefono que se desea actualizar
         bool estadoCliente; // Lo uso para indicar el estado del cliente (activo o inactivo)
-        public bool formSalida; // La uso para indicar si el FormSalidas abró este formulario. 
+        public bool formSalida; // La uso para indicar si el FormSalidas abrió este formulario. 
 
         public static FormDetalleCliente detalleCliente;
         
