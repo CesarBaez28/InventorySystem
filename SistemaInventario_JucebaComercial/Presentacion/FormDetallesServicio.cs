@@ -23,7 +23,8 @@ namespace Presentacion
         bool primerRegistro = false; //La uso para que, luego de agregar un primer material, verificar si este u otros se agregan repetidos.
         bool yaIncluido = false; //La uso para validar que no se ingrese un material repetido.
         public bool formSalidas; //La uso para indicar si el FormSalidas abrió este formulario.
-        public int indiceFila; // La uso para guardar la posición de la fila seleccionada del datagridView del FormSalidas para poder actualizar los datos
+        public bool formCotizar; //La uso para indicar si el FormSalidas abrió este formulario.
+        public int indiceFila; // La uso para guardar la posición de la fila seleccionada del datagridView del FormSalidas para poder actualizar los datos.
 
         //La uso para actualizar la lista de materiales desde el Form FormDetallesMateriales
         public static FormDetallesServicio detallesServicio;
@@ -125,15 +126,19 @@ namespace Presentacion
                                 servicios.RegisterMaterialService(fila.Cells[0].Value.ToString(), fila.Cells[2].Value.ToString());
                             }
 
-                            //Verifico si el FormSalidas abrió este formulario
-                            if (formSalidas == true)
+                            if (formSalidas == true) //Verifico si el FormSalidas abrió este formulario.
                             {
                                 //Actualizo la lista de servicio en FormSalidas
                                 FormSalidas.formSalidas.MostrarServicios();
                             }
+                            else if (formCotizar == true) //Verifico si el FormCotizar abrió este formulario.
+                            {
+                                //Actualizo la lista de servicios en FormCotizar
+                                FormCotizar.formCotizar.MostrarServicios();
+                            }
                             else
                             {   //Actualizo lista servicios en FormServicios
-                                FormServicios.formServicios.MostrarServicios(); 
+                                FormServicios.formServicios.MostrarServicios();
                             }
 
                             MessageBox.Show("Registrado correctamente");

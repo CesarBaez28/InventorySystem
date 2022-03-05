@@ -226,7 +226,7 @@ namespace Presentacion
             FormDetallesServicio detallesServicio = new FormDetallesServicio();
 
             //Indico que este formulario (FormSalidas) abrió el FormDetallesServicio
-            detallesServicio.formSalidas = true;
+            detallesServicio.formCotizar = true;
 
             AbrirFormulario(detallesServicio);
         }

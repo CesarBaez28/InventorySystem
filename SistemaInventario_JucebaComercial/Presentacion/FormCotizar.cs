@@ -80,6 +80,17 @@ namespace Presentacion
             AbrirFormulario(detalleCliente);
         }
 
+        //Registrar nuevo servicio
+        private void btnAgregarServicio_Click(object sender, EventArgs e)
+        {
+            FormDetallesServicio detallesServicio = new FormDetallesServicio();
+
+            //Indico que este formulario (FormSalidas) abrió el FormDetallesServicio
+            detallesServicio.formCotizar = true;
+
+            AbrirFormulario(detallesServicio);
+        }
+
         //Metodo para abirar formularios
         private Form formActivo = null;
         private void AbrirFormulario(Form form)
