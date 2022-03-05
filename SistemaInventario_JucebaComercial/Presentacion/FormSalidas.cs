@@ -416,7 +416,7 @@ namespace Presentacion
 
         }
 
-        //Metodo para abirar el formulario DetalleSuplidor
+        //Metodo para abrir formularios
         private Form formActivo = null;
         private void AbrirFormulario(Form form)
         {
