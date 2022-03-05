@@ -20,6 +20,9 @@
 --Tabla materiales que incluye cada servicio (tabla vs entre servicios y materiales)
 --Tabla de excedentes de los materiales
 
+--Tabla cotizaciones
+--Tabla detallesCotizacion
+
 
 --Tabla de teléfonos
 CREATE TABLE telefonos(
@@ -205,4 +208,29 @@ CREATE TABLE detalles_salida(
     precio DECIMAL(20,2),
     cantidad INT,
     estado BIT DEFAULT 1
+)
+
+--Cotizaciones
+CREATE TABLE cotizaciones(
+  codigo INT IDENTITY PRIMARY KEY,
+  fecha_cotizacion DATETIME DEFAULT GETDATE(),
+  total_cotizacion DECIMAL (20,2) DEFAULT 0,
+  estado BIT DEFAULT 0 -- Va indicar si la cotización fue aceptada o no
+)
+
+--Detalles de la cotizacion
+CREATE TABLE detallesCotizacion (
+   codigo INT IDENTITY PRIMARY KEY, 
+   codigo_cotizacion INT NOT NULL,
+   CONSTRAINT fk_codigo_cotizacion FOREIGN KEY(codigo_cotizacion) REFERENCES cotizaciones(codigo),
+   codigo_servicio INT NOT NULL,
+   CONSTRAINT fk_codigo_servicio_cotizacion FOREIGN KEY(codigo_servicio) REFERENCES servicios(codigo),
+   codigo_cliente INT NOT NULL,
+   CONSTRAINT fk_codigo_cliente_cotizacion FOREIGN KEY(codigo_cliente) REFERENCES clientes(codigo),
+   codigo_usuario INT NOT NULL,
+   CONSTRAINT fk_codigo_usuario_cotizacion FOREIGN KEY(codigo_usuario) REFERENCES usuarios(codigo),
+   descripcion TEXT DEFAULT '',
+   precio DECIMAL (20,2) DEFAULT 0,
+   cantidad INT,
+   estado BIT DEFAULT 1	
 )
