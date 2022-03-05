@@ -19,9 +19,10 @@ namespace Presentacion
 
         bool yaRegistrado = false; // La uso para validar que no se ingrese un servicio repetido.
         bool primerRegistro = false; //La uso para que, luego de agregar un primer servicio, verificar si este u otros se agregan repetidos.
-        float total = 0; //Guardo el total de la salida.
+        public float total = 0; //Guardo el total de la salida.
         int codigoSalida = 0; //Guardo el código de la salida registrada. 
         string precioServicio = ""; //Guardo el precio de los servicios para mostrarlos autimaticamente.
+        float total_servicio; // Total del servicio.
 
         public static FormSalidas formSalidas;
 
@@ -72,7 +73,7 @@ namespace Presentacion
         private void AgregarSalida() 
         {
             int indice = gridViewSalidas.Rows.Add();
-            float total_servicio = Convert.ToInt32(txbCantidad.Text) * float.Parse(txbMonto.Text); //Total del servicio
+            total_servicio = Convert.ToInt32(txbCantidad.Text) * float.Parse(txbMonto.Text); //Total del servicio
 
             //Agrego los datos a la lista
             //gridViewSalidas.Rows[indice].Cells["codigoCliente"].Value = comboClientes.SelectedValue.ToString();
@@ -251,7 +252,10 @@ namespace Presentacion
                 detallesServicio.codigoServicio = codigoServicio;
                 detallesServicio.indiceFila = fila;
                 detallesServicio.actualizar = true;
+                detallesServicio.precioAnterior = float.Parse(gridViewSalidas.CurrentRow.Cells["Monto"].Value.ToString());
                 detallesServicio.gridViewMateriales.Columns.Clear();
+                detallesServicio.nuevoTotal = total;
+                detallesServicio.cantidad = Convert.ToInt32(gridViewSalidas.CurrentRow.Cells["Cantidad"].Value.ToString());
                 detallesServicio.txbNombreServicio.Text = gridViewSalidas.CurrentRow.Cells["Servicio"].Value.ToString();
                 detallesServicio.txbDescripcionServicio.Text = table.Rows[0]["Descripción"].ToString();
                 detallesServicio.txbPrecio.Text = gridViewSalidas.CurrentRow.Cells["Monto"].Value.ToString();

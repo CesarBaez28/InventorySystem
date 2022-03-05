@@ -25,6 +25,11 @@ namespace Presentacion
         public bool formSalidas; //La uso para indicar si el FormSalidas abrió este formulario.
         public bool formCotizar; //La uso para indicar si el FormSalidas abrió este formulario.
         public int indiceFila; // La uso para guardar la posición de la fila seleccionada del datagridView del FormSalidas para poder actualizar los datos.
+        public float precioAnterior; // Guardo el precio anterior para actualizar el total de la salida o de la cotización.
+        public float nuevoTotal; //Guardo el nuevo total general si se actualiza el precio de un servicio.
+        public int cantidad; // Guardo la cantidad para actualizar el total si se actualiza el precio de un servicio.
+        float total_individual; // Guardo el total indivual si se actualiza el precio de un servicio.
+
 
         //La uso para actualizar la lista de materiales desde el Form FormDetallesMateriales
         public static FormDetallesServicio detallesServicio;
@@ -158,21 +163,45 @@ namespace Presentacion
                             servicios.UpdateService(codigoServicio, txbNombreServicio.Text, txbPrecio.Text,
                                 txbDescripcionServicio.Text, estadoServicio);
 
-                            //Verifico si el FormSalidas abrió este formulario
-                            if (formSalidas != true)
+                            float nuevo_precio = float.Parse(txbPrecio.Text);
+
+                            //Calculo el nuevo total general e individual si se cambió el precio de un servicio
+                            if (precioAnterior != nuevo_precio)
                             {
-                                MessageBox.Show("Se actualizó correctamente");
-                                FormServicios.formServicios.MostrarServicios(); // Actualizo lista servicios en FormServicios
+                                total_individual = cantidad * nuevo_precio; //Calculo el nuevo total individual.
+                                float total_indivual_anterior = cantidad * precioAnterior; //Calculo el total individual anterior
+                                float diferencia = (total_indivual_anterior - total_individual) * -1; //Calculo la diferencia del precio.
+                                nuevoTotal += diferencia; //Nuevo total general.
                             }
-                            //Actualizó los datos en el dataGridView y de la lista de servicios del Form Salidas
-                            else 
+
+                            if (formSalidas == true) //Verifico si el FormSalidas abrió este formulario.
                             {
+                                //Actualizó los datos en el dataGridView y de la lista de servicios del FormSalida.
                                 FormSalidas.formSalidas.MostrarServicios();
                                 FormSalidas.formSalidas.gridViewSalidas.Rows[indiceFila].Cells["Servicio"].Value = txbNombreServicio.Text;
                                 FormSalidas.formSalidas.gridViewSalidas.Rows[indiceFila].Cells["Monto"].Value = txbPrecio.Text;
+                                FormSalidas.formSalidas.gridViewSalidas.Rows[indiceFila].Cells["Total_Salida"].Value = total_individual.ToString();
+                                FormSalidas.formSalidas.total = nuevoTotal;
+                                FormSalidas.formSalidas.lblTotalSalida.Text = "Total: " + nuevoTotal.ToString();
                                 MessageBox.Show("Se actualizó correctamente");
                             }
-
+                            else if (formCotizar == true) // Verifico si el FormCotizar abrió este formulario.
+                            {
+                                //Actualizó los datos en el dataGridView y de la lista de servicios del FormCotizar.
+                                FormCotizar.formCotizar.MostrarServicios();
+                                FormCotizar.formCotizar.gridViewCotizaciones.Rows[indiceFila].Cells["Servicio"].Value = txbNombreServicio.Text;
+                                FormCotizar.formCotizar.gridViewCotizaciones.Rows[indiceFila].Cells["Monto"].Value = txbPrecio.Text;
+                                FormCotizar.formCotizar.gridViewCotizaciones.Rows[indiceFila].Cells["Total_Salida"].Value = total_individual.ToString();
+                                FormCotizar.formCotizar.total = nuevoTotal;
+                                FormCotizar.formCotizar.lblTotalSalida.Text = "Total: " + nuevoTotal.ToString();
+                                MessageBox.Show("Se actualizó correctamente");
+                            }
+                            else
+                            {
+                                // Actualizo lista servicios en FormServicios.
+                                MessageBox.Show("Se actualizó correctamente");
+                                FormServicios.formServicios.MostrarServicios(); 
+                            }
                             this.Close();
                         }
                         catch 

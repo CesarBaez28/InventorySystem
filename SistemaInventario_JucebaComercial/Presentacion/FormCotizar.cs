@@ -17,7 +17,7 @@ namespace Presentacion
         DominioServicios servicios = new DominioServicios();
 
         string precioServicio = ""; //Guardo el precio de los servicios para mostrarlos autimaticamente.
-        float total = 0; //Guardo el total de la cotización.
+        public float total = 0; //Guardo el total de la cotización.
         bool yaRegistrado = false; // La uso para validar que no se ingrese un servicio repetido.
         bool primerRegistro = false; //La uso para que, luego de agregar un primer servicio, verificar si este u otros se agregan repetidos.
 
@@ -94,15 +94,43 @@ namespace Presentacion
             AbrirFormulario(detallesServicio);
         }
 
+        // Ver detalles del servicio
+        private void btnVerDetalles_Click(object sender, EventArgs e)
+        {
+            //Me aseguro que haya una fila selccionada
+            if (gridViewCotizaciones.SelectedRows.Count > 0)
+            {
+                FormDetallesServicio detallesServicio = new FormDetallesServicio();
+                DataTable table = new DataTable();
+
+                //Indico que este formulario (FormCotizar) abrió el FormDetallesServicio
+                detallesServicio.formCotizar = true;
+
+                string codigoServicio = gridViewCotizaciones.CurrentRow.Cells["codigoServicio"].Value.ToString();
+                int fila = gridViewCotizaciones.CurrentRow.Index; //Guardo el índice de la fila para luego poder hacer modificaiones si es necesario
+
+                table = servicios.SearchServiceCode(codigoServicio);
+                detallesServicio.codigoServicio = codigoServicio;
+                detallesServicio.indiceFila = fila;
+                detallesServicio.actualizar = true;
+                detallesServicio.precioAnterior = float.Parse(gridViewCotizaciones.CurrentRow.Cells["Monto"].Value.ToString());
+                detallesServicio.gridViewMateriales.Columns.Clear();
+                detallesServicio.nuevoTotal = total;
+                detallesServicio.cantidad = Convert.ToInt32(gridViewCotizaciones.CurrentRow.Cells["Cantidad"].Value.ToString());
+                detallesServicio.txbNombreServicio.Text = gridViewCotizaciones.CurrentRow.Cells["Servicio"].Value.ToString();
+                detallesServicio.txbDescripcionServicio.Text = table.Rows[0]["Descripción"].ToString();
+                detallesServicio.txbPrecio.Text = gridViewCotizaciones.CurrentRow.Cells["Monto"].Value.ToString();
+
+                AbrirFormulario(detallesServicio);
+            }
+        }
+
         //Agregar salida a la lista
         private void AgregarSalida()
         {
             int indice = gridViewCotizaciones.Rows.Add();
             float total_servicio = Convert.ToInt32(txbCantidad.Text) * float.Parse(txbMonto.Text); //Total del servicio
 
-            //Agrego los datos a la lista
-            //gridViewSalidas.Rows[indice].Cells["codigoCliente"].Value = comboClientes.SelectedValue.ToString();
-            //gridViewSalidas.Rows[indice].Cells["Cliente"].Value = comboClientes.Text;
             gridViewCotizaciones.Rows[indice].Cells["codigoServicio"].Value = comboServicios.SelectedValue.ToString();
             gridViewCotizaciones.Rows[indice].Cells["Servicio"].Value = comboServicios.Text;
             gridViewCotizaciones.Rows[indice].Cells["Monto"].Value = txbMonto.Text;
@@ -158,6 +186,10 @@ namespace Presentacion
                 MessageBox.Show("Faltan campos por llenar o ingresó un valor de manera incorrecta");
             }
         }
+
+
+
+
 
         //Eliminar servicio de la lista
         private void btnEliminar_Click(object sender, EventArgs e)
