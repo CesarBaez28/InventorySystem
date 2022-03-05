@@ -1,7 +1,6 @@
-﻿
-namespace Presentacion
+﻿namespace Presentacion
 {
-    partial class FormSalidas
+    partial class FormCotizar
     {
         /// <summary>
         /// Required designer variable.
@@ -29,27 +28,13 @@ namespace Presentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSalidas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCotizar));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.panelContedorIngresos = new System.Windows.Forms.Panel();
             this.lblTotalSalida = new System.Windows.Forms.Label();
-            this.gridViewExcedentes = new System.Windows.Forms.DataGridView();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Excedente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnidadMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Largo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ancho = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Alto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadExcedente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Borrar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnAgregarExcedente = new System.Windows.Forms.Button();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.txbCantidad = new System.Windows.Forms.TextBox();
             this.btnAgregarServicio = new System.Windows.Forms.Button();
@@ -76,7 +61,6 @@ namespace Presentacion
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.panelContedorIngresos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewExcedentes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewSalidas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,9 +73,8 @@ namespace Presentacion
             this.btnCerrar.Location = new System.Drawing.Point(13, 8);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(35, 28);
-            this.btnCerrar.TabIndex = 18;
+            this.btnCerrar.TabIndex = 20;
             this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // panelContedorIngresos
             // 
@@ -100,8 +83,6 @@ namespace Presentacion
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelContedorIngresos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelContedorIngresos.Controls.Add(this.lblTotalSalida);
-            this.panelContedorIngresos.Controls.Add(this.gridViewExcedentes);
-            this.panelContedorIngresos.Controls.Add(this.btnAgregarExcedente);
             this.panelContedorIngresos.Controls.Add(this.lblCantidad);
             this.panelContedorIngresos.Controls.Add(this.txbCantidad);
             this.panelContedorIngresos.Controls.Add(this.btnAgregarServicio);
@@ -124,7 +105,7 @@ namespace Presentacion
             this.panelContedorIngresos.Location = new System.Drawing.Point(13, 42);
             this.panelContedorIngresos.Name = "panelContedorIngresos";
             this.panelContedorIngresos.Size = new System.Drawing.Size(915, 519);
-            this.panelContedorIngresos.TabIndex = 17;
+            this.panelContedorIngresos.TabIndex = 19;
             // 
             // lblTotalSalida
             // 
@@ -136,134 +117,6 @@ namespace Presentacion
             this.lblTotalSalida.Size = new System.Drawing.Size(46, 18);
             this.lblTotalSalida.TabIndex = 41;
             this.lblTotalSalida.Text = "Total:";
-            // 
-            // gridViewExcedentes
-            // 
-            this.gridViewExcedentes.AllowUserToAddRows = false;
-            this.gridViewExcedentes.AllowUserToDeleteRows = false;
-            this.gridViewExcedentes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridViewExcedentes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gridViewExcedentes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.gridViewExcedentes.BackgroundColor = System.Drawing.Color.White;
-            this.gridViewExcedentes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.gridViewExcedentes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewExcedentes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.gridViewExcedentes.ColumnHeadersHeight = 30;
-            this.gridViewExcedentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridViewExcedentes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Codigo,
-            this.Excedente,
-            this.UnidadMedida,
-            this.Largo,
-            this.Ancho,
-            this.Alto,
-            this.cantidadExcedente,
-            this.Borrar});
-            this.gridViewExcedentes.EnableHeadersVisualStyles = false;
-            this.gridViewExcedentes.GridColor = System.Drawing.Color.Black;
-            this.gridViewExcedentes.Location = new System.Drawing.Point(14, 339);
-            this.gridViewExcedentes.Name = "gridViewExcedentes";
-            this.gridViewExcedentes.ReadOnly = true;
-            this.gridViewExcedentes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewExcedentes.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.gridViewExcedentes.RowHeadersVisible = false;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
-            this.gridViewExcedentes.RowsDefaultCellStyle = dataGridViewCellStyle11;
-            this.gridViewExcedentes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.gridViewExcedentes.Size = new System.Drawing.Size(886, 129);
-            this.gridViewExcedentes.TabIndex = 40;
-            this.gridViewExcedentes.Visible = false;
-            this.gridViewExcedentes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewExcedentes_CellContentClick);
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Código";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            // 
-            // Excedente
-            // 
-            this.Excedente.HeaderText = "Excedente";
-            this.Excedente.Name = "Excedente";
-            this.Excedente.ReadOnly = true;
-            // 
-            // UnidadMedida
-            // 
-            this.UnidadMedida.HeaderText = "Medida";
-            this.UnidadMedida.Name = "UnidadMedida";
-            this.UnidadMedida.ReadOnly = true;
-            // 
-            // Largo
-            // 
-            this.Largo.HeaderText = "Largo";
-            this.Largo.Name = "Largo";
-            this.Largo.ReadOnly = true;
-            // 
-            // Ancho
-            // 
-            this.Ancho.HeaderText = "Ancho";
-            this.Ancho.Name = "Ancho";
-            this.Ancho.ReadOnly = true;
-            // 
-            // Alto
-            // 
-            this.Alto.HeaderText = "Alto";
-            this.Alto.Name = "Alto";
-            this.Alto.ReadOnly = true;
-            // 
-            // cantidadExcedente
-            // 
-            this.cantidadExcedente.HeaderText = "Cantidad";
-            this.cantidadExcedente.Name = "cantidadExcedente";
-            this.cantidadExcedente.ReadOnly = true;
-            // 
-            // Borrar
-            // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle9.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle9.NullValue")));
-            this.Borrar.DefaultCellStyle = dataGridViewCellStyle9;
-            this.Borrar.HeaderText = "Borrar";
-            this.Borrar.Image = ((System.Drawing.Image)(resources.GetObject("Borrar.Image")));
-            this.Borrar.Name = "Borrar";
-            this.Borrar.ReadOnly = true;
-            this.Borrar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // btnAgregarExcedente
-            // 
-            this.btnAgregarExcedente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAgregarExcedente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnAgregarExcedente.FlatAppearance.BorderSize = 0;
-            this.btnAgregarExcedente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarExcedente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarExcedente.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarExcedente.Location = new System.Drawing.Point(108, 474);
-            this.btnAgregarExcedente.Name = "btnAgregarExcedente";
-            this.btnAgregarExcedente.Size = new System.Drawing.Size(143, 31);
-            this.btnAgregarExcedente.TabIndex = 34;
-            this.btnAgregarExcedente.Text = "Agregar Excedente";
-            this.btnAgregarExcedente.UseVisualStyleBackColor = false;
-            this.btnAgregarExcedente.Click += new System.EventHandler(this.btnAgregarExcedente_Click);
             // 
             // lblCantidad
             // 
@@ -298,7 +151,6 @@ namespace Presentacion
             this.btnAgregarServicio.TabIndex = 31;
             this.btnAgregarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarServicio.UseVisualStyleBackColor = false;
-            this.btnAgregarServicio.Click += new System.EventHandler(this.btnAgregarServicio_Click);
             // 
             // btnAgregarCliente
             // 
@@ -315,7 +167,6 @@ namespace Presentacion
             this.btnAgregarCliente.TabIndex = 30;
             this.btnAgregarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarCliente.UseVisualStyleBackColor = false;
-            this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
             // 
             // btnVerDetalles
             // 
@@ -334,7 +185,6 @@ namespace Presentacion
             this.btnVerDetalles.Text = "Ver detalles";
             this.btnVerDetalles.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVerDetalles.UseVisualStyleBackColor = false;
-            this.btnVerDetalles.Click += new System.EventHandler(this.btnVerDetalles_Click);
             // 
             // comboServicios
             // 
@@ -345,7 +195,6 @@ namespace Presentacion
             this.comboServicios.Name = "comboServicios";
             this.comboServicios.Size = new System.Drawing.Size(226, 28);
             this.comboServicios.TabIndex = 24;
-            this.comboServicios.SelectionChangeCommitted += new System.EventHandler(this.comboServicios_SelectionChangeCommitted);
             // 
             // lblServicio
             // 
@@ -379,14 +228,14 @@ namespace Presentacion
             this.gridViewSalidas.BackgroundColor = System.Drawing.Color.White;
             this.gridViewSalidas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridViewSalidas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewSalidas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewSalidas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridViewSalidas.ColumnHeadersHeight = 30;
             this.gridViewSalidas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridViewSalidas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -401,20 +250,20 @@ namespace Presentacion
             this.gridViewSalidas.Name = "gridViewSalidas";
             this.gridViewSalidas.ReadOnly = true;
             this.gridViewSalidas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewSalidas.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewSalidas.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridViewSalidas.RowHeadersVisible = false;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
-            this.gridViewSalidas.RowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridViewSalidas.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.gridViewSalidas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridViewSalidas.Size = new System.Drawing.Size(886, 256);
             this.gridViewSalidas.TabIndex = 21;
@@ -466,7 +315,6 @@ namespace Presentacion
             this.btnTerminar.Text = "Terminar y guardar";
             this.btnTerminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTerminar.UseVisualStyleBackColor = false;
-            this.btnTerminar.Click += new System.EventHandler(this.btnTerminar_Click);
             // 
             // lblFecha
             // 
@@ -532,7 +380,6 @@ namespace Presentacion
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnEliminar
             // 
@@ -548,7 +395,6 @@ namespace Presentacion
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // lblTitulo
             // 
@@ -560,7 +406,7 @@ namespace Presentacion
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(913, 33);
             this.lblTitulo.TabIndex = 1;
-            this.lblTitulo.Text = "Registro de Salidas";
+            this.lblTitulo.Text = "Realizar cotización";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // shapeContainer1
@@ -584,7 +430,7 @@ namespace Presentacion
             this.lineShape1.Y1 = 204;
             this.lineShape1.Y2 = 204;
             // 
-            // FormSalidas
+            // FormCotizar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -592,12 +438,10 @@ namespace Presentacion
             this.ClientSize = new System.Drawing.Size(939, 573);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.panelContedorIngresos);
-            this.Name = "FormSalidas";
-            this.Text = "FormSalidas";
-            this.Load += new System.EventHandler(this.FormSalidas_Load);
+            this.Name = "FormCotizar";
+            this.Text = "FormCotizar";
             this.panelContedorIngresos.ResumeLayout(false);
             this.panelContedorIngresos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewExcedentes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewSalidas)).EndInit();
             this.ResumeLayout(false);
 
@@ -607,9 +451,21 @@ namespace Presentacion
 
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Panel panelContedorIngresos;
+        private System.Windows.Forms.Label lblTotalSalida;
+        private System.Windows.Forms.Label lblCantidad;
+        private System.Windows.Forms.TextBox txbCantidad;
+        private System.Windows.Forms.Button btnAgregarServicio;
+        private System.Windows.Forms.Button btnAgregarCliente;
+        private System.Windows.Forms.Button btnVerDetalles;
         private System.Windows.Forms.ComboBox comboServicios;
         private System.Windows.Forms.Label lblServicio;
         private System.Windows.Forms.ComboBox comboClientes;
+        public System.Windows.Forms.DataGridView gridViewSalidas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoServicio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Servicio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total_Salida;
         private System.Windows.Forms.Button btnTerminar;
         private System.Windows.Forms.Label lblFecha;
         public System.Windows.Forms.DateTimePicker dateTimeSalida;
@@ -621,27 +477,5 @@ namespace Presentacion
         private System.Windows.Forms.Label lblTitulo;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
-        private System.Windows.Forms.Button btnVerDetalles;
-        private System.Windows.Forms.Button btnAgregarCliente;
-        private System.Windows.Forms.Button btnAgregarServicio;
-        private System.Windows.Forms.Label lblCantidad;
-        private System.Windows.Forms.TextBox txbCantidad;
-        public System.Windows.Forms.DataGridView gridViewSalidas;
-        private System.Windows.Forms.Button btnAgregarExcedente;
-        public System.Windows.Forms.DataGridView gridViewExcedentes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Excedente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnidadMedida;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Largo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ancho;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Alto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadExcedente;
-        private System.Windows.Forms.DataGridViewImageColumn Borrar;
-        private System.Windows.Forms.Label lblTotalSalida;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoServicio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Servicio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total_Salida;
     }
 }

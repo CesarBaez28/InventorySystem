@@ -197,6 +197,7 @@ namespace Presentacion
             this.Controls.Add(this.txbNombre);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblTitulo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormDetalleCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormDetalleCliente";

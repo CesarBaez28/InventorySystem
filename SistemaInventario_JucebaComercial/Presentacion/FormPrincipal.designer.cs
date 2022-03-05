@@ -52,6 +52,7 @@ namespace Presentacion
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.lblLogo = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.btnCotizar = new System.Windows.Forms.Button();
             this.BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PerfilUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
@@ -155,6 +156,7 @@ namespace Presentacion
             // Menu
             // 
             this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Menu.Controls.Add(this.btnCotizar);
             this.Menu.Controls.Add(this.btnMenuLateral);
             this.Menu.Controls.Add(this.btnServicios);
             this.Menu.Controls.Add(this.btnReportes);
@@ -212,7 +214,7 @@ namespace Presentacion
             this.btnReportes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.ForeColor = System.Drawing.Color.White;
             this.btnReportes.Image = ((System.Drawing.Image)(resources.GetObject("btnReportes.Image")));
-            this.btnReportes.Location = new System.Drawing.Point(0, 378);
+            this.btnReportes.Location = new System.Drawing.Point(0, 424);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(70, 40);
             this.btnReportes.TabIndex = 14;
@@ -327,7 +329,7 @@ namespace Presentacion
             this.btnMaterialesCatalogo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMaterialesCatalogo.ForeColor = System.Drawing.Color.White;
             this.btnMaterialesCatalogo.Image = ((System.Drawing.Image)(resources.GetObject("btnMaterialesCatalogo.Image")));
-            this.btnMaterialesCatalogo.Location = new System.Drawing.Point(0, 332);
+            this.btnMaterialesCatalogo.Location = new System.Drawing.Point(0, 378);
             this.btnMaterialesCatalogo.Name = "btnMaterialesCatalogo";
             this.btnMaterialesCatalogo.Size = new System.Drawing.Size(70, 40);
             this.btnMaterialesCatalogo.TabIndex = 10;
@@ -382,6 +384,25 @@ namespace Presentacion
             this.bunifuElipse1.ElipseRadius = 20;
             this.bunifuElipse1.TargetControl = this;
             // 
+            // btnCotizar
+            // 
+            this.btnCotizar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCotizar.FlatAppearance.BorderSize = 0;
+            this.btnCotizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCotizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCotizar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCotizar.ForeColor = System.Drawing.Color.White;
+            this.btnCotizar.Image = ((System.Drawing.Image)(resources.GetObject("btnCotizar.Image")));
+            this.btnCotizar.Location = new System.Drawing.Point(0, 332);
+            this.btnCotizar.Name = "btnCotizar";
+            this.btnCotizar.Size = new System.Drawing.Size(70, 40);
+            this.btnCotizar.TabIndex = 16;
+            this.btnCotizar.Tag = "Cotizar";
+            this.btnCotizar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCotizar.UseVisualStyleBackColor = true;
+            this.btnCotizar.Click += new System.EventHandler(this.btnCotizar_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -434,5 +455,6 @@ namespace Presentacion
         private System.Windows.Forms.Button btnServicios;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private System.Windows.Forms.PictureBox btnMenuLateral;
+        private System.Windows.Forms.Button btnCotizar;
     }
 }

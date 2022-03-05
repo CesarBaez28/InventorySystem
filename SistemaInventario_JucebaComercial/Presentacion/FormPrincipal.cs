@@ -113,6 +113,12 @@ namespace Presentacion
             AbrirFormularios(new FormEntradas());
         }
 
+        //Botón cotizar
+        private void btnCotizar_Click(object sender, EventArgs e)
+        {
+            AbrirFormularios(new FormCotizar());
+        }
+
         //Boton salidas
         private void btnSalidas_Click(object sender, EventArgs e)
         {

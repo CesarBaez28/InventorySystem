@@ -29,6 +29,7 @@ namespace Presentacion
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDetallesExcedente));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txbLargo = new System.Windows.Forms.TextBox();
             this.lbLargo = new System.Windows.Forms.Label();
@@ -220,6 +221,7 @@ namespace Presentacion
             this.Controls.Add(this.txbLargo);
             this.Controls.Add(this.lbLargo);
             this.Controls.Add(this.lblTitulo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormDetallesExcedente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAgregarExcedente";

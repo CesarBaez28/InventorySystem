@@ -23,7 +23,6 @@ namespace Presentacion
         DominioEntrada entrada = new DominioEntrada();
         DominioMateriales materiales = new DominioMateriales();
 
-
         //La uso para actualizar datos desde otro formulario
         public static FormEntradas formEntrada;
 
