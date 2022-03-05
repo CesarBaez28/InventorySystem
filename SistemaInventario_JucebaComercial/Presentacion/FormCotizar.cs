@@ -17,6 +17,9 @@ namespace Presentacion
         DominioServicios servicios = new DominioServicios();
 
         string precioServicio = ""; //Guardo el precio de los servicios para mostrarlos autimaticamente.
+        float total = 0; //Guardo el total de la cotización.
+        bool yaRegistrado = false; // La uso para validar que no se ingrese un servicio repetido.
+        bool primerRegistro = false; //La uso para que, luego de agregar un primer servicio, verificar si este u otros se agregan repetidos.
 
         public static FormCotizar formCotizar;
 
@@ -89,6 +92,84 @@ namespace Presentacion
             detallesServicio.formCotizar = true;
 
             AbrirFormulario(detallesServicio);
+        }
+
+        //Agregar salida a la lista
+        private void AgregarSalida()
+        {
+            int indice = gridViewCotizaciones.Rows.Add();
+            float total_servicio = Convert.ToInt32(txbCantidad.Text) * float.Parse(txbMonto.Text); //Total del servicio
+
+            //Agrego los datos a la lista
+            //gridViewSalidas.Rows[indice].Cells["codigoCliente"].Value = comboClientes.SelectedValue.ToString();
+            //gridViewSalidas.Rows[indice].Cells["Cliente"].Value = comboClientes.Text;
+            gridViewCotizaciones.Rows[indice].Cells["codigoServicio"].Value = comboServicios.SelectedValue.ToString();
+            gridViewCotizaciones.Rows[indice].Cells["Servicio"].Value = comboServicios.Text;
+            gridViewCotizaciones.Rows[indice].Cells["Monto"].Value = txbMonto.Text;
+            gridViewCotizaciones.Rows[indice].Cells["Cantidad"].Value = txbCantidad.Text;
+            gridViewCotizaciones.Rows[indice].Cells["Total_Salida"].Value = total_servicio.ToString();
+
+            //Total de la salida
+            total += total_servicio;
+            lblTotalSalida.Text = "Total: " + total.ToString();
+        }
+
+        // Botón agregar salida a la lista.
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            //Verifico que el monto y la cantidad se han números válidos.
+            //Y que el combobox de servicios tenga un elemento seleccionado.
+            if (float.TryParse(txbMonto.Text, out float parseCorrecto) && int.TryParse(txbCantidad.Text, out int parse) && comboServicios.SelectedIndex != -1)
+            {
+                if (primerRegistro == false)
+                {
+                    AgregarSalida();
+                    primerRegistro = true;
+                }
+                else
+                {
+                    //Verifico que el servicio no esté repetido 
+                    foreach (DataGridViewRow fila in gridViewCotizaciones.Rows)
+                    {
+                        if (fila.Cells["Servicio"].Value.ToString() == comboServicios.Text)
+                        {
+                            yaRegistrado = true;
+                            break;
+                        }
+                    }
+
+                    //Si no está repetido, agrega la salida. De lo contrario, arroja un mensaje de error.
+                    if (yaRegistrado != true)
+                    {
+                        AgregarSalida();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ya ingresó ese servicio");
+                        yaRegistrado = false;
+                    }
+                }
+
+                txbMonto.Text = "";
+                txbCantidad.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Faltan campos por llenar o ingresó un valor de manera incorrecta");
+            }
+        }
+
+        //Eliminar servicio de la lista
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (gridViewCotizaciones.SelectedRows.Count > 0)
+            {
+                //Actualizo el total de la salida
+                total = total - (float.Parse(gridViewCotizaciones.CurrentRow.Cells["Total_Salida"].Value.ToString()));
+                lblTotalSalida.Text = "Total: " + total.ToString();
+
+                gridViewCotizaciones.Rows.Remove(gridViewCotizaciones.CurrentRow);
+            }
         }
 
         //Metodo para abirar formularios
