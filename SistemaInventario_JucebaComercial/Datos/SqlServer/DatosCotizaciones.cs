@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
@@ -6,7 +7,6 @@ namespace Datos.SqlServer
 {
     public class DatosCotizaciones : ExecuteCommandSql
     {
-
         //Regitrar cotizacion
         public void RegistrarCotizacion(DateTime fechaCotizacion, string descripcion)
         {
@@ -27,6 +27,14 @@ namespace Datos.SqlServer
             parameters.Add(new SqlParameter("@cantidad", cantidad));
             parameters.Add(new SqlParameter("@precio", precio));
             ExecuteNonQuery("p_RegistrarDetallesCotizacion");
+        }
+
+        //Obter el código de la última cotización
+        public DataTable ObtenerCodigoCotizacion() 
+        {
+            DataTable table = new DataTable();
+            table = ExecuteReaderText("SELECT MAX(codigo) as 'codigo' FROM cotizaciones");
+            return table;
         }
     }
 }

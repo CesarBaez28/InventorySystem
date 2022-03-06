@@ -193,15 +193,15 @@ namespace Presentacion
                 {
                     MessageBox.Show("No hay suficiente material para registrar uno de los servicios");
                 }
+
+                gridViewSalidas.Rows.Clear();
+                lblTotalSalida.Text = "Total: ";
+                total = 0;
             }
             else
             {
                 MessageBox.Show("No hay servicios agregados o faltan campos por seleccionar");
             }
-
-            gridViewSalidas.Rows.Clear();
-            lblTotalSalida.Text = "Total: ";
-            total = 0;
         }
 
         //Agregar cliente
@@ -377,7 +377,7 @@ namespace Presentacion
             factura.Add(new Chunk("\n", fntHead));
 
             //Escribir la tabla
-            PdfPTable table = new PdfPTable(gridViewSalidas.Columns.Count - 1);
+            PdfPTable table = new PdfPTable(dataGridView.Columns.Count - 1);
             table.WidthPercentage = 100; //La tabla ocupa el 100 porciento del documento
 
             //Cabecera de la tabla
@@ -387,20 +387,20 @@ namespace Presentacion
             table.HorizontalAlignment = Element.ALIGN_CENTER;
 
             //Escribir cabecera
-            for (int i = 1; i < gridViewSalidas.Columns.Count; i++)
+            for (int i = 1; i < dataGridView.Columns.Count; i++)
             {
                 PdfPCell cell = new PdfPCell();
                 cell.BackgroundColor = BaseColor.GRAY;
-                cell.AddElement(new Chunk(gridViewSalidas.Columns[i].HeaderText.ToUpper(), fntColumnHeader));
+                cell.AddElement(new Chunk(dataGridView.Columns[i].HeaderText.ToUpper(), fntColumnHeader));
                 table.AddCell(cell);
             }
 
             //Ingresar datos a la tabla
-            for (int i = 0; i < gridViewSalidas.Rows.Count; i++)
+            for (int i = 0; i < dataGridView.Rows.Count; i++)
             {
-                for (int j = 1; j < gridViewSalidas.Columns.Count; j++)
+                for (int j = 1; j < dataGridView.Columns.Count; j++)
                 {
-                    table.AddCell(gridViewSalidas.Rows[i].Cells[j].Value.ToString());
+                    table.AddCell(dataGridView.Rows[i].Cells[j].Value.ToString());
                 }
             }
 
@@ -417,7 +417,6 @@ namespace Presentacion
             factura.Close();
             writer.Close();
             fileStream.Close();
-
         }
 
         //Metodo para abrir formularios

@@ -26,5 +26,13 @@ namespace Dominio
                 Convert.ToInt32(codigoServicio), Convert.ToInt32(codigoCliente), 
                 Convert.ToInt32(cantidad), float.Parse(precio));
         }
+
+        //Get quote code 
+        public DataTable GetQuoteCode() 
+        {
+            DataTable table = new DataTable();
+            table = cotizar.ObtenerCodigoCotizacion();
+            return table;
+        }
     }
 }
