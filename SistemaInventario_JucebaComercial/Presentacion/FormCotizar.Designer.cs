@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCotizar));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.panelContedorIngresos = new System.Windows.Forms.Panel();
-            this.lblTotalSalida = new System.Windows.Forms.Label();
+            this.lblDescripcion = new System.Windows.Forms.Label();
+            this.txbDescripcion = new System.Windows.Forms.TextBox();
+            this.lblTotalCotizacion = new System.Windows.Forms.Label();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.txbCantidad = new System.Windows.Forms.TextBox();
             this.btnAgregarServicio = new System.Windows.Forms.Button();
@@ -60,8 +62,6 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.lblDescripcion = new System.Windows.Forms.Label();
-            this.txbDescripcion = new System.Windows.Forms.TextBox();
             this.panelContedorIngresos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewCotizaciones)).BeginInit();
             this.SuspendLayout();
@@ -87,7 +87,7 @@
             this.panelContedorIngresos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelContedorIngresos.Controls.Add(this.lblDescripcion);
             this.panelContedorIngresos.Controls.Add(this.txbDescripcion);
-            this.panelContedorIngresos.Controls.Add(this.lblTotalSalida);
+            this.panelContedorIngresos.Controls.Add(this.lblTotalCotizacion);
             this.panelContedorIngresos.Controls.Add(this.lblCantidad);
             this.panelContedorIngresos.Controls.Add(this.txbCantidad);
             this.panelContedorIngresos.Controls.Add(this.btnAgregarServicio);
@@ -112,16 +112,34 @@
             this.panelContedorIngresos.Size = new System.Drawing.Size(915, 519);
             this.panelContedorIngresos.TabIndex = 19;
             // 
-            // lblTotalSalida
+            // lblDescripcion
             // 
-            this.lblTotalSalida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTotalSalida.AutoSize = true;
-            this.lblTotalSalida.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalSalida.Location = new System.Drawing.Point(714, 175);
-            this.lblTotalSalida.Name = "lblTotalSalida";
-            this.lblTotalSalida.Size = new System.Drawing.Size(46, 18);
-            this.lblTotalSalida.TabIndex = 41;
-            this.lblTotalSalida.Text = "Total:";
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.Location = new System.Drawing.Point(312, 44);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(87, 17);
+            this.lblDescripcion.TabIndex = 43;
+            this.lblDescripcion.Text = "Descripción:";
+            // 
+            // txbDescripcion
+            // 
+            this.txbDescripcion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbDescripcion.Location = new System.Drawing.Point(311, 64);
+            this.txbDescripcion.Name = "txbDescripcion";
+            this.txbDescripcion.Size = new System.Drawing.Size(159, 23);
+            this.txbDescripcion.TabIndex = 42;
+            // 
+            // lblTotalCotizacion
+            // 
+            this.lblTotalCotizacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTotalCotizacion.AutoSize = true;
+            this.lblTotalCotizacion.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalCotizacion.Location = new System.Drawing.Point(714, 175);
+            this.lblTotalCotizacion.Name = "lblTotalCotizacion";
+            this.lblTotalCotizacion.Size = new System.Drawing.Size(46, 18);
+            this.lblTotalCotizacion.TabIndex = 41;
+            this.lblTotalCotizacion.Text = "Total:";
             // 
             // lblCantidad
             // 
@@ -237,14 +255,14 @@
             this.gridViewCotizaciones.BackgroundColor = System.Drawing.Color.White;
             this.gridViewCotizaciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridViewCotizaciones.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewCotizaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewCotizaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridViewCotizaciones.ColumnHeadersHeight = 30;
             this.gridViewCotizaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridViewCotizaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -259,20 +277,20 @@
             this.gridViewCotizaciones.Name = "gridViewCotizaciones";
             this.gridViewCotizaciones.ReadOnly = true;
             this.gridViewCotizaciones.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewCotizaciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewCotizaciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridViewCotizaciones.RowHeadersVisible = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            this.gridViewCotizaciones.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridViewCotizaciones.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.gridViewCotizaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridViewCotizaciones.Size = new System.Drawing.Size(886, 256);
             this.gridViewCotizaciones.TabIndex = 21;
@@ -324,6 +342,7 @@
             this.btnTerminar.Text = "Terminar y guardar";
             this.btnTerminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTerminar.UseVisualStyleBackColor = false;
+            this.btnTerminar.Click += new System.EventHandler(this.btnTerminar_Click);
             // 
             // lblFecha
             // 
@@ -441,24 +460,6 @@
             this.lineShape1.Y1 = 204;
             this.lineShape1.Y2 = 204;
             // 
-            // lblDescripcion
-            // 
-            this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(312, 44);
-            this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(87, 17);
-            this.lblDescripcion.TabIndex = 43;
-            this.lblDescripcion.Text = "Descripción:";
-            // 
-            // txbDescripcion
-            // 
-            this.txbDescripcion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbDescripcion.Location = new System.Drawing.Point(311, 64);
-            this.txbDescripcion.Name = "txbDescripcion";
-            this.txbDescripcion.Size = new System.Drawing.Size(159, 23);
-            this.txbDescripcion.TabIndex = 42;
-            // 
             // FormCotizar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -508,6 +509,6 @@
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.TextBox txbDescripcion;
-        public System.Windows.Forms.Label lblTotalSalida;
+        public System.Windows.Forms.Label lblTotalCotizacion;
     }
 }

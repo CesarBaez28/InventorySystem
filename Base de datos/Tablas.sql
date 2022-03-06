@@ -229,7 +229,7 @@ CREATE TABLE detallesCotizacion (
    CONSTRAINT fk_codigo_cliente_cotizacion FOREIGN KEY(codigo_cliente) REFERENCES clientes(codigo),
    codigo_usuario INT NOT NULL,
    CONSTRAINT fk_codigo_usuario_cotizacion FOREIGN KEY(codigo_usuario) REFERENCES usuarios(codigo),
-   descripcion TEXT DEFAULT '',
+   descripcion VARCHAR(100) DEFAULT '',
    precio DECIMAL (20,2) DEFAULT 0,
    cantidad INT,
    estado BIT DEFAULT 1	

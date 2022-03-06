@@ -26,14 +26,7 @@ namespace Dominio
             salidas.RegistrarSalida(fecha);
         }
 
-        //register service sale details
-        public void ServiceSaleDetails(string codigoUsuario, string cliente, string servicio,
-            string cantidad, string precio) 
-        {
-            salidas.RegistrarDetallesSalida(Convert.ToInt32(codigoUsuario), cliente,
-                servicio, Convert.ToInt32(cantidad), float.Parse(precio));
-        }
-
+        //Register service sale details
         public void add_MultipleSingleInsert(IEnumerable<DetallesSalida> detallesSalida)
         {
             salidas.MultiplesSalidas(detallesSalida);

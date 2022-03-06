@@ -139,7 +139,7 @@ namespace Presentacion
 
             //Total de la salida
             total += total_servicio;
-            lblTotalSalida.Text = "Total: " + total.ToString();
+            lblTotalCotizacion.Text = "Total: " + total.ToString();
         }
 
         // Botón agregar salida a la lista.
@@ -187,9 +187,11 @@ namespace Presentacion
             }
         }
 
+        //Terminar y regitrar la cotización
+        private void btnTerminar_Click(object sender, EventArgs e)
+        {
 
-
-
+        }
 
         //Eliminar servicio de la lista
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -198,7 +200,7 @@ namespace Presentacion
             {
                 //Actualizo el total de la salida
                 total = total - (float.Parse(gridViewCotizaciones.CurrentRow.Cells["Total_Salida"].Value.ToString()));
-                lblTotalSalida.Text = "Total: " + total.ToString();
+                lblTotalCotizacion.Text = "Total: " + total.ToString();
 
                 gridViewCotizaciones.Rows.Remove(gridViewCotizaciones.CurrentRow);
             }

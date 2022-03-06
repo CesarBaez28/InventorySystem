@@ -193,7 +193,7 @@ namespace Presentacion
                                 FormCotizar.formCotizar.gridViewCotizaciones.Rows[indiceFila].Cells["Monto"].Value = txbPrecio.Text;
                                 FormCotizar.formCotizar.gridViewCotizaciones.Rows[indiceFila].Cells["Total_Salida"].Value = total_individual.ToString();
                                 FormCotizar.formCotizar.total = nuevoTotal;
-                                FormCotizar.formCotizar.lblTotalSalida.Text = "Total: " + nuevoTotal.ToString();
+                                FormCotizar.formCotizar.lblTotalCotizacion.Text = "Total: " + nuevoTotal.ToString();
                                 MessageBox.Show("Se actualizó correctamente");
                             }
                             else

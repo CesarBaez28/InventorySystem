@@ -670,6 +670,35 @@ BEGIN
 END
 GO
 
+------Procedimientos almacenados relacionados con las cotizaciones
+
+--Registrar cotización
+CREATE PROCEDURE p_RegistrarCotizacion
+   @fechaCotizacion DATETIME 
+AS
+BEGIN 
+  INSERT INTO cotizaciones(fecha_cotizacion) VALUES (@fechaCotizacion)
+END 
+GO
+
+--Registrar detalles de la cotización
+CREATE PROCEDURE p_RegistrarDetallesCotizacion
+  @codigoUsuario INT,
+  @codigoServicio INT,
+  @codigoCliente INT,
+  @descripcion VARCHAR(100),
+  @cantidad INT,
+  @precio NUMERIC(20,2)
+AS
+BEGIN 
+  DECLARE @codigoCotizacion INT 
+  SELECT @codigoCliente = MAX(codigo) FROM cotizaciones
+
+  INSERT INTO detallesCotizacion(codigo_cotizacion, codigo_servicio, codigo_cliente, codigo_usuario, descripcion, precio, cantidad)
+  VALUES(@codigoCotizacion, @codigoServicio, @codigoCliente, @codigoUsuario, @descripcion, @precio, @cantidad)
+END 
+GO
+
 -------Procedimientos almacenados para realizar reportes----------------
 
 --Reporte detallada de entradas

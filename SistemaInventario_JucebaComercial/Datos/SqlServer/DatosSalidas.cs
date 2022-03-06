@@ -27,19 +27,6 @@ namespace Datos
             ExecuteNonQuery("p_RegistrarSalida");
         }
 
-        //Registrar detalles de la salida del inventario 
-        public void RegistrarDetallesSalida(int codigoUsuario, string cliente, string servicio, 
-            int cantidad, float precio) 
-        {
-            parameters = new List<SqlParameter>();
-            parameters.Add(new SqlParameter("@codigoUsuario", codigoUsuario));
-            parameters.Add(new SqlParameter("@cliente", cliente));
-            parameters.Add(new SqlParameter("@servicio", servicio));
-            parameters.Add(new SqlParameter("@cantidad", cantidad));
-            parameters.Add(new SqlParameter("precio", precio));
-            ExecuteNonQuery("p_RegistrarDetallesSalida");
-        }
-
         //Elimina la última salida insertada
         public void EliminarSalida() 
         {
