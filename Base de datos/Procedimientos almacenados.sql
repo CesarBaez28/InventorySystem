@@ -674,10 +674,11 @@ GO
 
 --Registrar cotización
 CREATE PROCEDURE p_RegistrarCotizacion
-   @fechaCotizacion DATETIME 
+   @fechaCotizacion DATETIME,
+   @descripcion TEXT
 AS
 BEGIN 
-  INSERT INTO cotizaciones(fecha_cotizacion) VALUES (@fechaCotizacion)
+  INSERT INTO cotizaciones(fecha_cotizacion, descripcion) VALUES (@fechaCotizacion, @descripcion)
 END 
 GO
 
@@ -686,16 +687,15 @@ CREATE PROCEDURE p_RegistrarDetallesCotizacion
   @codigoUsuario INT,
   @codigoServicio INT,
   @codigoCliente INT,
-  @descripcion VARCHAR(100),
   @cantidad INT,
   @precio NUMERIC(20,2)
 AS
 BEGIN 
   DECLARE @codigoCotizacion INT 
-  SELECT @codigoCliente = MAX(codigo) FROM cotizaciones
+  SELECT @codigoCotizacion = MAX(codigo) FROM cotizaciones
 
-  INSERT INTO detallesCotizacion(codigo_cotizacion, codigo_servicio, codigo_cliente, codigo_usuario, descripcion, precio, cantidad)
-  VALUES(@codigoCotizacion, @codigoServicio, @codigoCliente, @codigoUsuario, @descripcion, @precio, @cantidad)
+  INSERT INTO detallesCotizacion(codigo_cotizacion, codigo_servicio, codigo_cliente, codigo_usuario, precio, cantidad)
+  VALUES(@codigoCotizacion, @codigoServicio, @codigoCliente, @codigoUsuario, @precio, @cantidad)
 END 
 GO
 

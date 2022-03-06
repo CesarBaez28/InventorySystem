@@ -66,6 +66,7 @@
     <Compile Include="ServiciosCorreo\ServidorCorreoMaestro.cs" />
     <Compile Include="ServiciosCorreo\SoporteCorreo.cs" />
     <Compile Include="SqlServer\DatosClientes.cs" />
+    <Compile Include="SqlServer\DatosCotizaciones.cs" />
     <Compile Include="SqlServer\DatosDirecciones.cs" />
     <Compile Include="SqlServer\DatosEntradas.cs" />
     <Compile Include="SqlServer\DatosMateriales.cs" />

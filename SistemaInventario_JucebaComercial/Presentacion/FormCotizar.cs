@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using Comun;
 
 namespace Presentacion
 {
@@ -15,6 +16,7 @@ namespace Presentacion
     {
         DominioCliente clientes = new DominioCliente();
         DominioServicios servicios = new DominioServicios();
+        DominioCotizaciones cotizar = new DominioCotizaciones();
 
         string precioServicio = ""; //Guardo el precio de los servicios para mostrarlos autimaticamente.
         public float total = 0; //Guardo el total de la cotización.
@@ -190,7 +192,33 @@ namespace Presentacion
         //Terminar y regitrar la cotización
         private void btnTerminar_Click(object sender, EventArgs e)
         {
+            //Verifico que el gridViewCotizaciones no esté vacío. 
+            //Y que los combobox tengan un elemento seleccionado.
+            if (gridViewCotizaciones.Rows.Count != 0 && comboClientes.SelectedIndex != -1 && comboServicios.SelectedIndex != -1)
+            {
+                //Registro la cotización
+                cotizar.RegisterQuote(dateTimeCotizacion.Value, txbDescripcion.Text);
 
+                //Registrar detalles de la cotización
+                foreach (DataGridViewRow fila in gridViewCotizaciones.Rows)
+                {
+                    cotizar.RegisterDetailsQuote(UsuarioLoginCache.Codigo_usuario.ToString(),
+                        fila.Cells["codigoServicio"].Value.ToString(),
+                        comboClientes.SelectedValue.ToString(),
+                        fila.Cells["Cantidad"].Value.ToString(),
+                        fila.Cells["Total_Salida"].Value.ToString());
+                }
+
+                MessageBox.Show("Cotización registrada");
+            }
+            else 
+            {
+                MessageBox.Show("No hay servicios agregados o faltan campos por llenar");
+            }
+
+            total = 0;
+            lblTotalCotizacion.Text = "Total: ";
+            gridViewCotizaciones.Rows.Clear();
         }
 
         //Eliminar servicio de la lista

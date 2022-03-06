@@ -152,3 +152,17 @@ BEGIN
 	END
 END
 GO
+
+------ Trigger relacionado con las tablas de cotizaciones------------
+
+--Actualiza el total de la cotización
+CREATE TRIGGER t_RegistrarCotizacion 
+ON detallesCotizacion FOR INSERT
+AS
+BEGIN
+  --Actualizo el total de la cotización 
+  UPDATE cotizaciones SET total_cotizacion = total_cotizacion + (SELECT precio FROM inserted)
+  FROM cotizaciones JOIN detallesCotizacion ON (SELECT codigo_cotizacion FROM inserted) = cotizaciones.codigo
+  WHERE cotizaciones.codigo = (SELECT codigo_cotizacion FROM inserted)
+END 
+GO

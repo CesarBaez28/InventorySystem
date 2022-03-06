@@ -53,7 +53,7 @@
             this.Total_Salida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnTerminar = new System.Windows.Forms.Button();
             this.lblFecha = new System.Windows.Forms.Label();
-            this.dateTimeSalida = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeCotizacion = new System.Windows.Forms.DateTimePicker();
             this.lblMonto = new System.Windows.Forms.Label();
             this.txbMonto = new System.Windows.Forms.TextBox();
             this.lblCliente = new System.Windows.Forms.Label();
@@ -99,7 +99,7 @@
             this.panelContedorIngresos.Controls.Add(this.gridViewCotizaciones);
             this.panelContedorIngresos.Controls.Add(this.btnTerminar);
             this.panelContedorIngresos.Controls.Add(this.lblFecha);
-            this.panelContedorIngresos.Controls.Add(this.dateTimeSalida);
+            this.panelContedorIngresos.Controls.Add(this.dateTimeCotizacion);
             this.panelContedorIngresos.Controls.Add(this.lblMonto);
             this.panelContedorIngresos.Controls.Add(this.txbMonto);
             this.panelContedorIngresos.Controls.Add(this.lblCliente);
@@ -354,15 +354,15 @@
             this.lblFecha.TabIndex = 19;
             this.lblFecha.Text = "Fecha:";
             // 
-            // dateTimeSalida
+            // dateTimeCotizacion
             // 
-            this.dateTimeSalida.CalendarFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeSalida.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeSalida.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimeSalida.Location = new System.Drawing.Point(476, 64);
-            this.dateTimeSalida.Name = "dateTimeSalida";
-            this.dateTimeSalida.Size = new System.Drawing.Size(133, 23);
-            this.dateTimeSalida.TabIndex = 18;
+            this.dateTimeCotizacion.CalendarFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeCotizacion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeCotizacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimeCotizacion.Location = new System.Drawing.Point(476, 64);
+            this.dateTimeCotizacion.Name = "dateTimeCotizacion";
+            this.dateTimeCotizacion.Size = new System.Drawing.Size(133, 23);
+            this.dateTimeCotizacion.TabIndex = 18;
             // 
             // lblMonto
             // 
@@ -498,7 +498,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Total_Salida;
         private System.Windows.Forms.Button btnTerminar;
         private System.Windows.Forms.Label lblFecha;
-        public System.Windows.Forms.DateTimePicker dateTimeSalida;
+        public System.Windows.Forms.DateTimePicker dateTimeCotizacion;
         private System.Windows.Forms.Label lblMonto;
         private System.Windows.Forms.TextBox txbMonto;
         private System.Windows.Forms.Label lblCliente;
