@@ -670,7 +670,7 @@ BEGIN
 END
 GO
 
-------Procedimientos almacenados relacionados con las cotizaciones
+------Procedimientos almacenados relacionados con las cotizaciones-------
 
 --Registrar cotización
 CREATE PROCEDURE p_RegistrarCotizacion
@@ -697,6 +697,23 @@ BEGIN
   INSERT INTO detallesCotizacion(codigo_cotizacion, codigo_servicio, codigo_cliente, codigo_usuario, precio, cantidad)
   VALUES(@codigoCotizacion, @codigoServicio, @codigoCliente, @codigoUsuario, @precio, @cantidad)
 END 
+GO
+
+--Consultar todas las cotizaciones
+CREATE PROCEDURE p_consultatCotizaciones
+AS
+BEGIN 
+  SELECT cotizaciones.codigo as 'Código', 
+  cotizaciones.descripcion as 'Descripción', 
+  clientes.nombre as 'Cliente', 
+  cotizaciones.fecha_cotizacion as 'Fecha', 
+  cotizaciones.total_cotizacion as 'Total',
+  CASE WHEN cotizaciones.estado = 1 THEN 'Aceptado' ELSE 'No aceptado' END AS Estado
+  FROM cotizaciones, detallesCotizacion JOIN clientes ON clientes.codigo = detallesCotizacion.codigo_cliente
+  WHERE cotizaciones.codigo = detallesCotizacion.codigo_cotizacion
+  GROUP BY cotizaciones.codigo, cotizaciones.descripcion, clientes.nombre, cotizaciones.fecha_cotizacion, cotizaciones.total_cotizacion, cotizaciones.estado
+  ORDER BY cotizaciones.codigo
+END
 GO
 
 -------Procedimientos almacenados para realizar reportes----------------
@@ -757,7 +774,7 @@ BEGIN
 END
 GO
 
---Reporte detallada de salidas
+--Reporte detallado de salidas
 CREATE PROCEDURE p_reporteDetalladoSalidas
   @fechainicial DATETIME,
   @fechaFinal DATETIME
