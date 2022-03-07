@@ -720,9 +720,7 @@ GO
 
 --Consultar cotizaciones por su código 
 CREATE PROCEDURE p_consultarCotizacionesCodigo
-  @codigo INT,
-  @fechainicial DATETIME,
-  @fechaFinal DATETIME
+  @codigo INT
 AS
 BEGIN 
   SELECT cotizaciones.codigo as 'Código', 
@@ -732,7 +730,7 @@ BEGIN
   cotizaciones.total_cotizacion as 'Total',
   CASE WHEN cotizaciones.estado = 1 THEN 'Aceptado' ELSE 'No aceptado' END AS Estado
   FROM cotizaciones, detallesCotizacion JOIN clientes ON clientes.codigo = detallesCotizacion.codigo_cliente
-  WHERE cotizaciones.codigo = detallesCotizacion.codigo_cotizacion AND cotizaciones.fecha_cotizacion BETWEEN @fechainicial AND @fechaFinal AND cotizaciones.codigo = @codigo
+  WHERE cotizaciones.codigo = detallesCotizacion.codigo_cotizacion AND cotizaciones.codigo = @codigo
   GROUP BY cotizaciones.codigo, cotizaciones.descripcion, clientes.nombre, cotizaciones.fecha_cotizacion, cotizaciones.total_cotizacion, cotizaciones.estado
   ORDER BY cotizaciones.codigo
 END
@@ -740,9 +738,7 @@ GO
 
 --Buscar cotizaciones por su descripcion
 CREATE PROCEDURE p_consultarCotizacionesDescripcion
-  @descripcion VARCHAR(100),
-  @fechainicial DATETIME,
-  @fechaFinal DATETIME
+  @descripcion VARCHAR(100)
 AS
 BEGIN 
   SELECT cotizaciones.codigo as 'Código', 
@@ -752,7 +748,7 @@ BEGIN
   cotizaciones.total_cotizacion as 'Total',
   CASE WHEN cotizaciones.estado = 1 THEN 'Aceptado' ELSE 'No aceptado' END AS Estado
   FROM cotizaciones, detallesCotizacion JOIN clientes ON clientes.codigo = detallesCotizacion.codigo_cliente
-  WHERE cotizaciones.codigo = detallesCotizacion.codigo_cotizacion AND cotizaciones.fecha_cotizacion BETWEEN @fechainicial AND @fechaFinal AND cotizaciones.descripcion LIKE '%'+ @descripcion +'%'
+  WHERE cotizaciones.codigo = detallesCotizacion.codigo_cotizacion AND cotizaciones.descripcion LIKE '%'+ @descripcion +'%'
   GROUP BY cotizaciones.codigo, cotizaciones.descripcion, clientes.nombre, cotizaciones.fecha_cotizacion, cotizaciones.total_cotizacion, cotizaciones.estado
   ORDER BY cotizaciones.codigo
 END
@@ -760,9 +756,7 @@ GO
 
 --Buscar cotizaciones por cliente
 CREATE PROCEDURE p_consultarCotizacionesCliente
-  @cliente VARCHAR(100),
-  @fechainicial DATETIME,
-  @fechaFinal DATETIME
+  @cliente VARCHAR(100)
 AS
 BEGIN 
   SELECT cotizaciones.codigo as 'Código', 
@@ -772,7 +766,7 @@ BEGIN
   cotizaciones.total_cotizacion as 'Total',
   CASE WHEN cotizaciones.estado = 1 THEN 'Aceptado' ELSE 'No aceptado' END AS Estado
   FROM cotizaciones, detallesCotizacion JOIN clientes ON clientes.codigo = detallesCotizacion.codigo_cliente
-  WHERE cotizaciones.codigo = detallesCotizacion.codigo_cotizacion AND cotizaciones.fecha_cotizacion BETWEEN @fechainicial AND @fechaFinal AND clientes.nombre LIKE '%'+ @cliente +'%'
+  WHERE cotizaciones.codigo = detallesCotizacion.codigo_cotizacion AND clientes.nombre LIKE '%'+ @cliente +'%'
   GROUP BY cotizaciones.codigo, cotizaciones.descripcion, clientes.nombre, cotizaciones.fecha_cotizacion, cotizaciones.total_cotizacion, cotizaciones.estado
   ORDER BY cotizaciones.codigo
 END
@@ -780,9 +774,7 @@ GO
 
 --Buscar cotizaciones por estado (Aceptadas o no aceptadas)
 CREATE PROCEDURE p_consultarCotizacionesEstado
-  @estado BIT,
-  @fechainicial DATETIME,
-  @fechaFinal DATETIME
+  @estado BIT
 AS
 BEGIN 
   SELECT cotizaciones.codigo as 'Código', 
@@ -792,7 +784,7 @@ BEGIN
   cotizaciones.total_cotizacion as 'Total',
   CASE WHEN cotizaciones.estado = 1 THEN 'Aceptado' ELSE 'No aceptado' END AS Estado
   FROM cotizaciones, detallesCotizacion JOIN clientes ON clientes.codigo = detallesCotizacion.codigo_cliente
-  WHERE cotizaciones.codigo = detallesCotizacion.codigo_cotizacion AND cotizaciones.fecha_cotizacion BETWEEN @fechainicial AND @fechaFinal AND cotizaciones.estado = @estado
+  WHERE cotizaciones.codigo = detallesCotizacion.codigo_cotizacion AND cotizaciones.estado = @estado
   GROUP BY cotizaciones.codigo, cotizaciones.descripcion, clientes.nombre, cotizaciones.fecha_cotizacion, cotizaciones.total_cotizacion, cotizaciones.estado
   ORDER BY cotizaciones.codigo
 END

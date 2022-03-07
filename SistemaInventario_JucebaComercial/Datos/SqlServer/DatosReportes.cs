@@ -64,5 +64,45 @@ namespace Datos
             table = ExecuteReader("p_consultarCotizaciones");
             return table;
         }
+
+        //Consultar cotizaciones por código
+        public DataTable ConsultarCotizacionesPorCodigo(int codigo) 
+        {
+            DataTable table = new DataTable();
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigo", codigo));
+            table = ExecuteReader("p_consultarCotizacionesCodigo");
+            return table;
+        }
+
+        //Consultar cotizaciones por descripción
+        public DataTable ConsultarCotizacionesPorDescripcion(string descripcion) 
+        {
+            DataTable table = new DataTable();
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@descripcion", descripcion));
+            table = ExecuteReader("p_consultarCotizacionesDescripcion");
+            return table;
+        }
+
+        //Consultar cotizaciones por cliente
+        public DataTable ConsultarCotizacionesPorCliente(string cliente) 
+        {
+            DataTable table = new DataTable();
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@cliente", cliente));
+            table = ExecuteReader("p_consultarCotizacionesCliente");
+            return table;
+        }
+
+        //Consultar cotizaciones por estado (aceptadas o no aceptadas)
+        public DataTable ConsultarCotizacionesPorEstado(bool estado) 
+        {
+            DataTable table = new DataTable();
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@estado", estado));
+            table = ExecuteReader("p_consultarCotizacionesEstado");
+            return table;
+        }
     }
 }

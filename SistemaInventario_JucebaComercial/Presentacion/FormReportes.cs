@@ -18,6 +18,7 @@ namespace Presentacion
         float total; //Guardo aquí el total de los reportes
         string tituloReporte; //Guarda el título que tendrá el repote 
         bool diseñoCotizaciones = false;
+        bool estadoCotizacion = false;
 
         public FormReportes()
         {
@@ -156,6 +157,26 @@ namespace Presentacion
                 new DateTime(fechaFinal.Year, fechaFinal.Month, fechaFinal.Day, 23, 59, 59));
         }
 
+        private void ConsultarCotizacionesPorCodigo() 
+        {
+            gridViewReportes.DataSource = reporte.ConsultQuotesByCode(txbBuscar.Text);
+        }
+
+        private void ConsultarCotizacionesPorDescripcion() 
+        {
+            gridViewReportes.DataSource = reporte.ConsultQuotesByDescription(txbBuscar.Text);
+        }
+
+        private void ConsultarCotizacionesPorCliente() 
+        {
+            gridViewReportes.DataSource = reporte.ConsultQuotesByClient(txbBuscar.Text);
+        }
+
+        private void ConsultarCotizacionesPorEstado() 
+        {
+            gridViewReportes.DataSource = reporte.ConsultQuotesByStatus(estadoCotizacion);
+        }
+
         //Consultar
         private void btnConsultar_Click(object sender, EventArgs e)
         {
@@ -186,8 +207,53 @@ namespace Presentacion
             //Cotizaciones
             else if (comboReportes.SelectedIndex == 2) 
             {
-                ConsultarCotizaciones();
+                //Verifico haya una opción seleccionada 
+                if (comboBuscar.SelectedIndex != -1)
+                {
+                    //Buscar por código
+                    if (comboBuscar.SelectedIndex == 0)
+                    {
+                        //Verifico que el código se ha un número entero
+                        if (int.TryParse(txbBuscar.Text, out int parceCorrecto))
+                        {
+                            ConsultarCotizacionesPorCodigo();
+                        }
+                    }
+                    //Consultar por descripción
+                    else if (comboBuscar.SelectedIndex == 1)
+                    {
+                        ConsultarCotizacionesPorDescripcion();
+                    }
+                    //Buscar por cliente
+                    else if (comboBuscar.SelectedIndex == 2)
+                    {
+                        ConsultarCotizacionesPorCliente();
+                    }
+                    //Buscar las aceptadas
+                    else if (comboBuscar.SelectedIndex == 3)
+                    {
+                        estadoCotizacion = true;
+                        ConsultarCotizacionesPorEstado();
+                    }
+                    //Buscar las no aceptadas
+                    else if (comboBuscar.SelectedIndex == 4)
+                    {
+                        estadoCotizacion = false;
+                        ConsultarCotizacionesPorEstado();
+                    }
+                    //Buscar cotizaciones por fecha
+                    else if (comboBuscar.SelectedIndex == 5)
+                    {
+                        ConsultarCotizaciones();
+                    }
+                }
+                else 
+                {
+                    MessageBox.Show("Seleecione una opción");
+                }
+
                 tituloReporte = "Cotizaciones";
+                txbBuscar.Text = "";
             }
         }
 
