@@ -701,6 +701,8 @@ GO
 
 --Consultar todas las cotizaciones
 CREATE PROCEDURE p_consultatCotizaciones
+  @fechainicial DATETIME,
+  @fechaFinal DATETIME
 AS
 BEGIN 
   SELECT cotizaciones.codigo as 'Código', 
@@ -710,7 +712,7 @@ BEGIN
   cotizaciones.total_cotizacion as 'Total',
   CASE WHEN cotizaciones.estado = 1 THEN 'Aceptado' ELSE 'No aceptado' END AS Estado
   FROM cotizaciones, detallesCotizacion JOIN clientes ON clientes.codigo = detallesCotizacion.codigo_cliente
-  WHERE cotizaciones.codigo = detallesCotizacion.codigo_cotizacion
+  WHERE cotizaciones.codigo = detallesCotizacion.codigo_cotizacion AND cotizaciones.fecha_cotizacion BETWEEN @fechainicial AND @fechaFinal
   GROUP BY cotizaciones.codigo, cotizaciones.descripcion, clientes.nombre, cotizaciones.fecha_cotizacion, cotizaciones.total_cotizacion, cotizaciones.estado
   ORDER BY cotizaciones.codigo
 END
