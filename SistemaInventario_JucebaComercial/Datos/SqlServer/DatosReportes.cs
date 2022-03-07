@@ -53,5 +53,16 @@ namespace Datos
             table = ExecuteReader("p_reporteDetalladoSalidas");
             return table;
         }
+
+        //Consultar cotizaciones
+        public DataTable ConsultarCotizaciones(DateTime fechaInicial, DateTime fechaFinal) 
+        {
+            DataTable table = new DataTable();
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@fechainicial", fechaInicial));
+            parameters.Add(new SqlParameter("@fechaFinal", fechaFinal));
+            table = ExecuteReader("p_consultarCotizaciones");
+            return table;
+        }
     }
 }

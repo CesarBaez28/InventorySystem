@@ -44,5 +44,13 @@ namespace Dominio
             table = reporte.ReporteSalidasDetallado(fechaInicial, fechaFinal);
             return table;
         }
+
+        //consult quotes
+        public DataTable consultQuotes(DateTime fechaInicial, DateTime fechaFinal) 
+        {
+            DataTable table = new DataTable();
+            table = reporte.ConsultarCotizaciones(fechaInicial, fechaFinal);
+            return table;
+        }
     }
 }

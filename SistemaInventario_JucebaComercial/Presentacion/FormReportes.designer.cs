@@ -211,7 +211,8 @@ namespace Presentacion
             this.comboReportes.FormattingEnabled = true;
             this.comboReportes.Items.AddRange(new object[] {
             "Entradas",
-            "Salidas"});
+            "Salidas",
+            "Cotizaciones"});
             this.comboReportes.Location = new System.Drawing.Point(14, 74);
             this.comboReportes.Name = "comboReportes";
             this.comboReportes.Size = new System.Drawing.Size(163, 25);

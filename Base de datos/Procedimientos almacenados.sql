@@ -700,7 +700,7 @@ END
 GO
 
 --Consultar todas las cotizaciones
-CREATE PROCEDURE p_consultatCotizaciones
+CREATE PROCEDURE p_consultarCotizaciones
   @fechainicial DATETIME,
   @fechaFinal DATETIME
 AS

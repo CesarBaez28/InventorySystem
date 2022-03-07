@@ -178,6 +178,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExportarPdf.cs" />
     <Compile Include="FormActualizarMaterialesServicio.cs">
       <SubType>Form</SubType>
     </Compile>

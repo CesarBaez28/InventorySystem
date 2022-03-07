@@ -10,6 +10,7 @@ namespace Presentacion
     public partial class FormReportes : Form
     {
         DominioReportes reporte = new DominioReportes();
+        ExportarPdf exportarPdf = new ExportarPdf();
         DateTime fechaInicial;
         DateTime fechaFinal;
 
@@ -71,6 +72,16 @@ namespace Presentacion
                 new DateTime(fechaFinal.Year, fechaFinal.Month, fechaFinal.Day, 23, 59, 59));
         }
 
+        private void ConsultarCotizaciones() 
+        {
+            fechaInicial = dateTimeFechaInicio.Value;
+            fechaFinal = dateTimeFechaFin.Value;
+            
+            gridViewReportes.DataSource = reporte.consultQuotes(
+                new DateTime(fechaInicial.Year, fechaInicial.Month, fechaInicial.Day, 00, 00, 00),
+                new DateTime(fechaFinal.Year, fechaFinal.Month, fechaFinal.Day, 23, 59, 59));
+        }
+
         //Consultar
         private void btnConsultar_Click(object sender, EventArgs e)
         {
@@ -92,10 +103,15 @@ namespace Presentacion
                 ReporteGeneralSalidas();
                 tituloReporte = "Reporte de ventas general";
             }
-            else if(comboReportes.SelectedIndex == 1 && radioButtonDetallado.Checked)
+            else if (comboReportes.SelectedIndex == 1 && radioButtonDetallado.Checked)
             {
                 ReporteDetalladosSalidas();
                 tituloReporte = "Reporte de ventas detallado";
+            }
+            else if (comboReportes.SelectedIndex == 2) 
+            {
+                ConsultarCotizaciones();
+                tituloReporte = "Cotizaciones";
             }
         }
 
@@ -145,83 +161,6 @@ namespace Presentacion
             ExportarExcel.Visible = true;
         }
 
-        //Funcionalidad exportar a PDF
-        private void ExportarDatosPDF(DataGridView dataGridView, string pdfRuta, string header, float total) 
-        {
-            System.IO.FileStream fileStream = new FileStream(pdfRuta, FileMode.Create, FileAccess.Write, FileShare.None);
-            Document reporte = new Document();
-            reporte.SetPageSize(iTextSharp.text.PageSize.A4);
-            PdfWriter writer = PdfWriter.GetInstance(reporte, fileStream);
-            reporte.Open();
-
-            //Cabecera del reporte
-            BaseFont bfntHead = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-            iTextSharp.text.Font fntHead = new iTextSharp.text.Font(bfntHead, 16, 1, BaseColor.GRAY);
-            Paragraph prgHeading = new Paragraph();
-            prgHeading.Alignment = Element.ALIGN_CENTER;
-            prgHeading.Add(new Chunk(header.ToUpper(), fntHead));
-            reporte.Add(prgHeading);
-
-            //Autor, fecha, dirección
-            Paragraph prgAuthorDateAdress = new Paragraph();
-            BaseFont btnAuthorDateAdress = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-            iTextSharp.text.Font fntAuthorDateAdress = new iTextSharp.text.Font(btnAuthorDateAdress, 8, 2, BaseColor.GRAY);
-            prgAuthorDateAdress.Alignment = Element.ALIGN_RIGHT;
-            prgAuthorDateAdress.Add(new Chunk("Autor : Julio César Báez", fntAuthorDateAdress));
-            prgAuthorDateAdress.Add(new Chunk("\nFecha : " + DateTime.Now.ToShortDateString(), fntAuthorDateAdress));
-            prgAuthorDateAdress.Add(new Chunk("\nJánico, Santiago RD", fntAuthorDateAdress));
-            prgAuthorDateAdress.Add(new Chunk("\nFederico Pichardo #90", fntAuthorDateAdress));
-            reporte.Add(prgAuthorDateAdress);
-
-            //añadir linea de separación 
-            Paragraph p = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
-            reporte.Add(p);
-
-            //añadir espacio
-            reporte.Add(new Chunk("\n", fntHead));
-
-            //Escribir la tabla
-            PdfPTable table = new PdfPTable(gridViewReportes.Columns.Count);
-            table.WidthPercentage = 100; //La tabla ocupa el 100 porciento del documento
-
-            //Cabecera de la tabla
-            BaseFont btnColumnHeader = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-            iTextSharp.text.Font fntColumnHeader = new iTextSharp.text.Font(btnColumnHeader, 10, 1, BaseColor.WHITE);
-
-            table.HorizontalAlignment = Element.ALIGN_CENTER;
-
-            //Escribir cabecera
-            for (int i = 0; i < gridViewReportes.Columns.Count; i++)
-            {
-                PdfPCell cell = new PdfPCell();
-                cell.BackgroundColor = BaseColor.GRAY;
-                cell.AddElement(new Chunk(gridViewReportes.Columns[i].HeaderText.ToUpper(), fntColumnHeader));
-                table.AddCell(cell);
-            }
-
-            //Ingresar datos a la tabla
-            for (int i = 0; i < gridViewReportes.Rows.Count; i++)
-            {
-                for (int j = 0; j < gridViewReportes.Columns.Count; j++)
-                {
-                    table.AddCell(gridViewReportes.Rows[i].Cells[j].Value.ToString());
-                }
-            }
-            reporte.Add(table);
-
-            //Total del reporte
-            Paragraph prgTotal = new Paragraph();
-            BaseFont btnTotal = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-            iTextSharp.text.Font fntTotal = new iTextSharp.text.Font(btnTotal, 12, 1, BaseColor.BLACK);
-            prgTotal.Alignment = Element.ALIGN_RIGHT;
-            prgTotal.Add(new Chunk("Total: " + total.ToString(), fntTotal));
-            reporte.Add(prgTotal);
-
-            reporte.Close();
-            writer.Close();
-            fileStream.Close();
-        }
-
         //Botón Exportar en pdf
         private void btnExportarPdf_Click(object sender, EventArgs e)
         {
@@ -231,14 +170,26 @@ namespace Presentacion
                 save.FileName = "ReporteInventario";
                 save.DefaultExt = "pdf";
 
-                foreach (DataGridViewRow fila in gridViewReportes.Rows)
+                if (comboReportes.SelectedIndex != 2) 
                 {
-                    total += float.Parse(fila.Cells[gridViewReportes.Columns.Count - 1].Value.ToString());
+                    //Calcular total de reportes
+                    foreach (DataGridViewRow fila in gridViewReportes.Rows)
+                    {
+                        total += float.Parse(fila.Cells[gridViewReportes.Columns.Count - 1].Value.ToString());
+                    }
+                }
+                else
+                {
+                    //Calcular total de cotizaciones
+                    foreach (DataGridViewRow fila in gridViewReportes.Rows)
+                    {
+                        total += float.Parse(fila.Cells[gridViewReportes.Columns.Count - 2].Value.ToString());
+                    }
                 }
 
                 if (save.ShowDialog() == DialogResult.OK)
                 {
-                    ExportarDatosPDF(gridViewReportes, save.FileName, tituloReporte, total);
+                    exportarPdf.GenerarReporte(gridViewReportes, save.FileName, tituloReporte, total);
                 }
 
                 total = 0;
