@@ -4,6 +4,7 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
 using Dominio;
+using System.Drawing;
 
 namespace Presentacion
 {
@@ -16,6 +17,7 @@ namespace Presentacion
 
         float total; //Guardo aquí el total de los reportes
         string tituloReporte; //Guarda el título que tendrá el repote 
+        bool diseñoCotizaciones = false;
 
         public FormReportes()
         {
@@ -26,6 +28,78 @@ namespace Presentacion
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        //Ajusta los controles al diseño original
+        private void designOriginal()
+        {
+            //Muestro los componentes necesarios
+            comboBuscar.Visible = false;
+            lblBuscarPor.Visible = false;
+            txbBuscar.Visible = false;
+            btnEditar.Visible = false;
+            btnEliminar.Visible = false;
+
+            //Oculto los componentes no necesarios
+            radioButtonDetallado.Visible = true;
+            radioButtonGeneral.Visible = true;
+
+            //Cambio localización de los componentes
+            lblFechaInicio.Location = new Point(151, 50);
+            dateTimeFechaInicio.Location = new Point(155, 74);
+
+            lblFechaFin.Location = new Point(271, 50);
+            dateTimeFechaFin.Location = new Point(275, 74);
+
+            btnConsultar.Location = new Point(502, 74);
+            btnLimpiar.Location = new Point(617, 74);
+        }
+
+        //Ajusta los controles al dieseño para consultar cotizaciones
+        private void designQuote() 
+        {
+            //Muestro los componentes necesarios
+            comboBuscar.Visible = true;
+            lblBuscarPor.Visible = true;
+            txbBuscar.Visible = true;
+            btnEditar.Visible = true;
+            btnEliminar.Visible = true;
+
+            //Oculto los componentes no necesarios
+            radioButtonDetallado.Visible = false;
+            radioButtonGeneral.Visible = false;
+
+            //Cambio localización de los componentes
+            lblBuscarPor.Location = new Point(142, 50);
+            comboBuscar.Location = new Point(146, 74);
+            txbBuscar.Location = new Point(276, 74);
+
+            lblFechaInicio.Location = new Point(445, 50);
+            dateTimeFechaInicio.Location = new Point(449, 74);
+
+            lblFechaFin.Location = new Point(556, 50);
+            dateTimeFechaFin.Location = new Point(560, 74);
+
+            btnConsultar.Location = new Point(688, 74);
+            btnLimpiar.Location = new Point(794, 74);
+        }
+
+        private void comboReportes_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            //Cambio el diseño al seleccionar la opción de cotizaciones
+            if (comboReportes.SelectedIndex == 2)
+            {
+                designQuote();
+                diseñoCotizaciones = true;
+            }
+            else //Diseño original
+            {
+                if (diseñoCotizaciones == true) 
+                {
+                    designOriginal();
+                    diseñoCotizaciones = false;
+                }
+            }
         }
 
         //Reporte General de entradas
@@ -103,11 +177,13 @@ namespace Presentacion
                 ReporteGeneralSalidas();
                 tituloReporte = "Reporte de ventas general";
             }
+            //Reporte salida detallado
             else if (comboReportes.SelectedIndex == 1 && radioButtonDetallado.Checked)
             {
                 ReporteDetalladosSalidas();
                 tituloReporte = "Reporte de ventas detallado";
             }
+            //Cotizaciones
             else if (comboReportes.SelectedIndex == 2) 
             {
                 ConsultarCotizaciones();
@@ -175,7 +251,7 @@ namespace Presentacion
                     //Calcular total de reportes
                     foreach (DataGridViewRow fila in gridViewReportes.Rows)
                     {
-                        total += float.Parse(fila.Cells[gridViewReportes.Columns.Count - 1].Value.ToString());
+                       total += float.Parse(fila.Cells[gridViewReportes.Columns.Count - 1].Value.ToString());
                     }
                 }
                 else
@@ -183,7 +259,8 @@ namespace Presentacion
                     //Calcular total de cotizaciones
                     foreach (DataGridViewRow fila in gridViewReportes.Rows)
                     {
-                        total += float.Parse(fila.Cells[gridViewReportes.Columns.Count - 2].Value.ToString());
+                       // total += float.Parse(fila.Cells[gridViewReportes.Columns.Count - 2].Value.ToString());
+                        total += float.Parse(fila.Cells["Total"].Value.ToString());
                     }
                 }
 

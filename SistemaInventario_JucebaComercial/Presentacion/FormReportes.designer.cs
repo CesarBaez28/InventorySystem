@@ -29,9 +29,9 @@ namespace Presentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormReportes));
             this.panelContedorReporteGeneral = new System.Windows.Forms.Panel();
             this.radioButtonDetallado = new System.Windows.Forms.RadioButton();
@@ -54,6 +54,8 @@ namespace Presentacion
             this.comboBuscar = new System.Windows.Forms.ComboBox();
             this.lblBuscarPor = new System.Windows.Forms.Label();
             this.txbBuscar = new System.Windows.Forms.TextBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
             this.panelContedorReporteGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewReportes)).BeginInit();
             this.SuspendLayout();
@@ -64,6 +66,11 @@ namespace Presentacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelContedorReporteGeneral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelContedorReporteGeneral.Controls.Add(this.txbBuscar);
+            this.panelContedorReporteGeneral.Controls.Add(this.comboBuscar);
+            this.panelContedorReporteGeneral.Controls.Add(this.lblBuscarPor);
+            this.panelContedorReporteGeneral.Controls.Add(this.btnEliminar);
+            this.panelContedorReporteGeneral.Controls.Add(this.btnEditar);
             this.panelContedorReporteGeneral.Controls.Add(this.radioButtonDetallado);
             this.panelContedorReporteGeneral.Controls.Add(this.radioButtonGeneral);
             this.panelContedorReporteGeneral.Controls.Add(this.gridViewReportes);
@@ -119,14 +126,14 @@ namespace Presentacion
             this.gridViewReportes.BackgroundColor = System.Drawing.Color.White;
             this.gridViewReportes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridViewReportes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewReportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewReportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridViewReportes.ColumnHeadersHeight = 30;
             this.gridViewReportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridViewReportes.EnableHeadersVisualStyles = false;
@@ -135,20 +142,20 @@ namespace Presentacion
             this.gridViewReportes.Name = "gridViewReportes";
             this.gridViewReportes.ReadOnly = true;
             this.gridViewReportes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridViewReportes.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridViewReportes.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridViewReportes.RowHeadersVisible = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.gridViewReportes.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridViewReportes.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.gridViewReportes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridViewReportes.Size = new System.Drawing.Size(886, 330);
             this.gridViewReportes.TabIndex = 27;
@@ -220,6 +227,7 @@ namespace Presentacion
             this.comboReportes.Name = "comboReportes";
             this.comboReportes.Size = new System.Drawing.Size(126, 25);
             this.comboReportes.TabIndex = 22;
+            this.comboReportes.SelectionChangeCommitted += new System.EventHandler(this.comboReportes_SelectionChangeCommitted);
             // 
             // lblConsultarPor
             // 
@@ -227,9 +235,9 @@ namespace Presentacion
             this.lblConsultarPor.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConsultarPor.Location = new System.Drawing.Point(10, 50);
             this.lblConsultarPor.Name = "lblConsultarPor";
-            this.lblConsultarPor.Size = new System.Drawing.Size(111, 20);
+            this.lblConsultarPor.Size = new System.Drawing.Size(82, 20);
             this.lblConsultarPor.TabIndex = 21;
-            this.lblConsultarPor.Text = "Consultar por:";
+            this.lblConsultarPor.Text = "Consultar:";
             // 
             // btnTerminar
             // 
@@ -343,7 +351,7 @@ namespace Presentacion
             "Cliente",
             "Aceptadas",
             "No aceptadas"});
-            this.comboBuscar.Location = new System.Drawing.Point(183, 12);
+            this.comboBuscar.Location = new System.Drawing.Point(205, 492);
             this.comboBuscar.Name = "comboBuscar";
             this.comboBuscar.Size = new System.Drawing.Size(124, 25);
             this.comboBuscar.TabIndex = 31;
@@ -353,7 +361,7 @@ namespace Presentacion
             // 
             this.lblBuscarPor.AutoSize = true;
             this.lblBuscarPor.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscarPor.Location = new System.Drawing.Point(86, 12);
+            this.lblBuscarPor.Location = new System.Drawing.Point(201, 469);
             this.lblBuscarPor.Name = "lblBuscarPor";
             this.lblBuscarPor.Size = new System.Drawing.Size(91, 20);
             this.lblBuscarPor.TabIndex = 30;
@@ -362,13 +370,44 @@ namespace Presentacion
             // 
             // txbBuscar
             // 
-            this.txbBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txbBuscar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbBuscar.Location = new System.Drawing.Point(313, 11);
+            this.txbBuscar.Location = new System.Drawing.Point(335, 491);
             this.txbBuscar.Name = "txbBuscar";
             this.txbBuscar.Size = new System.Drawing.Size(167, 26);
             this.txbBuscar.TabIndex = 32;
             this.txbBuscar.Visible = false;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Location = new System.Drawing.Point(104, 474);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(84, 31);
+            this.btnEliminar.TabIndex = 31;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Visible = false;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnEditar.FlatAppearance.BorderSize = 0;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.ForeColor = System.Drawing.Color.White;
+            this.btnEditar.Location = new System.Drawing.Point(14, 474);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(84, 31);
+            this.btnEditar.TabIndex = 30;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Visible = false;
             // 
             // FormReportes
             // 
@@ -376,10 +415,7 @@ namespace Presentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(939, 573);
-            this.Controls.Add(this.txbBuscar);
             this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.comboBuscar);
-            this.Controls.Add(this.lblBuscarPor);
             this.Controls.Add(this.panelContedorReporteGeneral);
             this.Name = "FormReportes";
             this.Text = "Reportes";
@@ -387,7 +423,6 @@ namespace Presentacion
             this.panelContedorReporteGeneral.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewReportes)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -414,5 +449,7 @@ namespace Presentacion
         private System.Windows.Forms.ComboBox comboBuscar;
         private System.Windows.Forms.Label lblBuscarPor;
         private System.Windows.Forms.TextBox txbBuscar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnEditar;
     }
 }
