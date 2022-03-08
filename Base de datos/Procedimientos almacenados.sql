@@ -724,7 +724,7 @@ CREATE PROCEDURE p_consultarCotizacionDetallada
   @codigo INT
 AS 
 BEGIN 
-  SELECT detallesCotizacion.codigo_cotizacion as 'Código',
+  SELECT servicios.codigo as 'Código',
   servicios.nombre_servicio as 'Servicio',
   detallesCotizacion.precio as 'Monto',
   detallesCotizacion.cantidad as 'Cantidad',
@@ -753,8 +753,6 @@ GO
 
 EXECUTE p_consultarMetadatosCotizacion 4
 EXECUTE p_consultarCotizacionDetallada 4
-
-
 
 --Consultar cotizaciones por su código 
 CREATE PROCEDURE p_consultarCotizacionesCodigo
