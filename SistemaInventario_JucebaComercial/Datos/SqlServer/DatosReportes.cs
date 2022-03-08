@@ -104,5 +104,25 @@ namespace Datos
             table = ExecuteReader("p_consultarCotizacionesEstado");
             return table;
         }
+
+        //Consultar cotización detallada (código, servicios, monto, cantidad, precio, total)
+        public DataTable ConsultarCotizacionDetallada(int codigo) 
+        {
+            DataTable table = new DataTable();
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigo", codigo));
+            table = ExecuteReader("p_consultarCotizacionDetallada");
+            return table;
+        }
+
+        //Consultar metadatos de una cotización (Usuario, cliente, fecha)
+        public DataTable ConsultarMetaDatosCotizacion(int codigo) 
+        {
+            DataTable table = new DataTable();
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigo", codigo));
+            table = ExecuteReader("p_consultarMetadatosCotizacion");
+            return table;
+        }
     }
 }

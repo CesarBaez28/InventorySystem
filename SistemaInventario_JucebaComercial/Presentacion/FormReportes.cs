@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
+using System.Data;
 using Dominio;
 using System.Drawing;
 
@@ -19,7 +20,7 @@ namespace Presentacion
         string tituloReporte; //Guarda el título que tendrá el repote 
         bool diseñoCotizaciones = false;
         bool estadoCotizacion = false;
-        bool columnaAgregada = false;
+        string codigoCotizacion;
 
         public FormReportes()
         {
@@ -35,14 +36,15 @@ namespace Presentacion
         //Ajusta los controles al diseño original
         private void designOriginal()
         {
-            //Muestro los componentes necesarios
+            //Oculto los componentes no necesarios
             comboBuscar.Visible = false;
             lblBuscarPor.Visible = false;
             txbBuscar.Visible = false;
             btnEditar.Visible = false;
             btnEliminar.Visible = false;
+            btnAprobar.Visible = false;
 
-            //Oculto los componentes no necesarios
+            //Muestro los componentes necesarios
             radioButtonDetallado.Visible = true;
             radioButtonGeneral.Visible = true;
 
@@ -66,6 +68,7 @@ namespace Presentacion
             txbBuscar.Visible = true;
             btnEditar.Visible = true;
             btnEliminar.Visible = true;
+            btnAprobar.Visible = true;
 
             //Oculto los componentes no necesarios
             radioButtonDetallado.Visible = false;
@@ -98,15 +101,9 @@ namespace Presentacion
             {
                 if (diseñoCotizaciones == true) 
                 {
-                    if (columnaAgregada == true) 
-                    {
-                        gridViewReportes.Columns.Remove("Aprobar");
-                    }
-
                     designOriginal();
                     gridViewReportes.DataSource = "";
                     diseñoCotizaciones = false;
-                    columnaAgregada = false;
                 }
             }
         }
@@ -259,17 +256,6 @@ namespace Presentacion
                     {
                         ConsultarCotizaciones();
                     }
-
-                    //Agrego una columna para aprobar las cotizaciones
-                    if (columnaAgregada == false)
-                    {
-                        DataGridViewImageColumn dataGridViewImage = new DataGridViewImageColumn();
-                        dataGridViewImage.HeaderText = "Aprobar";
-                        dataGridViewImage.Name = "Aprobar";
-                        gridViewReportes.Columns.Add(dataGridViewImage);
-
-                        columnaAgregada = true;
-                    }
                 }
                 else 
                 {
@@ -334,12 +320,13 @@ namespace Presentacion
             if (gridViewReportes.Rows.Count != 0)
             {
                 SaveFileDialog save = new SaveFileDialog();
-                save.FileName = "ReporteInventario";
                 save.DefaultExt = "pdf";
 
                 //Entradas y salidas
                 if (comboReportes.SelectedIndex != 2) 
                 {
+                    save.FileName = "ReporteInventario";
+
                     //Calcular total de reportes
                     foreach (DataGridViewRow fila in gridViewReportes.Rows)
                     {
@@ -355,16 +342,25 @@ namespace Presentacion
                 //Cotizaciones
                 else
                 {
-                    //Calcular total de cotizaciones
-                    foreach (DataGridViewRow fila in gridViewReportes.Rows)
-                    {
-                       // total += float.Parse(fila.Cells[gridViewReportes.Columns.Count - 2].Value.ToString());
-                        total += float.Parse(fila.Cells["Total"].Value.ToString());
-                    }
+                    codigoCotizacion = gridViewReportes.CurrentRow.Cells["Código"].Value.ToString();
+
+                    save.FileName = "Cotización"+codigoCotizacion;
+
+                    //Obtengo los datos para crear la cotización
+                    DataTable detallesCotizacion = reporte.ConsultDatailedQuote(codigoCotizacion);
+                    DataTable metadatosCotizacion = reporte.ConsultMetadataQuote(codigoCotizacion);
+
+                    //Establezco los datos de la cotización
+                    string nombreEmpresa = "Juceba Comercial";
+                    string nombreUsuario = metadatosCotizacion.Rows[0]["Usuario"].ToString();
+                    string cliente = metadatosCotizacion.Rows[0]["Cliente"].ToString();
+                    DateTime fecha = Convert.ToDateTime(metadatosCotizacion.Rows[0]["Fecha"]);
+                    total = Convert.ToInt32(metadatosCotizacion.Rows[0]["Total"]);
 
                     if (save.ShowDialog() == DialogResult.OK)
                     {
-                        exportarPdf.GenerarReporte(gridViewReportes, save.FileName, tituloReporte, total);
+                        exportarPdf.GenerarCotizacion(detallesCotizacion, save.FileName, nombreEmpresa, cliente,
+                        nombreUsuario, Convert.ToInt32(codigoCotizacion), total, fecha);
                     }
                 }
 
@@ -378,7 +374,7 @@ namespace Presentacion
             {
                 if (gridViewReportes.SelectedCells.Count > 0)
                 {
-
+                     
                 }
                 else
                 {

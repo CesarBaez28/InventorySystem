@@ -29,11 +29,12 @@ namespace Presentacion
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormReportes));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormReportes));
             this.panelContedorReporteGeneral = new System.Windows.Forms.Panel();
+            this.btnAprobar = new System.Windows.Forms.Button();
             this.txbBuscar = new System.Windows.Forms.TextBox();
             this.comboBuscar = new System.Windows.Forms.ComboBox();
             this.lblBuscarPor = new System.Windows.Forms.Label();
@@ -66,6 +67,7 @@ namespace Presentacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelContedorReporteGeneral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelContedorReporteGeneral.Controls.Add(this.btnAprobar);
             this.panelContedorReporteGeneral.Controls.Add(this.txbBuscar);
             this.panelContedorReporteGeneral.Controls.Add(this.comboBuscar);
             this.panelContedorReporteGeneral.Controls.Add(this.lblBuscarPor);
@@ -91,10 +93,29 @@ namespace Presentacion
             this.panelContedorReporteGeneral.Size = new System.Drawing.Size(915, 519);
             this.panelContedorReporteGeneral.TabIndex = 4;
             // 
+            // btnAprobar
+            // 
+            this.btnAprobar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAprobar.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnAprobar.FlatAppearance.BorderSize = 0;
+            this.btnAprobar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAprobar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAprobar.ForeColor = System.Drawing.Color.White;
+            this.btnAprobar.Image = ((System.Drawing.Image)(resources.GetObject("btnAprobar.Image")));
+            this.btnAprobar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAprobar.Location = new System.Drawing.Point(14, 474);
+            this.btnAprobar.Name = "btnAprobar";
+            this.btnAprobar.Size = new System.Drawing.Size(102, 31);
+            this.btnAprobar.TabIndex = 33;
+            this.btnAprobar.Text = "Aprobar";
+            this.btnAprobar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAprobar.UseVisualStyleBackColor = false;
+            this.btnAprobar.Visible = false;
+            // 
             // txbBuscar
             // 
             this.txbBuscar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbBuscar.Location = new System.Drawing.Point(335, 491);
+            this.txbBuscar.Location = new System.Drawing.Point(402, 491);
             this.txbBuscar.Name = "txbBuscar";
             this.txbBuscar.Size = new System.Drawing.Size(167, 26);
             this.txbBuscar.TabIndex = 32;
@@ -112,7 +133,7 @@ namespace Presentacion
             "Aceptadas",
             "No aceptadas",
             "Fecha"});
-            this.comboBuscar.Location = new System.Drawing.Point(205, 492);
+            this.comboBuscar.Location = new System.Drawing.Point(425, 474);
             this.comboBuscar.Name = "comboBuscar";
             this.comboBuscar.Size = new System.Drawing.Size(124, 25);
             this.comboBuscar.TabIndex = 31;
@@ -122,7 +143,7 @@ namespace Presentacion
             // 
             this.lblBuscarPor.AutoSize = true;
             this.lblBuscarPor.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscarPor.Location = new System.Drawing.Point(201, 469);
+            this.lblBuscarPor.Location = new System.Drawing.Point(328, 471);
             this.lblBuscarPor.Name = "lblBuscarPor";
             this.lblBuscarPor.Size = new System.Drawing.Size(91, 20);
             this.lblBuscarPor.TabIndex = 30;
@@ -137,7 +158,7 @@ namespace Presentacion
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(104, 474);
+            this.btnEliminar.Location = new System.Drawing.Point(212, 474);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(84, 31);
             this.btnEliminar.TabIndex = 31;
@@ -153,7 +174,7 @@ namespace Presentacion
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(14, 474);
+            this.btnEditar.Location = new System.Drawing.Point(122, 474);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(84, 31);
             this.btnEditar.TabIndex = 30;
@@ -226,7 +247,7 @@ namespace Presentacion
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.gridViewReportes.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.gridViewReportes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.gridViewReportes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridViewReportes.Size = new System.Drawing.Size(886, 330);
             this.gridViewReportes.TabIndex = 27;
             this.gridViewReportes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewReportes_CellContentClick);
@@ -453,5 +474,6 @@ namespace Presentacion
         private System.Windows.Forms.TextBox txbBuscar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnAprobar;
     }
 }

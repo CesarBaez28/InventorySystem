@@ -84,5 +84,20 @@ namespace Dominio
             table = reporte.ConsultarCotizacionesPorEstado(estado);
             return table;
         }
+
+        //Consult datailed quote
+        public DataTable ConsultDatailedQuote(string codigo) 
+        {
+            DataTable table = new DataTable();
+            table = reporte.ConsultarCotizacionDetallada(Convert.ToInt32(codigo));
+            return table;
+        }
+
+        public DataTable ConsultMetadataQuote(string codigo)
+        {
+            DataTable table = new DataTable();
+            table = reporte.ConsultarMetaDatosCotizacion(Convert.ToInt32(codigo));
+            return table;
+        }
     }
 }

@@ -724,7 +724,8 @@ CREATE PROCEDURE p_consultarCotizacionDetallada
   @codigo INT
 AS 
 BEGIN 
-  SELECT servicios.nombre_servicio as 'Servicio',
+  SELECT detallesCotizacion.codigo_cotizacion as 'Código',
+  servicios.nombre_servicio as 'Servicio',
   detallesCotizacion.precio as 'Monto',
   detallesCotizacion.cantidad as 'Cantidad',
   detallesCotizacion.cantidad * detallesCotizacion.precio as Total
@@ -733,26 +734,27 @@ BEGIN
 END
 GO
 
---Consulta el usuario, código, fecha y cliente de una cotización. Se realiza a través del código de la cotización
+--Consulta el usuario, fecha, total general y cliente de una cotización. Se realiza a través del código de la cotización
 CREATE PROCEDURE p_consultarMetadatosCotizacion
   @codigo INT
 AS 
 BEGIN 
   SELECT usuarios.nombre as 'Usuario',
-  cotizaciones.codigo as 'Código cotización',
   cotizaciones.fecha_cotizacion as 'Fecha',
-  clientes.nombre as 'Cliente'
+  clientes.nombre as 'Cliente',
+  cotizaciones.total_cotizacion as 'Total'
   FROM cotizaciones JOIN detallesCotizacion ON cotizaciones.codigo = detallesCotizacion.codigo_cotizacion
   JOIN usuarios ON usuarios.codigo = detallesCotizacion.codigo_usuario
   JOIN clientes ON clientes.codigo = detallesCotizacion.codigo_cliente
   WHERE cotizaciones.codigo = @codigo
-  GROUP BY usuarios.nombre, cotizaciones.codigo, cotizaciones.fecha_cotizacion, clientes.nombre
+  GROUP BY usuarios.nombre, cotizaciones.codigo, cotizaciones.fecha_cotizacion, clientes.nombre, cotizaciones.total_cotizacion
 END 
 GO
 
+EXECUTE p_consultarMetadatosCotizacion 4
 EXECUTE p_consultarCotizacionDetallada 4
-SELECT * FROM Cotizaciones
-SELECT * FROM detallesCotizacion
+
+
 
 --Consultar cotizaciones por su código 
 CREATE PROCEDURE p_consultarCotizacionesCodigo
