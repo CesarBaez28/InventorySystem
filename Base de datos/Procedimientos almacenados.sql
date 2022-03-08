@@ -741,18 +741,16 @@ AS
 BEGIN 
   SELECT usuarios.nombre as 'Usuario',
   cotizaciones.fecha_cotizacion as 'Fecha',
+  clientes.codigo as 'Código cliente',
   clientes.nombre as 'Cliente',
   cotizaciones.total_cotizacion as 'Total'
   FROM cotizaciones JOIN detallesCotizacion ON cotizaciones.codigo = detallesCotizacion.codigo_cotizacion
   JOIN usuarios ON usuarios.codigo = detallesCotizacion.codigo_usuario
   JOIN clientes ON clientes.codigo = detallesCotizacion.codigo_cliente
   WHERE cotizaciones.codigo = @codigo
-  GROUP BY usuarios.nombre, cotizaciones.codigo, cotizaciones.fecha_cotizacion, clientes.nombre, cotizaciones.total_cotizacion
+  GROUP BY usuarios.nombre, cotizaciones.codigo, cotizaciones.fecha_cotizacion, clientes.nombre, cotizaciones.total_cotizacion, clientes.codigo
 END 
 GO
-
-EXECUTE p_consultarMetadatosCotizacion 4
-EXECUTE p_consultarCotizacionDetallada 4
 
 --Consultar cotizaciones por su código 
 CREATE PROCEDURE p_consultarCotizacionesCodigo

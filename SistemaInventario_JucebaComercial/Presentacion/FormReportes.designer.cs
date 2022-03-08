@@ -111,6 +111,7 @@ namespace Presentacion
             this.btnAprobar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAprobar.UseVisualStyleBackColor = false;
             this.btnAprobar.Visible = false;
+            this.btnAprobar.Click += new System.EventHandler(this.btnAprobar_Click);
             // 
             // txbBuscar
             // 

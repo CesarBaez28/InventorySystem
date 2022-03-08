@@ -34,5 +34,11 @@ namespace Dominio
             table = cotizar.ObtenerCodigoCotizacion();
             return table;
         }
+
+        //Update status Quote 
+        public void ApproveQuote(string codigo) 
+        {
+            cotizar.AprobarCotizacion(Convert.ToInt32(codigo));
+        }
     }
 }

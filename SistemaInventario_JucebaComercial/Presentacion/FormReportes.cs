@@ -5,7 +5,9 @@ using iTextSharp.text.pdf;
 using System.IO;
 using System.Data;
 using Dominio;
+using Comun;
 using System.Drawing;
+using System.Collections.Generic;
 
 namespace Presentacion
 {
@@ -365,6 +367,77 @@ namespace Presentacion
                 }
 
                 total = 0;
+            }
+        }
+
+        //Aprobar una cotización 
+        private void btnAprobar_Click(object sender, EventArgs e)
+        {
+            //Me aseguro haya una fila seleccionada
+            if (gridViewReportes.SelectedRows.Count > 0)
+            {
+                //Verifico que la cotización seleccionada no esté aprobada
+                if (gridViewReportes.CurrentRow.Cells["Estado"].Value.ToString() != "Aceptado")
+                {
+                    //Obtengo todos los datos de la cotización
+                    codigoCotizacion = gridViewReportes.CurrentRow.Cells["Código"].Value.ToString();
+                    DataTable detallesCotizacion = reporte.ConsultDatailedQuote(codigoCotizacion);
+                    DataTable metadatosCotizacion = reporte.ConsultMetadataQuote(codigoCotizacion);
+
+                    DominioSalida salida = new DominioSalida(); //Creo objeto DominioSalida para aprobar la cotización
+
+                    //Registro la salida
+                    salida.SaleOfService(DateTime.Now);
+
+                    //Obtengo el último código de la salida. Lo necesito para insertar los detalles de la salida
+                    int codigoSalida = Convert.ToInt32(salida.GetCodeSale().Rows[0]["codigo"]);
+
+                    //Creo una lista para guardar cada uno de los detalles de la salida
+                    List<DetallesSalida> listaDetalles = new List<DetallesSalida>();
+
+                    //Guardo cada uno de los detalles de la salida en la lista
+                    foreach (DataRow fila in detallesCotizacion.Rows)
+                    {
+                        var detalles = new DetallesSalida()
+                        {
+                            codigo_salida = codigoSalida,
+                            codigo_servicio = Convert.ToInt32(fila["Código"]),
+                            codigo_cliente = Convert.ToInt32(metadatosCotizacion.Rows[0]["Código cliente"]),
+                            codigo_usuario = UsuarioLoginCache.Codigo_usuario,
+                            precio = float.Parse(fila["Total"].ToString()),
+                            cantidad = Convert.ToInt32(fila["Cantidad"])
+                        };
+
+                        listaDetalles.Add(detalles);
+                    }
+
+                    try
+                    {
+                        //Registrar detalles de la salida
+                        salida.add_MultipleSingleInsert(listaDetalles);
+
+                        //Cambiar estado de cotización a aceptado
+                        DominioCotizaciones cotizaciones = new DominioCotizaciones();
+                        cotizaciones.ApproveQuote(codigoCotizacion);
+
+                        MessageBox.Show("Cotizacón aprobada");
+
+                        estadoCotizacion = false;
+                        ConsultarCotizacionesPorEstado();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No hay suficiente material para registrar uno de los servicios");
+                    }
+                }
+                else 
+                {
+                    MessageBox.Show("Esa cotización ya fue aprobada");
+                }
+            }
+            else 
+            {
+                MessageBox.Show("Seleccione una fila");
             }
         }
 

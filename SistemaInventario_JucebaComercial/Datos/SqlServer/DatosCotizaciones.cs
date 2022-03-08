@@ -36,5 +36,14 @@ namespace Datos.SqlServer
             table = ExecuteReaderText("SELECT MAX(codigo) as 'codigo' FROM cotizaciones");
             return table;
         }
+
+        //Cambiar estado de cotización a aceptado
+        public void AprobarCotizacion(int codigo)
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigo",codigo));
+
+            ExecuteNonQueryText("UPDATE cotizaciones SET estado = 1 WHERE codigo = @codigo");
+        }
     }
 }
