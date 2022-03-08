@@ -19,6 +19,7 @@ namespace Presentacion
         string tituloReporte; //Guarda el título que tendrá el repote 
         bool diseñoCotizaciones = false;
         bool estadoCotizacion = false;
+        bool columnaAgregada = false;
 
         public FormReportes()
         {
@@ -97,8 +98,15 @@ namespace Presentacion
             {
                 if (diseñoCotizaciones == true) 
                 {
+                    if (columnaAgregada == true) 
+                    {
+                        gridViewReportes.Columns.Remove("Aprobar");
+                    }
+
                     designOriginal();
+                    gridViewReportes.DataSource = "";
                     diseñoCotizaciones = false;
+                    columnaAgregada = false;
                 }
             }
         }
@@ -147,6 +155,7 @@ namespace Presentacion
                 new DateTime(fechaFinal.Year, fechaFinal.Month, fechaFinal.Day, 23, 59, 59));
         }
 
+        //Consultar cotizaciones 
         private void ConsultarCotizaciones() 
         {
             fechaInicial = dateTimeFechaInicio.Value;
@@ -157,21 +166,25 @@ namespace Presentacion
                 new DateTime(fechaFinal.Year, fechaFinal.Month, fechaFinal.Day, 23, 59, 59));
         }
 
+        //Consultar cotizaciones por código
         private void ConsultarCotizacionesPorCodigo() 
         {
             gridViewReportes.DataSource = reporte.ConsultQuotesByCode(txbBuscar.Text);
         }
 
+        //Consular cotizaciones por descripción
         private void ConsultarCotizacionesPorDescripcion() 
         {
             gridViewReportes.DataSource = reporte.ConsultQuotesByDescription(txbBuscar.Text);
         }
 
+        //Consular cotizaciones por cliente
         private void ConsultarCotizacionesPorCliente() 
         {
             gridViewReportes.DataSource = reporte.ConsultQuotesByClient(txbBuscar.Text);
         }
 
+        //Consultar cotizaciones por estado
         private void ConsultarCotizacionesPorEstado() 
         {
             gridViewReportes.DataSource = reporte.ConsultQuotesByStatus(estadoCotizacion);
@@ -246,12 +259,23 @@ namespace Presentacion
                     {
                         ConsultarCotizaciones();
                     }
+
+                    //Agrego una columna para aprobar las cotizaciones
+                    if (columnaAgregada == false)
+                    {
+                        DataGridViewImageColumn dataGridViewImage = new DataGridViewImageColumn();
+                        dataGridViewImage.HeaderText = "Aprobar";
+                        dataGridViewImage.Name = "Aprobar";
+                        gridViewReportes.Columns.Add(dataGridViewImage);
+
+                        columnaAgregada = true;
+                    }
                 }
                 else 
                 {
                     MessageBox.Show("Seleecione una opción");
                 }
-
+               
                 tituloReporte = "Cotizaciones";
                 txbBuscar.Text = "";
             }
@@ -306,12 +330,14 @@ namespace Presentacion
         //Botón Exportar en pdf
         private void btnExportarPdf_Click(object sender, EventArgs e)
         {
+            //Verifico que se haya realizado una consulta.
             if (gridViewReportes.Rows.Count != 0)
             {
                 SaveFileDialog save = new SaveFileDialog();
                 save.FileName = "ReporteInventario";
                 save.DefaultExt = "pdf";
 
+                //Entradas y salidas
                 if (comboReportes.SelectedIndex != 2) 
                 {
                     //Calcular total de reportes
@@ -319,7 +345,14 @@ namespace Presentacion
                     {
                        total += float.Parse(fila.Cells[gridViewReportes.Columns.Count - 1].Value.ToString());
                     }
+
+                    //Generar reporte
+                    if (save.ShowDialog() == DialogResult.OK)
+                    {
+                        exportarPdf.GenerarReporte(gridViewReportes, save.FileName, tituloReporte, total);
+                    }
                 }
+                //Cotizaciones
                 else
                 {
                     //Calcular total de cotizaciones
@@ -328,14 +361,29 @@ namespace Presentacion
                        // total += float.Parse(fila.Cells[gridViewReportes.Columns.Count - 2].Value.ToString());
                         total += float.Parse(fila.Cells["Total"].Value.ToString());
                     }
-                }
 
-                if (save.ShowDialog() == DialogResult.OK)
-                {
-                    exportarPdf.GenerarReporte(gridViewReportes, save.FileName, tituloReporte, total);
+                    if (save.ShowDialog() == DialogResult.OK)
+                    {
+                        exportarPdf.GenerarReporte(gridViewReportes, save.FileName, tituloReporte, total);
+                    }
                 }
 
                 total = 0;
+            }
+        }
+
+        private void gridViewReportes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 6)
+            {
+                if (gridViewReportes.SelectedCells.Count > 0)
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("Selecione una celda");
+                }
             }
         }
     }

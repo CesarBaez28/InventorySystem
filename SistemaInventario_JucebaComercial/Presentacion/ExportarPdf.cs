@@ -91,7 +91,7 @@ namespace Presentacion
         }
 
         //Crear cotización
-        public void GenerarCotizacion(DataGridView dataGridView, string pdfRuta, string header, string cliente, int numeroCotizacion, float total)
+        public void GenerarCotizacion(DataGridView dataGridView, string pdfRuta, string header, string cliente, string usuario, int numeroCotizacion, float total, DateTime fecha)
         {
             System.IO.FileStream fileStream = new FileStream(pdfRuta, FileMode.Create, FileAccess.Write, FileShare.None);
             Document factura = new Document();
@@ -133,9 +133,9 @@ namespace Presentacion
             BaseFont btnAuthorDateAdress = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             iTextSharp.text.Font fntAuthorDateAdress = new iTextSharp.text.Font(btnAuthorDateAdress, 10, 2, BaseColor.GRAY);
             prgAuthorDateAdress.Alignment = Element.ALIGN_LEFT;
-            prgAuthorDateAdress.Add(new Chunk("Empleado : " + UsuarioLoginCache.Nombre, fntAuthorDateAdress));
+            prgAuthorDateAdress.Add(new Chunk("Empleado : " + usuario, fntAuthorDateAdress));
             prgAuthorDateAdress.Add(new Chunk("\nNúmero de cotización : " + numeroCotizacion.ToString(), fntAuthorDateAdress));
-            prgAuthorDateAdress.Add(new Chunk("\nFecha : " + DateTime.Now.ToShortDateString(), fntAuthorDateAdress));
+            prgAuthorDateAdress.Add(new Chunk("\nFecha : " + fecha.ToShortDateString(), fntAuthorDateAdress));
             prgAuthorDateAdress.Add(new Chunk("\nCliente : " + cliente, fntAuthorDateAdress));
             factura.Add(prgAuthorDateAdress);
 

@@ -233,7 +233,7 @@ namespace Presentacion
             if (save.ShowDialog() == DialogResult.OK)
             {
                 exportarPdf.GenerarCotizacion(gridViewCotizaciones, save.FileName, nombreEmpresa, comboClientes.Text,
-                    codigoCotizacion, total);
+                    UsuarioLoginCache.Nombre, codigoCotizacion, total, dateTimeCotizacion.Value);
             }
         }
 
