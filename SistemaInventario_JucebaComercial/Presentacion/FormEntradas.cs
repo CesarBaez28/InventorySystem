@@ -158,7 +158,7 @@ namespace Presentacion
                     //Registro detalles de la entrada
                     entrada.RegisterDetailsEntry(UsuarioLoginCache.Codigo_usuario.ToString(), 
                         fila.Cells["Suplidor"].Value.ToString(), fila.Cells["Material"].Value.ToString(),
-                        fila.Cells["Cantidad"].Value.ToString(),fila.Cells["Total_entrada"].Value.ToString());
+                        fila.Cells["Cantidad"].Value.ToString(),fila.Cells["Monto"].Value.ToString());
                 }
 
                 MessageBox.Show("Registro exitoso");

@@ -85,7 +85,7 @@ ON detalle_entrada FOR INSERT
 AS
 BEGIN
   --Actualizo el total de la entrada
-  UPDATE entradas SET total_entrada = total_entrada + (SELECT costo FROM inserted)
+  UPDATE entradas SET total_entrada = total_entrada + ((SELECT costo FROM inserted) * (SELECT cantidad FROM inserted))
   FROM entradas JOIN detalle_entrada ON (SELECT codigo_entrada FROM inserted) = entradas.codigo
   WHERE entradas.codigo = (SELECT codigo_entrada FROM inserted)
 
@@ -104,8 +104,8 @@ ON detalles_salida FOR INSERT
 AS
 BEGIN 
   --Actualizo el total de la salida
-  UPDATE salidas SET total_salida = total_salida + (SELECT precio FROM inserted) FROM 
-  salidas JOIN detalles_salida ON (SELECT codigo_salida FROM inserted) = salidas.codigo 
+  UPDATE salidas SET total_salida = total_salida + ((SELECT precio FROM inserted) * (SELECT cantidad FROM inserted))
+  FROM salidas JOIN detalles_salida ON (SELECT codigo_salida FROM inserted) = salidas.codigo 
   WHERE salidas.codigo = (SELECT codigo_salida FROM inserted)
 
   -- Creo una tabla virtual de servicios_materiales para verificar si está disponible la cantidad suficiente de material para registrar el servicio

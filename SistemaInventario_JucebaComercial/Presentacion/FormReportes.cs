@@ -94,6 +94,7 @@ namespace Presentacion
             if (comboReportes.SelectedIndex == 2)
             {
                 designQuote();
+                gridViewReportes.DataSource = null;
                 diseñoCotizaciones = true;
             }
             else //Diseño original
@@ -101,9 +102,10 @@ namespace Presentacion
                 if (diseñoCotizaciones == true) 
                 {
                     designOriginal();
-                    gridViewReportes.DataSource = "";
                     diseñoCotizaciones = false;
                 }
+
+                gridViewReportes.DataSource = null;
             }
         }
 
@@ -189,6 +191,12 @@ namespace Presentacion
         //Consultar
         private void btnConsultar_Click(object sender, EventArgs e)
         {
+            //Verifico si ya se ha realizado una consulta para limpiar los datos
+            if (gridViewReportes.DataSource != null) 
+            {
+                gridViewReportes.DataSource = null;
+            }
+
             //Reporte entradas general
             if (comboReportes.SelectedIndex == 0 && radioButtonGeneral.Checked)
             {

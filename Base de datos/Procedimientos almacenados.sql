@@ -842,7 +842,8 @@ BEGIN
   usuarios.nombre as 'Empleado',
   materiales.nombre as 'Material', 
   detalle_entrada.cantidad as 'Cantidad', 
-  detalle_entrada.costo as 'Costo' 
+  detalle_entrada.costo as 'Costo',
+  detalle_entrada.costo * detalle_entrada.cantidad as 'Total'
   FROM entradas JOIN detalle_entrada ON entradas.codigo = detalle_entrada.codigo_entrada
   JOIN materiales ON detalle_entrada.codigo_material = materiales.codigo
   JOIN proveedores ON detalle_entrada.codigo_suplidor = proveedores.codigo
@@ -850,6 +851,8 @@ BEGIN
   WHERE entradas.fecha_entrada BETWEEN @fechainicial AND @fechaFinal
 END 
 GO
+
+ -- detallesCotizacion.cantidad * detallesCotizacion.precio as Total
 
 --Reporte general de entradas
 CREATE PROCEDURE p_reporteEntradasGeneral
@@ -898,7 +901,8 @@ BEGIN
   usuarios.nombre as 'Empleado', 
   servicios.nombre_servicio as 'Servicio',
   detalles_salida.cantidad as 'Cantidad',
-  detalles_salida.precio as 'Precio'
+  detalles_salida.precio as 'Precio',
+  detalles_salida.cantidad * detalles_salida.precio as 'Total'
   FROM salidas JOIN detalles_salida ON salidas.codigo = detalles_salida.codigo_salida
   JOIN clientes ON clientes.codigo = detalles_salida.codigo_cliente
   JOIN usuarios ON usuarios.codigo = detalles_salida.codigo_usuario

@@ -180,7 +180,7 @@ namespace Presentacion
                         codigo_servicio = Convert.ToInt32(fila.Cells["codigoServicio"].Value.ToString()),
                         codigo_cliente = Convert.ToInt32(comboClientes.SelectedValue),
                         codigo_usuario = UsuarioLoginCache.Codigo_usuario,
-                        precio = float.Parse(fila.Cells["Total_Salida"].Value.ToString()),
+                        precio = float.Parse(fila.Cells["Monto"].Value.ToString()),
                         cantidad = Convert.ToInt32(fila.Cells["Cantidad"].Value.ToString())
                         };
 
