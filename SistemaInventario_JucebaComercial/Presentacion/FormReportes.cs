@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-using System.IO;
 using System.Data;
 using Dominio;
 using Comun;
@@ -10,7 +7,7 @@ using System.Drawing;
 using System.Collections.Generic;
 
 namespace Presentacion
-{
+{ 
     public partial class FormReportes : Form
     {
         DominioReportes reporte = new DominioReportes();
@@ -441,17 +438,26 @@ namespace Presentacion
             }
         }
 
-        private void gridViewReportes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //Eliminar una cotización 
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (e.ColumnIndex == 6)
+            //Me aseguro haya una fila seleccionada
+            if (gridViewReportes.SelectedRows.Count > 0) 
             {
-                if (gridViewReportes.SelectedCells.Count > 0)
+                const string message ="¿Estar seguro de borrar este registro?";
+                const string caption = "Advertencia";
+                var result = MessageBox.Show(message,caption,MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
                 {
-                     
-                }
-                else
-                {
-                    MessageBox.Show("Selecione una celda");
+                    DominioCotizaciones cotizaciones = new DominioCotizaciones();
+                    codigoCotizacion = gridViewReportes.CurrentRow.Cells["Código"].Value.ToString();
+
+                    cotizaciones.DeleteDetailsQuote(codigoCotizacion);//Borro los detalles de la cotización
+                    cotizaciones.DeleteQuote(codigoCotizacion);//Borro la cotización 
+
+                    estadoCotizacion = false;
+                    ConsultarCotizacionesPorEstado();
                 }
             }
         }

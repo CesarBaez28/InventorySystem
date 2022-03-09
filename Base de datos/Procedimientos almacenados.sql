@@ -734,6 +734,10 @@ BEGIN
 END
 GO
 
+EXECUTE p_consultarCotizacionDetallada 6
+SELECT * FROM detallesCotizacion
+SELECT * FROM cotizaciones
+
 --Consulta el usuario, fecha, total general y cliente de una cotización. Se realiza a través del código de la cotización
 CREATE PROCEDURE p_consultarMetadatosCotizacion
   @codigo INT

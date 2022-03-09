@@ -40,5 +40,17 @@ namespace Dominio
         {
             cotizar.AprobarCotizacion(Convert.ToInt32(codigo));
         }
+
+        //Delete quote 
+        public void DeleteQuote(string codigo) 
+        {
+            cotizar.EliminarCotizacion(Convert.ToInt32(codigo));
+        }
+
+        //Delete details quote 
+        public void DeleteDetailsQuote(string codigo) 
+        {
+            cotizar.EliminarDetallesCotización(Convert.ToInt32(codigo));
+        }
     }
 }

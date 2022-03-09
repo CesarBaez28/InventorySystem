@@ -42,8 +42,23 @@ namespace Datos.SqlServer
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigo",codigo));
-
             ExecuteNonQueryText("UPDATE cotizaciones SET estado = 1 WHERE codigo = @codigo");
+        }
+
+        //Borrar cotización 
+        public void EliminarCotizacion(int codigo) 
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigo", codigo));
+            ExecuteNonQueryText("DELETE FROM cotizaciones WHERE codigo = @codigo");
+        }
+
+        //Borrar detalles de la cotización
+        public void EliminarDetallesCotización(int codigo) 
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigo", codigo));
+            ExecuteNonQueryText("DELETE FROM detallesCotizacion WHERE codigo_cotizacion = @codigo");
         }
     }
 }

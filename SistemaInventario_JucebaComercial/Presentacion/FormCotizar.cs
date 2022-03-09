@@ -206,7 +206,7 @@ namespace Presentacion
                         fila.Cells["codigoServicio"].Value.ToString(),
                         comboClientes.SelectedValue.ToString(),
                         fila.Cells["Cantidad"].Value.ToString(),
-                        fila.Cells["Total_Salida"].Value.ToString());
+                        fila.Cells["Monto"].Value.ToString());
                 }
 
                 MessageBox.Show("Cotización registrada");

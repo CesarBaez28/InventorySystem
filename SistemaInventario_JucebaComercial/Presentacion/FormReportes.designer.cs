@@ -166,6 +166,7 @@ namespace Presentacion
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Visible = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnEditar
             // 
@@ -251,7 +252,6 @@ namespace Presentacion
             this.gridViewReportes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridViewReportes.Size = new System.Drawing.Size(886, 330);
             this.gridViewReportes.TabIndex = 27;
-            this.gridViewReportes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewReportes_CellContentClick);
             // 
             // btnExportarPdf
             // 

@@ -161,7 +161,7 @@ ON detallesCotizacion FOR INSERT
 AS
 BEGIN
   --Actualizo el total de la cotización 
-  UPDATE cotizaciones SET total_cotizacion = total_cotizacion + (SELECT precio FROM inserted)
+  UPDATE cotizaciones SET total_cotizacion = total_cotizacion + ((SELECT precio FROM inserted) * (SELECT cantidad FROM inserted))
   FROM cotizaciones JOIN detallesCotizacion ON (SELECT codigo_cotizacion FROM inserted) = cotizaciones.codigo
   WHERE cotizaciones.codigo = (SELECT codigo_cotizacion FROM inserted)
 END 
