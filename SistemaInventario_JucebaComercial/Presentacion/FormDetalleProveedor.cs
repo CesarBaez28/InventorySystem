@@ -114,7 +114,7 @@ namespace Presentacion
                     }
                     catch
                     {
-                        MessageBox.Show("Ya existe un proveedor con ese nombre");
+                        MessageBox.Show("Ya existe un proveedor con ese nombre o el número de teléfono ya está registrado.");
                     }
 
                 }

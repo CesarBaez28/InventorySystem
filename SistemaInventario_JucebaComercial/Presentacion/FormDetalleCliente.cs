@@ -122,7 +122,7 @@ namespace Presentacion
                     }
                     catch
                     {
-                        MessageBox.Show("Ya existe un cliente por ese nombre.");
+                        MessageBox.Show("Ya existe un cliente con ese nombre o el número de telefóno ya está registrado.");
                     }
                 }
             }

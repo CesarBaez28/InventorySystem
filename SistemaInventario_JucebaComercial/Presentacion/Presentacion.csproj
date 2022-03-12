@@ -251,6 +251,12 @@
     <Compile Include="FormDetalleUsuario.designer.cs">
       <DependentUpon>FormDetalleUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEditarCotizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditarCotizacion.Designer.cs">
+      <DependentUpon>FormEditarCotizacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEditarPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -354,6 +360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDetalleUsuario.resx">
       <DependentUpon>FormDetalleUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditarCotizacion.resx">
+      <DependentUpon>FormEditarCotizacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditarPerfil.resx">
       <DependentUpon>FormEditarPerfil.cs</DependentUpon>

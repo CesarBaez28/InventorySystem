@@ -166,3 +166,16 @@ BEGIN
   WHERE cotizaciones.codigo = (SELECT codigo_cotizacion FROM inserted)
 END 
 GO
+
+--Actualiza el total de la cotización
+CREATE TRIGGER t_EditarCotizacion 
+ON detallesCotizacion FOR UPDATE
+AS
+BEGIN 
+  IF((SELECT precio FROM deleted) <> (SELECT precio FROM inserted) OR (SELECT cantidad FROM deleted) <> (SELECT cantidad FROM inserted))
+  BEGIN
+    DECLARE @diferencia FLOAT = ((SELECT precio FROM deleted) * (SELECT cantidad FROM deleted) - (SELECT precio FROM inserted) * (SELECT cantidad FROM inserted)) * -1
+	UPDATE cotizaciones SET total_cotizacion = total_cotizacion + @diferencia
+  END
+END 
+GO

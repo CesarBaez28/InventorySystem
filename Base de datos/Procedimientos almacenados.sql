@@ -699,6 +699,55 @@ BEGIN
 END 
 GO
 
+--Editar datos de una cotización 
+CREATE PROCEDURE p_EditarCotizacion 
+  @codigoCotizacion INT,
+  @fecha DATETIME,
+  @descripcion VARCHAR(100)
+AS
+BEGIN 
+  --Editar cotización 
+  UPDATE cotizaciones SET fecha_cotizacion = @fecha, descripcion = @descripcion
+  WHERE codigo = @codigoCotizacion
+END 
+GO
+
+CREATE PROCEDURE p_EditarDetallesCotizacion
+  @codigoDetalleCotizacion INT,
+  @servicio VARCHAR(100),
+  @codigoCliente INT,
+  @codigoUsuario INT,
+  @precio NUMERIC(20,2),
+  @cantidad INT
+AS
+BEGIN 
+  DECLARE @codigoServicio INT
+  SELECT @codigoServicio = codigo FROM servicios WHERE nombre_servicio = @servicio
+
+  --Editar detalles de la cotización
+  UPDATE detallesCotizacion SET codigo_servicio = @codigoServicio, codigo_cliente = @codigoCliente, codigo_usuario = @codigoUsuario, precio = @precio, cantidad = @cantidad
+  WHERE detallesCotizacion.codigo = @codigoDetalleCotizacion
+END 
+GO
+
+--Registra nuevos detalles de una cotización ya creada
+CREATE PROCEDURE p_RegistrarNuevosDetallesCotizacion
+  @codigoCotizacion INT,
+  @codigoUsuario INT,
+  @servicio VARCHAR (100),
+  @codigoCliente INT,
+  @cantidad INT,
+  @precio NUMERIC(20,2)
+AS
+BEGIN
+    DECLARE @codigoServicio INT
+    SELECT  @codigoServicio = codigo FROM servicios WHERE nombre_servicio = @servicio
+
+    INSERT INTO detallesCotizacion(codigo_cotizacion, codigo_servicio, codigo_cliente, codigo_usuario, precio, cantidad)
+    VALUES(@codigoCotizacion, @codigoServicio, @codigoCliente, @codigoUsuario, @precio, @cantidad)
+END
+GO
+
 ---Consultar todas las cotizaciones
 CREATE PROCEDURE p_consultarCotizaciones
   @fechainicial DATETIME,
@@ -718,13 +767,13 @@ BEGIN
 END
 GO
 
---Consulta de una cotización incluyendo los servicios, monto, 
+--Consulta de una cotización incluyendo los servicios, código del detalle de la cotización, monto, 
 --cantidad y total. Se realiza a través del código de la cotización
 CREATE PROCEDURE p_consultarCotizacionDetallada
   @codigo INT
 AS 
 BEGIN 
-  SELECT servicios.codigo as 'Código',
+  SELECT servicios.codigo as 'Código Servicio',
   servicios.nombre_servicio as 'Servicio',
   detallesCotizacion.precio as 'Monto',
   detallesCotizacion.cantidad as 'Cantidad',
@@ -734,9 +783,10 @@ BEGIN
 END
 GO
 
-EXECUTE p_consultarCotizacionDetallada 6
-SELECT * FROM detallesCotizacion
-SELECT * FROM cotizaciones
+EXECUTE p_consultarCotizacionDetallada 10
+
+EXECUTE p_consultarMetadatosCotizacion 10
+
 
 --Consulta el usuario, fecha, total general y cliente de una cotización. Se realiza a través del código de la cotización
 CREATE PROCEDURE p_consultarMetadatosCotizacion
@@ -851,8 +901,6 @@ BEGIN
   WHERE entradas.fecha_entrada BETWEEN @fechainicial AND @fechaFinal
 END 
 GO
-
- -- detallesCotizacion.cantidad * detallesCotizacion.precio as Total
 
 --Reporte general de entradas
 CREATE PROCEDURE p_reporteEntradasGeneral

@@ -469,5 +469,38 @@ namespace Presentacion
                 }
             }
         }
+
+        //Editar una cotización
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            //Me aseguro que haya una fila seleccionada
+            if (gridViewReportes.SelectedRows.Count > 0) 
+            {
+                FormEditarCotizacion editarCotizacion = new FormEditarCotizacion();
+
+                editarCotizacion.nombreCliente = gridViewReportes.CurrentRow.Cells["Cliente"].Value.ToString();
+                editarCotizacion.codigoCotizacion = gridViewReportes.CurrentRow.Cells["Código"].Value.ToString();
+                editarCotizacion.fecha = gridViewReportes.CurrentRow.Cells["Fecha"].Value.ToString();
+                //editarCotizacion.lblTotalCotizacion.Text = "Total: "+ gridViewReportes.CurrentRow.Cells["Total"].Value.ToString();
+                //editarCotizacion.total = gridViewReportes.CurrentRow.Cells["Total"].Value.ToString();
+                editarCotizacion.descripcion = gridViewReportes.CurrentRow.Cells["Descripción"].Value.ToString();
+                AbrirFormulario(editarCotizacion);
+            }
+        }
+
+
+        //Metodo para abrir fomulario
+        private Form formActivo = null;
+        private void AbrirFormulario(Form form)
+        {
+            if (formActivo != null)
+            {
+                formActivo.Close();
+            }
+
+            formActivo = form;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Show();
+        }
     }
 }

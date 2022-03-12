@@ -27,11 +27,45 @@ namespace Dominio
                 Convert.ToInt32(cantidad), float.Parse(precio));
         }
 
+        //Register Details Quote new
+        public void RegisterDetailsQuoteNew(string codigoCotizacion, string codigoUsuario, string servicio, string codigoCliente,
+            string cantidad, string precio)
+        {
+            cotizar.RegistrarNuevosDetallesCotizacion(Convert.ToInt32(codigoCotizacion), 
+                Convert.ToInt32(codigoUsuario), servicio, 
+                Convert.ToInt32(codigoCliente),Convert.ToInt32(cantidad), float.Parse(precio));
+        }
+
+        //Update Quote
+        public void UpdateQuote(string codigoCotizacion, DateTime fecha, string descripcion) 
+        {
+            cotizar.EditarCotizacion(Convert.ToInt32(codigoCotizacion), fecha, descripcion);
+        }
+
+        //Update details Quote 
+        public void UpdateDetailsQuote(string codigoDetalleCotizacion, string servicio, string codigoCliente, string codigoUsuario, string precio, string cantidad) 
+        {
+            cotizar.EditarDetallesCotizaion(Convert.ToInt32(codigoDetalleCotizacion), 
+                                            servicio, 
+                                            Convert.ToInt32(codigoCliente), 
+                                            Convert.ToInt32(codigoUsuario), 
+                                            float.Parse(precio),
+                                            Convert.ToInt32(cantidad));
+        }
+
         //Get quote code 
         public DataTable GetQuoteCode() 
         {
             DataTable table = new DataTable();
             table = cotizar.ObtenerCodigoCotizacion();
+            return table;
+        }
+
+        //Get details quote codes
+        public DataTable GetDetailsQuoteCodes(string codigoCotizacion) 
+        {
+            DataTable table = new DataTable();
+            table = cotizar.ObtenenerDetallesCotizacionCodigos(Convert.ToInt32(codigoCotizacion));
             return table;
         }
 
