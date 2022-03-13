@@ -132,7 +132,7 @@ namespace Presentacion
             gridViewCotizaciones.Rows[indice].Cells["Cantidad"].Value = cantidad;
             gridViewCotizaciones.Rows[indice].Cells["Total_Cotizacion"].Value = total;
 
-            //Total de la salida
+            //Total de la cotización
             totalCotizacion += total_servicio;
             lblTotalCotizacion.Text = "Total: " + totalCotizacion.ToString();
         }
@@ -173,18 +173,37 @@ namespace Presentacion
             //Registro los nuevos registros que se agregaron
             if (elementosAgregados != 0)
             {
-                for (int indice = gridViewCotizaciones.Rows.Count - (elementosAgregados); indice < gridViewCotizaciones.Rows.Count; indice++)
+                bool registroVacio = false;
+                //Verifico que cda combobox tenga un valor seleccionado 
+                for (int indice = gridViewCotizaciones.Rows.Count - (elementosAgregados); indice < gridViewCotizaciones.Rows.Count; indice++) 
                 {
-                    cotizacion.RegisterDetailsQuoteNew(codigoCotizacion, UsuarioLoginCache.Codigo_usuario.ToString(),
-                                                    gridViewCotizaciones.Rows[indice].Cells["Servicio"].FormattedValue.ToString(),
-                                                    comboClientes.SelectedValue.ToString(),
-                                                    gridViewCotizaciones.Rows[indice].Cells["Cantidad"].Value.ToString(),
-                                                    gridViewCotizaciones.Rows[indice].Cells["Monto"].Value.ToString());
+                    if (gridViewCotizaciones.Rows[indice].Cells["Servicio"].FormattedValue.ToString() == "") 
+                    { 
+                        registroVacio = true;
+                        break;
+                    }
+                }
+
+                if (registroVacio == false)
+                {
+                    //Registo los nuevos detalles de la cotización 
+                    for (int indice = gridViewCotizaciones.Rows.Count - (elementosAgregados); indice < gridViewCotizaciones.Rows.Count; indice++)
+                    {
+                        cotizacion.RegisterDetailsQuoteNew(codigoCotizacion, UsuarioLoginCache.Codigo_usuario.ToString(),
+                                                        gridViewCotizaciones.Rows[indice].Cells["Servicio"].FormattedValue.ToString(),
+                                                        comboClientes.SelectedValue.ToString(),
+                                                        gridViewCotizaciones.Rows[indice].Cells["Cantidad"].Value.ToString(),
+                                                        gridViewCotizaciones.Rows[indice].Cells["Monto"].Value.ToString());
+                    }
+
+                    MessageBox.Show("Datos actualizados");
+                    elementosAgregados = 0;
+                }
+                else
+                {
+                    MessageBox.Show("Hay una fila sin un servicio seleccionado");
                 }
             }
-
-            MessageBox.Show("Datos actualizados");
-            elementosAgregados = 0;
         }
 
         //Eliminar 
@@ -193,13 +212,31 @@ namespace Presentacion
             //Me aseguro haya una fila seleccionada
             if (gridViewCotizaciones.SelectedRows.Count > 0)
             {
+                int indice = gridViewCotizaciones.CurrentRow.Index;
+
+                DominioCotizaciones cotizacion = new DominioCotizaciones();
+
+                //Obtengo los códigos de los detalles de la cotización 
+                DataTable codigosDetalles = cotizacion.GetDetailsQuoteCodes(codigoCotizacion);
+
                 const string message = "¿Estar seguro de borrar este registro?";
                 const string caption = "Advertencia";
                 var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
-                    //...
+                    //Elimina un servicio que ya estaba registrado
+                    if (indice <= codigosDetalles.Rows.Count - 1)
+                    {
+                        cotizacion.DeleteDetailsQuoteByCode(codigosDetalles.Rows[indice]["Código detalle"].ToString());
+                    }
+
+                    //Actualizo el total de la salida
+                    totalCotizacion = totalCotizacion - (float.Parse(gridViewCotizaciones.CurrentRow.Cells["Total_Cotizacion"].Value.ToString()));
+                    lblTotalCotizacion.Text = "Total: " + totalCotizacion.ToString();
+
+                    //Elimino la fila
+                    gridViewCotizaciones.Rows.Remove(gridViewCotizaciones.CurrentRow); 
                 }
             }
         }

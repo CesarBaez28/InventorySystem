@@ -787,6 +787,8 @@ EXECUTE p_consultarCotizacionDetallada 10
 
 EXECUTE p_consultarMetadatosCotizacion 10
 
+SELECT FROM detallesCotizacion
+
 
 --Consulta el usuario, fecha, total general y cliente de una cotización. Se realiza a través del código de la cotización
 CREATE PROCEDURE p_consultarMetadatosCotizacion
@@ -979,4 +981,3 @@ BEGIN
   UPDATE dirreciones SET dirrecion = @direccion WHERE dirrecion = @direccionActualizar
 END
 GO
-

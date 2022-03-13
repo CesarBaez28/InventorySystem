@@ -84,7 +84,13 @@ namespace Dominio
         //Delete details quote 
         public void DeleteDetailsQuote(string codigo) 
         {
-            cotizar.EliminarDetallesCotización(Convert.ToInt32(codigo));
+            cotizar.EliminarDetallesCotizacion(Convert.ToInt32(codigo));
+        }
+
+        //Delete details quote by code
+        public void DeleteDetailsQuoteByCode(string codigo)
+        {
+            cotizar.EliminarDetallesCotizacionPorCodigo(Convert.ToInt32(codigo));
         }
     }
 }

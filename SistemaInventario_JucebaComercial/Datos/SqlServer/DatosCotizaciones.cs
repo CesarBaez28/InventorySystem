@@ -102,11 +102,19 @@ namespace Datos.SqlServer
         }
 
         //Borrar detalles de la cotización
-        public void EliminarDetallesCotización(int codigo) 
+        public void EliminarDetallesCotizacion(int codigo) 
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigo", codigo));
             ExecuteNonQueryText("DELETE FROM detallesCotizacion WHERE codigo_cotizacion = @codigo");
+        }
+
+        //Borrar detalles de la cotización por código del detalle
+        public void EliminarDetallesCotizacionPorCodigo(int codigo) 
+        {
+            parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@codigo", codigo));
+            ExecuteNonQueryText("DELETE FROM detallesCotizacion WHERE codigo = @codigo");
         }
     }
 }

@@ -155,7 +155,7 @@ GO
 
 ------ Trigger relacionado con las tablas de cotizaciones------------
 
---Actualiza el total de la cotización
+--Actualiza el total de la cotización al insertar en la tabla detallesCotización.
 CREATE TRIGGER t_RegistrarCotizacion 
 ON detallesCotizacion FOR INSERT
 AS
@@ -167,15 +167,32 @@ BEGIN
 END 
 GO
 
---Actualiza el total de la cotización
+--Actualiza el total de la cotización al actualizar en la tabla detallesCotización.
 CREATE TRIGGER t_EditarCotizacion 
 ON detallesCotizacion FOR UPDATE
 AS
 BEGIN 
   IF((SELECT precio FROM deleted) <> (SELECT precio FROM inserted) OR (SELECT cantidad FROM deleted) <> (SELECT cantidad FROM inserted))
   BEGIN
+    --Calcula la diferencia del total si hubo cambio de cambio de precio o cantidad
     DECLARE @diferencia FLOAT = ((SELECT precio FROM deleted) * (SELECT cantidad FROM deleted) - (SELECT precio FROM inserted) * (SELECT cantidad FROM inserted)) * -1
-	UPDATE cotizaciones SET total_cotizacion = total_cotizacion + @diferencia
+
+	--Actualizo el total de la cotizacion
+	UPDATE cotizaciones SET total_cotizacion = total_cotizacion + @diferencia FROM cotizaciones JOIN detallesCotizacion ON (SELECT codigo_cotizacion FROM inserted) = cotizaciones.codigo
+    WHERE cotizaciones.codigo = (SELECT codigo_cotizacion FROM inserted)
   END
 END 
 GO
+
+--Actualiza el total de la cotización al eliminar en la tabla detallesCotización.
+CREATE TRIGGER t_EliminarDetalleCotizacion
+ON detallesCotizacion FOR DELETE 
+AS
+BEGIN 
+  UPDATE cotizaciones SET total_cotizacion = total_cotizacion - ((SELECT precio FROM deleted) * (SELECT cantidad FROM deleted))
+  FROM cotizaciones JOIN detallesCotizacion ON (SELECT codigo_cotizacion FROM deleted) = cotizaciones.codigo
+  WHERE cotizaciones.codigo = (SELECT codigo_cotizacion FROM deleted)
+END
+GO
+
+SELECT * FROM cotizaciones
