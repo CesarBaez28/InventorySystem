@@ -111,6 +111,17 @@ namespace Presentacion
             }
         }
 
+        //Manda un mensaje de error al no encontrar la información de una búsqueda
+        private void BusquedaNoEncontrada()
+        {
+            //Si la buscqueda no tuvo éxito manda un mensaje de error.
+            if (gridViewListaServicios.Rows.Count == 0)
+            {
+                gridViewListaServicios.DataSource = null;
+                MessageBox.Show("No se han encontrado resultados.");
+            }
+        }
+
         //Buscar
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -124,6 +135,7 @@ namespace Presentacion
                 {
                     gridViewListaServicios.DataSource = servicios.SearchServiceCode(txbBuscar.Text);
                     txbBuscar.Text = "";
+                    BusquedaNoEncontrada();
                 }
             }
             //Buscar por nombre
@@ -131,12 +143,14 @@ namespace Presentacion
             {
                 gridViewListaServicios.DataSource = servicios.SearchServiceName(txbBuscar.Text);
                 txbBuscar.Text = "";
+                BusquedaNoEncontrada();
             }
             //Buscar servicios activos
             else if (comboBuscar.SelectedIndex == 2)
             {
                 estadoServicio = true;
                 MostrarServicios();
+                BusquedaNoEncontrada();
             }
             //Buscar servicios inactivos
             else if (comboBuscar.SelectedIndex == 3)
@@ -144,11 +158,13 @@ namespace Presentacion
                 estadoServicio = false;
                 Buscarinactivos = true;
                 MostrarServicios();
+                BusquedaNoEncontrada();
             }
             //Buscar todos los servicios (activos e inactivos)
             else if(comboBuscar.SelectedIndex == 4)
             {
                 gridViewListaServicios.DataSource = servicios.ShowServices();
+                BusquedaNoEncontrada();
             }
         }
 
@@ -164,6 +180,12 @@ namespace Presentacion
             formActivo = form;
             form.FormBorderStyle = FormBorderStyle.None;
             form.Show();
+        }
+
+        //Limpia el campo de búsqueda al cambiar de opción
+        private void comboBuscar_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            txbBuscar.Text = "";
         }
     }
 }

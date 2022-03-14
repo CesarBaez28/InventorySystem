@@ -100,6 +100,17 @@ namespace Presentacion
             }
         }
 
+        //Manda un mensaje de error al no encontrar la información de una búsqueda
+        private void BusquedaNoEncontrada()
+        {
+            //Si la buscqueda no tuvo éxito manda un mensaje de error.
+            if (gridViewListaMateriales.Rows.Count == 0)
+            {
+                gridViewListaMateriales.DataSource = null;
+                MessageBox.Show("No se han encontrado resultados.");
+            }
+        }
+
         //Buscar materiales
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -115,6 +126,7 @@ namespace Presentacion
                 if (comboBuscar.Text != "" && int.TryParse(txbBuscar.Text, out parseCorrecto))
                 {
                     gridViewListaMateriales.DataSource = materiales.SearchMaterialByCode(txbBuscar.Text);
+                    BusquedaNoEncontrada();
                 }
                 else
                 {
@@ -130,6 +142,7 @@ namespace Presentacion
                 if (txbBuscar.Text != "")
                 {
                     gridViewListaMateriales.DataSource = materiales.SearchMaterialByName(txbBuscar.Text);
+                    BusquedaNoEncontrada();
                 }
 
                 txbBuscar.Text = "";
@@ -141,22 +154,26 @@ namespace Presentacion
                 btnNuevo.Enabled = false;
                 btnAgregarExcdente.Enabled = false;
                 gridViewListaMateriales.DataSource = materiales.ShowLeftoverMaterials();
+                BusquedaNoEncontrada();
             }
             //Por materiales activos
             else if (comboBuscar.SelectedIndex == 3)
             {
                 estadoMaterial = true;
                 gridViewListaMateriales.DataSource = materiales.SearchMaterialByStatus(estadoMaterial);
+                BusquedaNoEncontrada();
             }
             //Por materiales inactivos
             else if (comboBuscar.SelectedIndex == 4)
             {
                 estadoMaterial = false;
                 gridViewListaMateriales.DataSource = materiales.SearchMaterialByStatus(estadoMaterial);
+                BusquedaNoEncontrada();
             }
             else
             {
                 gridViewListaMateriales.DataSource = materiales.ShowMaterials();
+                BusquedaNoEncontrada();
             }
         }
 
@@ -328,6 +345,12 @@ namespace Presentacion
             formActivo = form;
             form.FormBorderStyle = FormBorderStyle.None;
             form.Show();
+        }
+
+        //Limpia el campo de búsqueda al cambiar de opción
+        private void comboBuscar_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            txbBuscar.Text = "";
         }
     }
 }

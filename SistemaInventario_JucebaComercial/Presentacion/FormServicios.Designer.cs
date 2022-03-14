@@ -132,6 +132,7 @@ namespace Presentacion
             this.comboBuscar.Name = "comboBuscar";
             this.comboBuscar.Size = new System.Drawing.Size(192, 28);
             this.comboBuscar.TabIndex = 6;
+            this.comboBuscar.SelectionChangeCommitted += new System.EventHandler(this.comboBuscar_SelectionChangeCommitted);
             // 
             // lblBuscarPor
             // 
@@ -213,6 +214,7 @@ namespace Presentacion
             this.gridViewListaServicios.EnableHeadersVisualStyles = false;
             this.gridViewListaServicios.GridColor = System.Drawing.Color.Black;
             this.gridViewListaServicios.Location = new System.Drawing.Point(14, 153);
+            this.gridViewListaServicios.MultiSelect = false;
             this.gridViewListaServicios.Name = "gridViewListaServicios";
             this.gridViewListaServicios.ReadOnly = true;
             this.gridViewListaServicios.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;

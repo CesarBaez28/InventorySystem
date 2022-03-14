@@ -115,6 +115,17 @@ namespace Presentacion
             }
         }
 
+        //Manda un mensaje de error al no encontrar la información de una búsqueda
+        private void BusquedaNoEncontrada()
+        {
+            //Si la buscqueda no tuvo éxito manda un mensaje de error.
+            if (gridViewListaUsuarios.Rows.Count == 0)
+            {
+                gridViewListaUsuarios.DataSource = null;
+                MessageBox.Show("No se han encontrado resultados.");
+            }
+        }
+
         //Funcionalidad del boton buscar
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -127,6 +138,7 @@ namespace Presentacion
                     {
                         gridViewListaUsuarios.DataSource = usuario.ShowUsersByCode(txbBuscar.Text);
                         txbBuscar.Text = "";
+                        BusquedaNoEncontrada();
                     }
                     else
                     {
@@ -145,6 +157,7 @@ namespace Presentacion
                 {
                     gridViewListaUsuarios.DataSource = usuario.ShowUsersByName(txbBuscar.Text);
                     txbBuscar.Text = "";
+                    BusquedaNoEncontrada();
                 }
                 else 
                 {
@@ -156,17 +169,20 @@ namespace Presentacion
             {
                 estadoUsuario = true;
                 gridViewListaUsuarios.DataSource = usuario.ShowUsersByStatus(estadoUsuario);
+                BusquedaNoEncontrada();
             }
             //Buscar usuarios inactivos
             else if (comboBuscar.SelectedIndex == 3)
             {
                 estadoUsuario = false;
                 gridViewListaUsuarios.DataSource = usuario.ShowUsersByStatus(estadoUsuario);
+                BusquedaNoEncontrada();
             }
             //Todos los usuarios
             else
             {
                 gridViewListaUsuarios.DataSource = usuario.ShowUsers();
+                BusquedaNoEncontrada();
             }
         }
 
@@ -182,6 +198,12 @@ namespace Presentacion
             formActivo = form;
             form.FormBorderStyle = FormBorderStyle.None;
             form.Show();
+        }
+
+        //Limpia el campo de búsqueda al cambiar de opción
+        private void comboBuscar_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            txbBuscar.Text = "";
         }
     }
 }

@@ -218,6 +218,7 @@ namespace Presentacion
             this.gridViewEntradas.EnableHeadersVisualStyles = false;
             this.gridViewEntradas.GridColor = System.Drawing.Color.Black;
             this.gridViewEntradas.Location = new System.Drawing.Point(14, 205);
+            this.gridViewEntradas.MultiSelect = false;
             this.gridViewEntradas.Name = "gridViewEntradas";
             this.gridViewEntradas.ReadOnly = true;
             this.gridViewEntradas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;

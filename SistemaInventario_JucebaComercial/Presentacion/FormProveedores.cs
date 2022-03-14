@@ -135,6 +135,17 @@ namespace Presentacion
             form.Show();
         }
 
+        //Manda un mensaje de error al no encontrar la información de una búsqueda
+        private void BusquedaNoEncontrada()
+        {
+            //Si la buscqueda no tuvo éxito manda un mensaje de error.
+            if (gridViewListaSuplidores.Rows.Count == 0)
+            {
+                gridViewListaSuplidores.DataSource = null;
+                MessageBox.Show("No se han encontrado resultados.");
+            }
+        }
+
         //Buscar proveedores o proveedor
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -149,7 +160,9 @@ namespace Presentacion
                     //Verifico el código se ha correcto
                     if (int.TryParse(txbBuscar.Text, out parseCorrecto))
                     {
+                        txbBuscar.Text = "";
                         gridViewListaSuplidores.DataSource = proveedor.SearchSupplierByCode(txbBuscar.Text);
+                        BusquedaNoEncontrada();
                     }
                     else
                     {
@@ -164,28 +177,36 @@ namespace Presentacion
             //Buscar por nombre
             else if (comboBuscar.SelectedIndex ==1 )
             {
+                txbBuscar.Text = "";
                 gridViewListaSuplidores.DataSource = proveedor.SearchSupplierByName(txbBuscar.Text);
+                BusquedaNoEncontrada();
             }
             //Buscar proveedores activos
             else if (comboBuscar.Text == "activos")
             {
-                txbBuscar.Text = "";
                 estadoProveedor = true;
                 gridViewListaSuplidores.DataSource = proveedor.SearchSupplierbyStatus(estadoProveedor);
+                BusquedaNoEncontrada();
             }
             //Buscar proveedores inactivos
             else if (comboBuscar.Text == "inactivos")
             {
-                txbBuscar.Text = "";
                 estadoProveedor = false;
                 gridViewListaSuplidores.DataSource = proveedor.SearchSupplierbyStatus(estadoProveedor);
+                BusquedaNoEncontrada();
             }
             //Mostrar todos los proveedores del sistema
             else 
             {
-                txbBuscar.Text = "";
-                gridViewListaSuplidores.DataSource = proveedor.ShowSuppliers();
+                gridViewListaSuplidores.DataSource = proveedor.ShowSuppliers();    
+                BusquedaNoEncontrada();
             }
+        }
+
+        //Limpia el campo de búsqueda al cambiar de opción
+        private void comboBuscar_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            txbBuscar.Text = "";
         }
     }
 }

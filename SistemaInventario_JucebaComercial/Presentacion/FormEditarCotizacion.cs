@@ -347,12 +347,19 @@ namespace Presentacion
             {
                 combo.SelectedIndexChanged -= new EventHandler(combo_SelectedIndexChanged);
 
+                //Si el servicio está repetido mando un mensaje de error
                 if (contadorServicios > 1)
                 {
                     MessageBox.Show("Ya ha seleccionado el servicio " + selected);
                     gridViewCotizaciones.CurrentRow.Cells["Servicio"].Value = opcionAnterior;
                 }
+                else 
+                {
+                    DominioServicios servicios = new DominioServicios();
+                    string precioServicio = servicios.SearchServicePrice(gridViewCotizaciones.CurrentRow.Cells["Servicio"].Value.ToString()).Rows[0]["Precio"].ToString(); ;
+                    gridViewCotizaciones.CurrentRow.Cells["Monto"].Value = precioServicio;
 
+                }
                 contadorServicios = 0;
             }
         }

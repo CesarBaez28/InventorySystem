@@ -216,24 +216,28 @@ namespace Presentacion
             if (comboReportes.SelectedIndex == 0 && radioButtonGeneral.Checked)
             {
                 ReporteGeneralEntrada();
+                BusquedaNoEncontrada();
                 tituloReporte = "Reporte de compras general";
             }
             //Reporte entradas detalllado
             else if (comboReportes.SelectedIndex == 0 && radioButtonDetallado.Checked)
             {
                 ReporteDetalladoEntrada();
+                BusquedaNoEncontrada();
                 tituloReporte = "Reporte de compras detallado";
             }
             //Reporte salidas general
             else if (comboReportes.SelectedIndex == 1 && radioButtonGeneral.Checked)
             {
                 ReporteGeneralSalidas();
+                BusquedaNoEncontrada();
                 tituloReporte = "Reporte de ventas general";
             }
             //Reporte salida detallado
             else if (comboReportes.SelectedIndex == 1 && radioButtonDetallado.Checked)
             {
                 ReporteDetalladosSalidas();
+                BusquedaNoEncontrada();
                 tituloReporte = "Reporte de ventas detallado";
             }
             //Cotizaciones

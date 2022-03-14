@@ -233,6 +233,7 @@ namespace Presentacion
             this.gridViewReportes.EnableHeadersVisualStyles = false;
             this.gridViewReportes.GridColor = System.Drawing.Color.Black;
             this.gridViewReportes.Location = new System.Drawing.Point(14, 138);
+            this.gridViewReportes.MultiSelect = false;
             this.gridViewReportes.Name = "gridViewReportes";
             this.gridViewReportes.ReadOnly = true;
             this.gridViewReportes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;

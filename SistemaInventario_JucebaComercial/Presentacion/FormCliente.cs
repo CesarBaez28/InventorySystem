@@ -110,6 +110,17 @@ namespace Presentacion
             }
         }
 
+        //Manda un mensaje de error al no encontrar la información de una búsqueda
+        private void BusquedaNoEncontrada()
+        {
+            //Si la buscqueda no tuvo éxito manda un mensaje de error.
+            if (gridViewListaClientes.Rows.Count == 0)
+            {
+                gridViewListaClientes.DataSource = null;
+                MessageBox.Show("No se han encontrado resultados");
+            }
+        }
+
         //Funcionalidad del bonton Buscar
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -123,6 +134,7 @@ namespace Presentacion
                     if (int.TryParse(txbBuscar.Text, out parseCorrecto))
                     {
                         gridViewListaClientes.DataSource = cliente.ShowCostumerByCode(txbBuscar.Text);
+                        BusquedaNoEncontrada();
                         txbBuscar.Text = "";
                     }
                     else
@@ -141,6 +153,7 @@ namespace Presentacion
                 if (txbBuscar.Text != "")
                 {
                     gridViewListaClientes.DataSource = cliente.ShowCostumersByName(txbBuscar.Text);
+                    BusquedaNoEncontrada();
                     txbBuscar.Text = "";
                 }
                 else
@@ -153,17 +166,20 @@ namespace Presentacion
             {
                 estadoCliente = true;
                 gridViewListaClientes.DataSource = cliente.ShowCostumersByStatus(estadoCliente);
+                BusquedaNoEncontrada();
             }
             //Buscar clientes inactivos
             else if (comboBuscar.SelectedIndex == 3)
             {
                 estadoCliente = false;
                 gridViewListaClientes.DataSource = cliente.ShowCostumersByStatus(estadoCliente);
+                BusquedaNoEncontrada();
             }
             //Mostrar todos los clientes
             else 
             {
                 gridViewListaClientes.DataSource = cliente.ShowCostumers();
+                BusquedaNoEncontrada();
             }
         }
 
@@ -179,6 +195,12 @@ namespace Presentacion
             formActivo = form;
             form.FormBorderStyle = FormBorderStyle.None;
             form.Show();
+        }
+
+        //Limpia el campo de búsqueda al cambiar de opción 
+        private void comboBuscar_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            txbBuscar.Text = "";
         }
     }
 }

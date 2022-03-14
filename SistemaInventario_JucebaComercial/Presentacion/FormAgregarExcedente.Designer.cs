@@ -94,6 +94,7 @@ namespace Presentacion
             this.gridViewExcedentes.EnableHeadersVisualStyles = false;
             this.gridViewExcedentes.GridColor = System.Drawing.Color.Black;
             this.gridViewExcedentes.Location = new System.Drawing.Point(6, 86);
+            this.gridViewExcedentes.MultiSelect = false;
             this.gridViewExcedentes.Name = "gridViewExcedentes";
             this.gridViewExcedentes.ReadOnly = true;
             this.gridViewExcedentes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;

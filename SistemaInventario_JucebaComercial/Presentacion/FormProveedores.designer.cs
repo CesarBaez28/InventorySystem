@@ -95,6 +95,7 @@ namespace Presentacion
             this.gridViewListaSuplidores.EnableHeadersVisualStyles = false;
             this.gridViewListaSuplidores.GridColor = System.Drawing.Color.Black;
             this.gridViewListaSuplidores.Location = new System.Drawing.Point(14, 153);
+            this.gridViewListaSuplidores.MultiSelect = false;
             this.gridViewListaSuplidores.Name = "gridViewListaSuplidores";
             this.gridViewListaSuplidores.ReadOnly = true;
             this.gridViewListaSuplidores.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -177,6 +178,7 @@ namespace Presentacion
             this.comboBuscar.Name = "comboBuscar";
             this.comboBuscar.Size = new System.Drawing.Size(192, 28);
             this.comboBuscar.TabIndex = 6;
+            this.comboBuscar.SelectionChangeCommitted += new System.EventHandler(this.comboBuscar_SelectionChangeCommitted);
             // 
             // lblBuscarPor
             // 

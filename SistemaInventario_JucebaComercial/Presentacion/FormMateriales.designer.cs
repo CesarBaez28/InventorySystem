@@ -173,6 +173,7 @@ namespace Presentacion
             this.comboBuscar.Name = "comboBuscar";
             this.comboBuscar.Size = new System.Drawing.Size(192, 28);
             this.comboBuscar.TabIndex = 6;
+            this.comboBuscar.SelectionChangeCommitted += new System.EventHandler(this.comboBuscar_SelectionChangeCommitted);
             // 
             // lblBuscarPor
             // 
@@ -254,6 +255,7 @@ namespace Presentacion
             this.gridViewListaMateriales.EnableHeadersVisualStyles = false;
             this.gridViewListaMateriales.GridColor = System.Drawing.Color.Black;
             this.gridViewListaMateriales.Location = new System.Drawing.Point(14, 153);
+            this.gridViewListaMateriales.MultiSelect = false;
             this.gridViewListaMateriales.Name = "gridViewListaMateriales";
             this.gridViewListaMateriales.ReadOnly = true;
             this.gridViewListaMateriales.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;

@@ -84,6 +84,7 @@ namespace Presentacion
             this.gridViewTipoMateriales.EnableHeadersVisualStyles = false;
             this.gridViewTipoMateriales.GridColor = System.Drawing.Color.Black;
             this.gridViewTipoMateriales.Location = new System.Drawing.Point(4, 91);
+            this.gridViewTipoMateriales.MultiSelect = false;
             this.gridViewTipoMateriales.Name = "gridViewTipoMateriales";
             this.gridViewTipoMateriales.ReadOnly = true;
             this.gridViewTipoMateriales.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;

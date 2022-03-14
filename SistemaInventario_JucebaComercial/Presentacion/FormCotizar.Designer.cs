@@ -274,6 +274,7 @@
             this.gridViewCotizaciones.EnableHeadersVisualStyles = false;
             this.gridViewCotizaciones.GridColor = System.Drawing.Color.Black;
             this.gridViewCotizaciones.Location = new System.Drawing.Point(14, 212);
+            this.gridViewCotizaciones.MultiSelect = false;
             this.gridViewCotizaciones.Name = "gridViewCotizaciones";
             this.gridViewCotizaciones.ReadOnly = true;
             this.gridViewCotizaciones.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;

@@ -170,6 +170,7 @@ namespace Presentacion
             this.gridViewExcedentes.EnableHeadersVisualStyles = false;
             this.gridViewExcedentes.GridColor = System.Drawing.Color.Black;
             this.gridViewExcedentes.Location = new System.Drawing.Point(14, 339);
+            this.gridViewExcedentes.MultiSelect = false;
             this.gridViewExcedentes.Name = "gridViewExcedentes";
             this.gridViewExcedentes.ReadOnly = true;
             this.gridViewExcedentes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -398,6 +399,7 @@ namespace Presentacion
             this.gridViewSalidas.EnableHeadersVisualStyles = false;
             this.gridViewSalidas.GridColor = System.Drawing.Color.Black;
             this.gridViewSalidas.Location = new System.Drawing.Point(14, 212);
+            this.gridViewSalidas.MultiSelect = false;
             this.gridViewSalidas.Name = "gridViewSalidas";
             this.gridViewSalidas.ReadOnly = true;
             this.gridViewSalidas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;

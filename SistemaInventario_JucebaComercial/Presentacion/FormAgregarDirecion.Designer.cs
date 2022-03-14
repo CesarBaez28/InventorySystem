@@ -104,6 +104,7 @@ namespace Presentacion
             this.gridViewDirecciones.EnableHeadersVisualStyles = false;
             this.gridViewDirecciones.GridColor = System.Drawing.Color.Black;
             this.gridViewDirecciones.Location = new System.Drawing.Point(12, 87);
+            this.gridViewDirecciones.MultiSelect = false;
             this.gridViewDirecciones.Name = "gridViewDirecciones";
             this.gridViewDirecciones.ReadOnly = true;
             this.gridViewDirecciones.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
