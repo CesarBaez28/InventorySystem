@@ -21,9 +21,12 @@ namespace Presentacion
         bool estadoCotizacion = false;
         string codigoCotizacion;
 
+        public static FormReportes formReportes;
+
         public FormReportes()
         {
             InitializeComponent();
+            FormReportes.formReportes = this;
         }
 
         //Cerrar formulario
@@ -183,9 +186,21 @@ namespace Presentacion
         }
 
         //Consultar cotizaciones por estado
-        private void ConsultarCotizacionesPorEstado() 
+        public void ConsultarCotizacionesPorEstado() 
         {
             gridViewReportes.DataSource = reporte.ConsultQuotesByStatus(estadoCotizacion);
+        }
+
+        //Manda un mensaje de error al no encontrar la información de una búsqueda
+        private void BusquedaNoEncontrada() 
+        {
+            //Si la buscqueda no tuvo éxito manda un mensaje de error.
+            if (gridViewReportes.Rows.Count == 0)
+            {
+                gridViewReportes.DataSource = null;
+                MessageBox.Show("No se ha encontrado la información solicitada.\n" +
+                                "Verique lo datos suministrados sean correctos");
+            }
         }
 
         //Consultar
@@ -231,20 +246,42 @@ namespace Presentacion
                     if (comboBuscar.SelectedIndex == 0)
                     {
                         //Verifico que el código se ha un número entero
-                        if (int.TryParse(txbBuscar.Text, out int parceCorrecto))
+                        //y que no esté vacío.
+                        if (int.TryParse(txbBuscar.Text, out int parceCorrecto) && txbBuscar.Text != "")
                         {
                             ConsultarCotizacionesPorCodigo();
+                            BusquedaNoEncontrada();
+                        }
+                        else 
+                        {
+                            MessageBox.Show("El campo esta vacío o el código no es correcto");
                         }
                     }
                     //Consultar por descripción
                     else if (comboBuscar.SelectedIndex == 1)
                     {
-                        ConsultarCotizacionesPorDescripcion();
+                        if (txbBuscar.Text != "") //Verifico el campo no esté vacío
+                        {
+                            ConsultarCotizacionesPorDescripcion();
+                            BusquedaNoEncontrada();
+                        }
+                        else 
+                        {
+                            MessageBox.Show("El campo esta vacío");                        
+                        }
                     }
                     //Buscar por cliente
                     else if (comboBuscar.SelectedIndex == 2)
                     {
-                        ConsultarCotizacionesPorCliente();
+                        if (txbBuscar.Text != "") //Verifico el campo no esté vacío
+                        {
+                            ConsultarCotizacionesPorCliente();
+                            BusquedaNoEncontrada();
+                        }
+                        else 
+                        {
+                            MessageBox.Show("El campo esta vacío");
+                        }
                     }
                     //Buscar las aceptadas
                     else if (comboBuscar.SelectedIndex == 3)
@@ -268,7 +305,7 @@ namespace Presentacion
                 {
                     MessageBox.Show("Seleecione una opción");
                 }
-               
+
                 tituloReporte = "Cotizaciones";
                 txbBuscar.Text = "";
             }
@@ -384,6 +421,8 @@ namespace Presentacion
                 //Verifico que la cotización seleccionada no esté aprobada
                 if (gridViewReportes.CurrentRow.Cells["Estado"].Value.ToString() != "Aceptado")
                 {
+                    DominioCotizaciones cotizaciones = new DominioCotizaciones();
+
                     //Obtengo todos los datos de la cotización
                     codigoCotizacion = gridViewReportes.CurrentRow.Cells["Código"].Value.ToString();
                     DataTable detallesCotizacion = reporte.ConsultDatailedQuote(codigoCotizacion);
@@ -406,10 +445,10 @@ namespace Presentacion
                         var detalles = new DetallesSalida()
                         {
                             codigo_salida = codigoSalida,
-                            codigo_servicio = Convert.ToInt32(fila["Código"]),
+                            codigo_servicio = Convert.ToInt32(fila["Código Servicio"]),
                             codigo_cliente = Convert.ToInt32(metadatosCotizacion.Rows[0]["Código cliente"]),
                             codigo_usuario = UsuarioLoginCache.Codigo_usuario,
-                            precio = float.Parse(fila["Total"].ToString()),
+                            precio = float.Parse(fila["Monto"].ToString()),
                             cantidad = Convert.ToInt32(fila["Cantidad"])
                         };
 
@@ -422,8 +461,7 @@ namespace Presentacion
                         salida.add_MultipleSingleInsert(listaDetalles);
 
                         //Cambiar estado de cotización a aceptado
-                        DominioCotizaciones cotizaciones = new DominioCotizaciones();
-                        cotizaciones.ApproveQuote(codigoCotizacion);
+                        cotizaciones.ApproveQuote(codigoCotizacion, true);
 
                         MessageBox.Show("Cotizacón aprobada");
 
@@ -432,6 +470,8 @@ namespace Presentacion
                     }
                     catch
                     {
+                        //Si no hay materiales suficiente para aprobar la cotización, vuelvo a cambiar el estado de la cotización a no aceptado (Es decir, false)
+                        cotizaciones.ApproveQuote(codigoCotizacion, false);
                         MessageBox.Show("No hay suficiente material para registrar uno de los servicios");
                     }
                 }

@@ -119,7 +119,7 @@ BEGIN
   DECLARE @count int  = (SELECT COUNT(*) FROM @servicios_materiales)
 
   WHILE @count > 0
-  BEGIN
+  BEGIN 
     --Declaro las variables cantidad y existencia para verificar si se cuentan con los materiales suficientes.
     DECLARE @cantidad INT = (SELECT TOP(1) cantidad FROM @servicios_materiales)
 	DECLARE @existencia INT = (SELECT existencia FROM materiales WHERE materiales.codigo = (SELECT TOP(1) codigo_mateterial FROM @servicios_materiales))
@@ -185,14 +185,15 @@ END
 GO
 
 --Actualiza el total de la cotización al eliminar en la tabla detallesCotización.
-CREATE TRIGGER t_EliminarDetalleCotizacion
+ALTER TRIGGER t_EliminarDetalleCotizacion
 ON detallesCotizacion FOR DELETE 
 AS
-BEGIN 
-  UPDATE cotizaciones SET total_cotizacion = total_cotizacion - ((SELECT precio FROM deleted) * (SELECT cantidad FROM deleted))
-  FROM cotizaciones JOIN detallesCotizacion ON (SELECT codigo_cotizacion FROM deleted) = cotizaciones.codigo
-  WHERE cotizaciones.codigo = (SELECT codigo_cotizacion FROM deleted)
+BEGIN  
+  IF((SELECT COUNT(*) FROM deleted) = 1) --Verifico que solo se haya afectado una fila.
+  BEGIN
+    UPDATE cotizaciones SET total_cotizacion = total_cotizacion - ((SELECT precio FROM deleted) * (SELECT cantidad FROM deleted))
+    FROM cotizaciones JOIN detallesCotizacion ON (SELECT codigo_cotizacion FROM deleted) = cotizaciones.codigo
+    WHERE cotizaciones.codigo = (SELECT TOP(1) codigo_cotizacion FROM deleted)
+  END 
 END
 GO
-
-SELECT * FROM cotizaciones

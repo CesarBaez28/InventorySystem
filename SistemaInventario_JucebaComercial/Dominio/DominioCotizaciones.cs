@@ -70,9 +70,9 @@ namespace Dominio
         }
 
         //Update status Quote 
-        public void ApproveQuote(string codigo) 
+        public void ApproveQuote(string codigo, bool estado) 
         {
-            cotizar.AprobarCotizacion(Convert.ToInt32(codigo));
+            cotizar.AprobarCotizacion(Convert.ToInt32(codigo), estado);
         }
 
         //Delete quote 

@@ -86,11 +86,12 @@ namespace Datos.SqlServer
         }
         
         //Cambiar estado de cotización a aceptado
-        public void AprobarCotizacion(int codigo)
+        public void AprobarCotizacion(int codigo, bool estado)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigo",codigo));
-            ExecuteNonQueryText("UPDATE cotizaciones SET estado = 1 WHERE codigo = @codigo");
+            parameters.Add(new SqlParameter("@estado", estado));
+            ExecuteNonQueryText("UPDATE cotizaciones SET estado = @estado WHERE codigo = @codigo");
         }
 
         //Borrar cotización 
@@ -101,7 +102,7 @@ namespace Datos.SqlServer
             ExecuteNonQueryText("DELETE FROM cotizaciones WHERE codigo = @codigo");
         }
 
-        //Borrar detalles de la cotización
+        //Borrar todos los detalles de la cotización por el código de la cotización
         public void EliminarDetallesCotizacion(int codigo) 
         {
             parameters = new List<SqlParameter>();
@@ -109,7 +110,7 @@ namespace Datos.SqlServer
             ExecuteNonQueryText("DELETE FROM detallesCotizacion WHERE codigo_cotizacion = @codigo");
         }
 
-        //Borrar detalles de la cotización por código del detalle
+        //Borra un detalle de la cotización por el código del detalle
         public void EliminarDetallesCotizacionPorCodigo(int codigo) 
         {
             parameters = new List<SqlParameter>();

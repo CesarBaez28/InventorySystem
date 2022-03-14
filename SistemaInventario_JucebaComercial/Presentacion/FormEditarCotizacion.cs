@@ -175,10 +175,10 @@ namespace Presentacion
             {
                 bool registroVacio = false;
                 //Verifico que cda combobox tenga un valor seleccionado 
-                for (int indice = gridViewCotizaciones.Rows.Count - (elementosAgregados); indice < gridViewCotizaciones.Rows.Count; indice++) 
+                for (int indice = gridViewCotizaciones.Rows.Count - (elementosAgregados); indice < gridViewCotizaciones.Rows.Count; indice++)
                 {
-                    if (gridViewCotizaciones.Rows[indice].Cells["Servicio"].FormattedValue.ToString() == "") 
-                    { 
+                    if (gridViewCotizaciones.Rows[indice].Cells["Servicio"].FormattedValue.ToString() == "")
+                    {
                         registroVacio = true;
                         break;
                     }
@@ -203,6 +203,10 @@ namespace Presentacion
                 {
                     MessageBox.Show("Hay una fila sin un servicio seleccionado");
                 }
+            }
+            else 
+            {
+                MessageBox.Show("Datos actualizados");
             }
         }
 

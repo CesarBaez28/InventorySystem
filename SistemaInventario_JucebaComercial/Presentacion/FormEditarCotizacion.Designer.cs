@@ -42,6 +42,10 @@
             this.txbDescripcion = new System.Windows.Forms.TextBox();
             this.comboClientes = new System.Windows.Forms.ComboBox();
             this.gridViewCotizaciones = new System.Windows.Forms.DataGridView();
+            this.Servicio = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total_Cotizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnTerminar = new System.Windows.Forms.Button();
             this.lblFecha = new System.Windows.Forms.Label();
             this.dateTimeCotizacion = new System.Windows.Forms.DateTimePicker();
@@ -50,10 +54,6 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.Servicio = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total_Cotizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.panelContedorIngresos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewCotizaciones)).BeginInit();
@@ -177,6 +177,7 @@
             this.gridViewCotizaciones.EnableHeadersVisualStyles = false;
             this.gridViewCotizaciones.GridColor = System.Drawing.Color.Black;
             this.gridViewCotizaciones.Location = new System.Drawing.Point(14, 186);
+            this.gridViewCotizaciones.MultiSelect = false;
             this.gridViewCotizaciones.Name = "gridViewCotizaciones";
             this.gridViewCotizaciones.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -201,6 +202,36 @@
             this.gridViewCotizaciones.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewCotizaciones_CellValueChanged);
             this.gridViewCotizaciones.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.gridViewCotizaciones_DataError);
             this.gridViewCotizaciones.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.gridViewCotizaciones_EditingControlShowing);
+            // 
+            // Servicio
+            // 
+            this.Servicio.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.Servicio.HeaderText = "Servicio";
+            this.Servicio.Name = "Servicio";
+            this.Servicio.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Servicio.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Monto
+            // 
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = "0";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.Monto.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Monto.HeaderText = "Monto";
+            this.Monto.Name = "Monto";
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // Total_Cotizacion
+            // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            this.Total_Cotizacion.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Total_Cotizacion.HeaderText = "Total";
+            this.Total_Cotizacion.Name = "Total_Cotizacion";
+            this.Total_Cotizacion.ReadOnly = true;
             // 
             // btnTerminar
             // 
@@ -305,36 +336,6 @@
             this.lineShape1.X2 = 912;
             this.lineShape1.Y1 = 176;
             this.lineShape1.Y2 = 176;
-            // 
-            // Servicio
-            // 
-            this.Servicio.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.Servicio.HeaderText = "Servicio";
-            this.Servicio.Name = "Servicio";
-            this.Servicio.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Servicio.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Monto
-            // 
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = "0";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.Monto.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Monto.HeaderText = "Monto";
-            this.Monto.Name = "Monto";
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            // 
-            // Total_Cotizacion
-            // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            this.Total_Cotizacion.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Total_Cotizacion.HeaderText = "Total";
-            this.Total_Cotizacion.Name = "Total_Cotizacion";
-            this.Total_Cotizacion.ReadOnly = true;
             // 
             // FormEditarCotizacion
             // 
