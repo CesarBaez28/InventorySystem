@@ -68,7 +68,7 @@ namespace Presentacion
             this.panelContedorClientes.Controls.Add(this.shapeContainer1);
             this.panelContedorClientes.Location = new System.Drawing.Point(13, 42);
             this.panelContedorClientes.Name = "panelContedorClientes";
-            this.panelContedorClientes.Size = new System.Drawing.Size(915, 519);
+            this.panelContedorClientes.Size = new System.Drawing.Size(974, 589);
             this.panelContedorClientes.TabIndex = 4;
             // 
             // gridViewListaSuplidores
@@ -114,7 +114,7 @@ namespace Presentacion
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.gridViewListaSuplidores.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.gridViewListaSuplidores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridViewListaSuplidores.Size = new System.Drawing.Size(886, 315);
+            this.gridViewListaSuplidores.Size = new System.Drawing.Size(945, 385);
             this.gridViewListaSuplidores.TabIndex = 10;
             // 
             // btnNuevo
@@ -144,7 +144,7 @@ namespace Presentacion
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(806, 109);
+            this.btnBuscar.Location = new System.Drawing.Point(865, 109);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(94, 32);
             this.btnBuscar.TabIndex = 8;
@@ -157,7 +157,7 @@ namespace Presentacion
             // 
             this.txbBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txbBuscar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbBuscar.Location = new System.Drawing.Point(599, 112);
+            this.txbBuscar.Location = new System.Drawing.Point(658, 112);
             this.txbBuscar.Name = "txbBuscar";
             this.txbBuscar.Size = new System.Drawing.Size(203, 26);
             this.txbBuscar.TabIndex = 7;
@@ -174,7 +174,7 @@ namespace Presentacion
             "activos",
             "inactivos",
             "todos"});
-            this.comboBuscar.Location = new System.Drawing.Point(401, 112);
+            this.comboBuscar.Location = new System.Drawing.Point(460, 112);
             this.comboBuscar.Name = "comboBuscar";
             this.comboBuscar.Size = new System.Drawing.Size(192, 28);
             this.comboBuscar.TabIndex = 6;
@@ -185,7 +185,7 @@ namespace Presentacion
             this.lblBuscarPor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBuscarPor.AutoSize = true;
             this.lblBuscarPor.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscarPor.Location = new System.Drawing.Point(304, 115);
+            this.lblBuscarPor.Location = new System.Drawing.Point(363, 115);
             this.lblBuscarPor.Name = "lblBuscarPor";
             this.lblBuscarPor.Size = new System.Drawing.Size(91, 20);
             this.lblBuscarPor.TabIndex = 5;
@@ -199,7 +199,7 @@ namespace Presentacion
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(104, 474);
+            this.btnEliminar.Location = new System.Drawing.Point(104, 544);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(84, 31);
             this.btnEliminar.TabIndex = 3;
@@ -215,7 +215,7 @@ namespace Presentacion
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.Color.White;
-            this.btnActualizar.Location = new System.Drawing.Point(14, 474);
+            this.btnActualizar.Location = new System.Drawing.Point(14, 544);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(84, 31);
             this.btnActualizar.TabIndex = 2;
@@ -231,7 +231,7 @@ namespace Presentacion
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
             this.lblTitulo.Location = new System.Drawing.Point(0, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(913, 33);
+            this.lblTitulo.Size = new System.Drawing.Size(972, 33);
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Lista de proveedores";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -243,7 +243,7 @@ namespace Presentacion
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(913, 517);
+            this.shapeContainer1.Size = new System.Drawing.Size(972, 587);
             this.shapeContainer1.TabIndex = 4;
             this.shapeContainer1.TabStop = false;
             // 
@@ -253,7 +253,7 @@ namespace Presentacion
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lineShape1.Name = "lineShape1";
             this.lineShape1.X1 = 0;
-            this.lineShape1.X2 = 912;
+            this.lineShape1.X2 = 971;
             this.lineShape1.Y1 = 88;
             this.lineShape1.Y2 = 88;
             // 
@@ -275,7 +275,7 @@ namespace Presentacion
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(939, 573);
+            this.ClientSize = new System.Drawing.Size(998, 643);
             this.Controls.Add(this.panelContedorClientes);
             this.Controls.Add(this.btnCerrar);
             this.Name = "FormProveedores";

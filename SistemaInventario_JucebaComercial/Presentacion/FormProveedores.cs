@@ -203,9 +203,33 @@ namespace Presentacion
             }
         }
 
+        private void ocultarTexBox()
+        {
+            txbBuscar.Visible = false;
+            comboBuscar.Location = new Point(667, 112);
+            lblBuscarPor.Location = new Point(570, 115);
+        }
+
+        private void MostrarTexbox()
+        {
+            txbBuscar.Visible = true;
+            comboBuscar.Location = new Point(460, 112);
+            lblBuscarPor.Location = new Point(363, 115);
+        }
+
         //Limpia el campo de búsqueda al cambiar de opción
+        //Y muestra o oculta el campo texbox dependiendo de la opción que lo requiera.
         private void comboBuscar_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            if (comboBuscar.Text == "código" || comboBuscar.Text == "nombre")
+            {
+                MostrarTexbox();
+            }
+            else
+            {
+                ocultarTexBox();
+            }
+
             txbBuscar.Text = "";
         }
     }

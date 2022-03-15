@@ -425,58 +425,66 @@ namespace Presentacion
                 //Verifico que la cotización seleccionada no esté aprobada
                 if (gridViewReportes.CurrentRow.Cells["Estado"].Value.ToString() != "Aceptado")
                 {
-                    DominioCotizaciones cotizaciones = new DominioCotizaciones();
+                    const string message = "¿Estar seguro de aprobar esta cotización?";
+                    const string caption = "Advertencia";
+                    var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                    //Obtengo todos los datos de la cotización
-                    codigoCotizacion = gridViewReportes.CurrentRow.Cells["Código"].Value.ToString();
-                    DataTable detallesCotizacion = reporte.ConsultDatailedQuote(codigoCotizacion);
-                    DataTable metadatosCotizacion = reporte.ConsultMetadataQuote(codigoCotizacion);
-
-                    DominioSalida salida = new DominioSalida(); //Creo objeto DominioSalida para aprobar la cotización
-
-                    //Registro la salida
-                    salida.SaleOfService(DateTime.Now);
-
-                    //Obtengo el último código de la salida. Lo necesito para insertar los detalles de la salida
-                    int codigoSalida = Convert.ToInt32(salida.GetCodeSale().Rows[0]["codigo"]);
-
-                    //Creo una lista para guardar cada uno de los detalles de la salida
-                    List<DetallesSalida> listaDetalles = new List<DetallesSalida>();
-
-                    //Guardo cada uno de los detalles de la salida en la lista
-                    foreach (DataRow fila in detallesCotizacion.Rows)
+                    if (result == DialogResult.Yes)
                     {
-                        var detalles = new DetallesSalida()
+                        DominioCotizaciones cotizaciones = new DominioCotizaciones();
+
+                        //Obtengo todos los datos de la cotización
+                        codigoCotizacion = gridViewReportes.CurrentRow.Cells["Código"].Value.ToString();
+                        DataTable detallesCotizacion = reporte.ConsultDatailedQuote(codigoCotizacion);
+                        DataTable metadatosCotizacion = reporte.ConsultMetadataQuote(codigoCotizacion);
+
+                        DominioSalida salida = new DominioSalida(); //Creo objeto DominioSalida para aprobar la cotización
+
+                        //Registro la salida
+                        salida.SaleOfService(DateTime.Now);
+
+                        //Obtengo el último código de la salida. Lo necesito para insertar los detalles de la salida
+                        int codigoSalida = Convert.ToInt32(salida.GetCodeSale().Rows[0]["codigo"]);
+
+                        //Creo una lista para guardar cada uno de los detalles de la salida
+                        List<DetallesSalida> listaDetalles = new List<DetallesSalida>();
+
+                        //Guardo cada uno de los detalles de la salida en la lista
+                        foreach (DataRow fila in detallesCotizacion.Rows)
                         {
-                            codigo_salida = codigoSalida,
-                            codigo_servicio = Convert.ToInt32(fila["Código Servicio"]),
-                            codigo_cliente = Convert.ToInt32(metadatosCotizacion.Rows[0]["Código cliente"]),
-                            codigo_usuario = UsuarioLoginCache.Codigo_usuario,
-                            precio = float.Parse(fila["Monto"].ToString()),
-                            cantidad = Convert.ToInt32(fila["Cantidad"])
-                        };
+                            var detalles = new DetallesSalida()
+                            {
+                                codigo_salida = codigoSalida,
+                                codigo_servicio = Convert.ToInt32(fila["Código Servicio"]),
+                                codigo_cliente = Convert.ToInt32(metadatosCotizacion.Rows[0]["Código cliente"]),
+                                codigo_usuario = UsuarioLoginCache.Codigo_usuario,
+                                precio = float.Parse(fila["Monto"].ToString()),
+                                cantidad = Convert.ToInt32(fila["Cantidad"])
+                            };
 
-                        listaDetalles.Add(detalles);
-                    }
+                            listaDetalles.Add(detalles);
+                        }
 
-                    try
-                    {
-                        //Registrar detalles de la salida
-                        salida.add_MultipleSingleInsert(listaDetalles);
+                        try
+                        {
+                            //Registrar detalles de la salida
+                            salida.add_MultipleSingleInsert(listaDetalles);
 
-                        //Cambiar estado de cotización a aceptado
-                        cotizaciones.ApproveQuote(codigoCotizacion, true);
+                            //Cambiar estado de cotización a aceptado
+                            cotizaciones.ApproveQuote(codigoCotizacion, true);
 
-                        MessageBox.Show("Cotizacón aprobada");
+                            MessageBox.Show("Cotizacón aprobada");
 
-                        estadoCotizacion = false;
-                        ConsultarCotizacionesPorEstado();
-                    }
-                    catch
-                    {
-                        //Si no hay materiales suficiente para aprobar la cotización, vuelvo a cambiar el estado de la cotización a no aceptado (Es decir, false)
-                        cotizaciones.ApproveQuote(codigoCotizacion, false);
-                        MessageBox.Show("No hay suficiente material para registrar uno de los servicios");
+                            estadoCotizacion = false;
+                            ConsultarCotizacionesPorEstado();
+                        }
+                        catch
+                        {
+                            //Si no hay materiales suficiente para aprobar la cotización, vuelvo a cambiar el estado de la cotización a no aceptado (Es decir, false)
+                            cotizaciones.ApproveQuote(codigoCotizacion, false);
+                            MessageBox.Show("No hay suficiente material para registrar uno de los servicios");
+                        }
+
                     }
                 }
                 else 
@@ -528,6 +536,16 @@ namespace Presentacion
                 //editarCotizacion.lblTotalCotizacion.Text = "Total: "+ gridViewReportes.CurrentRow.Cells["Total"].Value.ToString();
                 //editarCotizacion.total = gridViewReportes.CurrentRow.Cells["Total"].Value.ToString();
                 editarCotizacion.descripcion = gridViewReportes.CurrentRow.Cells["Descripción"].Value.ToString();
+
+                if (gridViewReportes.CurrentRow.Cells["Estado"].Value.ToString() == "Aceptado")
+                {
+                    editarCotizacion.estadoCotizacion = true;
+                }
+                else 
+                {
+                    editarCotizacion.estadoCotizacion = false;
+                }
+
                 AbrirFormulario(editarCotizacion);
             }
         }

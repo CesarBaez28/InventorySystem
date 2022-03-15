@@ -28,6 +28,7 @@ namespace Presentacion
         public string fecha;
         float totalCotizacion;
         public string descripcion;
+        public bool estadoCotizacion;
         DataTable detallesCotizacion;
 
         bool primeraModificacion = false; // La uso para que el código del evento CellClick no se ejecute cuando esté cargando los datos desde la base de datos
@@ -75,6 +76,20 @@ namespace Presentacion
             dateTimeCotizacion.Value = Convert.ToDateTime(fecha);
             txbDescripcion.Text = descripcion;
             primeraModificacion = true;
+
+            if (estadoCotizacion == true) //Verifico si la cotización fue aprobada
+            {
+                //gridViewCotizaciones.DefaultCellStyle.SelectionForeColor = Color.White;
+                //gridViewCotizaciones.DefaultCellStyle.SelectionBackColor = Color.White;
+
+                gridViewCotizaciones.Enabled = false;
+                txbDescripcion.Enabled = false;
+                comboClientes.Enabled = false;
+                dateTimeCotizacion.Enabled = false;
+                btnAgregar.Enabled = false;
+                btnEliminar.Enabled = false;
+                btnTerminar.Enabled = false;
+            }
         }
 
         //Mostrar los servicios

@@ -194,6 +194,7 @@
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             this.gridViewCotizaciones.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.gridViewCotizaciones.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             this.gridViewCotizaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridViewCotizaciones.Size = new System.Drawing.Size(886, 279);
             this.gridViewCotizaciones.TabIndex = 21;

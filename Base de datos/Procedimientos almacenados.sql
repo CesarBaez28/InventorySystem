@@ -975,5 +975,9 @@ BEGIN
 END
 GO
 
+SELECT * FROM detallesCotizacion
+SELECT * FROM cotizaciones
 
+DELETE detallesCotizacion WHERE codigo_cotizacion = 10
 
+ SELECT codigo_cotizacion, precio, cantidad FROM detallesCotizacion WHERE codigo_cotizacion = 9

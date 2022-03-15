@@ -14,7 +14,7 @@ namespace Presentacion
     public partial class FormEmpleados : Form
     {
         public string codigo; // Me servirá para obtener el codigo de la fila seleccionada en el dataGrid
-        public bool actualizar = false; 
+        public bool actualizar = false;
         int parseCorrecto; // Lo uso para vereficar que al momento de buscar un usuario el codigo sea un numero entero.
         bool estadoUsuario = true; // Lo utilizo para buscar los empleados por estado(activo o inactivo)
         DominioUsuario usuario = new DominioUsuario();
@@ -36,7 +36,7 @@ namespace Presentacion
         }
 
         //Mostrar todos los usuarios del sistema (activos o inactivos)
-        private void MostrarUsuarios() 
+        private void MostrarUsuarios()
         {
             DominioUsuario D_usuario = new DominioUsuario();
             gridViewListaUsuarios.DataSource = D_usuario.ShowUsersByStatus(estadoUsuario);
@@ -77,7 +77,7 @@ namespace Presentacion
             {
                 FormDetalleUsuario formDetalleUsuarioActualizar = new FormDetalleUsuario(this);
                 formDetalleUsuarioActualizar.UpdateEventHendler += ActualizarEventHandler;
-                
+
                 actualizar = true;
                 formDetalleUsuarioActualizar.actualizar = actualizar;
                 formDetalleUsuarioActualizar.codigo = gridViewListaUsuarios.CurrentRow.Cells["Código"].Value.ToString();
@@ -92,9 +92,9 @@ namespace Presentacion
 
                 AbrirDetalleUsuario(formDetalleUsuarioActualizar);
             }
-            else 
+            else
             {
-                MessageBox.Show("Selecione una fila");     
+                MessageBox.Show("Selecione una fila");
             }
         }
 
@@ -109,7 +109,7 @@ namespace Presentacion
                 MessageBox.Show("Se eliminó correctamente");
                 MostrarUsuarios();
             }
-            else 
+            else
             {
                 MessageBox.Show("Seleccione una fila para poder eliminar");
             }
@@ -159,7 +159,7 @@ namespace Presentacion
                     txbBuscar.Text = "";
                     BusquedaNoEncontrada();
                 }
-                else 
+                else
                 {
                     MessageBox.Show("Escriba un nombre para la busqueda");
                 }
@@ -188,9 +188,9 @@ namespace Presentacion
 
         //Metodo para abirar el formulario DetalleUsuario
         private Form formActivo = null;
-        private void AbrirDetalleUsuario(Form form) 
+        private void AbrirDetalleUsuario(Form form)
         {
-            if (formActivo != null) 
+            if (formActivo != null)
             {
                 formActivo.Close();
             }
@@ -200,9 +200,33 @@ namespace Presentacion
             form.Show();
         }
 
+        private void ocultarTexBox()
+        {
+            txbBuscar.Visible = false;
+            comboBuscar.Location = new Point(667, 112);
+            lblBuscarPor.Location = new Point(570, 115);
+        }
+
+        private void MostrarTexbox()
+        {
+            txbBuscar.Visible = true;
+            comboBuscar.Location = new Point(460, 112);
+            lblBuscarPor.Location = new Point(363, 115);
+        }
+
         //Limpia el campo de búsqueda al cambiar de opción
+        //Y muestra o oculta el campo texbox dependiendo de la opción que lo requiera.
         private void comboBuscar_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            if (comboBuscar.Text == "código" || comboBuscar.Text == "nombre")
+            {
+                MostrarTexbox();
+            }
+            else 
+            {
+                ocultarTexBox();
+            }
+
             txbBuscar.Text = "";
         }
     }
