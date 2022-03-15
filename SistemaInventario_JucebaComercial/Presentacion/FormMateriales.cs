@@ -144,6 +144,10 @@ namespace Presentacion
                     gridViewListaMateriales.DataSource = materiales.SearchMaterialByName(txbBuscar.Text);
                     BusquedaNoEncontrada();
                 }
+                else 
+                {
+                    MessageBox.Show("El campo esta vacío");
+                }
 
                 txbBuscar.Text = "";
             }

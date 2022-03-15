@@ -175,11 +175,18 @@ namespace Presentacion
                 }
             }
             //Buscar por nombre
-            else if (comboBuscar.SelectedIndex ==1 )
+            else if (comboBuscar.SelectedIndex == 1)
             {
-                txbBuscar.Text = "";
-                gridViewListaSuplidores.DataSource = proveedor.SearchSupplierByName(txbBuscar.Text);
-                BusquedaNoEncontrada();
+                if (txbBuscar.Text != "")
+                {
+                    txbBuscar.Text = "";
+                    gridViewListaSuplidores.DataSource = proveedor.SearchSupplierByName(txbBuscar.Text);
+                    BusquedaNoEncontrada();
+                }
+                else 
+                {
+                    MessageBox.Show("El campo esta vacío");
+                }
             }
             //Buscar proveedores activos
             else if (comboBuscar.Text == "activos")

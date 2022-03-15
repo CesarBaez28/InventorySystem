@@ -137,13 +137,24 @@ namespace Presentacion
                     txbBuscar.Text = "";
                     BusquedaNoEncontrada();
                 }
+                else 
+                {
+                    MessageBox.Show("Código no valido");
+                }
             }
             //Buscar por nombre
             else if (comboBuscar.SelectedIndex == 1)
             {
-                gridViewListaServicios.DataSource = servicios.SearchServiceName(txbBuscar.Text);
-                txbBuscar.Text = "";
-                BusquedaNoEncontrada();
+                if (txbBuscar.Text != "")
+                {
+                    gridViewListaServicios.DataSource = servicios.SearchServiceName(txbBuscar.Text);
+                    txbBuscar.Text = "";
+                    BusquedaNoEncontrada();
+                }
+                else 
+                {
+                    MessageBox.Show("El campo esta vacío");
+                }
             }
             //Buscar servicios activos
             else if (comboBuscar.SelectedIndex == 2)

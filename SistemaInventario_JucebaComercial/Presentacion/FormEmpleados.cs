@@ -214,7 +214,7 @@ namespace Presentacion
             lblBuscarPor.Location = new Point(363, 115);
         }
 
-        //Limpia el campo de búsqueda al cambiar de opción
+        //Limpia el campo de búsqueda al cambiar de opción.
         //Y muestra o oculta el campo texbox dependiendo de la opción que lo requiera.
         private void comboBuscar_SelectionChangeCommitted(object sender, EventArgs e)
         {
