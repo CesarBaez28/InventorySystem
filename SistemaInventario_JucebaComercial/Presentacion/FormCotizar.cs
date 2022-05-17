@@ -1,13 +1,9 @@
-﻿using System;
+﻿using Comun;
+using Dominio;
+using System;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-using System.IO;
-using Dominio;
-using Comun;
 
 namespace Presentacion
 {
@@ -16,7 +12,7 @@ namespace Presentacion
         DominioCliente clientes = new DominioCliente();
         DominioServicios servicios = new DominioServicios();
         DominioCotizaciones cotizar = new DominioCotizaciones();
-        ExportarPdf exportarPdf = new ExportarPdf();    
+        ExportarPdf exportarPdf = new ExportarPdf();
 
         string precioServicio = ""; //Guardo el precio de los servicios para mostrarlos autimaticamente.
         public float total = 0; //Guardo el total de la cotización.
@@ -28,7 +24,7 @@ namespace Presentacion
         public FormCotizar()
         {
             InitializeComponent();
-            FormCotizar.formCotizar = this; 
+            FormCotizar.formCotizar = this;
         }
 
         //Cerrar el formulario
@@ -44,7 +40,7 @@ namespace Presentacion
         }
 
         //Mostrar clientes en el combobox
-        public void MostrarClientes() 
+        public void MostrarClientes()
         {
             comboClientes.ValueMember = "codigo";
             comboClientes.DisplayMember = "nombre";
@@ -215,7 +211,7 @@ namespace Presentacion
                 total = 0;
                 lblTotalCotizacion.Text = "Total: ";
             }
-            else 
+            else
             {
                 MessageBox.Show("No hay servicios agregados o faltan campos por llenar");
             }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -19,7 +15,7 @@ namespace Datos
         }
 
         //Mostrar nombre y código de los clientes 
-        public DataTable MostrarNombreCodigoClientes() 
+        public DataTable MostrarNombreCodigoClientes()
         {
             DataTable table = new DataTable();
             table = ExecuteReaderText("Select codigo, nombre FROM clientes WHERE estado = 1");
@@ -37,7 +33,7 @@ namespace Datos
         }
 
         //Buscar cliente por nombre
-        public DataTable MostrarClienteNombre(string nombreCliente) 
+        public DataTable MostrarClienteNombre(string nombreCliente)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -47,7 +43,7 @@ namespace Datos
         }
 
         //Mostrar clientes por estado (activo o inactivo)
-        public DataTable MostrarClienteEstado(bool estado) 
+        public DataTable MostrarClienteEstado(bool estado)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -57,7 +53,7 @@ namespace Datos
         }
 
         //Insertar nuevo cliente
-        public void InsertarCliente(string telefono, int codigoDireccion, string nombreCliente) 
+        public void InsertarCliente(string telefono, int codigoDireccion, string nombreCliente)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@telefono", telefono));
@@ -67,8 +63,8 @@ namespace Datos
         }
 
         //Actualizar datos del cliente
-        public void ActualizarCliente(string telefono, string telefonoViejo, int codigoDireccion, string nombreCliente, 
-            int codigoCliente,  bool estado) 
+        public void ActualizarCliente(string telefono, string telefonoViejo, int codigoDireccion, string nombreCliente,
+            int codigoCliente, bool estado)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@telefono", telefono));
@@ -81,7 +77,7 @@ namespace Datos
         }
 
         //Eliminar cliente (cambiarle el estado a inactivo)
-        public void EliminarCliente(int codigoCliente) 
+        public void EliminarCliente(int codigoCliente)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigoCliente", codigoCliente));

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -11,7 +7,7 @@ namespace Datos
     public class DatosProveedores : ExecuteCommandSql
     {
         //Mostrar todos los proveedores
-        public DataTable MostrarProveedores() 
+        public DataTable MostrarProveedores()
         {
             DataTable table = new DataTable();
             table = ExecuteReader("p_MostrarProveedores");
@@ -19,7 +15,7 @@ namespace Datos
         }
 
         //MostrarNombreCodigoProveedores
-        public DataTable NombreCodigoProveedores() 
+        public DataTable NombreCodigoProveedores()
         {
             DataTable table = new DataTable();
             table = ExecuteReaderText("SELECT codigo, nombre FROM proveedores WHERE estado = 1");
@@ -27,7 +23,7 @@ namespace Datos
         }
 
         //Buscar proveedores por codigo
-        public DataTable BuscarProveedorCodigo(int codigo) 
+        public DataTable BuscarProveedorCodigo(int codigo)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -37,7 +33,7 @@ namespace Datos
         }
 
         //Buscar proveedor por nombre 
-        public DataTable BuscarProveedorNombre(string nombre) 
+        public DataTable BuscarProveedorNombre(string nombre)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -47,7 +43,7 @@ namespace Datos
         }
 
         //Buscar proveedor por Estado
-        public DataTable BuscarProveedorEstado(bool estado) 
+        public DataTable BuscarProveedorEstado(bool estado)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -57,10 +53,10 @@ namespace Datos
         }
 
         //Ingresar nuevo proveedor
-        public void RegistrarProveedor(string telefono, int codigoDireccion, string nombreProveedor) 
+        public void RegistrarProveedor(string telefono, int codigoDireccion, string nombreProveedor)
         {
             parameters = new List<SqlParameter>();
-            parameters.Add(new SqlParameter("@telefono",telefono));
+            parameters.Add(new SqlParameter("@telefono", telefono));
             parameters.Add(new SqlParameter("@codigoDirrecion", codigoDireccion));
             parameters.Add(new SqlParameter("@nombreProveedor", nombreProveedor));
             ExecuteNonQuery("p_InsertarProveedor");
@@ -68,7 +64,7 @@ namespace Datos
 
         //Actualizar datos del proveedor
         public void ActualizarProveedor(string telefono, string telefonoViejo, int codigoDireccion, string nombreProveedor,
-            int codigoProveedor, bool estado) 
+            int codigoProveedor, bool estado)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@telefono", telefono));
@@ -81,7 +77,7 @@ namespace Datos
         }
 
         //Eliminar Proveedor (Cambierle el estado a inactivo)
-        public void EliminarProveedor(int codigoProveedor) 
+        public void EliminarProveedor(int codigoProveedor)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigoProveedor", codigoProveedor));

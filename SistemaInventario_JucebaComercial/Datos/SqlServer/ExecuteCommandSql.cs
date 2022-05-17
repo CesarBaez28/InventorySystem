@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
 using System.Data;
-using Comun;
+using System.Data.SqlClient;
 
 namespace Datos
 {
@@ -14,18 +10,18 @@ namespace Datos
         protected List<SqlParameter> parameters;
 
         //Ejecutar comando de no consultas con procedimiento almacenado
-        protected int ExecuteNonQuery(string commandSql) 
-         {
-            using (var conexion = GetConnection()) 
+        protected int ExecuteNonQuery(string commandSql)
+        {
+            using (var conexion = GetConnection())
             {
                 conexion.Open();
 
-                using (var comando = new SqlCommand(commandSql, conexion)) 
+                using (var comando = new SqlCommand(commandSql, conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
 
                     //Verifico si se utilizaron parametros para la consulta
-                    if (parameters != null) 
+                    if (parameters != null)
                     {
                         foreach (SqlParameter item in parameters)
                         {
@@ -68,15 +64,15 @@ namespace Datos
         }
 
         //Ejecutar multiples comandos de no consulta
-        protected void ExecuteMultipleNonQuery(string commandSql, DataTable table) 
+        protected void ExecuteMultipleNonQuery(string commandSql, DataTable table)
         {
-            using (var conexion = GetConnection()) 
+            using (var conexion = GetConnection())
             {
                 conexion.Open();
 
-                using (SqlTransaction transaction = conexion.BeginTransaction()) 
+                using (SqlTransaction transaction = conexion.BeginTransaction())
                 {
-                    using (var comando = new SqlCommand(commandSql, conexion)) 
+                    using (var comando = new SqlCommand(commandSql, conexion))
                     {
                         comando.CommandType = CommandType.Text;
                         comando.Transaction = transaction;
@@ -85,7 +81,7 @@ namespace Datos
                         {
                             comando.Parameters.Add(item);
                         }
-                        
+
                         try
                         {
                             for (int fila = 0; fila < table.Rows.Count; fila++)
@@ -101,7 +97,7 @@ namespace Datos
                             transaction.Commit();
                             parameters.Clear();
                         }
-                        catch(Exception) 
+                        catch (Exception)
                         {
                             transaction.Rollback();
                             parameters.Clear();
@@ -113,28 +109,28 @@ namespace Datos
         }
 
         //Ejecutar comando para consultas
-        protected DataTable ExecuteReader(string commandSql) 
+        protected DataTable ExecuteReader(string commandSql)
         {
             DataTable table = new DataTable();
 
-            using (var conexion = GetConnection()) 
+            using (var conexion = GetConnection())
             {
                 conexion.Open();
 
-                using (var comando = new SqlCommand(commandSql, conexion)) 
+                using (var comando = new SqlCommand(commandSql, conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
 
                     //Verifico si se utilizaron parametros para la consulta
-                    if (parameters != null) 
+                    if (parameters != null)
                         foreach (SqlParameter item in parameters)
                             comando.Parameters.Add(item);
-                        
-                    using (var Reader = comando.ExecuteReader()) 
+
+                    using (var Reader = comando.ExecuteReader())
                     {
                         table.Load(Reader);
-                        if (parameters !=  null)
-                          parameters.Clear();
+                        if (parameters != null)
+                            parameters.Clear();
                         return table;
                     }
                 }

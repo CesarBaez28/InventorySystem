@@ -1,0 +1,1537 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Compilador de Microsoft (R) Visual C#",
+        "version": "4.0.0.0",
+        "fileVersion": "4.0.1-1.21568.1 (6ab66011)",
+        "semanticVersion": "4.0.0",
+        "language": "es-MX"
+      },
+      "results": [
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'direcciones' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioDirecciones.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 26,
+                  "endLine": 8,
+                  "endColumn": 37
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'cliente' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioCliente.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 23,
+                  "endLine": 9,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'entrada' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioEntrada.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 23,
+                  "endLine": 8,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'medida' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioMedidas.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 22,
+                  "endLine": 8,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'materiales' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioMateriales.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 25,
+                  "endLine": 9,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'cotizar' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioCotizaciones.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 27,
+                  "endLine": 9,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'salidas' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioSalida.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 22,
+                  "endLine": 11,
+                  "endColumn": 29
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'proveedor' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioProveedores.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 26,
+                  "endLine": 9,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'usuario' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioUsuario.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 23,
+                  "endLine": 9,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'codigoUsuario' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioUsuario.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 21,
+                  "endLine": 12,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'codigo_tipoUsuario' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioUsuario.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 21,
+                  "endLine": 13,
+                  "endColumn": 39
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'tipo_usuario' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioUsuario.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 24,
+                  "endLine": 14,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'nombreUsuario' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioUsuario.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 24,
+                  "endLine": 15,
+                  "endColumn": 37
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'password' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioUsuario.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 24,
+                  "endLine": 16,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'nombre' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioUsuario.cs",
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 24,
+                  "endLine": 17,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'email' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioUsuario.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 24,
+                  "endLine": 18,
+                  "endColumn": 29
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'estado' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioUsuario.cs",
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 22,
+                  "endLine": 19,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4487",
+          "level": "warning",
+          "message": "Remove this unread private field 'tipo_usuario' or refactor the code to use its value.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioUsuario.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 24,
+                  "endLine": 14,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'reporte' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioReportes.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 23,
+                  "endLine": 9,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'servicios' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioServicios.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 24,
+                  "endLine": 9,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioCliente.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S107",
+          "level": "warning",
+          "message": "Constructor has 8 parameters, which is greater than the 7 authorized.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioUsuario.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 30,
+                  "endLine": 23,
+                  "endColumn": 71
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioCliente.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 23,
+                  "endLine": 22,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioCliente.cs",
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 23,
+                  "endLine": 30,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioUsuario.cs",
+                "region": {
+                  "startLine": 72,
+                  "startColumn": 23,
+                  "endLine": 72,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioCliente.cs",
+                "region": {
+                  "startLine": 38,
+                  "startColumn": 23,
+                  "endLine": 38,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioUsuario.cs",
+                "region": {
+                  "startLine": 80,
+                  "startColumn": 23,
+                  "endLine": 80,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioCliente.cs",
+                "region": {
+                  "startLine": 46,
+                  "startColumn": 23,
+                  "endLine": 46,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioUsuario.cs",
+                "region": {
+                  "startLine": 88,
+                  "startColumn": 23,
+                  "endLine": 88,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioUsuario.cs",
+                "region": {
+                  "startLine": 96,
+                  "startColumn": 23,
+                  "endLine": 96,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioUsuario.cs",
+                "region": {
+                  "startLine": 104,
+                  "startColumn": 23,
+                  "endLine": 104,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioDirecciones.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 23,
+                  "endLine": 13,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioCotizaciones.cs",
+                "region": {
+                  "startLine": 55,
+                  "startColumn": 23,
+                  "endLine": 55,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioCotizaciones.cs",
+                "region": {
+                  "startLine": 63,
+                  "startColumn": 23,
+                  "endLine": 63,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioMateriales.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioMateriales.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 23,
+                  "endLine": 22,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioMateriales.cs",
+                "region": {
+                  "startLine": 31,
+                  "startColumn": 23,
+                  "endLine": 31,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioMedidas.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 23,
+                  "endLine": 13,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioMateriales.cs",
+                "region": {
+                  "startLine": 39,
+                  "startColumn": 23,
+                  "endLine": 39,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioProveedores.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioMateriales.cs",
+                "region": {
+                  "startLine": 47,
+                  "startColumn": 23,
+                  "endLine": 47,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioProveedores.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 23,
+                  "endLine": 22,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioMateriales.cs",
+                "region": {
+                  "startLine": 55,
+                  "startColumn": 23,
+                  "endLine": 55,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioMateriales.cs",
+                "region": {
+                  "startLine": 63,
+                  "startColumn": 23,
+                  "endLine": 63,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioProveedores.cs",
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 23,
+                  "endLine": 30,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioMateriales.cs",
+                "region": {
+                  "startLine": 71,
+                  "startColumn": 23,
+                  "endLine": 71,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioProveedores.cs",
+                "region": {
+                  "startLine": 38,
+                  "startColumn": 23,
+                  "endLine": 38,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioMateriales.cs",
+                "region": {
+                  "startLine": 79,
+                  "startColumn": 23,
+                  "endLine": 79,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioServicios.cs",
+                "region": {
+                  "startLine": 68,
+                  "startColumn": 23,
+                  "endLine": 68,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioProveedores.cs",
+                "region": {
+                  "startLine": 46,
+                  "startColumn": 23,
+                  "endLine": 46,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioServicios.cs",
+                "region": {
+                  "startLine": 76,
+                  "startColumn": 23,
+                  "endLine": 76,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioServicios.cs",
+                "region": {
+                  "startLine": 84,
+                  "startColumn": 23,
+                  "endLine": 84,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioServicios.cs",
+                "region": {
+                  "startLine": 92,
+                  "startColumn": 23,
+                  "endLine": 92,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioServicios.cs",
+                "region": {
+                  "startLine": 100,
+                  "startColumn": 23,
+                  "endLine": 100,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioReportes.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioServicios.cs",
+                "region": {
+                  "startLine": 108,
+                  "startColumn": 23,
+                  "endLine": 108,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioReportes.cs",
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 23,
+                  "endLine": 23,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioServicios.cs",
+                "region": {
+                  "startLine": 116,
+                  "startColumn": 23,
+                  "endLine": 116,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioReportes.cs",
+                "region": {
+                  "startLine": 31,
+                  "startColumn": 23,
+                  "endLine": 31,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioReportes.cs",
+                "region": {
+                  "startLine": 39,
+                  "startColumn": 23,
+                  "endLine": 39,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioSalida.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 23,
+                  "endLine": 15,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S107",
+          "level": "warning",
+          "message": "Method has 8 parameters, which is greater than the 7 authorized.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioMateriales.cs",
+                "region": {
+                  "startLine": 120,
+                  "startColumn": 45,
+                  "endLine": 121,
+                  "endColumn": 111
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioReportes.cs",
+                "region": {
+                  "startLine": 47,
+                  "startColumn": 23,
+                  "endLine": 47,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioReportes.cs",
+                "region": {
+                  "startLine": 55,
+                  "startColumn": 23,
+                  "endLine": 55,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioReportes.cs",
+                "region": {
+                  "startLine": 63,
+                  "startColumn": 23,
+                  "endLine": 63,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioReportes.cs",
+                "region": {
+                  "startLine": 71,
+                  "startColumn": 23,
+                  "endLine": 71,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioReportes.cs",
+                "region": {
+                  "startLine": 79,
+                  "startColumn": 23,
+                  "endLine": 79,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioReportes.cs",
+                "region": {
+                  "startLine": 87,
+                  "startColumn": 23,
+                  "endLine": 87,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'table'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Cesar%20Baez/Desktop/Universidad%20UAPA/SistemaInventario_JucebaComercial/SistemaInventario_JucebaComercial/Dominio/DominioReportes.cs",
+                "region": {
+                  "startLine": 94,
+                  "startColumn": 23,
+                  "endLine": 94,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        }
+      ],
+      "rules": {
+        "S107": {
+          "id": "S107",
+          "shortDescription": "Methods should not have too many parameters",
+          "fullDescription": "A long parameter list can indicate that a new structure should be created to wrap the numerous parameters or that the function is doing too many things.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-107",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": false,
+            "tags": [
+              "C#",
+              "SonarWay",
+              "MainSourceScope",
+              "TestSourceScope"
+            ]
+          }
+        },
+        "S1854": {
+          "id": "S1854",
+          "shortDescription": "Unused assignments should be removed",
+          "fullDescription": "A dead store happens when a local variable is assigned a value that is not read by any subsequent instruction. Calculating or retrieving a value only to then overwrite it or throw it away, could indicate a serious error in the code. Even if it’s not an error, it is at best a waste of resources. Therefore all calculated values should be used.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1854",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "SonarWay",
+              "MainSourceScope",
+              "TestSourceScope"
+            ]
+          }
+        },
+        "S2933": {
+          "id": "S2933",
+          "shortDescription": "Fields that are only assigned in the constructor should be \"readonly\"",
+          "fullDescription": "readonly fields can only be assigned in a class constructor. If a class has a field that’s not marked readonly but is only set in the constructor, it could cause confusion about the field’s intended use. To avoid confusion, such fields should be marked readonly to make their intended use explicit, and to prevent future maintainers from inadvertently changing their use.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2933",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "SonarWay",
+              "MainSourceScope",
+              "TestSourceScope"
+            ]
+          }
+        },
+        "S4487": {
+          "id": "S4487",
+          "shortDescription": "Unread \"private\" fields should be removed",
+          "fullDescription": "Private fields only used to store values without reading them later is a case of dead store. So changing the value of such field is useless and most probably indicates a serious error in the code.",
+          "defaultLevel": "note",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-4487",
+          "properties": {
+            "category": "Critical Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "SonarWay",
+              "MainSourceScope",
+              "TestSourceScope",
+              "Unnecessary"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

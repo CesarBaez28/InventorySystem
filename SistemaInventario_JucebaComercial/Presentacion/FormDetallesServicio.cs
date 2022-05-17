@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Dominio;
+using System;
 using System.Windows.Forms;
-using Dominio;
 
 namespace Presentacion
 {
@@ -44,12 +37,12 @@ namespace Presentacion
         {
             MostrarMateriales();
 
-            if(actualizar == true)
-              MostrarMaterialesServicio();
+            if (actualizar == true)
+                MostrarMaterialesServicio();
         }
 
         //Mostrar materiales en el comboboxMateriales
-        public void MostrarMateriales() 
+        public void MostrarMateriales()
         {
             DominioMateriales materiales = new DominioMateriales();
             comboMaterial.ValueMember = "codigo";
@@ -58,7 +51,7 @@ namespace Presentacion
         }
 
         //Mostrar materiales en el datagridview
-        public void MostrarMaterialesServicio() 
+        public void MostrarMaterialesServicio()
         {
             DominioServicios servicios = new DominioServicios();
             gridViewMateriales.DataSource = servicios.ShowMaterialsServices(codigoServicio);
@@ -88,14 +81,14 @@ namespace Presentacion
                     materialesServicio.actualizar = true;
                     materialesServicio.codigoServicio = codigoServicio;
                 }
-                
+
                 materialesServicio.txbCantidad.Text = gridViewMateriales.CurrentRow.Cells["Cantidad"].Value.ToString();
                 materialesServicio.material = gridViewMateriales.CurrentRow.Cells["Material"].Value.ToString();
                 materialesServicio.indiceFila = gridViewMateriales.CurrentCell.RowIndex;
 
                 AbrirFormulario(materialesServicio);
             }
-            else 
+            else
             {
                 MessageBox.Show("Seleccione una fila");
             }
@@ -149,7 +142,7 @@ namespace Presentacion
                             MessageBox.Show("Registrado correctamente");
                             BorrarCampos();
                         }
-                        catch 
+                        catch
                         {
                             MessageBox.Show("Ya existe un servicio con ese nombre");
                         }
@@ -200,11 +193,11 @@ namespace Presentacion
                             {
                                 // Actualizo lista servicios en FormServicios.
                                 MessageBox.Show("Se actualizó correctamente");
-                                FormServicios.formServicios.MostrarServicios(); 
+                                FormServicios.formServicios.MostrarServicios();
                             }
                             this.Close();
                         }
-                        catch 
+                        catch
                         {
                             MessageBox.Show("Ya existe un servicio con ese nombre");
                         }
@@ -222,7 +215,7 @@ namespace Presentacion
         }
 
         //Agrega los materiales seleccionados al datagridView
-        private void AgregarMaterial() 
+        private void AgregarMaterial()
         {
             int indice = gridViewMateriales.Rows.Add();
 
@@ -245,7 +238,7 @@ namespace Presentacion
                         primerRegistro = true;
                         txbCantidad.Text = "";
                     }
-                    else 
+                    else
                     {
                         //Verifico si el material agregado está repetido
                         foreach (DataGridViewRow fila in gridViewMateriales.Rows)
@@ -270,7 +263,7 @@ namespace Presentacion
                         }
                     }
                 }
-                else 
+                else
                 {
                     try
                     {
@@ -280,13 +273,13 @@ namespace Presentacion
                         txbCantidad.Text = "";
                         MostrarMaterialesServicio();
                     }
-                    catch 
+                    catch
                     {
                         MessageBox.Show("Ya ese material está  incluido en el servicio");
                     }
                 }
             }
-            else 
+            else
             {
                 MessageBox.Show("La cantidad ingresada no es correcta");
             }
@@ -301,9 +294,9 @@ namespace Presentacion
                 {
                     gridViewMateriales.Rows.Remove(gridViewMateriales.CurrentRow);
                 }
-                else 
+                else
                 {
-                    servicios.DeleteMaterialService(codigoServicio, 
+                    servicios.DeleteMaterialService(codigoServicio,
                         gridViewMateriales.CurrentRow.Cells["Código"].Value.ToString());
 
                     MostrarMaterialesServicio();
@@ -312,7 +305,7 @@ namespace Presentacion
         }
 
         //BorrarCampos
-        private void BorrarCampos() 
+        private void BorrarCampos()
         {
             txbPrecio.Text = "";
             txbDescripcionServicio.Text = "";

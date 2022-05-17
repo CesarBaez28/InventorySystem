@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Datos;
+using System;
 using System.Data;
-using Datos;
 
 namespace Dominio
 {
@@ -13,7 +9,7 @@ namespace Dominio
         DatosClientes cliente = new DatosClientes();
 
         //Show all costumers
-        public DataTable ShowCostumers() 
+        public DataTable ShowCostumers()
         {
             DataTable table = new DataTable();
             table = cliente.MostrarClientes();
@@ -21,7 +17,7 @@ namespace Dominio
         }
 
         //show customer name and code
-        public DataTable ShowCustumerNameCode() 
+        public DataTable ShowCustumerNameCode()
         {
             DataTable table = new DataTable();
             table = cliente.MostrarNombreCodigoClientes();
@@ -29,15 +25,15 @@ namespace Dominio
         }
 
         //Show costumers by code
-        public DataTable ShowCostumerByCode(String codigoCliente) 
+        public DataTable ShowCostumerByCode(String codigoCliente)
         {
             DataTable table = new DataTable();
             table = cliente.MostrarClienteCodigo(Convert.ToInt32(codigoCliente));
-            return table; 
+            return table;
         }
 
         //Show costumers by name
-        public DataTable ShowCostumersByName(string nombreCliente) 
+        public DataTable ShowCostumersByName(string nombreCliente)
         {
             DataTable table = new DataTable();
             table = cliente.MostrarClienteNombre(nombreCliente);
@@ -45,7 +41,7 @@ namespace Dominio
         }
 
         //Show costumers by status
-        public DataTable ShowCostumersByStatus(bool estado) 
+        public DataTable ShowCostumersByStatus(bool estado)
         {
             DataTable table = new DataTable();
             table = cliente.MostrarClienteEstado(estado);
@@ -53,20 +49,20 @@ namespace Dominio
         }
 
         //Register costumer
-        public void RegisterCostumer(string telefono, string codigoDireccion, string nombreCliente) 
+        public void RegisterCostumer(string telefono, string codigoDireccion, string nombreCliente)
         {
             cliente.InsertarCliente(telefono, Convert.ToInt32(codigoDireccion), nombreCliente);
         }
 
         //Update costumer 
         public void UpdateCostumer(string telefono, string telefonoViejo, string codigoDireccion, string nombreCliente,
-            string codigoCliente, bool estado) 
+            string codigoCliente, bool estado)
         {
             cliente.ActualizarCliente(telefono, telefonoViejo, Convert.ToInt32(codigoDireccion), nombreCliente, Convert.ToInt32(codigoCliente), estado);
         }
 
         //Delete Costumer (change status to inactive)
-        public void DeleteCostumer(string codigo) 
+        public void DeleteCostumer(string codigo)
         {
             cliente.EliminarCliente(Convert.ToInt32(codigo));
         }

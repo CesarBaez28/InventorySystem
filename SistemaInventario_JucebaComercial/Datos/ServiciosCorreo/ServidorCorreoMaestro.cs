@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net.Mail;
 using System.Net;
+using System.Net.Mail;
 
 namespace Datos.ServiciosCorreo
 {
@@ -27,7 +24,7 @@ namespace Datos.ServiciosCorreo
             smtpClient.EnableSsl = ssl;
         }
 
-        public void enviarCorreo (string asunto, string cuerpo, List<string> correoDestinatario)
+        public void enviarCorreo(string asunto, string cuerpo, List<string> correoDestinatario)
         {
             var mailMensaje = new MailMessage();
 
@@ -46,8 +43,8 @@ namespace Datos.ServiciosCorreo
                 smtpClient.Send(mailMensaje);
             }
             catch (Exception)
-            {}
-            finally 
+            { }
+            finally
             {
                 mailMensaje.Dispose();
                 smtpClient.Dispose();

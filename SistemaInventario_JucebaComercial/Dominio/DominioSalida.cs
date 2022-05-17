@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
+﻿using Comun;
 using Datos;
-using Comun;
+using System;
+using System.Collections.Generic;
+using System.Data;
 
 namespace Dominio
 {
@@ -13,7 +10,7 @@ namespace Dominio
     {
         DatosSalidas salidas = new DatosSalidas();
 
-        public DataTable GetCodeSale() 
+        public DataTable GetCodeSale()
         {
             DataTable table = new DataTable();
             table = salidas.ObtenerCodigoSalida();
@@ -21,7 +18,7 @@ namespace Dominio
         }
 
         //register sale of service
-        public void SaleOfService(DateTime fecha) 
+        public void SaleOfService(DateTime fecha)
         {
             salidas.RegistrarSalida(fecha);
         }

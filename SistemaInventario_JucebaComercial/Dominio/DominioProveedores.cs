@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Datos;
+using System;
 using System.Data;
-using Datos;
 
 namespace Dominio
 {
@@ -21,7 +17,7 @@ namespace Dominio
         }
 
         //Show names and codes about suppliers
-        public DataTable NameCodeSupplier() 
+        public DataTable NameCodeSupplier()
         {
             DataTable table = new DataTable();
             table = proveedor.NombreCodigoProveedores();
@@ -62,12 +58,12 @@ namespace Dominio
         public void UpdateSupplier(string telefono, string telefonoViejo, string codigoDireccion, string nombreProveedor,
             string codigoProveedor, bool estado)
         {
-            proveedor.ActualizarProveedor(telefono, telefonoViejo, Convert.ToInt32(codigoDireccion), 
+            proveedor.ActualizarProveedor(telefono, telefonoViejo, Convert.ToInt32(codigoDireccion),
                 nombreProveedor, Convert.ToInt32(codigoProveedor), estado);
         }
 
         //Delete suplier (Change status to inactive)
-        public void DeleteSupplier(string codigoSuplidor) 
+        public void DeleteSupplier(string codigoSuplidor)
         {
             proveedor.EliminarProveedor(Convert.ToInt32(codigoSuplidor));
         }

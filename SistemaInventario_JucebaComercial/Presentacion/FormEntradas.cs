@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Comun;
 using Dominio;
-using Comun;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace Presentacion
 {
@@ -45,7 +39,7 @@ namespace Presentacion
         }
 
         //Mostrar materiales
-        public void MostrarMateriales() 
+        public void MostrarMateriales()
         {
             comboMaterial.ValueMember = "codigo";
             comboMaterial.DisplayMember = "Material";
@@ -54,7 +48,7 @@ namespace Presentacion
         }
 
         //Mostrar Proveedores
-        public void MostrarProveedores() 
+        public void MostrarProveedores()
         {
             DominioProveedores proveedores = new DominioProveedores();
             comboSuplidores.ValueMember = "codigo";
@@ -71,7 +65,7 @@ namespace Presentacion
         }
 
         //Agregar entrada a la lista
-        private void AgregarEntrada() 
+        private void AgregarEntrada()
         {
             int indice = gridViewEntradas.Rows.Add();
             float total_entrada = Convert.ToInt32(txbCantidad.Text) * float.Parse(txbMonto.Text); //Total de una compra
@@ -92,7 +86,7 @@ namespace Presentacion
         {
             //Verifico que el monto y la cantidad se han números válidos.
             //Y que los combobox de los materiales y suplidores tengan un elemento seleccionado
-            if (float.TryParse(txbMonto.Text, out parseCorrecto) && int.TryParse(txbCantidad.Text, out int parse) 
+            if (float.TryParse(txbMonto.Text, out parseCorrecto) && int.TryParse(txbCantidad.Text, out int parse)
                 && comboMaterial.SelectedIndex != -1 && comboSuplidores.SelectedIndex != -1)
             {
                 if (primerRegistro == false) //Verifico si ya se ha ingresado un material
@@ -100,10 +94,10 @@ namespace Presentacion
                     AgregarEntrada();
                     primerRegistro = true;
                 }
-                else 
+                else
                 {
                     //Verifico si el material agregado está repetido
-                    foreach (DataGridViewRow fila in gridViewEntradas.Rows) 
+                    foreach (DataGridViewRow fila in gridViewEntradas.Rows)
                     {
                         if (fila.Cells[2].Value.ToString() == comboMaterial.Text)
                         {
@@ -117,7 +111,7 @@ namespace Presentacion
                     {
                         AgregarEntrada();
                     }
-                    else 
+                    else
                     {
                         MessageBox.Show("Ya ingresó ese material");
                         yaRegistrado = false;
@@ -135,7 +129,7 @@ namespace Presentacion
         //Eliminar 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (gridViewEntradas.SelectedRows.Count > 0) 
+            if (gridViewEntradas.SelectedRows.Count > 0)
             {
                 //Actualizo el total 
                 total = total - (float.Parse(gridViewEntradas.CurrentRow.Cells["Monto"].Value.ToString()));
@@ -153,17 +147,17 @@ namespace Presentacion
                 //Registro entrada
                 entrada.RegisterEntry(dateTimeEntrada.Value);
 
-                foreach (DataGridViewRow fila in gridViewEntradas.Rows) 
+                foreach (DataGridViewRow fila in gridViewEntradas.Rows)
                 {
                     //Registro detalles de la entrada
-                    entrada.RegisterDetailsEntry(UsuarioLoginCache.Codigo_usuario.ToString(), 
+                    entrada.RegisterDetailsEntry(UsuarioLoginCache.Codigo_usuario.ToString(),
                         fila.Cells["Suplidor"].Value.ToString(), fila.Cells["Material"].Value.ToString(),
-                        fila.Cells["Cantidad"].Value.ToString(),fila.Cells["Monto"].Value.ToString());
+                        fila.Cells["Cantidad"].Value.ToString(), fila.Cells["Monto"].Value.ToString());
                 }
 
                 MessageBox.Show("Registro exitoso");
             }
-            else 
+            else
             {
                 MessageBox.Show("No hay entradas agregadas");
             }
@@ -173,7 +167,7 @@ namespace Presentacion
             gridViewEntradas.Rows.Clear();
         }
 
-        public void BorrarCampos() 
+        public void BorrarCampos()
         {
             txbMonto.Text = "";
             txbCantidad.Text = "";

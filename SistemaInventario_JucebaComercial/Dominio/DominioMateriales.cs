@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Datos;
+using System;
 using System.Data;
-using System.Data.SqlClient;
-using Datos;
 
 namespace Dominio
 {
@@ -14,7 +9,7 @@ namespace Dominio
         DatosMateriales materiales = new DatosMateriales();
 
         //Show all materials
-        public DataTable ShowMaterials() 
+        public DataTable ShowMaterials()
         {
             DataTable table = new DataTable();
             table = materiales.MostrarMateriales();
@@ -22,16 +17,16 @@ namespace Dominio
         }
 
         //Show material names and codes
-        public DataTable NamesCodesMaterials() 
+        public DataTable NamesCodesMaterials()
         {
             DataTable table = new DataTable();
             table = materiales.NombreCodigoMateriales();
             return table;
-        
+
         }
 
         //Search cost material
-        public DataTable SearchCostMaterial(string codigoMaterial) 
+        public DataTable SearchCostMaterial(string codigoMaterial)
         {
             DataTable table = new DataTable();
             table = materiales.BuscarCostoMaterial(Convert.ToInt32(codigoMaterial));
@@ -39,7 +34,7 @@ namespace Dominio
         }
 
         //reorder point
-        public DataTable ReorderPoint() 
+        public DataTable ReorderPoint()
         {
             DataTable table = new DataTable();
             table = materiales.PuntoReorden();
@@ -47,7 +42,7 @@ namespace Dominio
         }
 
         //Search materials by code 
-        public DataTable SearchMaterialByCode(string codigo) 
+        public DataTable SearchMaterialByCode(string codigo)
         {
             DataTable table = new DataTable();
             table = materiales.BuscarMaterialesCodigo(Convert.ToInt32(codigo));
@@ -55,7 +50,7 @@ namespace Dominio
         }
 
         //Search material by name
-        public DataTable SearchMaterialByName(string nombre) 
+        public DataTable SearchMaterialByName(string nombre)
         {
             DataTable table = new DataTable();
             table = materiales.BuscarMaterialesNombre(nombre);
@@ -63,7 +58,7 @@ namespace Dominio
         }
 
         //Search material by status
-        public DataTable SearchMaterialByStatus(bool estado) 
+        public DataTable SearchMaterialByStatus(bool estado)
         {
             DataTable table = new DataTable();
             table = materiales.BuscarMaterialesEstado(estado);
@@ -71,7 +66,7 @@ namespace Dominio
         }
 
         //Show type materials
-        public DataTable ShowTypeMaterials() 
+        public DataTable ShowTypeMaterials()
         {
             DataTable table = new DataTable();
             table = materiales.MostrarTipoMateriales();
@@ -79,7 +74,7 @@ namespace Dominio
         }
 
         //Show leftover material
-        public DataTable ShowLeftoverMaterials() 
+        public DataTable ShowLeftoverMaterials()
         {
             DataTable table = new DataTable();
             table = materiales.MostrarExcedentesMateriales();
@@ -88,57 +83,57 @@ namespace Dominio
 
         //Register material 
         public void RegisterMaterial(string codigo_tipoMaterial, string nombre, string descripcion,
-            string costo, string existencia) 
+            string costo, string existencia)
         {
-            materiales.RegistrarMaterial(Convert.ToInt32(codigo_tipoMaterial), nombre, 
+            materiales.RegistrarMaterial(Convert.ToInt32(codigo_tipoMaterial), nombre,
                 descripcion, float.Parse(costo), Convert.ToInt32(existencia));
         }
 
         //Update Material
         public void UpdateMaterial(string codigoMaterial, string codigo_tipoMaterial, string nombre, string descripcion,
-            string costo, string existencia, bool estado) 
+            string costo, string existencia, bool estado)
         {
-            materiales.ActualizarMaterial(Convert.ToInt32(codigoMaterial), 
-                Convert.ToInt32(codigo_tipoMaterial), nombre, descripcion, float.Parse(costo), 
+            materiales.ActualizarMaterial(Convert.ToInt32(codigoMaterial),
+                Convert.ToInt32(codigo_tipoMaterial), nombre, descripcion, float.Parse(costo),
                 Convert.ToInt32(existencia), estado);
         }
 
         //Register type material
-        public void RegisterTypeMaterial(string nombre) 
+        public void RegisterTypeMaterial(string nombre)
         {
             materiales.RegistrarTipoMaterial(nombre);
         }
 
         //Update type material
-        public void UpdateTypeMaterial(string nombre, string nombreNuevo) 
+        public void UpdateTypeMaterial(string nombre, string nombreNuevo)
         {
             materiales.ActualizarTipoMaterial(nombre, nombreNuevo);
         }
 
         //Delete type material (change status to inactive)
-        public void DeleteMaterial(string codigo) 
+        public void DeleteMaterial(string codigo)
         {
             materiales.EliminarMaterial(Convert.ToInt32(codigo));
         }
 
         //Register leftover material
         public void RegisterLeftoverMaterial(string tipoMaterial, string codigoMaterial,
-            string codigoMedida, string largo, string ancho, string alto, string cantidad, string descripcion) 
+            string codigoMedida, string largo, string ancho, string alto, string cantidad, string descripcion)
         {
-            materiales.RegistrarExcenteMaterial(tipoMaterial, Convert.ToInt32(codigoMaterial), 
-                Convert.ToInt32(codigoMedida), largo, ancho, alto, Convert.ToInt32(cantidad), 
+            materiales.RegistrarExcenteMaterial(tipoMaterial, Convert.ToInt32(codigoMaterial),
+                Convert.ToInt32(codigoMedida), largo, ancho, alto, Convert.ToInt32(cantidad),
                 descripcion);
         }
 
         //Update amount leftover material
-        public void UpdateAmountLeftover(string codigo, string cantidad) 
+        public void UpdateAmountLeftover(string codigo, string cantidad)
         {
             materiales.ActualizarCantidadExcedente(Convert.ToInt32(codigo), Convert.ToInt32(cantidad));
         }
 
         //Update leftover material
-        public void UpdateLeftoverMaterial(string codigoExcedente, string codigoMedida, string largo, 
-            string ancho, string alto, string cantidad, string descripcion) 
+        public void UpdateLeftoverMaterial(string codigoExcedente, string codigoMedida, string largo,
+            string ancho, string alto, string cantidad, string descripcion)
         {
 
             materiales.ActualizarExcedenteMaterial(Convert.ToInt32(codigoExcedente),
@@ -147,7 +142,7 @@ namespace Dominio
         }
 
         //Delete leftover material
-        public void DeleteLeftoverMaterial(string codigoExcedente) 
+        public void DeleteLeftoverMaterial(string codigoExcedente)
         {
             materiales.EliminarExcedenteMaterial(Convert.ToInt32(codigoExcedente));
         }

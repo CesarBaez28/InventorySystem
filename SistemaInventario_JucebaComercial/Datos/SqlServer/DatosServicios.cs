@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -11,18 +7,18 @@ namespace Datos
     public class DatosServicios : ExecuteCommandSql
     {
         //Registrar nuevo servicio
-        public void RegistrarServicio(string nombreServicio, string descripcion, float precio, bool estado) 
+        public void RegistrarServicio(string nombreServicio, string descripcion, float precio, bool estado)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@nombre_servicio", nombreServicio));
-            parameters.Add(new SqlParameter("@descripcion",descripcion));
+            parameters.Add(new SqlParameter("@descripcion", descripcion));
             parameters.Add(new SqlParameter("@precio", precio));
             parameters.Add(new SqlParameter("@estado", estado));
             ExecuteNonQuery("p_InsertarServicio");
         }
 
         //Registrar material que incluye o necesita el servicio
-        public void RegistrarMaterialServicio(int codigoMaterial, float cantidad) 
+        public void RegistrarMaterialServicio(int codigoMaterial, float cantidad)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigoMaterial", codigoMaterial));
@@ -31,7 +27,7 @@ namespace Datos
         }
 
         //Registrar nuevo material que incluye o necesita el servicio
-        public void RegistrarNuevoMaterialServicio(int codigoServicio, int codigoMaterial, float cantidad) 
+        public void RegistrarNuevoMaterialServicio(int codigoServicio, int codigoMaterial, float cantidad)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigoServicio", codigoServicio));
@@ -41,8 +37,8 @@ namespace Datos
         }
 
         //Actualizar servicio 
-        public void ActualizarServicio(int codigoServicio, string nombreServicio, 
-            float precio, string descripcion, bool estado) 
+        public void ActualizarServicio(int codigoServicio, string nombreServicio,
+            float precio, string descripcion, bool estado)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigoServicio", codigoServicio));
@@ -54,8 +50,8 @@ namespace Datos
         }
 
         //Actualizar materiales que incluye o necesita el servicio
-        public void ActualizarMaterialServicio(int codigoServicio, 
-            int codigoMaterial, int materialAnterior, int cantidad) 
+        public void ActualizarMaterialServicio(int codigoServicio,
+            int codigoMaterial, int materialAnterior, int cantidad)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigoServicio", codigoServicio));
@@ -66,7 +62,7 @@ namespace Datos
         }
 
         //Eliminar materiales que incluye o necesita el servicio
-        public void EliminarMaterialServicio(int codigoServicio, int codigoMaterial) 
+        public void EliminarMaterialServicio(int codigoServicio, int codigoMaterial)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigoServicio", codigoServicio));
@@ -75,15 +71,15 @@ namespace Datos
         }
 
         //Eliminar Servicio
-        public void EliminarServicio(int codigoServicio) 
+        public void EliminarServicio(int codigoServicio)
         {
             parameters = new List<SqlParameter>();
-            parameters.Add(new SqlParameter("@codigoServicio",codigoServicio));
+            parameters.Add(new SqlParameter("@codigoServicio", codigoServicio));
             ExecuteNonQuery("p_EliminarServicio");
         }
 
         //Eliminar servicio por estado (cambia de activo a inactivo)
-        public void EliminarServicioEstado(int codigoServicio) 
+        public void EliminarServicioEstado(int codigoServicio)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigoServicio", codigoServicio));
@@ -91,7 +87,7 @@ namespace Datos
         }
 
         //Mostrar todos los datos de los servicios
-        public DataTable MostrarServicios() 
+        public DataTable MostrarServicios()
         {
             DataTable table = new DataTable();
             table = ExecuteReaderText("SELECT codigo as'Código', nombre_servicio as 'Nombre', " +
@@ -101,7 +97,7 @@ namespace Datos
         }
 
         //Mostrar nombre y código de los servicios
-        public DataTable MostrarNombreCodigoServicios() 
+        public DataTable MostrarNombreCodigoServicios()
         {
             DataTable table = new DataTable();
             table = ExecuteReaderText("SELECT codigo, nombre_servicio FROM servicios WHERE estado = 1");
@@ -109,7 +105,7 @@ namespace Datos
         }
 
         //Buscar precio de un servicio por su código
-        public DataTable BuscarPrecioServicio(int codigoServicio) 
+        public DataTable BuscarPrecioServicio(int codigoServicio)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigoServicio", codigoServicio));
@@ -119,7 +115,7 @@ namespace Datos
         }
 
         //Mostrar materiales que incluye un servicio
-        public DataTable MostrarMaterialesServicios(int codigoServicio) 
+        public DataTable MostrarMaterialesServicios(int codigoServicio)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -129,7 +125,7 @@ namespace Datos
         }
 
         //Buscar servicio por codigo
-        public DataTable BuscarServicioCodigo(int codigoServicio) 
+        public DataTable BuscarServicioCodigo(int codigoServicio)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -139,7 +135,7 @@ namespace Datos
         }
 
         //Buscar servicio por nombre 
-        public DataTable BuscarServicioNombre(string nombreServicio) 
+        public DataTable BuscarServicioNombre(string nombreServicio)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -149,11 +145,11 @@ namespace Datos
         }
 
         //Buscar servicio por estado
-        public DataTable BuscarServicioEstado(bool estado) 
+        public DataTable BuscarServicioEstado(bool estado)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
-            parameters.Add(new SqlParameter("@estado",estado));
+            parameters.Add(new SqlParameter("@estado", estado));
             table = ExecuteReader("p_BuscarServicioEstado");
             return table;
         }

@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
 using System.Data.SqlClient;
 
 namespace Datos
 {
     public class DatosEntradas : ExecuteCommandSql
     {
-        public void RegistrarEntrada(DateTime fechaEntrada) 
+        public void RegistrarEntrada(DateTime fechaEntrada)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@fechaEntrada", fechaEntrada));
@@ -18,8 +14,8 @@ namespace Datos
         }
 
         //Registrar entrada al inventario
-        public void RegistrarDetalleEntrada(int codigoUsuario, string suplidor, 
-             string material, int cantidad, float costo) 
+        public void RegistrarDetalleEntrada(int codigoUsuario, string suplidor,
+             string material, int cantidad, float costo)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigoUsuario", codigoUsuario));

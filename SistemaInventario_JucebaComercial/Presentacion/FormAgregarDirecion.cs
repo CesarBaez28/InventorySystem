@@ -25,12 +25,12 @@ namespace Presentacion
         }
 
         //Mostrar todas las direcciones
-        public void MostrarDirecciones() 
+        public void MostrarDirecciones()
         {
             DataTable table = new DataTable();
             table = direcciones.ShowAddresses();
 
-            foreach (DataRow fila in table.Rows) 
+            foreach (DataRow fila in table.Rows)
             {
                 int indice = gridViewDirecciones.Rows.Add();
                 gridViewDirecciones.Rows[indice].Cells[1].Value = fila["dirrecion"].ToString();
@@ -79,7 +79,7 @@ namespace Presentacion
         private void gridViewDirecciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //Primera columna
-            if (e.ColumnIndex == 0) 
+            if (e.ColumnIndex == 0)
             {
                 //Verifico que se haya seleccionado una fila
                 if (gridViewDirecciones.SelectedCells.Count > 0)
@@ -88,7 +88,7 @@ namespace Presentacion
                     txbNombre.Text = gridViewDirecciones.CurrentRow.Cells[1].Value.ToString();
                     direccionActualizar = gridViewDirecciones.CurrentRow.Cells[1].Value.ToString();
                 }
-                else 
+                else
                 {
                     MessageBox.Show("Seleccione una fila");
                 }

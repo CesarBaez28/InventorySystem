@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Comun;
 using Dominio;
-using Comun;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace Presentacion
 {
@@ -48,7 +42,7 @@ namespace Presentacion
         }
 
         //Mostrar clientes 
-        private void MostrarClientes() 
+        private void MostrarClientes()
         {
             DominioCliente cliente = new DominioCliente();
             gridViewListaClientes.DataSource = cliente.ShowCostumersByStatus(estadoCliente);
@@ -96,7 +90,7 @@ namespace Presentacion
         //Funcionalidad del boton Eliminar
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (gridViewListaClientes.SelectedRows.Count >=0 ) 
+            if (gridViewListaClientes.SelectedRows.Count >= 0)
             {
                 estadoCliente = true;
                 codigo = gridViewListaClientes.CurrentRow.Cells["Código"].Value.ToString();
@@ -176,7 +170,7 @@ namespace Presentacion
                 BusquedaNoEncontrada();
             }
             //Mostrar todos los clientes
-            else 
+            else
             {
                 gridViewListaClientes.DataSource = cliente.ShowCostumers();
                 BusquedaNoEncontrada();

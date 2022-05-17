@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using Comun;
+using System;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Comun;
 
 
 namespace Presentacion
@@ -143,7 +138,7 @@ namespace Presentacion
         }
 
         //Permisos de usuarios
-        public void PermisosUsuarios() 
+        public void PermisosUsuarios()
         {
             if (UsuarioLoginCache.Tipo_usuario == Posiciones.Empleado)
             {
@@ -159,7 +154,7 @@ namespace Presentacion
                 MenuDesplejado();
                 estaDesplejado = true;
             }
-            else 
+            else
             {
                 MenuSinDesplejar();
                 estaDesplejado = false;
@@ -167,24 +162,24 @@ namespace Presentacion
         }
 
         //Menu desplejado
-        private void MenuDesplejado() 
+        private void MenuDesplejado()
         {
             int ancho = 180, alto = 40;
 
             Menu.Size = new Size(ancho, 644); // Tamaño de la barra lateral
 
             //Botones de la barra lateral
-            foreach (Button buttonMenu in Menu.Controls.OfType<Button>()) 
+            foreach (Button buttonMenu in Menu.Controls.OfType<Button>())
             {
-                buttonMenu.Text = "              "+ buttonMenu.Tag.ToString();
+                buttonMenu.Text = "              " + buttonMenu.Tag.ToString();
                 buttonMenu.ImageAlign = ContentAlignment.MiddleLeft;
                 buttonMenu.Size = new Size(ancho, alto);
-                buttonMenu.Padding = new Padding(10,0,0,0);
-            } 
+                buttonMenu.Padding = new Padding(10, 0, 0, 0);
+            }
         }
 
         //Menu sin desplejar 
-        private void MenuSinDesplejar() 
+        private void MenuSinDesplejar()
         {
             int ancho = 70, alto = 40;
 
@@ -202,10 +197,10 @@ namespace Presentacion
 
         //Metodo para abrir los formularios
         private Form formActivo = null;
-        public void AbrirFormularios(Form formulario) 
+        public void AbrirFormularios(Form formulario)
         {
             // Si existe un formulario activo se cierra
-            if (formActivo != null) 
+            if (formActivo != null)
             {
                 formActivo.Close();
             }

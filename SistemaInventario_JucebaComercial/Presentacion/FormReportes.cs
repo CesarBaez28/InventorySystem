@@ -1,13 +1,13 @@
-﻿using System;
-using System.Windows.Forms;
-using System.Data;
+﻿using Comun;
 using Dominio;
-using Comun;
-using System.Drawing;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace Presentacion
-{ 
+{
     public partial class FormReportes : Form
     {
         DominioReportes reporte = new DominioReportes();
@@ -62,7 +62,7 @@ namespace Presentacion
         }
 
         //Ajusta los controles al dieseño para consultar cotizaciones
-        private void designQuote() 
+        private void designQuote()
         {
             //Muestro los componentes necesarios
             comboBuscar.Visible = true;
@@ -102,7 +102,7 @@ namespace Presentacion
             }
             else //Diseño original
             {
-                if (diseñoCotizaciones == true) 
+                if (diseñoCotizaciones == true)
                 {
                     designOriginal();
                     diseñoCotizaciones = false;
@@ -113,18 +113,18 @@ namespace Presentacion
         }
 
         //Reporte General de entradas
-        private void ReporteGeneralEntrada() 
+        private void ReporteGeneralEntrada()
         {
-             fechaInicial = dateTimeFechaInicio.Value;
-             fechaFinal = dateTimeFechaFin.Value;
+            fechaInicial = dateTimeFechaInicio.Value;
+            fechaFinal = dateTimeFechaFin.Value;
 
             gridViewReportes.DataSource = reporte.GeneralEntryReport(
-                new DateTime(fechaInicial.Year, fechaInicial.Month, fechaInicial.Day, 00,00,00),
+                new DateTime(fechaInicial.Year, fechaInicial.Month, fechaInicial.Day, 00, 00, 00),
                 new DateTime(fechaFinal.Year, fechaFinal.Month, fechaFinal.Day, 23, 59, 59));
         }
 
         //Reporte detallado de entradas
-        private void ReporteDetalladoEntrada() 
+        private void ReporteDetalladoEntrada()
         {
             fechaInicial = dateTimeFechaInicio.Value;
             fechaFinal = dateTimeFechaFin.Value;
@@ -135,7 +135,7 @@ namespace Presentacion
         }
 
         //Reporte general de salidas
-        private void ReporteGeneralSalidas() 
+        private void ReporteGeneralSalidas()
         {
             fechaInicial = dateTimeFechaInicio.Value;
             fechaFinal = dateTimeFechaFin.Value;
@@ -146,7 +146,7 @@ namespace Presentacion
         }
 
         //Reporte detallada de salidas
-        private void ReporteDetalladosSalidas() 
+        private void ReporteDetalladosSalidas()
         {
             fechaInicial = dateTimeFechaInicio.Value;
             fechaFinal = dateTimeFechaFin.Value;
@@ -157,42 +157,42 @@ namespace Presentacion
         }
 
         //Consultar cotizaciones 
-        private void ConsultarCotizaciones() 
+        private void ConsultarCotizaciones()
         {
             fechaInicial = dateTimeFechaInicio.Value;
             fechaFinal = dateTimeFechaFin.Value;
-            
+
             gridViewReportes.DataSource = reporte.consultQuotes(
                 new DateTime(fechaInicial.Year, fechaInicial.Month, fechaInicial.Day, 00, 00, 00),
                 new DateTime(fechaFinal.Year, fechaFinal.Month, fechaFinal.Day, 23, 59, 59));
         }
 
         //Consultar cotizaciones por código
-        private void ConsultarCotizacionesPorCodigo() 
+        private void ConsultarCotizacionesPorCodigo()
         {
             gridViewReportes.DataSource = reporte.ConsultQuotesByCode(txbBuscar.Text);
         }
 
         //Consular cotizaciones por descripción
-        private void ConsultarCotizacionesPorDescripcion() 
+        private void ConsultarCotizacionesPorDescripcion()
         {
             gridViewReportes.DataSource = reporte.ConsultQuotesByDescription(txbBuscar.Text);
         }
 
         //Consular cotizaciones por cliente
-        private void ConsultarCotizacionesPorCliente() 
+        private void ConsultarCotizacionesPorCliente()
         {
             gridViewReportes.DataSource = reporte.ConsultQuotesByClient(txbBuscar.Text);
         }
 
         //Consultar cotizaciones por estado
-        public void ConsultarCotizacionesPorEstado() 
+        public void ConsultarCotizacionesPorEstado()
         {
             gridViewReportes.DataSource = reporte.ConsultQuotesByStatus(estadoCotizacion);
         }
 
         //Manda un mensaje de error al no encontrar la información de una búsqueda
-        private void BusquedaNoEncontrada() 
+        private void BusquedaNoEncontrada()
         {
             //Si la buscqueda no tuvo éxito manda un mensaje de error.
             if (gridViewReportes.Rows.Count == 0)
@@ -207,7 +207,7 @@ namespace Presentacion
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             //Verifico si ya se ha realizado una consulta para limpiar los datos
-            if (gridViewReportes.DataSource != null) 
+            if (gridViewReportes.DataSource != null)
             {
                 gridViewReportes.DataSource = null;
             }
@@ -241,7 +241,7 @@ namespace Presentacion
                 tituloReporte = "Reporte de ventas detallado";
             }
             //Cotizaciones
-            else if (comboReportes.SelectedIndex == 2) 
+            else if (comboReportes.SelectedIndex == 2)
             {
                 //Verifico haya una opción seleccionada 
                 if (comboBuscar.SelectedIndex != -1)
@@ -256,7 +256,7 @@ namespace Presentacion
                             ConsultarCotizacionesPorCodigo();
                             BusquedaNoEncontrada();
                         }
-                        else 
+                        else
                         {
                             MessageBox.Show("El campo esta vacío o el código no es correcto");
                         }
@@ -269,9 +269,9 @@ namespace Presentacion
                             ConsultarCotizacionesPorDescripcion();
                             BusquedaNoEncontrada();
                         }
-                        else 
+                        else
                         {
-                            MessageBox.Show("El campo esta vacío");                        
+                            MessageBox.Show("El campo esta vacío");
                         }
                     }
                     //Buscar por cliente
@@ -282,7 +282,7 @@ namespace Presentacion
                             ConsultarCotizacionesPorCliente();
                             BusquedaNoEncontrada();
                         }
-                        else 
+                        else
                         {
                             MessageBox.Show("El campo esta vacío");
                         }
@@ -305,7 +305,7 @@ namespace Presentacion
                         ConsultarCotizaciones();
                     }
                 }
-                else 
+                else
                 {
                     MessageBox.Show("Seleecione una opción");
                 }
@@ -324,7 +324,7 @@ namespace Presentacion
         //Botón Exportar en Excel
         private void btnTerminar_Click(object sender, EventArgs e)
         {
-            if(gridViewReportes.Rows.Count != 0)
+            if (gridViewReportes.Rows.Count != 0)
                 ExportarDatosExcel(gridViewReportes);
         }
 
@@ -371,14 +371,14 @@ namespace Presentacion
                 save.DefaultExt = "pdf";
 
                 //Entradas y salidas
-                if (comboReportes.SelectedIndex != 2) 
+                if (comboReportes.SelectedIndex != 2)
                 {
                     save.FileName = "ReporteInventario";
 
                     //Calcular total de reportes
                     foreach (DataGridViewRow fila in gridViewReportes.Rows)
                     {
-                       total += float.Parse(fila.Cells[gridViewReportes.Columns.Count - 1].Value.ToString());
+                        total += float.Parse(fila.Cells[gridViewReportes.Columns.Count - 1].Value.ToString());
                     }
 
                     //Generar reporte
@@ -392,7 +392,7 @@ namespace Presentacion
                 {
                     codigoCotizacion = gridViewReportes.CurrentRow.Cells["Código"].Value.ToString();
 
-                    save.FileName = "Cotización"+codigoCotizacion;
+                    save.FileName = "Cotización" + codigoCotizacion;
 
                     //Obtengo los datos para crear la cotización
                     DataTable detallesCotizacion = reporte.ConsultDatailedQuote(codigoCotizacion);
@@ -487,12 +487,12 @@ namespace Presentacion
 
                     }
                 }
-                else 
+                else
                 {
                     MessageBox.Show("Esa cotización ya fue aprobada");
                 }
             }
-            else 
+            else
             {
                 MessageBox.Show("Seleccione una fila");
             }
@@ -502,11 +502,11 @@ namespace Presentacion
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             //Me aseguro haya una fila seleccionada
-            if (gridViewReportes.SelectedRows.Count > 0) 
+            if (gridViewReportes.SelectedRows.Count > 0)
             {
-                const string message ="¿Estar seguro de borrar este registro?";
+                const string message = "¿Estar seguro de borrar este registro?";
                 const string caption = "Advertencia";
-                var result = MessageBox.Show(message,caption,MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
@@ -526,7 +526,7 @@ namespace Presentacion
         private void btnEditar_Click(object sender, EventArgs e)
         {
             //Me aseguro que haya una fila seleccionada
-            if (gridViewReportes.SelectedRows.Count > 0) 
+            if (gridViewReportes.SelectedRows.Count > 0)
             {
                 FormEditarCotizacion editarCotizacion = new FormEditarCotizacion();
 
@@ -541,7 +541,7 @@ namespace Presentacion
                 {
                     editarCotizacion.estadoCotizacion = true;
                 }
-                else 
+                else
                 {
                     editarCotizacion.estadoCotizacion = false;
                 }

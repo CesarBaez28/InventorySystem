@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Comun;
 using Dominio;
-using Comun;
+using System;
+using System.Windows.Forms;
 
 namespace Presentacion
 {
@@ -27,7 +20,7 @@ namespace Presentacion
         }
 
         //LLenar los labels y texboxs con los datos del usuario
-        private void CargarDatosUsuario() 
+        private void CargarDatosUsuario()
         {
             lblUsuario.Text = UsuarioLoginCache.Nombre_usuario;
             lblNombre.Text = UsuarioLoginCache.Nombre;
@@ -44,7 +37,7 @@ namespace Presentacion
         }
 
         //Inicarlizar los componentes para editar el password
-        private void InicializarPassEditarControles() 
+        private void InicializarPassEditarControles()
         {
             linkEditarPassword.Text = "Editar";
             txbPassword.Enabled = false;
@@ -54,7 +47,7 @@ namespace Presentacion
         }
 
         //Resetar los datos del usuario
-        private void Resetear() 
+        private void Resetear()
         {
             CargarDatosUsuario();
             InicializarPassEditarControles();
@@ -78,7 +71,7 @@ namespace Presentacion
                 txbConfirmarPassword.Enabled = true;
                 txbConfirmarPassword.Text = "";
             }
-            else if (txbConfirmarPassword.Text == "Cancelar") 
+            else if (txbConfirmarPassword.Text == "Cancelar")
             {
                 Resetear();
             }
@@ -124,7 +117,7 @@ namespace Presentacion
                     MessageBox.Show("La contraseñas debe tener al menos 5 caracteres");
                 }
             }
-            else 
+            else
             {
                 MessageBox.Show("Faltan campos por llenar");
             }

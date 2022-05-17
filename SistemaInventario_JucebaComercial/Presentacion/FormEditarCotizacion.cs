@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Comun;
 using Dominio;
-using Comun;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace Presentacion
 {
@@ -219,7 +213,7 @@ namespace Presentacion
                     MessageBox.Show("Hay una fila sin un servicio seleccionado");
                 }
             }
-            else 
+            else
             {
                 MessageBox.Show("Datos actualizados");
             }
@@ -255,7 +249,7 @@ namespace Presentacion
                     lblTotalCotizacion.Text = "Total: " + totalCotizacion.ToString();
 
                     //Elimino la fila
-                    gridViewCotizaciones.Rows.Remove(gridViewCotizaciones.CurrentRow); 
+                    gridViewCotizaciones.Rows.Remove(gridViewCotizaciones.CurrentRow);
                 }
             }
         }
@@ -326,8 +320,8 @@ namespace Presentacion
         private void gridViewCotizaciones_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             combo = e.Control as ComboBox;
-            if (combo != null) 
-            { 
+            if (combo != null)
+            {
                 combo.SelectedIndexChanged -= new EventHandler(combo_SelectedIndexChanged);
                 combo.SelectedIndexChanged += combo_SelectedIndexChanged;
             }
@@ -348,7 +342,7 @@ namespace Presentacion
                 {
                     contadorServicios += 1;
 
-                    if (contadorServicios > 1) 
+                    if (contadorServicios > 1)
                     {
                         break;
                     }
@@ -358,7 +352,7 @@ namespace Presentacion
 
         private void gridViewCotizaciones_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (combo != null) 
+            if (combo != null)
             {
                 combo.SelectedIndexChanged -= new EventHandler(combo_SelectedIndexChanged);
 
@@ -368,7 +362,7 @@ namespace Presentacion
                     MessageBox.Show("Ya ha seleccionado el servicio " + selected);
                     gridViewCotizaciones.CurrentRow.Cells["Servicio"].Value = opcionAnterior;
                 }
-                else 
+                else
                 {
                     DominioServicios servicios = new DominioServicios();
                     string precioServicio = servicios.SearchServicePrice(gridViewCotizaciones.CurrentRow.Cells["Servicio"].Value.ToString()).Rows[0]["Precio"].ToString(); ;

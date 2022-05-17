@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Comun;
 using Dominio;
-using Comun;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace Presentacion
 {
@@ -48,12 +42,12 @@ namespace Presentacion
         private void FormMateriales_Shown(object sender, EventArgs e)
         {
             //Verifico si hay materiales ingresados
-            if(gridViewListaMateriales.DataSource != null)
+            if (gridViewListaMateriales.DataSource != null)
                 PuntoReorden(); //Punto de reorden
         }
 
         //Mostrar materiales (los activos)
-        public void MostrarMateriales() 
+        public void MostrarMateriales()
         {
             DominioMateriales materiales = new DominioMateriales();
             gridViewListaMateriales.DataSource = materiales.SearchMaterialByStatus(estadoMaterial);
@@ -80,7 +74,7 @@ namespace Presentacion
             //Mando un mensaje con los materiales que se necesitan
             if (listaMateriales != "")
             {
-                MessageBox.Show("Necesitas comprar más de los siguientes materiales: " 
+                MessageBox.Show("Necesitas comprar más de los siguientes materiales: "
                     + "\n" + "\n" + listaMateriales);
             }
         }
@@ -144,7 +138,7 @@ namespace Presentacion
                     gridViewListaMateriales.DataSource = materiales.SearchMaterialByName(txbBuscar.Text);
                     BusquedaNoEncontrada();
                 }
-                else 
+                else
                 {
                     MessageBox.Show("El campo esta vacío");
                 }
@@ -152,7 +146,7 @@ namespace Presentacion
                 txbBuscar.Text = "";
             }
             //Materiales excedentes
-            else if (comboBuscar.SelectedIndex == 2) 
+            else if (comboBuscar.SelectedIndex == 2)
             {
                 excedente = true;
                 btnNuevo.Enabled = false;
@@ -225,7 +219,7 @@ namespace Presentacion
                     AbrirFormulario(detalleMateriales);
                 }
                 //Actualizar datos de excedentes de materiales
-                else 
+                else
                 {
                     FormDetallesExcedente detallesExcedente = new FormDetallesExcedente();
 
@@ -242,7 +236,7 @@ namespace Presentacion
                     AbrirFormulario(detallesExcedente);
                 }
             }
-            else 
+            else
             {
                 MessageBox.Show("Seleccione una fila");
             }
@@ -251,7 +245,7 @@ namespace Presentacion
         //Funcionalidad del boton eliminar
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (gridViewListaMateriales.SelectedRows.Count >= 0) 
+            if (gridViewListaMateriales.SelectedRows.Count >= 0)
             {
                 //Eliminar material
                 if (excedente == false)
@@ -263,7 +257,7 @@ namespace Presentacion
                     MostrarMateriales();
                 }
                 //Eliminar excedente de material
-                else 
+                else
                 {
                     codigoExcedente = gridViewListaMateriales.CurrentRow.Cells["Código"].Value.ToString();
                     material.DeleteLeftoverMaterial(codigoExcedente);
@@ -292,7 +286,7 @@ namespace Presentacion
 
                 AbrirFormulario(detallesExcedente);
             }
-            else 
+            else
             {
                 MessageBox.Show("Selecione una fila");
             }
@@ -305,7 +299,7 @@ namespace Presentacion
         }
 
         //Funcionalidad para exportar datos en excel
-        public void ExportarDatos(DataGridView listaMateriales) 
+        public void ExportarDatos(DataGridView listaMateriales)
         {
             Microsoft.Office.Interop.Excel.Application ExportarExcel = new Microsoft.Office.Interop.Excel.Application();
 

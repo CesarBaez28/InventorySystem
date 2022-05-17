@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Datos;
 using System.Data;
-using Datos;
 
 namespace Dominio
 {
@@ -13,7 +8,7 @@ namespace Dominio
         DatosMedidas medida = new DatosMedidas();
 
         //Show measurement units
-        public DataTable ShowMeasurement() 
+        public DataTable ShowMeasurement()
         {
             DataTable table = new DataTable();
             table = medida.MostrarMedidas();

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Dominio;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Dominio;
 
 namespace Presentacion
 {
@@ -40,16 +34,16 @@ namespace Presentacion
         }
 
         //Mostrar los tipos de materiales en el datagridViews
-        public void MostrarTipoMateriales() 
+        public void MostrarTipoMateriales()
         {
             DataTable table = new DataTable();
             table = materiales.ShowTypeMaterials();
-            
-            foreach (DataRow fila in table.Rows) 
+
+            foreach (DataRow fila in table.Rows)
             {
                 // Obtengo el indice del DaragridView
                 int indice = gridViewTipoMateriales.Rows.Add();
-                gridViewTipoMateriales.Rows[indice].Cells[1].Value = fila["tipo_material"].ToString(); 
+                gridViewTipoMateriales.Rows[indice].Cells[1].Value = fila["tipo_material"].ToString();
             }
         }
 
@@ -97,7 +91,7 @@ namespace Presentacion
                 MostrarTipoMateriales();
                 FormDetalleMateriales.formDetalleMaterial.llenarCombobox();
             }
-            else 
+            else
             {
                 MessageBox.Show("El campo está vacío");
             }

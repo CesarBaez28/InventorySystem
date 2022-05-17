@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Comun;
 using Dominio;
-using Comun;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace Presentacion
 {
@@ -39,7 +33,7 @@ namespace Presentacion
         }
 
         //Mostrar proveedores
-        private void MostrarProveedores() 
+        private void MostrarProveedores()
         {
             DominioProveedores proveedor = new DominioProveedores();
             gridViewListaSuplidores.DataSource = proveedor.SearchSupplierbyStatus(estadoProveedor);
@@ -98,7 +92,7 @@ namespace Presentacion
 
                 AbrirFormulario(detalleProveedor);
             }
-            else 
+            else
             {
                 MessageBox.Show("Selecione una fila");
             }
@@ -115,7 +109,7 @@ namespace Presentacion
                 proveedor.DeleteSupplier(codigo);
                 MostrarProveedores();
             }
-            else 
+            else
             {
                 MessageBox.Show("Seleccione una fila para poder eliminar");
             }
@@ -183,7 +177,7 @@ namespace Presentacion
                     gridViewListaSuplidores.DataSource = proveedor.SearchSupplierByName(txbBuscar.Text);
                     BusquedaNoEncontrada();
                 }
-                else 
+                else
                 {
                     MessageBox.Show("El campo esta vacío");
                 }
@@ -203,9 +197,9 @@ namespace Presentacion
                 BusquedaNoEncontrada();
             }
             //Mostrar todos los proveedores del sistema
-            else 
+            else
             {
-                gridViewListaSuplidores.DataSource = proveedor.ShowSuppliers();    
+                gridViewListaSuplidores.DataSource = proveedor.ShowSuppliers();
                 BusquedaNoEncontrada();
             }
         }

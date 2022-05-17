@@ -1,13 +1,10 @@
-﻿using System;
+﻿using Comun;
+using Dominio;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-using Dominio;
-using Comun;
-using System.IO;
 
 namespace Presentacion
 {
@@ -38,7 +35,7 @@ namespace Presentacion
         {
             this.Close();
         }
-        
+
         private void FormSalidas_Load(object sender, EventArgs e)
         {
             MostrarServicios();
@@ -46,7 +43,7 @@ namespace Presentacion
         }
 
         //Mostrar servicios en el combobox
-        public void MostrarServicios() 
+        public void MostrarServicios()
         {
             comboServicios.ValueMember = "codigo";
             comboServicios.DisplayMember = "nombre_servicio";
@@ -55,7 +52,7 @@ namespace Presentacion
         }
 
         //Mostrar Clientes
-        public void MostrarClientes() 
+        public void MostrarClientes()
         {
             comboClientes.ValueMember = "codigo";
             comboClientes.DisplayMember = "nombre";
@@ -71,7 +68,7 @@ namespace Presentacion
         }
 
         //Agregar salida a la lista
-        private void AgregarSalida() 
+        private void AgregarSalida()
         {
             int indice = gridViewSalidas.Rows.Add();
             total_servicio = Convert.ToInt32(txbCantidad.Text) * float.Parse(txbMonto.Text); //Total del servicio
@@ -129,7 +126,7 @@ namespace Presentacion
                 txbMonto.Text = "";
                 txbCantidad.Text = "";
             }
-            else 
+            else
             {
                 MessageBox.Show("Faltan campos por llenar o ingresó un valor de manera incorrecta");
             }
@@ -172,16 +169,16 @@ namespace Presentacion
                     List<DetallesSalida> listaDetalles = new List<DetallesSalida>();
 
                     //Guardo cada uno de los detalles de la salida en la lista
-                    foreach (DataGridViewRow fila in gridViewSalidas.Rows) 
+                    foreach (DataGridViewRow fila in gridViewSalidas.Rows)
                     {
                         var detalles = new DetallesSalida()
                         {
-                        codigo_salida = codigoSalida,
-                        codigo_servicio = Convert.ToInt32(fila.Cells["codigoServicio"].Value.ToString()),
-                        codigo_cliente = Convert.ToInt32(comboClientes.SelectedValue),
-                        codigo_usuario = UsuarioLoginCache.Codigo_usuario,
-                        precio = float.Parse(fila.Cells["Monto"].Value.ToString()),
-                        cantidad = Convert.ToInt32(fila.Cells["Cantidad"].Value.ToString())
+                            codigo_salida = codigoSalida,
+                            codigo_servicio = Convert.ToInt32(fila.Cells["codigoServicio"].Value.ToString()),
+                            codigo_cliente = Convert.ToInt32(comboClientes.SelectedValue),
+                            codigo_usuario = UsuarioLoginCache.Codigo_usuario,
+                            precio = float.Parse(fila.Cells["Monto"].Value.ToString()),
+                            cantidad = Convert.ToInt32(fila.Cells["Cantidad"].Value.ToString())
                         };
 
                         listaDetalles.Add(detalles);
@@ -237,7 +234,7 @@ namespace Presentacion
         private void btnVerDetalles_Click(object sender, EventArgs e)
         {
             //Me aseguro que haya una fila selccionada
-            if (gridViewSalidas.SelectedRows.Count > 0) 
+            if (gridViewSalidas.SelectedRows.Count > 0)
             {
                 FormDetallesServicio detallesServicio = new FormDetallesServicio();
                 DominioServicios servicios = new DominioServicios();
@@ -266,8 +263,8 @@ namespace Presentacion
         }
 
         //Botón eliminar
-         private void btnEliminar_Click(object sender, EventArgs e)
-         {
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
             if (gridViewSalidas.SelectedRows.Count > 0)
             {
                 //Actualizo el total de la salida
@@ -276,7 +273,7 @@ namespace Presentacion
 
                 gridViewSalidas.Rows.Remove(gridViewSalidas.CurrentRow);
             }
-         }
+        }
 
         //Agregar excedente de material
         private void btnAgregarExcedente_Click(object sender, EventArgs e)
@@ -287,18 +284,18 @@ namespace Presentacion
         //Borrar excedente
         private void gridViewExcedentes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 7) 
+            if (e.ColumnIndex == 7)
             {
                 if (gridViewExcedentes.SelectedCells.Count > 0)
                 {
                     gridViewExcedentes.Rows.Remove(gridViewExcedentes.CurrentRow);
                 }
-                else 
+                else
                 {
                     MessageBox.Show("Selecione una celda");
                 }
 
-                if (gridViewExcedentes.RowCount <= 0) 
+                if (gridViewExcedentes.RowCount <= 0)
                 {
                     gridViewExcedentes.Visible = false;
                     gridViewSalidas.Height = 256;
@@ -307,7 +304,7 @@ namespace Presentacion
         }
 
         //Generar la factura
-        private void GenerarFactura() 
+        private void GenerarFactura()
         {
             string nombreEmpresa = "Juceba Comercial";
             SaveFileDialog save = new SaveFileDialog();
@@ -316,7 +313,7 @@ namespace Presentacion
 
             if (save.ShowDialog() == DialogResult.OK)
             {
-                exportarPdf.GenerarFactura(gridViewSalidas, save.FileName, nombreEmpresa, comboClientes.Text, 
+                exportarPdf.GenerarFactura(gridViewSalidas, save.FileName, nombreEmpresa, comboClientes.Text,
                     codigoSalida, total);
             }
         }

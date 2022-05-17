@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Data;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Datos.SqlServer
@@ -11,14 +11,14 @@ namespace Datos.SqlServer
         public void RegistrarCotizacion(DateTime fechaCotizacion, string descripcion)
         {
             parameters = new List<SqlParameter>();
-            parameters.Add(new SqlParameter("@fechaCotizacion",fechaCotizacion));
+            parameters.Add(new SqlParameter("@fechaCotizacion", fechaCotizacion));
             parameters.Add(new SqlParameter("@descripcion", descripcion));
             ExecuteNonQuery("p_RegistrarCotizacion");
         }
 
         //Regitrar detalles Cotización
-        public void RegistrarDetallesCotizacion(int codigoUsuario, int codigoServicio, int codigoCliente, 
-            int cantidad, float precio) 
+        public void RegistrarDetallesCotizacion(int codigoUsuario, int codigoServicio, int codigoCliente,
+            int cantidad, float precio)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigoUsuario", codigoUsuario));
@@ -45,7 +45,7 @@ namespace Datos.SqlServer
         }
 
         //Editar cotización
-        public void EditarCotizacion(int codigoCotizacion, DateTime fecha, string descripcion) 
+        public void EditarCotizacion(int codigoCotizacion, DateTime fecha, string descripcion)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigoCotizacion", codigoCotizacion));
@@ -54,8 +54,8 @@ namespace Datos.SqlServer
             ExecuteNonQuery("p_EditarCotizacion");
         }
 
-        public void EditarDetallesCotizaion(int codigoDetalleCotizacion, string servicio, int codigoCliente, int codigoUsuario, 
-            float precio, int cantidad) 
+        public void EditarDetallesCotizaion(int codigoDetalleCotizacion, string servicio, int codigoCliente, int codigoUsuario,
+            float precio, int cantidad)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigoDetalleCotizacion", codigoDetalleCotizacion));
@@ -68,7 +68,7 @@ namespace Datos.SqlServer
         }
 
         //Obter el código de la última cotización
-        public DataTable ObtenerCodigoCotizacion() 
+        public DataTable ObtenerCodigoCotizacion()
         {
             DataTable table = new DataTable();
             table = ExecuteReaderText("SELECT MAX(codigo) as 'codigo' FROM cotizaciones");
@@ -76,7 +76,7 @@ namespace Datos.SqlServer
         }
 
         //Obtener códigos de los detalles de la cotizacion
-        public DataTable ObtenenerDetallesCotizacionCodigos(int codigoCotizacion) 
+        public DataTable ObtenenerDetallesCotizacionCodigos(int codigoCotizacion)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -84,18 +84,18 @@ namespace Datos.SqlServer
             table = ExecuteReaderText("SELECT codigo as 'Código detalle' FROM detallesCotizacion WHERE codigo_cotizacion = @codigoCotizacion");
             return table;
         }
-        
+
         //Cambiar estado de cotización a aceptado
         public void AprobarCotizacion(int codigo, bool estado)
         {
             parameters = new List<SqlParameter>();
-            parameters.Add(new SqlParameter("@codigo",codigo));
+            parameters.Add(new SqlParameter("@codigo", codigo));
             parameters.Add(new SqlParameter("@estado", estado));
             ExecuteNonQueryText("UPDATE cotizaciones SET estado = @estado WHERE codigo = @codigo");
         }
 
         //Borrar cotización 
-        public void EliminarCotizacion(int codigo) 
+        public void EliminarCotizacion(int codigo)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigo", codigo));
@@ -103,7 +103,7 @@ namespace Datos.SqlServer
         }
 
         //Borrar todos los detalles de la cotización por el código de la cotización
-        public void EliminarDetallesCotizacion(int codigo) 
+        public void EliminarDetallesCotizacion(int codigo)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigo", codigo));
@@ -111,7 +111,7 @@ namespace Datos.SqlServer
         }
 
         //Borra un detalle de la cotización por el código del detalle
-        public void EliminarDetallesCotizacionPorCodigo(int codigo) 
+        public void EliminarDetallesCotizacionPorCodigo(int codigo)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigo", codigo));

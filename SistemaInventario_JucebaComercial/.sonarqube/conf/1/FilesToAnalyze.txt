@@ -1,0 +1,17 @@
+﻿C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Datos\ServiciosCorreo\ServidorCorreoMaestro.cs
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Datos\ServiciosCorreo\SoporteCorreo.cs
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Datos\SqlServer\DatosClientes.cs
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Datos\SqlServer\DatosCotizaciones.cs
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Datos\SqlServer\DatosDirecciones.cs
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Datos\SqlServer\DatosEntradas.cs
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Datos\SqlServer\DatosMateriales.cs
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Datos\SqlServer\DatosMedidas.cs
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Datos\SqlServer\DatosProveedores.cs
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Datos\SqlServer\DatosReportes.cs
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Datos\SqlServer\DatosSalidas.cs
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Datos\SqlServer\DatosServicios.cs
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Datos\SqlServer\ExecuteCommandSql.cs
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Datos\SqlServer\ConnectionSql.cs
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Datos\SqlServer\DatosUsuarios.cs
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Datos\Properties\AssemblyInfo.cs
+C:\Users\Cesar Baez\Desktop\Universidad UAPA\SistemaInventario_JucebaComercial\SistemaInventario_JucebaComercial\Datos\packages.config

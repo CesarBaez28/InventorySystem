@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Dominio;
+using System;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using Dominio;
 
 namespace Presentacion
 {
@@ -23,7 +17,7 @@ namespace Presentacion
         public bool formCotizar; // La uso para indicar si el FormCotizar abrió este formulario.
 
         public static FormDetalleCliente detalleCliente;
-        
+
         public FormDetalleCliente(FormCliente formClientes)
         {
             InitializeComponent();
@@ -31,7 +25,7 @@ namespace Presentacion
         }
 
         //Sobre cargo el constructor
-        public FormDetalleCliente() 
+        public FormDetalleCliente()
         {
             InitializeComponent();
         }
@@ -75,12 +69,15 @@ namespace Presentacion
             //Confirmo que los campos esten llenos
             if (txbNombre.Text != "" && txtTelefono.Text != "")
             {
+                //Quito los posibles espacios que se hayan podido insertar al ingresar el número de teléfono
+                string telefono = Regex.Replace(txtTelefono.Text, @"\s", "");
+
                 //Agregar nuevo cliente
                 if (actualizar == false)
                 {
                     try
                     {
-                        cliente.RegisterCostumer(txtTelefono.Text, comboBoxDirecciones.SelectedValue.ToString(),
+                        cliente.RegisterCostumer(telefono, comboBoxDirecciones.SelectedValue.ToString(),
                             txbNombre.Text);
 
                         if (formSalida == true) //Verifico si el FormSalidad abrió este formulario
@@ -92,7 +89,7 @@ namespace Presentacion
                         {
                             FormCotizar.formCotizar.MostrarClientes();
                         }
-                        else 
+                        else
                         {
                             Actualizar();
                         }
@@ -113,7 +110,7 @@ namespace Presentacion
 
                     try
                     {
-                        cliente.UpdateCostumer(txtTelefono.Text, telefonoViejo,
+                        cliente.UpdateCostumer(telefono, telefonoViejo,
                             comboBoxDirecciones.SelectedValue.ToString(), txbNombre.Text, codigo,
                             estadoCliente);
 
@@ -126,15 +123,15 @@ namespace Presentacion
                     }
                 }
             }
-            else 
+            else
             {
                 MessageBox.Show("Faltan campos por llenar.");
-            
+
             }
         }
 
         //Mostrar Direcciones
-        public void MostrarDirecciones() 
+        public void MostrarDirecciones()
         {
             DominioDirecciones direcciones = new DominioDirecciones();
             comboBoxDirecciones.ValueMember = "codigo";

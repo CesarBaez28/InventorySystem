@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Comun;
 using Dominio;
-using Comun;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace Presentacion
 {
@@ -46,7 +40,7 @@ namespace Presentacion
         }
 
         //Mostrar servicios 
-        public void MostrarServicios() 
+        public void MostrarServicios()
         {
             DominioServicios servicios = new DominioServicios();
             gridViewListaServicios.DataSource = servicios.SearchServiceStatus(estadoServicio);
@@ -95,7 +89,7 @@ namespace Presentacion
                     MostrarServicios();
                 }
                 //Eliminar definitivamente
-                else 
+                else
                 {
                     estadoServicio = false;
                     servicios.DeleteService(gridViewListaServicios.CurrentRow.Cells["Código"].Value.ToString());
@@ -105,7 +99,7 @@ namespace Presentacion
 
                 MessageBox.Show("Se eliminó correctamente");
             }
-            else 
+            else
             {
                 MessageBox.Show("Seleccione una fila");
             }
@@ -137,7 +131,7 @@ namespace Presentacion
                     txbBuscar.Text = "";
                     BusquedaNoEncontrada();
                 }
-                else 
+                else
                 {
                     MessageBox.Show("Código no valido");
                 }
@@ -151,7 +145,7 @@ namespace Presentacion
                     txbBuscar.Text = "";
                     BusquedaNoEncontrada();
                 }
-                else 
+                else
                 {
                     MessageBox.Show("El campo esta vacío");
                 }
@@ -172,7 +166,7 @@ namespace Presentacion
                 BusquedaNoEncontrada();
             }
             //Buscar todos los servicios (activos e inactivos)
-            else if(comboBuscar.SelectedIndex == 4)
+            else if (comboBuscar.SelectedIndex == 4)
             {
                 gridViewListaServicios.DataSource = servicios.ShowServices();
                 BusquedaNoEncontrada();

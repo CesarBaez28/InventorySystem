@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Dominio;
+using System;
 using System.Windows.Forms;
-using Dominio;
 
 namespace Presentacion
 {
@@ -35,7 +28,7 @@ namespace Presentacion
             materialAnterior = comboMaterial.SelectedValue.ToString();
         }
 
-        private void MostrarMateriales() 
+        private void MostrarMateriales()
         {
             DominioMateriales materiales = new DominioMateriales();
             comboMaterial.ValueMember = "codigo";
@@ -69,7 +62,7 @@ namespace Presentacion
                             comboMaterial.SelectedValue.ToString(), materialAnterior, txbCantidad.Text);
                         FormDetallesServicio.detallesServicio.MostrarMaterialesServicio();
                     }
-                    catch 
+                    catch
                     {
                         MessageBox.Show("Ya ese material está  incluido en el servicio");
                     }
@@ -77,7 +70,7 @@ namespace Presentacion
 
                 this.Close();
             }
-            else 
+            else
             {
                 MessageBox.Show("La cantidad no es validá");
             }

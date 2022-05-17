@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Dominio;
+using System;
 using System.Windows.Forms;
-using Dominio;
 
 namespace Presentacion
 {
@@ -15,7 +8,7 @@ namespace Presentacion
     {
         int posX, posY; //Las uso para obtener las cordenadas y poder mover el formulario
         DataGridView gridViewAgregarExcedente = FormSalidas.formSalidas.gridViewExcedentes;
-        bool yaRegistrado = false; 
+        bool yaRegistrado = false;
 
         DominioMateriales materiales = new DominioMateriales();
 
@@ -40,7 +33,7 @@ namespace Presentacion
         }
 
         //Agregar excedente
-        private void AgregarExcedente() 
+        private void AgregarExcedente()
         {
             int indice = gridViewAgregarExcedente.Rows.Add();
 
@@ -96,17 +89,17 @@ namespace Presentacion
 
                         txbCantidad.Text = "";
                     }
-                    else 
+                    else
                     {
                         MessageBox.Show("No hay suficiente excedente");
                     }
                 }
-                else 
+                else
                 {
                     MessageBox.Show("La cantidad ingresada no es válida");
                 }
             }
-            else 
+            else
             {
                 MessageBox.Show("Seleccione una fila. Haga clic a una de las filas");
             }
@@ -126,7 +119,7 @@ namespace Presentacion
             MostrarExcedentes();
         }
 
-        private void MostrarExcedentes ()
+        private void MostrarExcedentes()
         {
             gridViewExcedentes.DataSource = materiales.ShowLeftoverMaterials();
         }

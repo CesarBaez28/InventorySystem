@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Dominio;
+using System;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using Dominio;
 
 namespace Presentacion
 {
@@ -29,7 +23,7 @@ namespace Presentacion
             FormDetalleProveedor.detalleProveedor = this;
         }
 
-        public FormDetalleProveedor() 
+        public FormDetalleProveedor()
         {
             InitializeComponent();
         }
@@ -90,12 +84,15 @@ namespace Presentacion
             //Confirmo que los campos esten llenos
             if (txbNombre.Text != "" && txbTelefono.Text != "")
             {
+                //Quito los posibles espacios que se hayan podido insertar al ingresar el número de teléfono
+                string telefono = Regex.Replace(txbTelefono.Text, @"\s", "");
+
                 //Insertar proveedor
                 if (actualizar == false)
                 {
                     try
                     {
-                        proveedor.RegisterSupplier(txbTelefono.Text, comboBoxDirecciones.SelectedValue.ToString(),
+                        proveedor.RegisterSupplier(telefono, comboBoxDirecciones.SelectedValue.ToString(),
                             txbNombre.Text);
 
                         //Verifico si el FormEntrada abrió este formulario
@@ -128,7 +125,7 @@ namespace Presentacion
 
                     try
                     {
-                        proveedor.UpdateSupplier(txbTelefono.Text, telefonoViejo, comboBoxDirecciones.SelectedValue.ToString(), txbNombre.Text, codigo,
+                        proveedor.UpdateSupplier(telefono, telefonoViejo, comboBoxDirecciones.SelectedValue.ToString(), txbNombre.Text, codigo,
                             estadoProveedor);
 
                         Actualizar();

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Datos;
+using System;
 using System.Data;
-using Datos;
 
 namespace Dominio
 {
@@ -13,19 +9,19 @@ namespace Dominio
         DatosServicios servicios = new DatosServicios();
 
         //Register Service
-        public void RegisterService(string nombreServicio, string descripcion, string precio, bool estado) 
+        public void RegisterService(string nombreServicio, string descripcion, string precio, bool estado)
         {
             servicios.RegistrarServicio(nombreServicio, descripcion, float.Parse(precio), estado);
         }
 
         //Register materials services
-        public void RegisterMaterialService(string codigoMaterial, string cantidad) 
+        public void RegisterMaterialService(string codigoMaterial, string cantidad)
         {
             servicios.RegistrarMaterialServicio(Convert.ToInt32(codigoMaterial), float.Parse(cantidad));
         }
 
         //Register new materials services
-        public void RegisterNewMaterialService(string codigoServicio, string codigoMaterial, string cantidad) 
+        public void RegisterNewMaterialService(string codigoServicio, string codigoMaterial, string cantidad)
         {
             servicios.RegistrarNuevoMaterialServicio(Convert.ToInt32(codigoServicio),
                 Convert.ToInt32(codigoMaterial), Convert.ToInt32(cantidad));
@@ -33,41 +29,41 @@ namespace Dominio
 
         //Update service
         public void UpdateService(string codigoServicio, string nombreServicio,
-            string precio, string descripcion, bool estado) 
+            string precio, string descripcion, bool estado)
         {
-            servicios.ActualizarServicio(Convert.ToInt32(codigoServicio), nombreServicio, 
+            servicios.ActualizarServicio(Convert.ToInt32(codigoServicio), nombreServicio,
                 float.Parse(precio), descripcion, estado);
         }
 
         //Update materials services
         public void UpdateMaterialService(string codigoServicio,
-            string codigoMaterial, string materialAnterior, string cantidad) 
+            string codigoMaterial, string materialAnterior, string cantidad)
         {
-            servicios.ActualizarMaterialServicio(Convert.ToInt32(codigoServicio), 
-                Convert.ToInt32(codigoMaterial), Convert.ToInt32(materialAnterior), 
+            servicios.ActualizarMaterialServicio(Convert.ToInt32(codigoServicio),
+                Convert.ToInt32(codigoMaterial), Convert.ToInt32(materialAnterior),
                 Convert.ToInt32(cantidad));
         }
 
         //Delete materials services
-        public void DeleteMaterialService(string codigoServicio, string codigoMaterial) 
+        public void DeleteMaterialService(string codigoServicio, string codigoMaterial)
         {
             servicios.EliminarMaterialServicio(Convert.ToInt32(codigoServicio), Convert.ToInt32(codigoMaterial));
         }
 
         //Delete service
-        public void DeleteService(string codigoServicio) 
+        public void DeleteService(string codigoServicio)
         {
             servicios.EliminarServicio(Convert.ToInt32(codigoServicio));
         }
 
         //Delete service by status
-        public void DeleteServiceStatus(string codigoServicio) 
+        public void DeleteServiceStatus(string codigoServicio)
         {
             servicios.EliminarServicioEstado(Convert.ToInt32(codigoServicio));
         }
 
         //Show all services 
-        public DataTable ShowServices() 
+        public DataTable ShowServices()
         {
             DataTable table = new DataTable();
             table = servicios.MostrarServicios();
@@ -75,7 +71,7 @@ namespace Dominio
         }
 
         //Show services name and code
-        public DataTable ShowServicesNameCode() 
+        public DataTable ShowServicesNameCode()
         {
             DataTable table = new DataTable();
             table = servicios.MostrarNombreCodigoServicios();
@@ -83,7 +79,7 @@ namespace Dominio
         }
 
         //Search service price
-        public DataTable SearchServicePrice(string codigoServicio) 
+        public DataTable SearchServicePrice(string codigoServicio)
         {
             DataTable table = new DataTable();
             table = servicios.BuscarPrecioServicio(Convert.ToInt32(codigoServicio));
@@ -91,7 +87,7 @@ namespace Dominio
         }
 
         //Show materials services 
-        public DataTable ShowMaterialsServices(string codigoServicio) 
+        public DataTable ShowMaterialsServices(string codigoServicio)
         {
             DataTable table = new DataTable();
             table = servicios.MostrarMaterialesServicios(Convert.ToInt32(codigoServicio));
@@ -99,7 +95,7 @@ namespace Dominio
         }
 
         //Search service by code
-        public DataTable SearchServiceCode(string codigoServicio) 
+        public DataTable SearchServiceCode(string codigoServicio)
         {
             DataTable table = new DataTable();
             table = servicios.BuscarServicioCodigo(Convert.ToInt32(codigoServicio));
@@ -107,7 +103,7 @@ namespace Dominio
         }
 
         //Search service by name
-        public DataTable SearchServiceName(string nombreServicio) 
+        public DataTable SearchServiceName(string nombreServicio)
         {
             DataTable table = new DataTable();
             table = servicios.BuscarServicioNombre(nombreServicio);
@@ -115,7 +111,7 @@ namespace Dominio
         }
 
         //Search service by status
-        public DataTable SearchServiceStatus(bool estado) 
+        public DataTable SearchServiceStatus(bool estado)
         {
             DataTable table = new DataTable();
             table = servicios.BuscarServicioEstado(estado);

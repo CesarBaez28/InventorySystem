@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Datos;
+﻿using Datos;
+using System;
 using System.Data;
 
 namespace Dominio
@@ -44,7 +40,7 @@ namespace Dominio
         {
             try
             {
-                usuario.ActualizarUsuario(codigo_tipoUsuario, nombreUsuario, nombre, password, 
+                usuario.ActualizarUsuario(codigo_tipoUsuario, nombreUsuario, nombre, password,
                     email, estado, codigoUsuario);
 
                 usuario.LoginUsuario(nombreUsuario, password);
@@ -65,7 +61,7 @@ namespace Dominio
         }
 
         //RecoverPassword
-        public string RecoverPassword(string usuarioSolicitante) 
+        public string RecoverPassword(string usuarioSolicitante)
         {
             return usuario.RecuperarPassword(usuarioSolicitante);
         }
@@ -119,14 +115,14 @@ namespace Dominio
 
         // Update users 
         public void UpdateUser(string codigo_tipoUsuario, string nombre_usuario, string nombre,
-            string password, string email, bool estado, string codigoUsuario) 
+            string password, string email, bool estado, string codigoUsuario)
         {
-            usuario.ActualizarUsuario(Convert.ToInt32(codigo_tipoUsuario), nombre_usuario, nombre, 
+            usuario.ActualizarUsuario(Convert.ToInt32(codigo_tipoUsuario), nombre_usuario, nombre,
                 password, email, estado, Convert.ToInt32(codigoUsuario));
         }
 
         //Delete users (Actually, change the status to false)
-        public void DeleteUser(string codigoUsuario) 
+        public void DeleteUser(string codigoUsuario)
         {
             usuario.EliminarUsuario(Convert.ToInt32(codigoUsuario));
         }

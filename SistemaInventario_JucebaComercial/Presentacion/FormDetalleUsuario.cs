@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Dominio;
+using System;
 using System.Windows.Forms;
-using Dominio;
 
 namespace Presentacion
 {
@@ -34,13 +27,13 @@ namespace Presentacion
         public delegate void ActualizarDelagate(object sender, UpdateEventArgs args);
         public event ActualizarDelagate UpdateEventHendler;
 
-        public class UpdateEventArgs : EventArgs 
+        public class UpdateEventArgs : EventArgs
         {
             public string Datos { get; set; }
         }
 
         //Actuarlizar la lista de empleados al insertar o actualizar.
-        protected void Actualizar() 
+        protected void Actualizar()
         {
             UpdateEventArgs args = new UpdateEventArgs();
             UpdateEventHendler.Invoke(this, args);
@@ -51,7 +44,7 @@ namespace Presentacion
             //Llleno el combobox con los tipos de usuarios del sistema.
             llenarCombobox();
 
-            if (actualizar == true) 
+            if (actualizar == true)
             {
                 cbxTiposUsuarios.Text = tipoUsuario;
             }
@@ -122,17 +115,17 @@ namespace Presentacion
                             }
                         }
                     }
-                    else 
+                    else
                     {
                         MessageBox.Show("La contraseña debe tener al menos 5 caracteres.");
                     }
                 }
-                else 
+                else
                 {
                     MessageBox.Show("Las contraseñas no coinciden.");
                 }
             }
-            else 
+            else
             {
                 MessageBox.Show("Faltan campos por llenar.");
             }
@@ -162,7 +155,7 @@ namespace Presentacion
         }
 
         // vaciar los campos
-        public void vaciarTexboxs() 
+        public void vaciarTexboxs()
         {
             txbConfirmarPassword.Text = "";
             txbEmail.Text = "";

@@ -1,18 +1,15 @@
-﻿using System;
+﻿using Comun;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
 using System.Data;
-using Comun;
+using System.Data.SqlClient;
 
 namespace Datos
 {
     public class DatosUsuarios : ExecuteCommandSql
     {
         //Login Usuario
-        public bool LoginUsuario(string nombre, string password) 
+        public bool LoginUsuario(string nombre, string password)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -22,7 +19,7 @@ namespace Datos
 
             if (table.Rows.Count > 0)
             {
-                foreach (DataRow fila in table.Rows) 
+                foreach (DataRow fila in table.Rows)
                 {
                     //Obtengo los datos del usuario para la cache
                     UsuarioLoginCache.Codigo_usuario = Convert.ToInt32(fila[0]);
@@ -41,14 +38,14 @@ namespace Datos
 
                 return true;
             }
-            else 
+            else
             {
-                return false; 
+                return false;
             }
         }
 
         //Recuperar contraseña
-        public string RecuperarPassword(string usuarioSolicitante) 
+        public string RecuperarPassword(string usuarioSolicitante)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -77,24 +74,24 @@ namespace Datos
                     servicioCorreo.enviarCorreo(
                         asunto: "Solicitud de recuperación de contraseña",
                         cuerpo: "Hola, " + nombre + "\nTu solicitud para recuperar tu contraseña.\n" +
-                        "Tu contraseña actual es: " + password + ".\n"+
+                        "Tu contraseña actual es: " + password + ".\n" +
                         "Sin embargo, le pedimos que cambie su contraseña inmediatamente ingrese al sistema.",
                         correoDestinatario: new List<string> { correo }
                         );
                 }
 
-                return "Hola, " + nombre + "\nHas solicitado recuperar tu contraseña.\n"+
-                    "Por favor, revisa tu correo electrónico: " + correo +".\n" +
+                return "Hola, " + nombre + "\nHas solicitado recuperar tu contraseña.\n" +
+                    "Por favor, revisa tu correo electrónico: " + correo + ".\n" +
                     "Sin embargo, le pedimos que cambie su contraseña inmediatamente ingrese al sistema.";
             }
-            else 
+            else
             {
                 return "Lo sentimos, no tienes una cuenta con ese correo o nombre de usuario";
             }
-        } 
+        }
 
         //Consultar todos los usuarios del sistema 
-        public DataTable ShowUsers() 
+        public DataTable ShowUsers()
         {
             DataTable table = new DataTable();
             table = ExecuteReader("p_MostrarUsuarios");
@@ -102,7 +99,7 @@ namespace Datos
         }
 
         //Consultar los tipos de usuarios del sistema
-        public DataTable TiposUsuarios() 
+        public DataTable TiposUsuarios()
         {
             DataTable table = new DataTable();
             table = ExecuteReaderText("select codigo, tipo_usuario from tipo_usuarios");
@@ -110,7 +107,7 @@ namespace Datos
         }
 
         //Consultar usuarios por codigo
-        public DataTable MostrarUsuarioCodigo (int codigo)
+        public DataTable MostrarUsuarioCodigo(int codigo)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -120,7 +117,7 @@ namespace Datos
         }
 
         //Consultar usuarios por su nombre de usuario
-        public DataTable MostrarUsuarioNombre(string nombreUsuario) 
+        public DataTable MostrarUsuarioNombre(string nombreUsuario)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -130,7 +127,7 @@ namespace Datos
         }
 
         //Consultar usuarios por estado (activos o inactivos)
-        public DataTable MostrarUsuarioEstado(bool estado) 
+        public DataTable MostrarUsuarioEstado(bool estado)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -140,8 +137,8 @@ namespace Datos
         }
 
         //Registrar un nuevo usuario
-        public void RegistrarUsuario(int codigo_TipoUsuario, string nombre_usuario, string nombre, 
-            string password, string email) 
+        public void RegistrarUsuario(int codigo_TipoUsuario, string nombre_usuario, string nombre,
+            string password, string email)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigo_tipoUsuario", codigo_TipoUsuario));
@@ -153,8 +150,8 @@ namespace Datos
         }
 
         // Actualizar usuarios
-        public void ActualizarUsuario(int codigo_tipoUsuario, string nombre_usuario, string nombre, 
-            string password, string email, bool estado, int codigoUsuario) 
+        public void ActualizarUsuario(int codigo_tipoUsuario, string nombre_usuario, string nombre,
+            string password, string email, bool estado, int codigoUsuario)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigo_tipoUsuario", codigo_tipoUsuario));
@@ -168,7 +165,7 @@ namespace Datos
         }
 
         //Eliminar Usuario (Cambiar el estado a inactivo)
-        public void EliminarUsuario(int codigoUsuario) 
+        public void EliminarUsuario(int codigoUsuario)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@codigoUsuario", codigoUsuario));

@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Dominio;
+using System;
 using System.Windows.Forms;
-using Dominio;
 
 namespace Presentacion
 {
@@ -41,7 +34,7 @@ namespace Presentacion
         {
             llenarCombobox();
 
-            if (actualizar == true) 
+            if (actualizar == true)
             {
                 cbxTiposMateriales.Text = tipoMaterial;
             }
@@ -108,7 +101,7 @@ namespace Presentacion
                                     this.Close();
                                 }
                             }
-                            catch 
+                            catch
                             {
                                 MessageBox.Show("Ya existe un material con ese nombre");
                             }
@@ -145,7 +138,7 @@ namespace Presentacion
                                 Actualizar();
                                 this.Close();
                             }
-                            catch 
+                            catch
                             {
                                 MessageBox.Show("Ya existe un material con ese nombre");
                             }
@@ -161,7 +154,7 @@ namespace Presentacion
                     }
                 }
             }
-            else 
+            else
             {
                 MessageBox.Show("Llene los campos obligatorios");
             }
@@ -190,7 +183,7 @@ namespace Presentacion
         {
             if (e.Button != MouseButtons.Left)
             {
-                posX = e.X; 
+                posX = e.X;
                 posY = e.Y;
             }
             else
@@ -200,7 +193,7 @@ namespace Presentacion
             }
         }
 
-        public void VaciarCampos() 
+        public void VaciarCampos()
         {
             txbDescripcion.Text = "";
             txbExistencia.Text = "";

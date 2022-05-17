@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Dominio;
+using System;
 using System.Windows.Forms;
-using Dominio;
 
 namespace Presentacion
 {
@@ -44,19 +37,19 @@ namespace Presentacion
         }
 
         //Actualiza la lista de materiales excedentes
-        private void ActualizarListaExcedentes() 
+        private void ActualizarListaExcedentes()
         {
             FormMateriales.formMateriales.gridViewListaMateriales.DataSource = materiales.ShowLeftoverMaterials();
         }
 
         //Actualizar lista de materiales
-        private void ActualizarListaMateriales() 
+        private void ActualizarListaMateriales()
         {
             FormMateriales.formMateriales.MostrarMateriales();
         }
 
         //Mostrar unidades de medida
-        private void MostrarUnidades() 
+        private void MostrarUnidades()
         {
             DominioMedidas medida = new DominioMedidas();
             cbxMedidas.ValueMember = "codigo";
@@ -95,7 +88,7 @@ namespace Presentacion
                         }
                     }
                     //Actualizar
-                    else 
+                    else
                     {
                         try
                         {
@@ -111,12 +104,12 @@ namespace Presentacion
                         }
                     }
                 }
-                else 
+                else
                 {
                     MessageBox.Show("La cantidad ingresada no es correcta");
                 }
             }
-            else 
+            else
             {
                 MessageBox.Show("LLene los campos obligatorios");
             }

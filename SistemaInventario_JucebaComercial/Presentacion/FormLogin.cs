@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Dominio;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Dominio;
 
 namespace Presentacion
 {
@@ -17,7 +17,7 @@ namespace Presentacion
 
         private void Form1_Load(object sender, EventArgs e)
         {
-             
+
         }
 
         // Funcionalidad boton Acceder
@@ -36,7 +36,7 @@ namespace Presentacion
                     MenuPrincipal.FormClosed += CerrarSesion;
                     this.Hide();
                 }
-                else 
+                else
                 {
                     MensageError("Nombre de usuario o constraseña incorrecta. \n Inténtelo de nuevo");
                     txtPassword.Text = "PASSWORD";
@@ -45,14 +45,14 @@ namespace Presentacion
                     txtUser.Focus();
                 }
             }
-            else 
+            else
             {
                 MensageError("LLene todos los campos");
             }
 
         }
 
-        private void CerrarSesion(object sender, FormClosedEventArgs e) 
+        private void CerrarSesion(object sender, FormClosedEventArgs e)
         {
             txtPassword.Text = "PASSWORD";
             txtUser.Text = "USUARIO";
@@ -63,7 +63,7 @@ namespace Presentacion
         }
 
         //Mensaje de error
-        private void MensageError(string mensajeError) 
+        private void MensageError(string mensajeError)
         {
             lblMensgeError.Text = mensajeError;
             lblMensgeError.Visible = true;
@@ -71,7 +71,7 @@ namespace Presentacion
 
         private void txtUser_Enter(object sender, EventArgs e)
         {
-            if (txtUser.Text == "USUARIO") 
+            if (txtUser.Text == "USUARIO")
             {
                 txtUser.Text = "";
                 txtUser.ForeColor = Color.LightGray;
@@ -80,7 +80,7 @@ namespace Presentacion
 
         private void txtUser_Leave(object sender, EventArgs e)
         {
-            if (txtUser.Text == "") 
+            if (txtUser.Text == "")
             {
                 txtUser.Text = "USUARIO";
                 txtUser.ForeColor = Color.DimGray;
@@ -123,7 +123,7 @@ namespace Presentacion
         // Metodo para mover el formulario
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
- 
+
             if (e.Button != MouseButtons.Left)
             {
                 posx = e.X;

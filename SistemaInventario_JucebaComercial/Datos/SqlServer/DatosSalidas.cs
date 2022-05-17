@@ -1,26 +1,23 @@
-﻿using System;
+﻿using Comun;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-using Comun;
 
 namespace Datos
 {
     public class DatosSalidas : ExecuteCommandSql
     {
         //Obtengo el código de la última salida ingresada
-        public DataTable ObtenerCodigoSalida() 
+        public DataTable ObtenerCodigoSalida()
         {
             DataTable table = new DataTable();
             table = ExecuteReaderText("SELECT MAX(codigo) as 'codigo' FROM salidas");
             return table;
         }
-         
+
         //Registrar salida del inventario 
-        public void RegistrarSalida(DateTime fecha) 
+        public void RegistrarSalida(DateTime fecha)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@fechaSalida", fecha));
@@ -28,13 +25,13 @@ namespace Datos
         }
 
         //Elimina la última salida insertada
-        public void EliminarSalida() 
+        public void EliminarSalida()
         {
             ExecuteNonQuery("p_EliminarUltimaSalida");
         }
 
         //Registrar multiples salidas 
-        public void MultiplesSalidas(IEnumerable<DetallesSalida> detallesSalida) 
+        public void MultiplesSalidas(IEnumerable<DetallesSalida> detallesSalida)
         {
             var table = new DataTable();
             table.Columns.Add("codigo_salida", typeof(int));
@@ -44,7 +41,7 @@ namespace Datos
             table.Columns.Add("precio", typeof(float));
             table.Columns.Add("cantidad", typeof(int));
 
-            foreach (var itemDetalle in detallesSalida) 
+            foreach (var itemDetalle in detallesSalida)
             {
                 table.Rows.Add(new object[]
                 {
@@ -72,7 +69,7 @@ namespace Datos
                     "VALUES(@codigoSalida, @codigoCliente, @codigoUsuario, @codigoServicio, " +
                     "@precio, @cantidad)", table);
             }
-            catch 
+            catch
             {
                 EliminarSalida();
                 throw;

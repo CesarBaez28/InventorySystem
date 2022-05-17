@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -11,7 +8,7 @@ namespace Datos
     public class DatosReportes : ExecuteCommandSql
     {
         //Reporte de entradas general
-        public DataTable ReporteEntradaGeneral(DateTime fechaInicial, DateTime fechaFinal) 
+        public DataTable ReporteEntradaGeneral(DateTime fechaInicial, DateTime fechaFinal)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -22,7 +19,7 @@ namespace Datos
         }
 
         //Reporte de entradas detallado
-        public DataTable ReporteEntradaDetallado(DateTime fechaInicial, DateTime fechaFinal) 
+        public DataTable ReporteEntradaDetallado(DateTime fechaInicial, DateTime fechaFinal)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -33,7 +30,7 @@ namespace Datos
         }
 
         //Reporte de salidas general
-        public DataTable ReporteSalidasGeneral(DateTime fechaInicial, DateTime fechaFinal) 
+        public DataTable ReporteSalidasGeneral(DateTime fechaInicial, DateTime fechaFinal)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -44,7 +41,7 @@ namespace Datos
         }
 
         //Reporte de salidas detallado
-        public DataTable ReporteSalidasDetallado(DateTime fechaInicial, DateTime fechaFinal) 
+        public DataTable ReporteSalidasDetallado(DateTime fechaInicial, DateTime fechaFinal)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -55,7 +52,7 @@ namespace Datos
         }
 
         //Consultar cotizaciones
-        public DataTable ConsultarCotizaciones(DateTime fechaInicial, DateTime fechaFinal) 
+        public DataTable ConsultarCotizaciones(DateTime fechaInicial, DateTime fechaFinal)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -66,7 +63,7 @@ namespace Datos
         }
 
         //Consultar cotizaciones por código
-        public DataTable ConsultarCotizacionesPorCodigo(int codigo) 
+        public DataTable ConsultarCotizacionesPorCodigo(int codigo)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -76,7 +73,7 @@ namespace Datos
         }
 
         //Consultar cotizaciones por descripción
-        public DataTable ConsultarCotizacionesPorDescripcion(string descripcion) 
+        public DataTable ConsultarCotizacionesPorDescripcion(string descripcion)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -86,7 +83,7 @@ namespace Datos
         }
 
         //Consultar cotizaciones por cliente
-        public DataTable ConsultarCotizacionesPorCliente(string cliente) 
+        public DataTable ConsultarCotizacionesPorCliente(string cliente)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -96,7 +93,7 @@ namespace Datos
         }
 
         //Consultar cotizaciones por estado (aceptadas o no aceptadas)
-        public DataTable ConsultarCotizacionesPorEstado(bool estado) 
+        public DataTable ConsultarCotizacionesPorEstado(bool estado)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -106,7 +103,7 @@ namespace Datos
         }
 
         //Consultar cotización detallada (código, servicios, monto, cantidad, precio, total)
-        public DataTable ConsultarCotizacionDetallada(int codigo) 
+        public DataTable ConsultarCotizacionDetallada(int codigo)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
@@ -116,7 +113,7 @@ namespace Datos
         }
 
         //Consultar metadatos de una cotización (Usuario, cliente, fecha)
-        public DataTable ConsultarMetaDatosCotizacion(int codigo) 
+        public DataTable ConsultarMetaDatosCotizacion(int codigo)
         {
             DataTable table = new DataTable();
             parameters = new List<SqlParameter>();
